@@ -1,0 +1,42 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Maya",
+      "buyer": "Jax",
+      "item_id": "set_01_maya_bottoms_01",
+      "item_name": "And White Pants",
+      "price": -1.0,
+      "seller_floor": 33.0,
+      "buyer_ceiling": 56.0,
+      "turn": 30,
+      "deal_type": "swap",
+      "item_b_id": "set_01_jax_dresses_01",
+      "item_b_name": "Green Dress",
+      "item_b_floor": 42.0,
+      "item_a_ceiling": 55.0
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Priya",
+      "buyer": "Kai",
+      "item_id": "set_01_priya_dresses_01",
+      "item_name": "Black Dress",
+      "price": -1.0,
+      "seller_floor": 50.0,
+      "buyer_ceiling": 58.0,
+      "turn": 32,
+      "deal_type": "swap",
+      "item_b_id": "set_01_kai_outerwear_01",
+      "item_b_name": "Turtle Neck Sweater",
+      "item_b_floor": 56.0,
+      "item_a_ceiling": 99.0
+    }
+  ],
+  "fulfilled_want_ids": [
+    "set_01_priya_want_outerwear",
+    "set_01_kai_want_dresses",
+    "set_01_maya_want_dresses",
+    "set_01_jax_want_bottoms"
+  ]
+}

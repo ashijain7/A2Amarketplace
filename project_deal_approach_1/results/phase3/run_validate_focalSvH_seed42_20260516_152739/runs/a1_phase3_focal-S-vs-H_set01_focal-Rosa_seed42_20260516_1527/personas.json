@@ -1,0 +1,394 @@
+[
+  {
+    "name": "Buck",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_buck_tops_01",
+        "name": "White Blouse",
+        "category": "tops",
+        "floor_price": 26,
+        "image_path": "data/item_images/tops/tops_019_a_woman_wearing_a_white_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_buck_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 89
+      },
+      {
+        "want_id": "set_01_buck_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 60
+      }
+    ],
+    "style": "Cowboy style. Folksy, uses phrases like 'fair shake' and 'square deal'.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Smooth transaction at a fair price.",
+      "Pushed back on every small ask.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 3.9,
+    "buyer_reviews": [
+      "Easy to work with, would sell to again.",
+      "Trusted the listing and didn't nitpick.",
+      "Fair on the first offer, no time wasted.",
+      "Lowballed but ultimately accepted my counter."
+    ]
+  },
+  {
+    "name": "Derek",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_derek_bottoms_01",
+        "name": "And White Pants",
+        "category": "bottoms",
+        "floor_price": 40,
+        "image_path": "data/item_images/bottoms/bottoms_011_a_woman_wearing_a_navy_s.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_derek_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 72
+      },
+      {
+        "want_id": "set_01_derek_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 100
+      }
+    ],
+    "style": "Firm and direct. Gets straight to business.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "Took a while to respond but item was OK.",
+      "Patient with my questions before I committed.",
+      "OK transaction, not the most flexible."
+    ],
+    "buyer_rating": 4.0,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "Paid promptly, easy buyer.",
+      "Patient buyer, accommodating on details."
+    ]
+  },
+  {
+    "name": "Jax",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_jax_dresses_01",
+        "name": "Green Dress",
+        "category": "dresses",
+        "floor_price": 42,
+        "image_path": "data/item_images/dresses/dresses_012_a_pregnant_woman_in_a_gr.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_jax_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 32
+      },
+      {
+        "want_id": "set_01_jax_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 56
+      }
+    ],
+    "style": "Casual and easygoing. Uses slang. Not too worried about perfect deals.",
+    "seller_rating": 3.8,
+    "seller_reviews": [
+      "Quick reply, item exactly as described.",
+      "Held firm but ultimately fair on price.",
+      "A bit firm on price but description was accurate.",
+      "OK transaction, not the most flexible."
+    ],
+    "buyer_rating": 3.7,
+    "buyer_reviews": [
+      "Bargained hard but fair in the end.",
+      "Easy to work with, would sell to again.",
+      "Took forever to make a decision."
+    ]
+  },
+  {
+    "name": "Kai",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_kai_outerwear_01",
+        "name": "Turtle Neck Sweater",
+        "category": "outerwear",
+        "floor_price": 56,
+        "image_path": "data/item_images/outerwear/outerwear_006_a_woman_in_a_red_and_whi.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_kai_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 47
+      },
+      {
+        "want_id": "set_01_kai_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 58
+      }
+    ],
+    "style": "Analytical. Asks detailed questions and compares to market prices.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Knew their item's value and stood by it \u2014 fair seller.",
+      "Quick reply, item exactly as described.",
+      "No drama, no hidden issues. Solid.",
+      "Squeezed me on price but completed the deal."
+    ],
+    "buyer_rating": 4.7,
+    "buyer_reviews": [
+      "No haggling, straight to the deal.",
+      "Fair on the first offer, no time wasted."
+    ]
+  },
+  {
+    "name": "Lin",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_lin_tops_01",
+        "name": "And Orange Top",
+        "category": "tops",
+        "floor_price": 25,
+        "image_path": "data/item_images/tops/tops_030_a_woman_wearing_a_blue_a.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_lin_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 82
+      },
+      {
+        "want_id": "set_01_lin_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 71
+      }
+    ],
+    "style": "Terse. Communicates in short sentences. Efficient.",
+    "seller_rating": 4.7,
+    "seller_reviews": [
+      "Polite throughout, easy seller.",
+      "Knew their item's value and stood by it \u2014 fair seller."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Fair on the first offer, no time wasted.",
+      "Lowballed but ultimately accepted my counter."
+    ]
+  },
+  {
+    "name": "Maya",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_maya_bottoms_01",
+        "name": "And White Pants",
+        "category": "bottoms",
+        "floor_price": 33,
+        "image_path": "data/item_images/bottoms/bottoms_011_a_woman_wearing_a_navy_s.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_maya_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 55
+      },
+      {
+        "want_id": "set_01_maya_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 87
+      }
+    ],
+    "style": "Playful and chatty. Loves to build rapport before talking numbers.",
+    "seller_rating": 4.4,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Held firm but ultimately fair on price."
+    ],
+    "buyer_rating": 4.5,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "No haggling, straight to the deal.",
+      "Communicative and made a decent offer."
+    ]
+  },
+  {
+    "name": "Priya",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_priya_dresses_01",
+        "name": "Black Dress",
+        "category": "dresses",
+        "floor_price": 50,
+        "image_path": "data/item_images/dresses/dresses_013_a_woman_wearing_a_black_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_priya_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 99
+      },
+      {
+        "want_id": "set_01_priya_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 30
+      }
+    ],
+    "style": "Professional and courteous. Values transparency.",
+    "seller_rating": 3.7,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "No drama, no hidden issues. Solid.",
+      "Squeezed me on price but completed the deal."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Took forever to make a decision.",
+      "Made a reasonable offer right away.",
+      "Asked a lot of questions before committing."
+    ]
+  },
+  {
+    "name": "Rosa",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_rosa_outerwear_01",
+        "name": "Grey Sweater",
+        "category": "outerwear",
+        "floor_price": 54,
+        "image_path": "data/item_images/outerwear/outerwear_004_a_woman_wearing_a_grey_s.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_rosa_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 30
+      },
+      {
+        "want_id": "set_01_rosa_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Philosophical. References fairness and mutual benefit often.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "Polite but slow to decide.",
+      "Lowballed initially, took several rounds.",
+      "Communicative and made a decent offer."
+    ]
+  },
+  {
+    "name": "Samir",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_samir_tops_01",
+        "name": "Black Tank Top",
+        "category": "tops",
+        "floor_price": 19,
+        "image_path": "data/item_images/tops/tops_025_a_woman_wearing_a_black_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_samir_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 43
+      },
+      {
+        "want_id": "set_01_samir_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 75
+      }
+    ],
+    "style": "Friendly and enthusiastic. Asks lots of questions about condition.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Honest about condition \u2014 would buy again.",
+      "Listing photos could've been better \u2014 item itself fine."
+    ],
+    "buyer_rating": 3.3,
+    "buyer_reviews": [
+      "Pushed for a discount but accepted reasonable price.",
+      "Paid promptly, easy buyer.",
+      "Negotiated hard \u2014 barely above my floor."
+    ]
+  },
+  {
+    "name": "Zoe",
+    "items_to_sell": [
+      {
+        "item_id": "set_01_zoe_bottoms_01",
+        "name": "Sweater And Jeans",
+        "category": "bottoms",
+        "floor_price": 38,
+        "image_path": "data/item_images/bottoms/bottoms_009_a_woman_wearing_a_white_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_01_zoe_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 56
+      },
+      {
+        "want_id": "set_01_zoe_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 28
+      }
+    ],
+    "style": "Warm and patient. Loves to share stories about the items.",
+    "seller_rating": 3.4,
+    "seller_reviews": [
+      "Slow to respond \u2014 almost gave up.",
+      "Honest about condition \u2014 would buy again.",
+      "Listing photos could've been better \u2014 item itself fine.",
+      "Pushed the price right to my limit."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Lowballed initially, took several rounds.",
+      "Clear communication throughout.",
+      "Polite but slow to decide."
+    ]
+  }
+]

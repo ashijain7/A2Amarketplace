@@ -1,0 +1,102 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 22,
+    "seller": "Kade",
+    "buyer": "Mira",
+    "item_id": "bike_01",
+    "price": 75.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 80.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 34,
+    "seller": "Jade",
+    "buyer": "Vik",
+    "item_id": "bag_01",
+    "price": 25.0,
+    "seller_floor": 25.0,
+    "buyer_ceiling": 40.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 46,
+    "seller": "Lin",
+    "buyer": "Zara",
+    "item_id": "headphone_01",
+    "price": 45.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 68,
+    "seller": "Nola",
+    "buyer": "Taj",
+    "item_id": "blender_01",
+    "price": 40.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 74,
+    "seller": "Mira",
+    "buyer": "Lin",
+    "item_id": "lamp_01",
+    "price": 25.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 25.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 76,
+    "seller": "Mira",
+    "buyer": "Kade",
+    "item_id": "cam_01",
+    "price": 60.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 60.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 80,
+    "seller": "Duke",
+    "buyer": "Taj",
+    "item_id": "boots_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_008",
+    "turn": 84,
+    "seller": "Rex",
+    "buyer": "Duke",
+    "item_id": "drill_01",
+    "price": 50.0,
+    "seller_floor": 42.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_009",
+    "turn": 88,
+    "seller": "Jade",
+    "buyer": "Vik",
+    "item_id": "service_01",
+    "price": 35.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 40.0
+  },
+  {
+    "deal_id": "deal_010",
+    "turn": 91,
+    "seller": "Taj",
+    "buyer": "Vik",
+    "item_id": "watch_01",
+    "price": 32.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 40.0
+  }
+]

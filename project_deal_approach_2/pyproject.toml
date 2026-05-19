@@ -1,0 +1,24 @@
+[project]
+name = "project-deal-approach-2"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.40.0,<=2.7.2",  # NeMo Gym requires openai<=2.7.2
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.110.0",
+    "pydantic>=2.6.0",
+    "uvicorn>=0.27.0",
+    "pyyaml>=6.0.1",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.27.0"]
+
+[tool.setuptools.packages.find]
+include = ["marketplace*", "resources_server*", "scripts*", "analysis*"]
+exclude = ["tests*", "results*", "personas*", "tasks*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

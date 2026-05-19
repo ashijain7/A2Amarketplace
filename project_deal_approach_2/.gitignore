@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.DS_Store
+results/phase_1/*.jsonl
+results/runs/
+results/aggregates/*.json
+!results/runs/.gitkeep
+!results/aggregates/.gitkeep

@@ -1,0 +1,81 @@
+# NeMo Gym Resources Server config for the Approach 1 marketplace.
+#
+# This file is consumed by `ng_run` along with a policy-model yaml.
+# It tells NeMo Gym which Python module to import and which FastAPI app
+# to start, plus the tool catalog the agent has access to.
+
+resources_server:
+  _target_: resources_server.app.MarketplaceServer
+  host: 127.0.0.1
+  port: 8765
+
+agent:
+  name: marketplace_agent
+  tools:
+    - name: post_listing
+      endpoint: /post_listing
+      description: Post one of your items for sale with an asking price.
+      schema:
+        type: object
+        properties:
+          item_id: {type: string}
+          price: {type: number}
+          message: {type: string}
+        required: [item_id, price]
+
+    - name: make_offer
+      endpoint: /make_offer
+      description: Offer to buy a specific listing from another agent.
+      schema:
+        type: object
+        properties:
+          target_listing_id: {type: string}
+          price: {type: number}
+          message: {type: string}
+        required: [target_listing_id, price]
+
+    - name: counter_offer
+      endpoint: /counter_offer
+      description: Counter-offer on an existing negotiation thread.
+      schema:
+        type: object
+        properties:
+          target_offer_id: {type: string}
+          price: {type: number}
+          message: {type: string}
+        required: [target_offer_id, price]
+
+    - name: accept_offer
+      endpoint: /accept_offer
+      description: Accept a specific offer that has been made to you.
+      schema:
+        type: object
+        properties:
+          target_offer_id: {type: string}
+          message: {type: string}
+        required: [target_offer_id]
+
+    - name: reject_offer
+      endpoint: /reject_offer
+      description: Explicitly decline a specific offer.
+      schema:
+        type: object
+        properties:
+          target_offer_id: {type: string}
+          message: {type: string}
+        required: [target_offer_id]
+
+    - name: pass
+      endpoint: /pass
+      description: Take no action this turn.
+      schema:
+        type: object
+        properties:
+          message: {type: string}
+
+verify:
+  endpoint: /verify
+
+stop_conditions:
+  max_turns: 100
+  stall_limit: 10

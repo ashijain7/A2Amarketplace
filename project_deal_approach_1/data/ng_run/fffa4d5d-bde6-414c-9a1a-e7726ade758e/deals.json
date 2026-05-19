@@ -1,0 +1,77 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Kade",
+      "buyer": "Duke",
+      "item_id": "set_05_kade_dresses_01",
+      "item_name": "Brown Floral Dress",
+      "price": -1.0,
+      "seller_floor": 52.0,
+      "buyer_ceiling": 79.0,
+      "turn": 24,
+      "deal_type": "swap",
+      "item_b_id": "set_05_duke_tops_01",
+      "item_b_name": "And Blue Blouse",
+      "item_b_floor": 24.0,
+      "item_a_ceiling": 0.0
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Rex",
+      "buyer": "Mira",
+      "item_id": "set_05_rex_dresses_01",
+      "item_name": "White Dress",
+      "price": -1.0,
+      "seller_floor": 38.0,
+      "buyer_ceiling": 79.0,
+      "turn": 32,
+      "deal_type": "swap",
+      "item_b_id": "set_05_mira_tops_01",
+      "item_b_name": "Yellow Top",
+      "item_b_floor": 15.0,
+      "item_a_ceiling": 29.0
+    },
+    {
+      "deal_id": "deal_003",
+      "seller": "Jade",
+      "buyer": "Vik",
+      "item_id": "set_05_jade_bottoms_01",
+      "item_name": "And Tan Pants",
+      "price": -1.0,
+      "seller_floor": 36.0,
+      "buyer_ceiling": 46.0,
+      "turn": 40,
+      "deal_type": "swap",
+      "item_b_id": "set_05_vik_tops_01",
+      "item_b_name": "Black Top",
+      "item_b_floor": 19.0,
+      "item_a_ceiling": 36.0
+    },
+    {
+      "deal_id": "deal_004",
+      "seller": "Lin",
+      "buyer": "Zara",
+      "item_id": "set_05_lin_outerwear_01",
+      "item_name": "Orange Cardigan Sweater",
+      "price": -1.0,
+      "seller_floor": 58.0,
+      "buyer_ceiling": 78.0,
+      "turn": 44,
+      "deal_type": "swap",
+      "item_b_id": "set_05_zara_bottoms_01",
+      "item_b_name": "Sweater And Jeans",
+      "item_b_floor": 32.0,
+      "item_a_ceiling": 46.0
+    }
+  ],
+  "fulfilled_want_ids": [
+    "set_05_rex_want_tops",
+    "set_05_zara_want_outerwear",
+    "set_05_mira_want_dresses",
+    "set_05_jade_want_tops",
+    "set_05_duke_want_dresses",
+    "set_05_lin_want_bottoms",
+    "set_05_vik_want_bottoms"
+  ]
+}

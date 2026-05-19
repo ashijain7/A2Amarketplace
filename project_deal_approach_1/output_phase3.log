@@ -1,0 +1,280 @@
+18:24:13 === MULTIMODAL PATCH TEST ===
+NeMo Gym is starting a new Ray cluster...
+2026-05-17 18:24:35,889	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Started Ray cluster at 127.0.0.1:54756
+Waiting for head server to spin up
+Head server is not up yet (status `connection_error`). Sleeping...
+INFO:     Started server process [50131]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
+(marketplace) Using CPython 3.12.13
+(marketplace) Creating virtual environment with seed packages at: .venv
+(marketplace) Activate with: source .venv/bin/activate
+(policy_model) Using CPython 3.12.13
+(policy_model) Creating virtual environment with seed packages at: .venv
+(policy_model) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
+(marketplace_agent) Resolved 138 packages in 1.10s
+(marketplace_agent) Checked 138 packages in 3ms
+(marketplace) Resolved 139 packages in 1.10s
+(marketplace) Checked 139 packages in 3ms
+(policy_model) Resolved 138 packages in 1.31s
+(policy_model) Checked 138 packages in 1ms
+Connecting to Ray cluster at specified address: 127.0.0.1:54756
+2026-05-17 18:24:39,521	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:54756...
+INFO:     127.0.0.1:55006 - "GET / HTTP/1.1" 404 Not Found
+Waiting for servers to spin up
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+0 / 3 servers ready. Waiting for servers to spin up: ['marketplace', 'marketplace_agent', 'policy_model']
+2026-05-17 18:24:39,551	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(policy_model) INFO:     Started server process [50234]
+(policy_model) INFO:     Waiting for application startup.
+(policy_model) INFO:     Application startup complete.
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:11268 (Press CTRL+C to quit)
+Connecting to Ray cluster at specified address: 127.0.0.1:54756
+2026-05-17 18:24:39,733	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:54756...
+2026-05-17 18:24:39,762	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+Connecting to Ray cluster at specified address: 127.0.0.1:54756
+2026-05-17 18:24:39,786	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:54756...
+2026-05-17 18:24:39,815	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace_agent) INFO:     Started server process [50233]
+(marketplace_agent) INFO:     Waiting for application startup.
+(marketplace_agent) INFO:     Application startup complete.
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:18199 (Press CTRL+C to quit)
+(marketplace) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace) INFO:     Started server process [50232]
+(marketplace) INFO:     Waiting for application startup.
+(marketplace) INFO:     Application startup complete.
+(marketplace) INFO:     Uvicorn running on http://127.0.0.1:16525 (Press CTRL+C to quit)
+(marketplace) INFO:     127.0.0.1:55026 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:55027 - "GET / HTTP/1.1" 404 Not Found
+(policy_model) INFO:     127.0.0.1:55028 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace (resources_servers/marketplace)
+{
+    'config_path': 'marketplace',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 50172,
+    'port': 16525,
+    'process_name': 'marketplace',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:16525',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 50178,
+    'port': 18199,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:18199',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 50179,
+    'port': 11268,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:11268',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:55057 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55058 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+====================================================================
+  18:26:40 === MULTIMODAL TOOL OUTPUT VALIDATE RUN ===
+====================================================================
+============================================================
+  Phase 3 — mode: validate   (MARKETPLACE_PHASE=3)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: uncapped
+✓ key is uncapped — skipping budget gate
+INFO:     127.0.0.1:55093 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+✓ ng_run head server reachable on port 11000
+✓ task file tasks/phase3_validate.jsonl:        2 tasks
+✓ split into batches:        2 Sonnet-focal,        0 Haiku-focal
+
+============================================================
+  Batch A — Sonnet focal (       2 tasks)
+============================================================
+policy_model_name: anthropic/claude-sonnet-4-5
+
+  NOTE: env.yaml is now Sonnet. If ng_run was started while it was on Haiku,
+        you MUST restart ng_run now for the change to take effect.
+        (Sleep 5s to give you a chance to ctrl-C if needed.)
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_3/phase3_validate_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_3/phase3_validate_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_3/phase3_validate_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_3/phase3_validate_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 2
+Limiting the number of rows to 2
+Using `marketplace_agent` for rows that do not already have an agent ref
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]Reading rows: 1it [00:00, 1440.85it/s]Reading rows: 1it [00:00, 1440.85it/s]
+
+INFO:     127.0.0.1:55101 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s](policy_model) INFO:     127.0.0.1:55109 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(policy_model) INFO:     127.0.0.1:55108 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:55107 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:55106 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:55103 - "POST /run HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:55102 - "POST /run HTTP/1.1" 500 Internal Server Error
+Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s]
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/bin/ng_collect_rollouts", line 10, in <module>
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/bin/ng_collect_rollouts", line 10, in <module>
+    sys.exit(collect_rollouts())
+    sys.exit(collect_rollouts())
+             ^^^^^^^^^^^^^^^^^^
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 518, in collect_rollouts
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 518, in collect_rollouts
+    asyncio.run(rch.run_from_config(config))
+    asyncio.run(rch.run_from_config(config))
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+    return future.result()
+           ^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 319, in run_from_config
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 319, in run_from_config
+    row, result = await future
+    row, result = await future
+                  ^^^^^^^^^^^^
+                  ^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+    return f.result()  # May raise f.exception().
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+           ^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+    await raise_for_status(res)
+    await raise_for_status(res)
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    raise e
+    raise e
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+    response.raise_for_status()
+    response.raise_for_status()
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+    raise ClientResponseError(
+    raise ClientResponseError(
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:18199/run'
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:18199/run'
+[2026-05-17 18:26:47,241][asyncio][ERROR] - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<RolloutCollectionHelper.run_examples.<locals>._post_subroutine() done, defined at /Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py:476> exception=ClientResponseError(RequestInfo(url=URL('http://127.0.0.1:18199/run'), method='POST', headers=<CIMultiDictProxy('Host': '127.0.0.1:18199', 'Content-Type': 'application/json', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'Python/3.12 aiohttp/3.13.5', 'Content-Length': '33621')>, real_url=URL('http://127.0.0.1:18199/run')), (), status=500, message='Internal Server Error', headers=<CIMultiDictProxy('Date': 'Sun, 17 May 2026 12:56:47 GMT', 'Server': 'uvicorn', 'Content-Length': '561', 'Content-Type': 'application/json')>)>
+Traceback (most recent call last):
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+    await raise_for_status(res)
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    raise e
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+    response.raise_for_status()
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+    raise ClientResponseError(
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:18199/run'
+[2026-05-17 18:26:47,241][asyncio][ERROR] - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<RolloutCollectionHelper.run_examples.<locals>._post_subroutine() done, defined at /Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py:476> exception=ClientResponseError(RequestInfo(url=URL('http://127.0.0.1:18199/run'), method='POST', headers=<CIMultiDictProxy('Host': '127.0.0.1:18199', 'Content-Type': 'application/json', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'Python/3.12 aiohttp/3.13.5', 'Content-Length': '33621')>, real_url=URL('http://127.0.0.1:18199/run')), (), status=500, message='Internal Server Error', headers=<CIMultiDictProxy('Date': 'Sun, 17 May 2026 12:56:47 GMT', 'Server': 'uvicorn', 'Content-Length': '561', 'Content-Type': 'application/json')>)>
+Traceback (most recent call last):
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+    await raise_for_status(res)
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    raise e
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+    response.raise_for_status()
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+    raise ClientResponseError(
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:18199/run'
+policy_model_name: anthropic/claude-sonnet-4-5
+
+============================================================
+  Archiving per-rollout folders into results/runs/
+============================================================
+✓ archived. results/runs/ now has 38 folder(s)
+
+============================================================
+  Aggregating across all runs
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/analysis/compare.py:111: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.utcnow().isoformat() + "Z",
+Wrote aggregate for 16 runs -> /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/aggregates/phase_3_summary.json
+✓ aggregator wrote results/aggregates/phase_3_summary.json
+
+============================================================
+  Per-rollout rubric scores
+============================================================
+
+============================================================
+  Snapshotting run into results/phase3/
+============================================================
+
+============================================================
+  Headline (cross-config means + asymmetry test)
+============================================================
+
+Total rollouts: 16
+
+Per-config means:
+  focal_S_vs_H      : mean_reward=0.486  (n=16)
+
+
+Done.
+
+18:26:47 === multimodal validate EXITED ===

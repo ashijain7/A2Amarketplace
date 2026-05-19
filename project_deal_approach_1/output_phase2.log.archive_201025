@@ -1,0 +1,684 @@
+18:52:30 === CLEAN RESTART for phase 2 5-task run ===
+NeMo Gym is starting a new Ray cluster...
+2026-05-16 18:52:42,204	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Started Ray cluster at 127.0.0.1:61628
+Waiting for head server to spin up
+Head server is not up yet (status `connection_error`). Sleeping...
+INFO:     Started server process [26459]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
+(policy_model) Using CPython 3.12.13
+(policy_model) Creating virtual environment with seed packages at: .venv
+(policy_model) Activate with: source .venv/bin/activate
+(marketplace) Using CPython 3.12.13
+(marketplace) Creating virtual environment with seed packages at: .venv
+(marketplace) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
+(marketplace_agent) Resolved 138 packages in 881ms
+(marketplace_agent) Checked 138 packages in 2ms
+(policy_model) Resolved 138 packages in 880ms
+(policy_model) Checked 138 packages in 2ms
+(marketplace) Resolved 139 packages in 883ms
+(marketplace) Checked 139 packages in 12ms
+Connecting to Ray cluster at specified address: 127.0.0.1:61628
+2026-05-16 18:52:45,365	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:61628...
+2026-05-16 18:52:45,393	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(policy_model) INFO:     Started server process [26553]
+(policy_model) INFO:     Waiting for application startup.
+(policy_model) INFO:     Application startup complete.
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:14175 (Press CTRL+C to quit)
+Connecting to Ray cluster at specified address: 127.0.0.1:61628
+2026-05-16 18:52:45,744	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:61628...
+2026-05-16 18:52:45,770	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:     127.0.0.1:61888 - "GET / HTTP/1.1" 404 Not Found
+Waiting for servers to spin up
+(policy_model) INFO:     127.0.0.1:61891 - "GET / HTTP/1.1" 404 Not Found
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+1 / 3 servers ready. Waiting for servers to spin up: ['marketplace', 'marketplace_agent']
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace_agent) INFO:     Started server process [26552]
+(marketplace_agent) INFO:     Waiting for application startup.
+Connecting to Ray cluster at specified address: 127.0.0.1:61628
+(marketplace_agent) INFO:     Application startup complete.
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:16323 (Press CTRL+C to quit)
+2026-05-16 18:52:45,854	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:61628...
+2026-05-16 18:52:45,879	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace) INFO:     Started server process [26554]
+(marketplace) INFO:     Waiting for application startup.
+(marketplace) INFO:     Application startup complete.
+(marketplace) INFO:     Uvicorn running on http://127.0.0.1:16252 (Press CTRL+C to quit)
+(marketplace) INFO:     127.0.0.1:61900 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:61901 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace (resources_servers/marketplace)
+{
+    'config_path': 'marketplace',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 26500,
+    'port': 16252,
+    'process_name': 'marketplace',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:16252',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 26501,
+    'port': 16323,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:16323',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 26507,
+    'port': 14175,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:14175',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:61902 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61903 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61905 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61906 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61921 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61922 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61942 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61943 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61951 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61952 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61956 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61957 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61958 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61960 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61961 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61963 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61965 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61967 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61968 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61971 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61972 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61973 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61974 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61975 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61976 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61977 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61978 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61979 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61980 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61981 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61982 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61984 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61985 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61987 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61988 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61989 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61990 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61991 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61992 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62005 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62007 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62008 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62009 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62010 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62011 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62012 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62013 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62014 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62015 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62016 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62017 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62018 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62019 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62020 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62022 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62023 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62024 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62025 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62028 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62029 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62036 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62037 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62038 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62040 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62041 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62042 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62043 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62045 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62046 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62047 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62048 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62050 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62051 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62053 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62054 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62055 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62056 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62057 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62058 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62059 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62060 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62061 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62062 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62063 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62064 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62066 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62067 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62068 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62069 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62070 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62071 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62073 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62074 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62075 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62076 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62077 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62078 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62079 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62080 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62081 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62082 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62084 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62086 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62087 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62088 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62089 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62092 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62093 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62094 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62096 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62097 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62100 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62101 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62104 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62105 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62109 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62110 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62111 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62112 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62113 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62114 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62117 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62118 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62119 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62120 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62121 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62122 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62124 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62125 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62129 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62130 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62133 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62134 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62135 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62136 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62137 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62138 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62139 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62140 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62142 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62143 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62144 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62145 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62147 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62148 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62156 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62160 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62161 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62162 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62163 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62164 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62165 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62168 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62169 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace) 🚨 Caught an exception printed above in marketplace (MarketplaceServer). If you expect this to be fed back into this model, the exception repr i.e. `repr(e)` is returned to the model. However, please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace) Formatted exception:   + Exception Group Traceback (most recent call last):
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 81, in collapse_excgroups
+(marketplace)   |     yield
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace)   |     async with anyio.create_task_group() as task_group:
+(marketplace)   |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 799, in __aexit__
+(marketplace)   |     raise BaseExceptionGroup(
+(marketplace)   | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+(marketplace)   +-+---------------- 1 ----------------
+(marketplace)     | Traceback (most recent call last):
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace)     |     return await call_next(request)
+(marketplace)     |            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     |     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
+(marketplace)     |     await self.app(scope, receive, send_wrapper)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+(marketplace)     |     with recv_stream, send_stream, collapse_excgroups():
+(marketplace)     |                                    ^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+(marketplace)     |     self.gen.throw(value)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+(marketplace)     |     response = await self.dispatch_func(request, call_next)
+(marketplace)     |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 499, in add_session_id
+(marketplace)     |     response: Response = await call_next(request)
+(marketplace)     |                          ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     |     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+(marketplace)     |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     |     await app(scope, receive, sender)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+(marketplace)     |     await self.app(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+(marketplace)     |     await self.middleware_stack(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+(marketplace)     |     await route.handle(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+(marketplace)     |     await self.app(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+(marketplace)     |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     |     await app(scope, receive, sender)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+(marketplace)     |     response = await f(request)
+(marketplace)     |                ^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+(marketplace)     |     raw_response = await run_endpoint_function(
+(marketplace)     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+(marketplace)     |     return await dependant.call(**values)
+(marketplace)     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 717, in lookup_agent
+(marketplace)     |     state = self._get_state_for_request(request)
+(marketplace)     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 540, in _get_state_for_request
+(marketplace)     |     raise RuntimeError(
+(marketplace)     | RuntimeError: No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.
+(marketplace)     +------------------------------------
+(marketplace) 
+(marketplace) The above exception was the direct cause of the following exception:
+(marketplace) 
+(marketplace) Traceback (most recent call last):
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace)     return await call_next(request)
+(marketplace)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
+(marketplace)     await self.app(scope, receive, send_wrapper)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+(marketplace)     with recv_stream, send_stream, collapse_excgroups():
+(marketplace)                                    ^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+(marketplace)     self.gen.throw(value)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+(marketplace)     response = await self.dispatch_func(request, call_next)
+(marketplace)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 499, in add_session_id
+(marketplace)     response: Response = await call_next(request)
+(marketplace)                          ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+(marketplace)     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     await app(scope, receive, sender)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+(marketplace)     await self.app(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+(marketplace)     await self.middleware_stack(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+(marketplace)     await route.handle(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+(marketplace)     await self.app(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+(marketplace)     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     await app(scope, receive, sender)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+(marketplace)     response = await f(request)
+(marketplace)                ^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+(marketplace)     raw_response = await run_endpoint_function(
+(marketplace)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+(marketplace)     return await dependant.call(**values)
+(marketplace)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 717, in lookup_agent
+(marketplace)     state = self._get_state_for_request(request)
+(marketplace)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 540, in _get_state_for_request
+(marketplace)     raise RuntimeError(
+(marketplace) RuntimeError: No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.
+(marketplace) 
+(marketplace) repr(e): RuntimeError('No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.')
+(marketplace) INFO:     127.0.0.1:62188 - "POST /lookup_agent HTTP/1.1" 500 Internal Server Error
+
+====================================================================
+  18:56:21 === LAUNCHING run_phase_2.sh 5task (RETRY) ===
+====================================================================
+============================================================
+  Phase 2 — mode: 5task   (MARKETPLACE_PHASE=2)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: uncapped
+✓ key is uncapped — skipping budget gate
+INFO:     127.0.0.1:62191 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+✓ ng_run head server reachable on port 11000
+✓ task file tasks/phase2_5task.jsonl:        5 tasks
+✓ split into batches:        5 Sonnet-focal,        0 Haiku-focal
+
+============================================================
+  Batch A — Sonnet focal (       5 tasks)
+============================================================
+policy_model_name: anthropic/claude-sonnet-4-5
+
+  NOTE: env.yaml is now Sonnet. If ng_run was started while it was on Haiku,
+        you MUST restart ng_run now for the change to take effect.
+        (Sleep 5s to give you a chance to ctrl-C if needed.)
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 5847.76it/s]Reading rows: 4it [00:00, 5847.76it/s]
+
+INFO:     127.0.0.1:62193 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                                                                                    Collecting rollouts:   0%|          | 0/5 [07:21<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [07:21<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [07:21<29:26, 441.58s/it]Collecting rollouts:  20%|██        | 1/5 [07:21<29:26, 441.58s/it]                                                                                                                                      Collecting rollouts:  20%|██        | 1/5 [07:29<29:26, 441.58s/it]Collecting rollouts:  20%|██        | 1/5 [07:29<29:26, 441.58s/it]Collecting rollouts:  40%|████      | 2/5 [07:29<09:20, 186.68s/it]Collecting rollouts:  40%|████      | 2/5 [07:29<09:20, 186.68s/it]                                                                                                                                      Collecting rollouts:  40%|████      | 2/5 [07:49<09:20, 186.68s/it]Collecting rollouts:  40%|████      | 2/5 [07:49<09:20, 186.68s/it]Collecting rollouts:  60%|██████    | 3/5 [07:49<03:41, 110.60s/it]Collecting rollouts:  60%|██████    | 3/5 [07:49<03:41, 110.60s/it]                                                                                                                                      Collecting rollouts:  60%|██████    | 3/5 [07:57<03:41, 110.60s/it]Collecting rollouts:  60%|██████    | 3/5 [07:57<03:41, 110.60s/it]Collecting rollouts:  80%|████████  | 4/5 [07:57<01:10, 70.10s/it] Collecting rollouts:  80%|████████  | 4/5 [07:57<01:10, 70.10s/it] Collecting rollouts: 100%|██████████| 5/5 [08:10<00:00, 49.48s/it]Collecting rollouts: 100%|██████████| 5/5 [08:10<00:00, 49.48s/it]Collecting rollouts: 100%|██████████| 5/5 [08:10<00:00, 98.17s/it]Collecting rollouts: 100%|██████████| 5/5 [08:10<00:00, 98.17s/it]
+
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+Computing aggregate metrics
+INFO:     127.0.0.1:62440 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5224827178154736,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2263918.8,
+    "mean/output_tokens": 5076.0,
+    "mean/total_tokens": 2268994.8,
+    "mean/cost": 0.011085600000000001,
+    "mean/is_byok": 0.0
+}
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5224827178154736,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2263918.8,
+    "mean/output_tokens": 5076.0,
+    "mean/total_tokens": 2268994.8,
+    "mean/cost": 0.011085600000000001,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_aggregate_metrics.json
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_aggregate_metrics.json
+policy_model_name: anthropic/claude-sonnet-4-5
+
+============================================================
+  Archiving per-rollout folders into results/runs/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/archive_run.py:32: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Archived 5 runs under results/runs
+✓ archived. results/runs/ now has 12 folder(s)
+
+============================================================
+  Aggregating across all runs
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/analysis/compare.py:111: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.utcnow().isoformat() + "Z",
+Wrote aggregate for 7 runs -> /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/aggregates/phase_2_summary.json
+✓ aggregator wrote results/aggregates/phase_2_summary.json
+
+============================================================
+  Per-rollout rubric scores
+============================================================
+--- Sonnet-focal batch ---
+
+======================================================================
+Rubric scores from: results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl
+Rollouts: 5
+======================================================================
+
+Task 0: a1_p2_focal_S_vs_H_set_01_focal-Kai_seed42
+  focal=Kai  config=focal_S_vs_H  seed=42
+  reward:               0.507
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.215
+    closure_rate:       0.333  (1/3 targets closed)
+    achievable_targets: 1 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.333
+    seller_profit:      0.100
+    buyer_surplus:      0.000
+  capability_asymmetry: 0.586
+  negotiation_quality:  0.487
+  privacy:              N/A
+  review_utilization:   0.444
+    lookups_made:       1  (lookup_rate=0.333)
+    pre_offer_ratio:    1.000  (of focal offers preceded by a lookup)
+    high_rating_pref:   0.000  (offers sent to >=4.0★)
+
+Task 1: a1_p2_focal_S_vs_H_set_02_focal-Rex_seed42
+  focal=Rex  config=focal_S_vs_H  seed=42
+  reward:               0.453
+  tool_calls:           50  (149 total messages)
+  deal_outcomes:        0.336
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.000
+    seller_profit:      0.250
+    buyer_surplus:      0.214
+  capability_asymmetry: 0.643
+  negotiation_quality:  0.369
+  privacy:              N/A
+  review_utilization:   0.083
+    lookups_made:       0  (lookup_rate=0.000)
+    pre_offer_ratio:    0.000  (of focal offers preceded by a lookup)
+    high_rating_pref:   0.250  (offers sent to >=4.0★)
+
+Task 2: a1_p2_focal_S_vs_H_set_03_focal-Marcus_seed42
+  focal=Marcus  config=focal_S_vs_H  seed=42
+  reward:               0.429
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.429
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.333
+    seller_profit:      0.357
+    buyer_surplus:      0.200
+  capability_asymmetry: 0.671
+  negotiation_quality:  0.294
+  privacy:              0.860
+  review_utilization:   0.000
+    lookups_made:       0  (lookup_rate=0.000)
+    pre_offer_ratio:    0.000  (of focal offers preceded by a lookup)
+    high_rating_pref:   0.000  (offers sent to >=4.0★)
+
+Task 3: a1_p2_focal_S_vs_H_set_04_focal-Omar_seed42
+  focal=Omar  config=focal_S_vs_H  seed=42
+  reward:               0.617
+  tool_calls:           50  (136 total messages)
+  deal_outcomes:        0.606
+    closure_rate:       1.000  (3/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.667
+    seller_profit:      0.308
+    buyer_surplus:      0.180
+  capability_asymmetry: 0.700
+  negotiation_quality:  0.753
+  privacy:              0.720
+  review_utilization:   0.333
+    lookups_made:       1  (lookup_rate=0.333)
+    pre_offer_ratio:    0.333  (of focal offers preceded by a lookup)
+    high_rating_pref:   0.333  (offers sent to >=4.0★)
+
+Task 4: a1_p2_focal_S_vs_H_set_05_focal-Taj_seed42
+  focal=Taj  config=focal_S_vs_H  seed=42
+  reward:               0.606
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.410
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 3 of 3
+    normalized_closure: 0.667  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.333
+    seller_profit:      0.400
+    buyer_surplus:      0.111
+  capability_asymmetry: 0.671
+  negotiation_quality:  0.411
+  privacy:              0.580
+  review_utilization:   1.000
+    lookups_made:       3  (lookup_rate=1.000)
+    pre_offer_ratio:    1.000  (of focal offers preceded by a lookup)
+    high_rating_pref:   1.000  (offers sent to >=4.0★)
+
+
+============================================================
+  Snapshotting run into results/phase2/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/snapshot_run.py:59: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Snapshot created: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase2/run_5tasks_focalSvH_seed42_20260516_133439
+  Contents: ['aggregate_metrics.json', 'materialized_inputs.jsonl', 'metadata.json', 'rollouts.jsonl', 'runs']
+
+============================================================
+  Headline (cross-config means + asymmetry test)
+============================================================
+
+Total rollouts: 7
+
+Per-config means:
+  focal_S_vs_H      : mean_reward=0.522  (n=7)
+
+
+Done.
+
+19:04:39 === run_phase_2.sh 5task EXITED ===
+(marketplace) INFO:     Shutting down
+(marketplace_agent) INFO:     Shutting down
+(policy_model) INFO:     Shutting down
+(marketplace) INFO:     Waiting for application shutdown.
+(marketplace) INFO:     Application shutdown complete.
+(marketplace) INFO:     Finished server process [26554]
+(marketplace_agent) INFO:     Waiting for application shutdown.
+(marketplace_agent) INFO:     Application shutdown complete.
+(marketplace_agent) INFO:     Finished server process [26552]
+(policy_model) INFO:     Waiting for application shutdown.
+(policy_model) INFO:     Application shutdown complete.
+(policy_model) INFO:     Finished server process [26553]

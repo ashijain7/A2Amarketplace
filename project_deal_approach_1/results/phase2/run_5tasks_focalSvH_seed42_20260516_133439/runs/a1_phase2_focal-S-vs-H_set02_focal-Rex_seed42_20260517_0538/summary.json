@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase2_focal-S-vs-H_set02_focal-Rex_seed42_20260517_0538",
+  "approach": 1,
+  "phase": 2,
+  "timestamp": "2026-05-17T05:38:16.003682Z",
+  "config": {
+    "model_config": "focal_S_vs_H",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_02",
+    "focal_persona": "Rex",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.3363095238095238,
+    "capability_asymmetry": 0.6428571428571428,
+    "negotiation_quality": 0.3685245519152276,
+    "privacy": null,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 0,
+      "focal_offer_events": 4,
+      "lookup_rate": 0.0,
+      "pre_offer_ratio": 0.0,
+      "high_rating_preference": 0.25,
+      "combined": 0.08333333333333333
+    },
+    "final_reward": 0.45302038657352167
+  },
+  "focal_value_extracted": 25.0,
+  "deal_count": 14
+}

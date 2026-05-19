@@ -1,0 +1,32 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 26,
+    "seller": "Isla",
+    "buyer": "Felix",
+    "item_id": "set_03_isla_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 62.0,
+    "buyer_ceiling": 74.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 30,
+    "seller": "Lily",
+    "buyer": "Hank",
+    "item_id": "set_03_lily_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 48.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 68,
+    "seller": "Marcus",
+    "buyer": "Kai",
+    "item_id": "set_03_marcus_dresses_01",
+    "price": -1.0,
+    "seller_floor": 46.0,
+    "buyer_ceiling": 75.0
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Isla",
+      "buyer": "Felix",
+      "item_id": "set_03_isla_outerwear_01",
+      "item_name": "Grey Sweater",
+      "price": -1.0,
+      "seller_floor": 62.0,
+      "buyer_ceiling": 74.0,
+      "turn": 26,
+      "deal_type": "swap",
+      "item_b_id": "set_03_felix_bottoms_01",
+      "item_b_name": "Black Skirt",
+      "item_b_floor": 38.0,
+      "item_a_ceiling": 45.0
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Lily",
+      "buyer": "Hank",
+      "item_id": "set_03_lily_bottoms_01",
+      "item_name": "Sweater And Jeans",
+      "price": -1.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 48.0,
+      "turn": 30,
+      "deal_type": "swap",
+      "item_b_id": "set_03_hank_dresses_01",
+      "item_b_name": "Red Dress",
+      "item_b_floor": 38.0,
+      "item_a_ceiling": 77.0
+    },
+    {
+      "deal_id": "deal_003",
+      "seller": "Marcus",
+      "buyer": "Kai",
+      "item_id": "set_03_marcus_dresses_01",
+      "item_name": "Pink Dress",
+      "price": -1.0,
+      "seller_floor": 46.0,
+      "buyer_ceiling": 75.0,
+      "turn": 68,
+      "deal_type": "swap",
+      "item_b_id": "set_03_kai_tops_01",
+      "item_b_name": "And Blue Blouse",
+      "item_b_floor": 23.0,
+      "item_a_ceiling": 27.0
+    }
+  ],
+  "fulfilled_want_ids": [
+    "set_03_felix_want_outerwear",
+    "set_03_hank_want_bottoms",
+    "set_03_isla_want_bottoms",
+    "set_03_lily_want_dresses",
+    "set_03_marcus_want_tops",
+    "set_03_kai_want_dresses"
+  ]
+}

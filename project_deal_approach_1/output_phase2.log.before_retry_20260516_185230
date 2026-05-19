@@ -1,0 +1,1703 @@
+18:09:49 === STARTING ng_run for PHASE 2 ===
+NeMo Gym is starting a new Ray cluster...
+2026-05-16 18:09:59,283	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Started Ray cluster at 127.0.0.1:59559
+Waiting for head server to spin up
+Head server is not up yet (status `connection_error`). Sleeping...
+INFO:     Started server process [23277]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
+(marketplace) Using CPython 3.12.13
+(marketplace) Creating virtual environment with seed packages at: .venv
+(marketplace) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
+(policy_model) Using CPython 3.12.13
+(policy_model) Creating virtual environment with seed packages at: .venv
+(policy_model) Activate with: source .venv/bin/activate
+(policy_model) Resolved 138 packages in 1.00s
+(policy_model) Checked 138 packages in 5ms
+(marketplace) Resolved 139 packages in 1.00s
+(marketplace) Checked 139 packages in 4ms
+(marketplace_agent) Resolved 138 packages in 1.00s
+(marketplace_agent) Checked 138 packages in 5ms
+Connecting to Ray cluster at specified address: 127.0.0.1:59559
+2026-05-16 18:10:02,562	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:59559...
+2026-05-16 18:10:02,591	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(policy_model) INFO:     Started server process [23371]
+(policy_model) INFO:     Waiting for application startup.
+(policy_model) INFO:     Application startup complete.
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:19572 (Press CTRL+C to quit)
+INFO:     127.0.0.1:59818 - "GET / HTTP/1.1" 404 Not Found
+Waiting for servers to spin up
+(policy_model) INFO:     127.0.0.1:59821 - "GET / HTTP/1.1" 404 Not Found
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+1 / 3 servers ready. Waiting for servers to spin up: ['marketplace', 'marketplace_agent']
+Connecting to Ray cluster at specified address: 127.0.0.1:59559
+2026-05-16 18:10:03,016	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:59559...
+2026-05-16 18:10:03,049	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Connecting to Ray cluster at specified address: 127.0.0.1:59559
+2026-05-16 18:10:03,094	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:59559...
+2026-05-16 18:10:03,122	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+(marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace_agent) INFO:     Started server process [23373]
+(marketplace_agent) INFO:     Waiting for application startup.
+(marketplace_agent) INFO:     Application startup complete.
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:10116 (Press CTRL+C to quit)
+/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace) INFO:     Started server process [23372]
+(marketplace) INFO:     Waiting for application startup.
+(marketplace) INFO:     Application startup complete.
+(marketplace) INFO:     Uvicorn running on http://127.0.0.1:13835 (Press CTRL+C to quit)
+INFO:     127.0.0.1:59833 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59839 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace) INFO:     127.0.0.1:59840 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:59842 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace (resources_servers/marketplace)
+{
+    'config_path': 'marketplace',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 23317,
+    'port': 13835,
+    'process_name': 'marketplace',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:13835',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 23318,
+    'port': 10116,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:10116',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 23324,
+    'port': 19572,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:19572',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:59845 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59856 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59863 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59884 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59889 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59893 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59897 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59901 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59905 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59909 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59913 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59917 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59921 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59925 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59929 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59933 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59937 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59941 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59945 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59949 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59953 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59957 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59961 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59965 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59973 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59979 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59986 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59993 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59999 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60003 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60007 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60012 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60016 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60020 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60024 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60031 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60036 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60041 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60047 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60051 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60055 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60059 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60063 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60067 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60071 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60075 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60079 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60083 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60087 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60091 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60095 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60099 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60103 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60107 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60114 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60121 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60125 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60129 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60134 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60147 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace) 🚨 Caught an exception printed above in marketplace (MarketplaceServer). If you expect this to be fed back into this model, the exception repr i.e. `repr(e)` is returned to the model. However, please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace) Formatted exception:   + Exception Group Traceback (most recent call last):
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 81, in collapse_excgroups
+(marketplace)   |     yield
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace)   |     async with anyio.create_task_group() as task_group:
+(marketplace)   |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 799, in __aexit__
+(marketplace)   |     raise BaseExceptionGroup(
+(marketplace)   | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+(marketplace)   +-+---------------- 1 ----------------
+(marketplace)     | Traceback (most recent call last):
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace)     |     return await call_next(request)
+(marketplace)     |            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     |     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
+(marketplace)     |     await self.app(scope, receive, send_wrapper)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+(marketplace)     |     with recv_stream, send_stream, collapse_excgroups():
+(marketplace)     |                                    ^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+(marketplace)     |     self.gen.throw(value)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+(marketplace)     |     response = await self.dispatch_func(request, call_next)
+(marketplace)     |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 499, in add_session_id
+(marketplace)     |     response: Response = await call_next(request)
+(marketplace)     |                          ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     |     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     |     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+(marketplace)     |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     |     await app(scope, receive, sender)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+(marketplace)     |     await self.app(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+(marketplace)     |     await self.middleware_stack(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+(marketplace)     |     await route.handle(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+(marketplace)     |     await self.app(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+(marketplace)     |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     |     raise exc
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     |     await app(scope, receive, sender)
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+(marketplace)     |     response = await f(request)
+(marketplace)     |                ^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+(marketplace)     |     raw_response = await run_endpoint_function(
+(marketplace)     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+(marketplace)     |     return await dependant.call(**values)
+(marketplace)     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 717, in lookup_agent
+(marketplace)     |     state = self._get_state_for_request(request)
+(marketplace)     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)     |   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 540, in _get_state_for_request
+(marketplace)     |     raise RuntimeError(
+(marketplace)     | RuntimeError: No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.
+(marketplace)     +------------------------------------
+(marketplace) 
+(marketplace) The above exception was the direct cause of the following exception:
+(marketplace) 
+(marketplace) Traceback (most recent call last):
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace)     return await call_next(request)
+(marketplace)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
+(marketplace)     await self.app(scope, receive, send_wrapper)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+(marketplace)     with recv_stream, send_stream, collapse_excgroups():
+(marketplace)                                    ^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+(marketplace)     self.gen.throw(value)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+(marketplace)     response = await self.dispatch_func(request, call_next)
+(marketplace)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 499, in add_session_id
+(marketplace)     response: Response = await call_next(request)
+(marketplace)                          ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(marketplace)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(marketplace)     await self.app(scope, receive_or_disconnect, send_no_error)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+(marketplace)     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     await app(scope, receive, sender)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+(marketplace)     await self.app(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+(marketplace)     await self.middleware_stack(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+(marketplace)     await route.handle(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+(marketplace)     await self.app(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+(marketplace)     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(marketplace)     raise exc
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(marketplace)     await app(scope, receive, sender)
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+(marketplace)     response = await f(request)
+(marketplace)                ^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+(marketplace)     raw_response = await run_endpoint_function(
+(marketplace)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+(marketplace)     return await dependant.call(**values)
+(marketplace)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 717, in lookup_agent
+(marketplace)     state = self._get_state_for_request(request)
+(marketplace)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace)   File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/resources_server/app.py", line 540, in _get_state_for_request
+(marketplace)     raise RuntimeError(
+(marketplace) RuntimeError: No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.
+(marketplace) 
+(marketplace) repr(e): RuntimeError('No MarketplaceState available for this request. Call /seed_session first, or use attach_state() in tests.')
+(marketplace) INFO:     127.0.0.1:60153 - "POST /lookup_agent HTTP/1.1" 500 Internal Server Error
+
+====================================================================
+  18:12:41 === LAUNCHING run_phase_2.sh validate ===
+====================================================================
+============================================================
+  Phase 2 — mode: validate   (MARKETPLACE_PHASE=2)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: uncapped
+✓ key is uncapped — skipping budget gate
+INFO:     127.0.0.1:60156 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+✓ ng_run head server reachable on port 11000
+✓ task file tasks/phase2_validate.jsonl:        2 tasks
+✓ split into batches:        2 Sonnet-focal,        0 Haiku-focal
+
+============================================================
+  Batch A — Sonnet focal (       2 tasks)
+============================================================
+policy_model_name: anthropic/claude-sonnet-4-5
+
+  NOTE: env.yaml is now Sonnet. If ng_run was started while it was on Haiku,
+        you MUST restart ng_run now for the change to take effect.
+        (Sleep 5s to give you a chance to ctrl-C if needed.)
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 2
+Limiting the number of rows to 2
+Using `marketplace_agent` for rows that do not already have an agent ref
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]Reading rows: 1it [00:00, 2570.04it/s]Reading rows: 1it [00:00, 2570.04it/s]
+
+INFO:     127.0.0.1:60158 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [01:00<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [01:00<?, ?it/s]                                                                                                                    Collecting rollouts:   0%|          | 0/2 [06:05<?, ?it/s]Collecting rollouts:   0%|          | 0/2 [06:05<?, ?it/s]Collecting rollouts:  50%|█████     | 1/2 [06:05<06:05, 365.87s/it]Collecting rollouts:  50%|█████     | 1/2 [06:05<06:05, 365.87s/it]Collecting rollouts: 100%|██████████| 2/2 [06:20<00:00, 159.26s/it]Collecting rollouts: 100%|██████████| 2/2 [06:20<00:00, 159.26s/it]Collecting rollouts: 100%|██████████| 2/2 [06:20<00:00, 190.25s/it]Collecting rollouts: 100%|██████████| 2/2 [06:20<00:00, 190.25s/it]
+
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+Computing aggregate metrics
+INFO:     127.0.0.1:60404 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5198168650793651,
+    "mean/id": 0.5,
+    "mean/input_tokens": 2205864.5,
+    "mean/output_tokens": 4632.0,
+    "mean/total_tokens": 2210496.5,
+    "mean/cost": 0.0110445,
+    "mean/is_byok": 0.0
+}
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5198168650793651,
+    "mean/id": 0.5,
+    "mean/input_tokens": 2205864.5,
+    "mean/output_tokens": 4632.0,
+    "mean/total_tokens": 2210496.5,
+    "mean/cost": 0.0110445,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_aggregate_metrics.json
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_validate_sonnet_focal_rollouts_aggregate_metrics.json
+policy_model_name: anthropic/claude-sonnet-4-5
+
+============================================================
+  Archiving per-rollout folders into results/runs/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/archive_run.py:32: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Archived 2 runs under results/runs
+✓ archived. results/runs/ now has 7 folder(s)
+
+============================================================
+  Aggregating across all runs
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/analysis/compare.py:111: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.utcnow().isoformat() + "Z",
+Wrote aggregate for 2 runs -> /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/aggregates/phase_1_summary.json
+✓ aggregator wrote results/aggregates/phase_2_summary.json
+
+============================================================
+  Per-rollout rubric scores
+============================================================
+--- Sonnet-focal batch ---
+
+======================================================================
+Rubric scores from: results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl
+Rollouts: 2
+======================================================================
+
+Task 0: a1_p2_focal_S_vs_H_set_01_focal-Kai_seed42
+  focal=Kai  config=focal_S_vs_H  seed=42
+  reward:               0.457
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.100
+    closure_rate:       0.000  (0/3 targets closed)
+    achievable_targets: 1 of 3
+    normalized_closure: 0.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.000
+    seller_profit:      0.000
+    buyer_surplus:      0.000
+  capability_asymmetry: 0.357
+  negotiation_quality:  0.607
+  privacy:              N/A
+
+Task 1: a1_p2_focal_S_vs_H_set_03_focal-Marcus_seed42
+  focal=Marcus  config=focal_S_vs_H  seed=42
+  reward:               0.583
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.334
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.000
+    seller_profit:      0.250
+    buyer_surplus:      0.200
+  capability_asymmetry: 0.671
+  negotiation_quality:  0.508
+  privacy:              0.720
+
+
+============================================================
+  Snapshotting run into results/phase2/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/snapshot_run.py:59: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Snapshot created: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase2/run_validate_focalSvH_seed42_20260516_124909
+  Contents: ['aggregate_metrics.json', 'materialized_inputs.jsonl', 'metadata.json', 'rollouts.jsonl', 'runs']
+
+============================================================
+  Headline (cross-config means + asymmetry test)
+============================================================
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'results/aggregates/phase_2_summary.json'
+
+18:19:09 === run_phase_2.sh validate EXITED ===
+INFO:     127.0.0.1:60459 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+====================================================================
+  18:21:33 === LAUNCHING run_phase_2.sh 5task (REAL) ===
+====================================================================
+============================================================
+  Phase 2 — mode: 5task   (MARKETPLACE_PHASE=2)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: uncapped
+✓ key is uncapped — skipping budget gate
+INFO:     127.0.0.1:60463 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+✓ ng_run head server reachable on port 11000
+✓ task file tasks/phase2_5task.jsonl:        5 tasks
+✓ split into batches:        5 Sonnet-focal,        0 Haiku-focal
+
+============================================================
+  Batch A — Sonnet focal (       5 tasks)
+============================================================
+policy_model_name: anthropic/claude-sonnet-4-5
+
+  NOTE: env.yaml is now Sonnet. If ng_run was started while it was on Haiku,
+        you MUST restart ng_run now for the change to take effect.
+        (Sleep 5s to give you a chance to ctrl-C if needed.)
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_2/phase2_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 5639.40it/s]Reading rows: 4it [00:00, 5639.40it/s]
+
+INFO:     127.0.0.1:60467 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s](policy_model) 🚨 Caught an exception printed above in policy_model (SimpleModelServer). If you expect this to be fed back into this model, the exception repr i.e. `repr(e)` is returned to the model. However, please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(policy_model) Formatted exception: Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/aiohttp/client_proto.py", line 144, in connection_lost
+(policy_model)     uncompleted = self._parser.feed_eof()
+(policy_model)                   ^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "aiohttp/_http_parser.pyx", line 543, in aiohttp._http_parser.HttpParser.feed_eof
+(policy_model) aiohttp.http_exceptions.TransferEncodingError: 400, message:
+(policy_model)   Not enough data to satisfy transfer length header.
+(policy_model) 
+(policy_model) The above exception was the direct cause of the following exception:
+(policy_model) 
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(policy_model)     return await call_next(request)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(policy_model)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(policy_model)     await self.app(scope, receive_or_disconnect, send_no_error)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/sessions.py", line 85, in __call__
+(policy_model)     await self.app(scope, receive, send_wrapper)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+(policy_model)     with recv_stream, send_stream, collapse_excgroups():
+(policy_model)                                    ^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+(policy_model)     self.gen.throw(value)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+(policy_model)     raise exc
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+(policy_model)     response = await self.dispatch_func(request, call_next)
+(policy_model)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 499, in add_session_id
+(policy_model)     response: Response = await call_next(request)
+(policy_model)                          ^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+(policy_model)     raise app_exc from app_exc.__cause__ or app_exc.__context__
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+(policy_model)     await self.app(scope, receive_or_disconnect, send_no_error)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+(policy_model)     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(policy_model)     raise exc
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(policy_model)     await app(scope, receive, sender)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+(policy_model)     await self.app(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+(policy_model)     await self.middleware_stack(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+(policy_model)     await route.handle(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+(policy_model)     await self.app(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+(policy_model)     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+(policy_model)     raise exc
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+(policy_model)     await app(scope, receive, sender)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+(policy_model)     response = await f(request)
+(policy_model)                ^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+(policy_model)     raw_response = await run_endpoint_function(
+(policy_model)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+(policy_model)     return await dependant.call(**values)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/app.py", line 57, in responses
+(policy_model)     openai_response_dict = await self._client.create_response(**body_dict)
+(policy_model)                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/openai_utils.py", line 549, in create_response
+(policy_model)     return await get_response_json(response)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 238, in get_response_json
+(policy_model)     return orjson.loads(await response.read())
+(policy_model)                         ^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 693, in read
+(policy_model)     self._body = await self.content.read()
+(policy_model)                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/aiohttp/streams.py", line 446, in read
+(policy_model)     block = await self.readany()
+(policy_model)             ^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/aiohttp/streams.py", line 468, in readany
+(policy_model)     await self._wait("readany")
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/aiohttp/streams.py", line 372, in _wait
+(policy_model)     await waiter
+(policy_model) aiohttp.client_exceptions.ClientPayloadError: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>. ConnectionResetError(54, 'Connection reset by peer')
+(policy_model) 
+(policy_model) repr(e): ClientPayloadError("Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>. ConnectionResetError(54, 'Connection reset by peer')")
+(policy_model) INFO:     127.0.0.1:60651 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:60480 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) INFO:     127.0.0.1:60470 - "POST /run HTTP/1.1" 500 Internal Server Error
+Collecting rollouts:   0%|          | 0/5 [14:21<?, ?it/s]
+Collecting rollouts:   0%|          | 0/5 [14:21<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/bin/ng_collect_rollouts", line 10, in <module>
+Traceback (most recent call last):
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/bin/ng_collect_rollouts", line 10, in <module>
+    sys.exit(collect_rollouts())
+    sys.exit(collect_rollouts())
+             ^^^^^^^^^^^^^^^^^^
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 518, in collect_rollouts
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 518, in collect_rollouts
+    asyncio.run(rch.run_from_config(config))
+    asyncio.run(rch.run_from_config(config))
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+    return future.result()
+           ^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 319, in run_from_config
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 319, in run_from_config
+    row, result = await future
+    row, result = await future
+                  ^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+                  ^^^^^^^^^^^^
+  File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+    return f.result()  # May raise f.exception().
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+           ^^^^^^^^^^
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+    await raise_for_status(res)
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    await raise_for_status(res)
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    raise e
+    raise e
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+  File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+    response.raise_for_status()
+    response.raise_for_status()
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+  File "/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+    raise ClientResponseError(
+    raise ClientResponseError(
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:10116/run'
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:10116/run'
+policy_model_name: anthropic/claude-sonnet-4-5
+
+============================================================
+  Archiving per-rollout folders into results/runs/
+============================================================
+✓ archived. results/runs/ now has 7 folder(s)
+
+============================================================
+  Aggregating across all runs
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/analysis/compare.py:111: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.utcnow().isoformat() + "Z",
+Wrote aggregate for 2 runs -> /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/aggregates/phase_2_summary.json
+✓ aggregator wrote results/aggregates/phase_2_summary.json
+
+============================================================
+  Per-rollout rubric scores
+============================================================
+
+============================================================
+  Snapshotting run into results/phase2/
+============================================================
+
+============================================================
+  Headline (cross-config means + asymmetry test)
+============================================================
+
+Total rollouts: 2
+
+Per-config means:
+  focal_S_vs_H      : mean_reward=0.520  (n=2)
+
+
+Done.
+
+18:36:03 === run_phase_2.sh 5task EXITED ===
+INFO:     127.0.0.1:60765 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60766 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace_agent) INFO:     Shutting down
+(policy_model) INFO:     Shutting down
+(marketplace_agent) INFO:     Waiting for connections to close. (CTRL+C to force quit)
+(policy_model) INFO:     Waiting for connections to close. (CTRL+C to force quit)
+(policy_model) ERROR:    Cancel 2 running task(s), timeout graceful shutdown exceeded
+(policy_model) INFO:     Waiting for application shutdown.
+(marketplace_agent) ERROR:    Cancel 8 running task(s), timeout graceful shutdown exceeded
+(marketplace_agent) INFO:     Waiting for application shutdown.
+(policy_model) Traceback (most recent call last):
+(marketplace_agent) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(policy_model)     return self.receive_nowait()
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(policy_model)     raise WouldBlock
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(policy_model) anyio.WouldBlock
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(policy_model) 
+(policy_model) During handling of the above exception, another exception occurred:
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(policy_model) 
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(policy_model)     return await call_next(request)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(policy_model)     message = await recv_stream.receive()
+(policy_model)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(policy_model)     await receive_event.wait()
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(policy_model)     await self._event.wait()
+(marketplace_agent) 
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(policy_model)     await fut
+(policy_model) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model) 🚨 Caught an unknown exception printed above in policy_model (SimpleModelServer). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(policy_model) INFO:     127.0.0.1:60656 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(policy_model) Traceback (most recent call last):
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(policy_model)     return self.receive_nowait()
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(policy_model)     raise WouldBlock
+(policy_model) anyio.WouldBlock
+(policy_model) 
+(policy_model) During handling of the above exception, another exception occurred:
+(policy_model) 
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(policy_model)     return await call_next(request)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent) INFO:     127.0.0.1:60481 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(policy_model)     message = await recv_stream.receive()
+(policy_model)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(policy_model)     await receive_event.wait()
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(policy_model)     await self._event.wait()
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(policy_model)     await fut
+(policy_model) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(policy_model) 🚨 Caught an unknown exception printed above in policy_model (SimpleModelServer). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(policy_model) INFO:     127.0.0.1:60660 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(policy_model) INFO:     Application shutdown complete.
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(policy_model) INFO:     Finished server process [23371]
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) INFO:     127.0.0.1:60479 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) INFO:     127.0.0.1:60478 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) INFO:     127.0.0.1:60482 - "POST /v1/responses HTTP/1.1" 500 Internal Server Error
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 117, in receive
+(marketplace_agent)     return self.receive_nowait()
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 112, in receive_nowait
+(marketplace_agent)     raise WouldBlock
+(marketplace_agent) anyio.WouldBlock
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 509, in exception_handling_middleware
+(marketplace_agent)     return await call_next(request)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+(marketplace_agent)     message = await recv_stream.receive()
+(marketplace_agent)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 125, in receive
+(marketplace_agent)     await receive_event.wait()
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1804, in wait
+(marketplace_agent)     await self._event.wait()
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/locks.py", line 212, in wait
+(marketplace_agent)     await fut
+(marketplace_agent) asyncio.exceptions.CancelledError: Task cancelled, timeout graceful shutdown exceeded
+(marketplace_agent) 🚨 Caught an unknown exception printed above in marketplace_agent (SimpleAgent). If you expect this to be fed back into this model, nothing meaningful is returned to the model. Please make sure this exception is caught in your server and returned to the model as appropriate. See https://fastapi.tiangolo.com/tutorial/handling-errors/#use-httpexception
+(marketplace_agent) INFO:     Application shutdown complete.
+(marketplace_agent) INFO:     Finished server process [23373]
+(policy_model) ERROR:    Exception in ASGI application
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(policy_model)     return runner.run(main)
+(policy_model)            ^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(policy_model)     return self._loop.run_until_complete(task)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(policy_model)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(policy_model)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(policy_model)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(policy_model)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(policy_model)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(policy_model)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(policy_model)     with self.capture_signals():
+(policy_model)          ^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(policy_model)     next(self.gen)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(policy_model)     signal.raise_signal(captured_signal)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(policy_model)     sys.exit(signum)
+(policy_model) SystemExit: 15
+(policy_model) 
+(policy_model) During handling of the above exception, another exception occurred:
+(policy_model) 
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(policy_model)     result = await app(  # type: ignore[func-returns-value]
+(policy_model)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(policy_model)     return await self.app(scope, receive, send)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(policy_model)     await super().__call__(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(policy_model)     await self.middleware_stack(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(policy_model)     await self.app(scope, receive, _send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(policy_model)     async with anyio.create_task_group() as task_group:
+(policy_model)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(policy_model)     raise exc_val
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(policy_model)     await self._on_completed_fut
+(policy_model) asyncio.exceptions.CancelledError
+(policy_model) ERROR:    Exception in ASGI application
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(policy_model)     return runner.run(main)
+(policy_model)            ^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(policy_model)     return self._loop.run_until_complete(task)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(policy_model)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(policy_model)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(policy_model)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(policy_model)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(policy_model)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(policy_model)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(policy_model)     with self.capture_signals():
+(policy_model)          ^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(policy_model)     next(self.gen)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(policy_model)     signal.raise_signal(captured_signal)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(policy_model)     sys.exit(signum)
+(policy_model) SystemExit: 15
+(policy_model) 
+(policy_model) During handling of the above exception, another exception occurred:
+(policy_model) 
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(policy_model)     result = await app(  # type: ignore[func-returns-value]
+(policy_model)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(policy_model)     return await self.app(scope, receive, send)
+(policy_model)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(policy_model)     await super().__call__(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(policy_model)     await self.middleware_stack(scope, receive, send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(policy_model)     await self.app(scope, receive, _send)
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(policy_model)     async with anyio.create_task_group() as task_group:
+(policy_model)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(policy_model)     raise exc_val
+(policy_model)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(policy_model)     await self._on_completed_fut
+(policy_model) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+(marketplace_agent) ERROR:    Exception in ASGI application
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+(marketplace_agent)     return runner.run(main)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+(marketplace_agent)     return self._loop.run_until_complete(task)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "uvloop/loop.pyx", line 1512, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1505, in uvloop.loop.Loop.run_until_complete
+(marketplace_agent)   File "uvloop/loop.pyx", line 1379, in uvloop.loop.Loop.run_forever
+(marketplace_agent)   File "uvloop/loop.pyx", line 557, in uvloop.loop.Loop._run
+(marketplace_agent)   File "uvloop/loop.pyx", line 476, in uvloop.loop.Loop._on_idle
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 83, in uvloop.loop.Handle._run
+(marketplace_agent)   File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+(marketplace_agent)     with self.capture_signals():
+(marketplace_agent)          ^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 144, in __exit__
+(marketplace_agent)     next(self.gen)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+(marketplace_agent)     signal.raise_signal(captured_signal)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1657, in sigterm_handler
+(marketplace_agent)     sys.exit(signum)
+(marketplace_agent) SystemExit: 15
+(marketplace_agent) 
+(marketplace_agent) During handling of the above exception, another exception occurred:
+(marketplace_agent) 
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+(marketplace_agent)     result = await app(  # type: ignore[func-returns-value]
+(marketplace_agent)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 56, in __call__
+(marketplace_agent)     return await self.app(scope, receive, send)
+(marketplace_agent)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+(marketplace_agent)     await super().__call__(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+(marketplace_agent)     await self.middleware_stack(scope, receive, send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+(marketplace_agent)     await self.app(scope, receive, _send)
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 192, in __call__
+(marketplace_agent)     async with anyio.create_task_group() as task_group:
+(marketplace_agent)                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 803, in __aexit__
+(marketplace_agent)     raise exc_val
+(marketplace_agent)   File "/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 771, in __aexit__
+(marketplace_agent)     await self._on_completed_fut
+(marketplace_agent) asyncio.exceptions.CancelledError
+18:37:04 === RESTARTING ng_run for PHASE 2 (retry after crash) ===
+NeMo Gym is starting a new Ray cluster...
+2026-05-16 18:37:14,738	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Started Ray cluster at 127.0.0.1:60783
+Waiting for head server to spin up
+Head server is not up yet (status `connection_error`). Sleeping...
+INFO:     Started server process [24919]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
+(policy_model) Using CPython 3.12.13
+(policy_model) Creating virtual environment with seed packages at: .venv
+(policy_model) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
+(marketplace) Using CPython 3.12.13
+(marketplace) Creating virtual environment with seed packages at: .venv
+(marketplace) Activate with: source .venv/bin/activate
+(marketplace_agent) Resolved 138 packages in 1.07s
+(marketplace_agent) Checked 138 packages in 2ms
+(policy_model) Resolved 138 packages in 1.07s
+(policy_model) Checked 138 packages in 2ms
+(marketplace) Resolved 139 packages in 1.07s
+(marketplace) Checked 139 packages in 2ms
+Connecting to Ray cluster at specified address: 127.0.0.1:60783
+2026-05-16 18:37:18,180	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:60783...
+2026-05-16 18:37:18,206	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(policy_model) INFO:     Started server process [25008]
+(policy_model) INFO:     Waiting for application startup.
+(policy_model) INFO:     Application startup complete.
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:18328 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61045 - "GET / HTTP/1.1" 404 Not Found
+Waiting for servers to spin up
+(policy_model) INFO:     127.0.0.1:61048 - "GET / HTTP/1.1" 404 Not Found
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+1 / 3 servers ready. Waiting for servers to spin up: ['marketplace', 'marketplace_agent']
+Connecting to Ray cluster at specified address: 127.0.0.1:60783
+2026-05-16 18:37:18,562	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:60783...
+2026-05-16 18:37:18,589	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Connecting to Ray cluster at specified address: 127.0.0.1:60783
+2026-05-16 18:37:18,647	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:60783...
+(marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+2026-05-16 18:37:18,674	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+(marketplace_agent) INFO:     Started server process [25007]
+(marketplace_agent) INFO:     Waiting for application startup.
+(marketplace_agent) INFO:     Application startup complete.
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:15184 (Press CTRL+C to quit)
+/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace) INFO:     Started server process [25009]
+(marketplace) INFO:     Waiting for application startup.
+(marketplace) INFO:     Application startup complete.
+(marketplace) INFO:     Uvicorn running on http://127.0.0.1:19415 (Press CTRL+C to quit)
+(marketplace) INFO:     127.0.0.1:61060 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:61061 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace (resources_servers/marketplace)
+{
+    'config_path': 'marketplace',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 24957,
+    'port': 19415,
+    'process_name': 'marketplace',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:19415',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 24958,
+    'port': 15184,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:15184',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 24964,
+    'port': 18328,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:18328',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:61062 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61063 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61071 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61072 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61078 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61079 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61103 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61104 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61108 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61109 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61113 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61114 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61120 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61125 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61126 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61130 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61131 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61135 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61136 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61140 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61141 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61145 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61146 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61151 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61152 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61157 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61158 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61162 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61163 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61167 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61168 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61172 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61173 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61177 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61178 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61183 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61184 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61189 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61190 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61194 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61195 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61200 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61201 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61205 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61206 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61210 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61211 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61216 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61217 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61221 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61222 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61226 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61227 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61232 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61233 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61243 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61244 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61251 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61252 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61257 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61258 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61263 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61264 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61269 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61270 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61275 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61276 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61281 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61282 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61286 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61287 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61291 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61292 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61297 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61298 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61304 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61305 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61310 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61311 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61315 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61316 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61320 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61321 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61325 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61326 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61330 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61331 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61335 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61336 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61340 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61341 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61347 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61348 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61356 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61357 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61368 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61369 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61374 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61375 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61379 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61380 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61384 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61385 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61391 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61392 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61399 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61400 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61405 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61406 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61411 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61412 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61416 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61417 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61421 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61422 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61427 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61428 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61432 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace) INFO:     Shutting down
+(policy_model) INFO:     Shutting down
+(marketplace_agent) INFO:     Shutting down
+(marketplace) INFO:     Waiting for application shutdown.
+(marketplace_agent) INFO:     Waiting for application shutdown.
+(policy_model) INFO:     Waiting for application shutdown.
+(marketplace_agent) INFO:     Application shutdown complete.
+(marketplace_agent) INFO:     Finished server process [25007]
+(policy_model) INFO:     Application shutdown complete.
+(marketplace) INFO:     Application shutdown complete.
+(marketplace) INFO:     Finished server process [25009]
+(policy_model) INFO:     Finished server process [25008]

@@ -1,0 +1,15 @@
+{
+  "snapshot_id": "run_5tasks_focalSvH_seed42_20260516_120606",
+  "phase": 1,
+  "kind": "5tasks",
+  "config_tag": "focalSvH",
+  "seed_tag": "seed42",
+  "timestamp_utc": "2026-05-16T12:06:06.923911Z",
+  "rollout_count": 5,
+  "archived_run_folders": 5,
+  "source": {
+    "rollouts_jsonl": "results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl",
+    "aggregate_metrics_json": "results/phase_1/phase1_5task_sonnet_focal_rollouts_aggregate_metrics.json",
+    "materialized_inputs_jsonl": "results/phase_1/phase1_5task_sonnet_focal_rollouts_materialized_inputs.jsonl"
+  }
+}

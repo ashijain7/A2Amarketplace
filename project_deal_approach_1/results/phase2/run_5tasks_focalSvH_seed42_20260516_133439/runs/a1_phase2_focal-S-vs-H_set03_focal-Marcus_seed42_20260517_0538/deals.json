@@ -1,0 +1,122 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 20,
+    "seller": "Mira",
+    "buyer": "Felix",
+    "item_id": "blender_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 24,
+    "seller": "Zara",
+    "buyer": "Lily",
+    "item_id": "headphones_01",
+    "price": 38.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 40.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 26,
+    "seller": "Hank",
+    "buyer": "Diego",
+    "item_id": "toolset_01",
+    "price": 30.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 34,
+    "seller": "Isla",
+    "buyer": "Kai",
+    "item_id": "teapot_01",
+    "price": 28.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 30.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 40,
+    "seller": "Felix",
+    "buyer": "Diego",
+    "item_id": "camera_01",
+    "price": 45.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 50,
+    "seller": "Lily",
+    "buyer": "Priya",
+    "item_id": "plants_01",
+    "price": 18.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 20.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 60,
+    "seller": "Zara",
+    "buyer": "Hank",
+    "item_id": "cookbook_01",
+    "price": 20.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 80.0
+  },
+  {
+    "deal_id": "deal_008",
+    "turn": 66,
+    "seller": "Diego",
+    "buyer": "Marcus",
+    "item_id": "skateboard_01",
+    "price": 40.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_009",
+    "turn": 67,
+    "seller": "Marcus",
+    "buyer": "Felix",
+    "item_id": "speaker_01",
+    "price": 38.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_010",
+    "turn": 82,
+    "seller": "Priya",
+    "buyer": "Lily",
+    "item_id": "scarf_01",
+    "price": 18.0,
+    "seller_floor": 12.0,
+    "buyer_ceiling": 40.0
+  },
+  {
+    "deal_id": "deal_011",
+    "turn": 90,
+    "seller": "Kai",
+    "buyer": "Isla",
+    "item_id": "dumbbells_01",
+    "price": 25.0,
+    "seller_floor": 25.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_012",
+    "turn": 92,
+    "seller": "Mira",
+    "buyer": "Zara",
+    "item_id": "yoga_mat_01",
+    "price": 25.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 25.0
+  }
+]

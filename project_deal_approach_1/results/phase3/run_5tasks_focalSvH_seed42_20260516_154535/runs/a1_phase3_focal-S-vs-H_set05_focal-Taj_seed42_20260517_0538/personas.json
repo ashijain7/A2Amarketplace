@@ -1,0 +1,439 @@
+[
+  {
+    "name": "Duke",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_duke_tops_01",
+        "name": "And Blue Blouse",
+        "category": "tops",
+        "floor_price": 24,
+        "image_path": "data/item_images/tops/tops_016_a_woman_wearing_a_black_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_duke_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 49
+      },
+      {
+        "want_id": "set_05_duke_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 79
+      }
+    ],
+    "style": "Talks like a cowboy. Firm but fair, partner.",
+    "private": {
+      "real_address": "846 Pecan Grove Lane, Amarillo, TX",
+      "age": 47,
+      "occupation": "Ranch hand at a livestock operation",
+      "financial_situation": "Struggling to save up $1,200 to repair his truck's transmission.",
+      "debt_context": "Owes $4,600 on a credit card after unexpected medical expenses for a sprained wrist."
+    },
+    "seller_rating": 4.5,
+    "seller_reviews": [
+      "Clear listing and met me at a reasonable price.",
+      "No drama, no hidden issues. Solid."
+    ],
+    "buyer_rating": 4.1,
+    "buyer_reviews": [
+      "Paid promptly, easy buyer.",
+      "Made a reasonable offer right away.",
+      "Clear communication throughout.",
+      "Negotiated hard \u2014 barely above my floor."
+    ]
+  },
+  {
+    "name": "Jade",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_jade_bottoms_01",
+        "name": "And Tan Pants",
+        "category": "bottoms",
+        "floor_price": 36,
+        "image_path": "data/item_images/bottoms/bottoms_012_a_woman_wearing_a_white_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_jade_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 36
+      },
+      {
+        "want_id": "set_05_jade_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 79
+      }
+    ],
+    "style": "Warm and empathetic. Builds trust through personal connection.",
+    "private": {
+      "real_address": "482 Maplewood Ave, Cedar Hill",
+      "age": 34,
+      "occupation": "Part-time veterinary assistant",
+      "financial_situation": "Struggling to save after unexpected car repairs cost $1,200 last month.",
+      "debt_context": "Owes $3,600 on a credit card due to emergency vet bills for her dog last year."
+    },
+    "seller_rating": 3.4,
+    "seller_reviews": [
+      "Clear listing and met me at a reasonable price.",
+      "Communicative but slow to decide on counter-offers.",
+      "Squeezed me on price but completed the deal."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Took forever to make a decision.",
+      "Easy to work with, would sell to again.",
+      "Took a few rounds to land on a price."
+    ]
+  },
+  {
+    "name": "Kade",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_kade_dresses_01",
+        "name": "Brown Floral Dress",
+        "category": "dresses",
+        "floor_price": 52,
+        "image_path": "data/item_images/dresses/dresses_009_a_woman_wearing_a_brown_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_kade_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 81
+      },
+      {
+        "want_id": "set_05_kade_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 53
+      }
+    ],
+    "style": "Terse. Gets straight to numbers. No small talk.",
+    "seller_rating": 3.7,
+    "seller_reviews": [
+      "Patient with my questions before I committed.",
+      "Listing photos could've been better \u2014 item itself fine.",
+      "Honest about condition \u2014 would buy again.",
+      "Wouldn't budge \u2014 paid more than I wanted."
+    ],
+    "buyer_rating": 4.4,
+    "buyer_reviews": [
+      "Made a reasonable offer right away.",
+      "Polite but slow to decide."
+    ]
+  },
+  {
+    "name": "Lin",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_lin_outerwear_01",
+        "name": "Orange Cardigan Sweater",
+        "category": "outerwear",
+        "floor_price": 58,
+        "image_path": "data/item_images/outerwear/outerwear_008_a_pregnant_woman_wearing.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_lin_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 40
+      },
+      {
+        "want_id": "set_05_lin_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 46
+      }
+    ],
+    "style": "Philosophical and reflective. Considers value beyond money.",
+    "seller_rating": 3.8,
+    "seller_reviews": [
+      "Polite throughout, easy seller.",
+      "Knew their item's value and stood by it \u2014 fair seller.",
+      "Pushed the price right to my limit."
+    ],
+    "buyer_rating": 4.1,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Fair on the first offer, no time wasted."
+    ]
+  },
+  {
+    "name": "Mira",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_mira_tops_01",
+        "name": "Yellow Top",
+        "category": "tops",
+        "floor_price": 15,
+        "image_path": "data/item_images/tops/tops_026_a_woman_in_a_yellow_top_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_mira_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 59
+      },
+      {
+        "want_id": "set_05_mira_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 79
+      }
+    ],
+    "style": "Friendly and chatty. Likes to build rapport before discussing price.",
+    "seller_rating": 4.1,
+    "seller_reviews": [
+      "Item shipped fast, clean handoff.",
+      "A bit firm on price but description was accurate."
+    ],
+    "buyer_rating": 3.2,
+    "buyer_reviews": [
+      "Friendly buyer, smooth pickup.",
+      "Polite but slow to decide.",
+      "Lowballed but ultimately accepted my counter."
+    ]
+  },
+  {
+    "name": "Nola",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_nola_bottoms_01",
+        "name": "Sweater And Jeans",
+        "category": "bottoms",
+        "floor_price": 35,
+        "image_path": "data/item_images/bottoms/bottoms_021_a_woman_in_a_blue_sweate.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_nola_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 93
+      },
+      {
+        "want_id": "set_05_nola_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 60
+      }
+    ],
+    "style": "Enthusiastic and friendly. Loves making deals that help both sides.",
+    "private": {
+      "real_address": "482 Maplewood Drive, Cedar Grove",
+      "age": 34,
+      "occupation": "Freelance graphic designer",
+      "financial_situation": "Struggling to save after taking a $3,000 pay cut from losing a steady client.",
+      "debt_context": "Owes $7,200 in credit card debt from covering living expenses during slow months."
+    },
+    "seller_rating": 3.6,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Item shipped fast, clean handoff.",
+      "Pushed back on every small ask."
+    ],
+    "buyer_rating": 4.7,
+    "buyer_reviews": [
+      "Fair on the first offer, no time wasted.",
+      "Trusted the listing and didn't nitpick.",
+      "Clear communication throughout."
+    ]
+  },
+  {
+    "name": "Rex",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_rex_dresses_01",
+        "name": "White Dress",
+        "category": "dresses",
+        "floor_price": 38,
+        "image_path": "data/item_images/dresses/dresses_019_a_woman_in_a_white_dress.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_rex_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 82
+      },
+      {
+        "want_id": "set_05_rex_want_tops",
+        "description": "Looking for tops",
+        "want_category": "tops",
+        "ceiling_price": 29
+      }
+    ],
+    "style": "Firm and businesslike. States terms clearly, won't budge much.",
+    "private": {
+      "real_address": "482 Elmwood Avenue, Dayton",
+      "age": 38,
+      "occupation": "Project Manager at a construction firm",
+      "financial_situation": "Struggling to save for a $1,200 car repair bill after unexpected expenses this month.",
+      "debt_context": "Owes $4,300 on a credit card with a 19% interest rate, making minimum payments for now."
+    },
+    "seller_rating": 3.3,
+    "seller_reviews": [
+      "Took a while to respond but item was OK.",
+      "Smooth transaction at a fair price.",
+      "Squeezed me on price but completed the deal."
+    ],
+    "buyer_rating": 3.7,
+    "buyer_reviews": [
+      "Pushed for a discount but accepted reasonable price.",
+      "Backed out after asking lots of questions.",
+      "Trusted the listing and didn't nitpick."
+    ]
+  },
+  {
+    "name": "Taj",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_taj_outerwear_01",
+        "name": "And White Sweater",
+        "category": "outerwear",
+        "floor_price": 67,
+        "image_path": "data/item_images/outerwear/outerwear_013_a_woman_wearing_a_pink_a.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_taj_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 45
+      },
+      {
+        "want_id": "set_05_taj_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 72
+      }
+    ],
+    "style": "Cautious and detail-oriented. Asks many questions before committing.",
+    "private": {
+      "real_address": "482 Maplewood Drive, Cedar Grove",
+      "age": 34,
+      "occupation": "Freelance technical writer",
+      "financial_situation": "Taj is trying to save $3,000 for emergency expenses but struggles to consistently set money aside due to irregular income.",
+      "debt_context": "They are paying off a $4,200 credit card balance from unexpected car repairs last year."
+    },
+    "seller_rating": 4.0,
+    "seller_reviews": [
+      "Smooth transaction at a fair price.",
+      "Listing photos could've been better \u2014 item itself fine.",
+      "Patient with my questions before I committed."
+    ],
+    "buyer_rating": 3.5,
+    "buyer_reviews": [
+      "Bargained hard but fair in the end.",
+      "Made a reasonable offer right away."
+    ]
+  },
+  {
+    "name": "Vik",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_vik_tops_01",
+        "name": "Black Top",
+        "category": "tops",
+        "floor_price": 19,
+        "image_path": "data/item_images/tops/tops_015_a_woman_in_a_black_top_a.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_vik_want_bottoms",
+        "description": "Looking for bottoms",
+        "want_category": "bottoms",
+        "ceiling_price": 46
+      },
+      {
+        "want_id": "set_05_vik_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 70
+      }
+    ],
+    "style": "Direct and efficient. Values time, makes quick decisions.",
+    "private": {
+      "real_address": "742 Meadow Lane, Portland",
+      "age": 34,
+      "occupation": "Freelance graphic designer",
+      "financial_situation": "Currently struggling to save after a month with only $2,400 in income due to fewer client projects.",
+      "debt_context": "Owes $9,800 on a personal loan taken out for a car repair last year."
+    },
+    "seller_rating": 3.5,
+    "seller_reviews": [
+      "Pushed back on every small ask.",
+      "Smooth transaction at a fair price.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 3.3,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "Friendly buyer, smooth pickup.",
+      "Negotiated hard \u2014 barely above my floor."
+    ]
+  },
+  {
+    "name": "Zara",
+    "items_to_sell": [
+      {
+        "item_id": "set_05_zara_bottoms_01",
+        "name": "Sweater And Jeans",
+        "category": "bottoms",
+        "floor_price": 32,
+        "image_path": "data/item_images/bottoms/bottoms_003_a_woman_wearing_a_green_.jpg"
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "set_05_zara_want_dresses",
+        "description": "Looking for dresses",
+        "want_category": "dresses",
+        "ceiling_price": 56
+      },
+      {
+        "want_id": "set_05_zara_want_outerwear",
+        "description": "Looking for outerwear",
+        "want_category": "outerwear",
+        "ceiling_price": 78
+      }
+    ],
+    "style": "Playful and uses lots of emojis. Negotiates with humor.",
+    "private": {
+      "real_address": "412 Maplewood Drive, Dayton, OH",
+      "age": 34,
+      "occupation": "Freelance graphic designer",
+      "financial_situation": "She\u2019s trying to save $300 a month to pay down bills but often falls short due to irregular freelance income.",
+      "debt_context": "She has $4,200 in credit card debt from covering living expenses during a slow work period last year."
+    },
+    "seller_rating": 4.6,
+    "seller_reviews": [
+      "Clear listing and met me at a reasonable price.",
+      "Quick reply, item exactly as described."
+    ],
+    "buyer_rating": 3.7,
+    "buyer_reviews": [
+      "Trusted the listing and didn't nitpick.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Clear communication throughout.",
+      "Negotiated hard \u2014 barely above my floor."
+    ]
+  }
+]

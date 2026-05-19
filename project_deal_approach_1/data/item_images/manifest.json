@@ -1,0 +1,716 @@
+{
+  "dataset": "lirus18/deepfashion_with_captions",
+  "max_long_edge": 512,
+  "jpeg_quality": 80,
+  "sample_seed": 42,
+  "categories": {
+    "tops": [
+      {
+        "item_id": "tops_001_a_woman_in_a_black_top_a",
+        "category": "tops",
+        "caption": "a woman in a black top and a denim skirt",
+        "relative_path": "data/item_images/tops/tops_001_a_woman_in_a_black_top_a.jpg",
+        "size_kb": 18.8
+      },
+      {
+        "item_id": "tops_002_a_woman_wearing_a_blue_t",
+        "category": "tops",
+        "caption": "a woman wearing a blue top and white pants",
+        "relative_path": "data/item_images/tops/tops_002_a_woman_wearing_a_blue_t.jpg",
+        "size_kb": 14.2
+      },
+      {
+        "item_id": "tops_003_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white t - shirt and striped pants",
+        "relative_path": "data/item_images/tops/tops_003_a_woman_wearing_a_white_.jpg",
+        "size_kb": 22.0
+      },
+      {
+        "item_id": "tops_004_a_woman_in_a_white_shirt",
+        "category": "tops",
+        "caption": "a woman in a white shirt and jeans poses for a picture",
+        "relative_path": "data/item_images/tops/tops_004_a_woman_in_a_white_shirt.jpg",
+        "size_kb": 18.7
+      },
+      {
+        "item_id": "tops_005_a_woman_in_a_black_turtl",
+        "category": "tops",
+        "caption": "a woman in a black turtle neck top and plaid pants",
+        "relative_path": "data/item_images/tops/tops_005_a_woman_in_a_black_turtl.jpg",
+        "size_kb": 19.5
+      },
+      {
+        "item_id": "tops_006_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white top with a high neck and a tie",
+        "relative_path": "data/item_images/tops/tops_006_a_woman_wearing_a_white_.jpg",
+        "size_kb": 13.3
+      },
+      {
+        "item_id": "tops_007_a_woman_wearing_a_pink_t",
+        "category": "tops",
+        "caption": "a woman wearing a pink t - shirt with a slogan on it",
+        "relative_path": "data/item_images/tops/tops_007_a_woman_wearing_a_pink_t.jpg",
+        "size_kb": 16.2
+      },
+      {
+        "item_id": "tops_008_a_woman_in_a_blue_top_an",
+        "category": "tops",
+        "caption": "a woman in a blue top and white pants posing for a picture",
+        "relative_path": "data/item_images/tops/tops_008_a_woman_in_a_blue_top_an.jpg",
+        "size_kb": 18.5
+      },
+      {
+        "item_id": "tops_009_a_woman_wearing_a_black_",
+        "category": "tops",
+        "caption": "a woman wearing a black floral blouse with a tie",
+        "relative_path": "data/item_images/tops/tops_009_a_woman_wearing_a_black_.jpg",
+        "size_kb": 27.7
+      },
+      {
+        "item_id": "tops_010_a_woman_wearing_a_navy_t",
+        "category": "tops",
+        "caption": "a woman wearing a navy top and tan pants",
+        "relative_path": "data/item_images/tops/tops_010_a_woman_wearing_a_navy_t.jpg",
+        "size_kb": 17.2
+      },
+      {
+        "item_id": "tops_011_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white top with lace trim and black pants",
+        "relative_path": "data/item_images/tops/tops_011_a_woman_wearing_a_white_.jpg",
+        "size_kb": 15.5
+      },
+      {
+        "item_id": "tops_012_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white shirt and blue pants",
+        "relative_path": "data/item_images/tops/tops_012_a_woman_wearing_a_white_.jpg",
+        "size_kb": 18.5
+      },
+      {
+        "item_id": "tops_013_a_woman_wearing_a_black_",
+        "category": "tops",
+        "caption": "a woman wearing a black top and a plaid skirt",
+        "relative_path": "data/item_images/tops/tops_013_a_woman_wearing_a_black_.jpg",
+        "size_kb": 26.1
+      },
+      {
+        "item_id": "tops_014_a_woman_wearing_a_blue_t",
+        "category": "tops",
+        "caption": "a woman wearing a blue top with polka dots on it",
+        "relative_path": "data/item_images/tops/tops_014_a_woman_wearing_a_blue_t.jpg",
+        "size_kb": 18.4
+      },
+      {
+        "item_id": "tops_015_a_woman_in_a_black_top_a",
+        "category": "tops",
+        "caption": "a woman in a black top and green pants posing for a picture",
+        "relative_path": "data/item_images/tops/tops_015_a_woman_in_a_black_top_a.jpg",
+        "size_kb": 15.8
+      },
+      {
+        "item_id": "tops_016_a_woman_wearing_a_black_",
+        "category": "tops",
+        "caption": "a woman wearing a black and blue blouse with a black and white print",
+        "relative_path": "data/item_images/tops/tops_016_a_woman_wearing_a_black_.jpg",
+        "size_kb": 25.5
+      },
+      {
+        "item_id": "tops_017_a_woman_wearing_a_green_",
+        "category": "tops",
+        "caption": "a woman wearing a green blouse and polka dot skirt",
+        "relative_path": "data/item_images/tops/tops_017_a_woman_wearing_a_green_.jpg",
+        "size_kb": 28.2
+      },
+      {
+        "item_id": "tops_018_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white top and brown pants",
+        "relative_path": "data/item_images/tops/tops_018_a_woman_wearing_a_white_.jpg",
+        "size_kb": 14.9
+      },
+      {
+        "item_id": "tops_019_a_woman_wearing_a_white_",
+        "category": "tops",
+        "caption": "a woman wearing a white blouse and jeans stands in front of a white background",
+        "relative_path": "data/item_images/tops/tops_019_a_woman_wearing_a_white_.jpg",
+        "size_kb": 19.5
+      },
+      {
+        "item_id": "tops_020_a_woman_in_a_skirt_and_t",
+        "category": "tops",
+        "caption": "a woman in a skirt and top with polka dots on it",
+        "relative_path": "data/item_images/tops/tops_020_a_woman_in_a_skirt_and_t.jpg",
+        "size_kb": 19.3
+      },
+      {
+        "item_id": "tops_021_a_woman_wearing_a_yellow",
+        "category": "tops",
+        "caption": "a woman wearing a yellow shirt with a white bird print",
+        "relative_path": "data/item_images/tops/tops_021_a_woman_wearing_a_yellow.jpg",
+        "size_kb": 18.8
+      },
+      {
+        "item_id": "tops_022_a_woman_wearing_a_black_",
+        "category": "tops",
+        "caption": "a woman wearing a black and red floral blouse and jeans",
+        "relative_path": "data/item_images/tops/tops_022_a_woman_wearing_a_black_.jpg",
+        "size_kb": 33.0
+      },
+      {
+        "item_id": "tops_023_a_woman_with_long_blonde",
+        "category": "tops",
+        "caption": "a woman with long blonde hair wearing a white top and shorts",
+        "relative_path": "data/item_images/tops/tops_023_a_woman_with_long_blonde.jpg",
+        "size_kb": 20.4
+      },
+      {
+        "item_id": "tops_024_a_woman_wearing_a_blue_t",
+        "category": "tops",
+        "caption": "a woman wearing a blue top with a lace collar",
+        "relative_path": "data/item_images/tops/tops_024_a_woman_wearing_a_blue_t.jpg",
+        "size_kb": 16.2
+      },
+      {
+        "item_id": "tops_025_a_woman_wearing_a_black_",
+        "category": "tops",
+        "caption": "a woman wearing a black tank top and jeans standing up",
+        "relative_path": "data/item_images/tops/tops_025_a_woman_wearing_a_black_.jpg",
+        "size_kb": 22.1
+      },
+      {
+        "item_id": "tops_026_a_woman_in_a_yellow_top_",
+        "category": "tops",
+        "caption": "a woman in a yellow top and black jeans stands against a white wall",
+        "relative_path": "data/item_images/tops/tops_026_a_woman_in_a_yellow_top_.jpg",
+        "size_kb": 15.8
+      },
+      {
+        "item_id": "tops_027_a_woman_wearing_a_purple",
+        "category": "tops",
+        "caption": "a woman wearing a purple top and black leather skirt",
+        "relative_path": "data/item_images/tops/tops_027_a_woman_wearing_a_purple.jpg",
+        "size_kb": 18.7
+      },
+      {
+        "item_id": "tops_028_a_woman_wearing_a_blue_s",
+        "category": "tops",
+        "caption": "a woman wearing a blue shirt and black skirt",
+        "relative_path": "data/item_images/tops/tops_028_a_woman_wearing_a_blue_s.jpg",
+        "size_kb": 16.6
+      },
+      {
+        "item_id": "tops_029_a_woman_in_a_black_top_a",
+        "category": "tops",
+        "caption": "a woman in a black top and white pants posing for a picture",
+        "relative_path": "data/item_images/tops/tops_029_a_woman_in_a_black_top_a.jpg",
+        "size_kb": 14.3
+      },
+      {
+        "item_id": "tops_030_a_woman_wearing_a_blue_a",
+        "category": "tops",
+        "caption": "a woman wearing a blue and orange top and a skirt",
+        "relative_path": "data/item_images/tops/tops_030_a_woman_wearing_a_blue_a.jpg",
+        "size_kb": 26.0
+      }
+    ],
+    "bottoms": [
+      {
+        "item_id": "bottoms_001_a_woman_wearing_a_blue_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a blue sweater and white pants",
+        "relative_path": "data/item_images/bottoms/bottoms_001_a_woman_wearing_a_blue_s.jpg",
+        "size_kb": 17.7
+      },
+      {
+        "item_id": "bottoms_002_a_woman_wearing_a_blue_t",
+        "category": "bottoms",
+        "caption": "a woman wearing a blue turtle neck sweater and black wide legged pants",
+        "relative_path": "data/item_images/bottoms/bottoms_002_a_woman_wearing_a_blue_t.jpg",
+        "size_kb": 12.5
+      },
+      {
+        "item_id": "bottoms_003_a_woman_wearing_a_green_",
+        "category": "bottoms",
+        "caption": "a woman wearing a green sweater and jeans stands in front of a white wall",
+        "relative_path": "data/item_images/bottoms/bottoms_003_a_woman_wearing_a_green_.jpg",
+        "size_kb": 15.9
+      },
+      {
+        "item_id": "bottoms_004_a_woman_wearing_a_grey_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a grey sweater and plaid pants",
+        "relative_path": "data/item_images/bottoms/bottoms_004_a_woman_wearing_a_grey_s.jpg",
+        "size_kb": 15.4
+      },
+      {
+        "item_id": "bottoms_005_a_woman_in_a_tan_sweater",
+        "category": "bottoms",
+        "caption": "a woman in a tan sweater and black pants posing for a picture",
+        "relative_path": "data/item_images/bottoms/bottoms_005_a_woman_in_a_tan_sweater.jpg",
+        "size_kb": 16.2
+      },
+      {
+        "item_id": "bottoms_006_a_woman_wearing_a_black_",
+        "category": "bottoms",
+        "caption": "a woman wearing a black skirt and a red top",
+        "relative_path": "data/item_images/bottoms/bottoms_006_a_woman_wearing_a_black_.jpg",
+        "size_kb": 19.0
+      },
+      {
+        "item_id": "bottoms_007_a_woman_wearing_a_pink_p",
+        "category": "bottoms",
+        "caption": "a woman wearing a pink pants and a black and white sweater",
+        "relative_path": "data/item_images/bottoms/bottoms_007_a_woman_wearing_a_pink_p.jpg",
+        "size_kb": 29.5
+      },
+      {
+        "item_id": "bottoms_008_a_woman_wearing_a_grey_t",
+        "category": "bottoms",
+        "caption": "a woman wearing a grey turtle neck sweater and jeans",
+        "relative_path": "data/item_images/bottoms/bottoms_008_a_woman_wearing_a_grey_t.jpg",
+        "size_kb": 20.9
+      },
+      {
+        "item_id": "bottoms_009_a_woman_wearing_a_white_",
+        "category": "bottoms",
+        "caption": "a woman wearing a white sweater and jeans stands in front of a white background",
+        "relative_path": "data/item_images/bottoms/bottoms_009_a_woman_wearing_a_white_.jpg",
+        "size_kb": 18.0
+      },
+      {
+        "item_id": "bottoms_010_a_woman_wearing_a_black_",
+        "category": "bottoms",
+        "caption": "a woman wearing a black sweater and leather pants",
+        "relative_path": "data/item_images/bottoms/bottoms_010_a_woman_wearing_a_black_.jpg",
+        "size_kb": 13.1
+      },
+      {
+        "item_id": "bottoms_011_a_woman_wearing_a_navy_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a navy sweater and white pants",
+        "relative_path": "data/item_images/bottoms/bottoms_011_a_woman_wearing_a_navy_s.jpg",
+        "size_kb": 14.1
+      },
+      {
+        "item_id": "bottoms_012_a_woman_wearing_a_white_",
+        "category": "bottoms",
+        "caption": "a woman wearing a white sweater and tan pants",
+        "relative_path": "data/item_images/bottoms/bottoms_012_a_woman_wearing_a_white_.jpg",
+        "size_kb": 16.9
+      },
+      {
+        "item_id": "bottoms_013_a_woman_wearing_a_green_",
+        "category": "bottoms",
+        "caption": "a woman wearing a green turtle neck sweater and black leather pants",
+        "relative_path": "data/item_images/bottoms/bottoms_013_a_woman_wearing_a_green_.jpg",
+        "size_kb": 18.9
+      },
+      {
+        "item_id": "bottoms_014_a_woman_in_a_red_sweater",
+        "category": "bottoms",
+        "caption": "a woman in a red sweater and plaid skirt posing for a picture",
+        "relative_path": "data/item_images/bottoms/bottoms_014_a_woman_in_a_red_sweater.jpg",
+        "size_kb": 20.8
+      },
+      {
+        "item_id": "bottoms_015_a_woman_wearing_a_colorf",
+        "category": "bottoms",
+        "caption": "a woman wearing a colorful sweater and jeans stands in front of a white background",
+        "relative_path": "data/item_images/bottoms/bottoms_015_a_woman_wearing_a_colorf.jpg",
+        "size_kb": 18.5
+      },
+      {
+        "item_id": "bottoms_016_a_woman_wearing_a_black_",
+        "category": "bottoms",
+        "caption": "a woman wearing a black sweater and leopard print skirt",
+        "relative_path": "data/item_images/bottoms/bottoms_016_a_woman_wearing_a_black_.jpg",
+        "size_kb": 25.8
+      },
+      {
+        "item_id": "bottoms_017_a_woman_in_an_orange_ski",
+        "category": "bottoms",
+        "caption": "a woman in an orange skirt and white top",
+        "relative_path": "data/item_images/bottoms/bottoms_017_a_woman_in_an_orange_ski.jpg",
+        "size_kb": 15.1
+      },
+      {
+        "item_id": "bottoms_018_a_woman_in_black_leather",
+        "category": "bottoms",
+        "caption": "a woman in black leather pants and a black top",
+        "relative_path": "data/item_images/bottoms/bottoms_018_a_woman_in_black_leather.jpg",
+        "size_kb": 13.2
+      },
+      {
+        "item_id": "bottoms_019_a_woman_wearing_leopard_",
+        "category": "bottoms",
+        "caption": "a woman wearing leopard print pants and a black top",
+        "relative_path": "data/item_images/bottoms/bottoms_019_a_woman_wearing_leopard_.jpg",
+        "size_kb": 23.1
+      },
+      {
+        "item_id": "bottoms_020_a_woman_wearing_a_pink_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a pink sweater and black skirt",
+        "relative_path": "data/item_images/bottoms/bottoms_020_a_woman_wearing_a_pink_s.jpg",
+        "size_kb": 14.0
+      },
+      {
+        "item_id": "bottoms_021_a_woman_in_a_blue_sweate",
+        "category": "bottoms",
+        "caption": "a woman in a blue sweater and jeans is standing up",
+        "relative_path": "data/item_images/bottoms/bottoms_021_a_woman_in_a_blue_sweate.jpg",
+        "size_kb": 15.6
+      },
+      {
+        "item_id": "bottoms_022_a_woman_in_a_red_sweater",
+        "category": "bottoms",
+        "caption": "a woman in a red sweater and white pants stands with her hands in her pockets",
+        "relative_path": "data/item_images/bottoms/bottoms_022_a_woman_in_a_red_sweater.jpg",
+        "size_kb": 15.2
+      },
+      {
+        "item_id": "bottoms_023_a_woman_wearing_a_pink_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a pink sweater and white jeans",
+        "relative_path": "data/item_images/bottoms/bottoms_023_a_woman_wearing_a_pink_s.jpg",
+        "size_kb": 12.0
+      },
+      {
+        "item_id": "bottoms_024_a_woman_in_a_black_turtl",
+        "category": "bottoms",
+        "caption": "a woman in a black turtle neck sweater and black pants",
+        "relative_path": "data/item_images/bottoms/bottoms_024_a_woman_in_a_black_turtl.jpg",
+        "size_kb": 15.0
+      },
+      {
+        "item_id": "bottoms_025_a_woman_wearing_a_red_le",
+        "category": "bottoms",
+        "caption": "a woman wearing a red leather skirt and a blue top",
+        "relative_path": "data/item_images/bottoms/bottoms_025_a_woman_wearing_a_red_le.jpg",
+        "size_kb": 19.4
+      },
+      {
+        "item_id": "bottoms_026_a_woman_wearing_a_black_",
+        "category": "bottoms",
+        "caption": "a woman wearing a black turtle neck sweater and black pants",
+        "relative_path": "data/item_images/bottoms/bottoms_026_a_woman_wearing_a_black_.jpg",
+        "size_kb": 14.4
+      },
+      {
+        "item_id": "bottoms_027_a_woman_wearing_black_le",
+        "category": "bottoms",
+        "caption": "a woman wearing black leather pants and a sheer top",
+        "relative_path": "data/item_images/bottoms/bottoms_027_a_woman_wearing_black_le.jpg",
+        "size_kb": 17.8
+      },
+      {
+        "item_id": "bottoms_028_a_woman_in_a_trench_coat",
+        "category": "bottoms",
+        "caption": "a woman in a trench coat and ripped jeans poses for a picture",
+        "relative_path": "data/item_images/bottoms/bottoms_028_a_woman_in_a_trench_coat.jpg",
+        "size_kb": 16.7
+      },
+      {
+        "item_id": "bottoms_029_a_woman_wearing_a_pink_s",
+        "category": "bottoms",
+        "caption": "a woman wearing a pink sweater and tan pants",
+        "relative_path": "data/item_images/bottoms/bottoms_029_a_woman_wearing_a_pink_s.jpg",
+        "size_kb": 16.2
+      },
+      {
+        "item_id": "bottoms_030_a_woman_wearing_a_skirt_",
+        "category": "bottoms",
+        "caption": "a woman wearing a skirt and a polka dot top",
+        "relative_path": "data/item_images/bottoms/bottoms_030_a_woman_wearing_a_skirt_.jpg",
+        "size_kb": 22.2
+      }
+    ],
+    "dresses": [
+      {
+        "item_id": "dresses_001_a_woman_in_a_black_dress",
+        "category": "dresses",
+        "caption": "a woman in a black dress with sequins on the sleeves",
+        "relative_path": "data/item_images/dresses/dresses_001_a_woman_in_a_black_dress.jpg",
+        "size_kb": 13.0
+      },
+      {
+        "item_id": "dresses_002_a_woman_wearing_a_white_",
+        "category": "dresses",
+        "caption": "a woman wearing a white jumpsuit with a long sleeve and a buttoned waist",
+        "relative_path": "data/item_images/dresses/dresses_002_a_woman_wearing_a_white_.jpg",
+        "size_kb": 11.1
+      },
+      {
+        "item_id": "dresses_003_a_woman_wearing_a_stripe",
+        "category": "dresses",
+        "caption": "a woman wearing a striped dress with a tie around the waist",
+        "relative_path": "data/item_images/dresses/dresses_003_a_woman_wearing_a_stripe.jpg",
+        "size_kb": 33.0
+      },
+      {
+        "item_id": "dresses_004_a_woman_in_a_blue_jumpsu",
+        "category": "dresses",
+        "caption": "a woman in a blue jumpsuit with white stripes and a white top",
+        "relative_path": "data/item_images/dresses/dresses_004_a_woman_in_a_blue_jumpsu.jpg",
+        "size_kb": 18.0
+      },
+      {
+        "item_id": "dresses_005_a_woman_wearing_a_blue_a",
+        "category": "dresses",
+        "caption": "a woman wearing a blue and black striped jumpsuit",
+        "relative_path": "data/item_images/dresses/dresses_005_a_woman_wearing_a_blue_a.jpg",
+        "size_kb": 28.6
+      },
+      {
+        "item_id": "dresses_006_a_woman_in_a_pink_dress_",
+        "category": "dresses",
+        "caption": "a woman in a pink dress with a floral print",
+        "relative_path": "data/item_images/dresses/dresses_006_a_woman_in_a_pink_dress_.jpg",
+        "size_kb": 18.6
+      },
+      {
+        "item_id": "dresses_007_arafed_woman_in_a_black_",
+        "category": "dresses",
+        "caption": "arafed woman in a black dress posing for a picture",
+        "relative_path": "data/item_images/dresses/dresses_007_arafed_woman_in_a_black_.jpg",
+        "size_kb": 13.5
+      },
+      {
+        "item_id": "dresses_008_a_woman_in_a_black_flora",
+        "category": "dresses",
+        "caption": "a woman in a black floral print dress with a white background",
+        "relative_path": "data/item_images/dresses/dresses_008_a_woman_in_a_black_flora.jpg",
+        "size_kb": 33.3
+      },
+      {
+        "item_id": "dresses_009_a_woman_wearing_a_brown_",
+        "category": "dresses",
+        "caption": "a woman wearing a brown floral dress and white shoes",
+        "relative_path": "data/item_images/dresses/dresses_009_a_woman_wearing_a_brown_.jpg",
+        "size_kb": 34.8
+      },
+      {
+        "item_id": "dresses_010_a_woman_in_a_dress_with_",
+        "category": "dresses",
+        "caption": "a woman in a dress with polka dots on it",
+        "relative_path": "data/item_images/dresses/dresses_010_a_woman_in_a_dress_with_.jpg",
+        "size_kb": 15.0
+      },
+      {
+        "item_id": "dresses_011_a_woman_wearing_a_black_",
+        "category": "dresses",
+        "caption": "a woman wearing a black and pink floral dress",
+        "relative_path": "data/item_images/dresses/dresses_011_a_woman_wearing_a_black_.jpg",
+        "size_kb": 42.5
+      },
+      {
+        "item_id": "dresses_012_a_pregnant_woman_in_a_gr",
+        "category": "dresses",
+        "caption": "a pregnant woman in a green dress poses for a picture",
+        "relative_path": "data/item_images/dresses/dresses_012_a_pregnant_woman_in_a_gr.jpg",
+        "size_kb": 17.2
+      },
+      {
+        "item_id": "dresses_013_a_woman_wearing_a_black_",
+        "category": "dresses",
+        "caption": "a woman wearing a black dress with a lace neckline",
+        "relative_path": "data/item_images/dresses/dresses_013_a_woman_wearing_a_black_.jpg",
+        "size_kb": 13.6
+      },
+      {
+        "item_id": "dresses_014_a_woman_wearing_a_black_",
+        "category": "dresses",
+        "caption": "a woman wearing a black dress with a green lace top",
+        "relative_path": "data/item_images/dresses/dresses_014_a_woman_wearing_a_black_.jpg",
+        "size_kb": 15.9
+      },
+      {
+        "item_id": "dresses_015_a_woman_in_a_red_dress_p",
+        "category": "dresses",
+        "caption": "a woman in a red dress posing for a picture",
+        "relative_path": "data/item_images/dresses/dresses_015_a_woman_in_a_red_dress_p.jpg",
+        "size_kb": 15.8
+      },
+      {
+        "item_id": "dresses_016_a_woman_in_a_plaid_dress",
+        "category": "dresses",
+        "caption": "a woman in a plaid dress and a cropped top",
+        "relative_path": "data/item_images/dresses/dresses_016_a_woman_in_a_plaid_dress.jpg",
+        "size_kb": 30.8
+      },
+      {
+        "item_id": "dresses_017_a_woman_in_a_blue_dress_",
+        "category": "dresses",
+        "caption": "a woman in a blue dress and a white background",
+        "relative_path": "data/item_images/dresses/dresses_017_a_woman_in_a_blue_dress_.jpg",
+        "size_kb": 14.7
+      },
+      {
+        "item_id": "dresses_018_a_woman_in_a_grey_jumpsu",
+        "category": "dresses",
+        "caption": "a woman in a grey jumpsuit with a tie around the waist",
+        "relative_path": "data/item_images/dresses/dresses_018_a_woman_in_a_grey_jumpsu.jpg",
+        "size_kb": 16.4
+      },
+      {
+        "item_id": "dresses_019_a_woman_in_a_white_dress",
+        "category": "dresses",
+        "caption": "a woman in a white dress with a red, white and blue stripe on the front",
+        "relative_path": "data/item_images/dresses/dresses_019_a_woman_in_a_white_dress.jpg",
+        "size_kb": 13.8
+      },
+      {
+        "item_id": "dresses_020_a_woman_in_a_black_and_w",
+        "category": "dresses",
+        "caption": "a woman in a black and white tie dye dress",
+        "relative_path": "data/item_images/dresses/dresses_020_a_woman_in_a_black_and_w.jpg",
+        "size_kb": 16.2
+      }
+    ],
+    "outerwear": [
+      {
+        "item_id": "outerwear_001_a_woman_wearing_a_black_",
+        "category": "outerwear",
+        "caption": "a woman wearing a black champion hoodie with white lettering",
+        "relative_path": "data/item_images/outerwear/outerwear_001_a_woman_wearing_a_black_.jpg",
+        "size_kb": 24.8
+      },
+      {
+        "item_id": "outerwear_002_a_woman_in_a_grey_and_re",
+        "category": "outerwear",
+        "caption": "a woman in a grey and red jacket and red leggings",
+        "relative_path": "data/item_images/outerwear/outerwear_002_a_woman_in_a_grey_and_re.jpg",
+        "size_kb": 19.4
+      },
+      {
+        "item_id": "outerwear_003_a_woman_in_a_grey_sweate",
+        "category": "outerwear",
+        "caption": "a woman in a grey sweater and pink leggings",
+        "relative_path": "data/item_images/outerwear/outerwear_003_a_woman_in_a_grey_sweate.jpg",
+        "size_kb": 22.7
+      },
+      {
+        "item_id": "outerwear_004_a_woman_wearing_a_grey_s",
+        "category": "outerwear",
+        "caption": "a woman wearing a grey sweater with yellow letters on it",
+        "relative_path": "data/item_images/outerwear/outerwear_004_a_woman_wearing_a_grey_s.jpg",
+        "size_kb": 16.7
+      },
+      {
+        "item_id": "outerwear_005_a_woman_wearing_a_grey_s",
+        "category": "outerwear",
+        "caption": "a woman wearing a grey sweater with a white design on it",
+        "relative_path": "data/item_images/outerwear/outerwear_005_a_woman_wearing_a_grey_s.jpg",
+        "size_kb": 21.6
+      },
+      {
+        "item_id": "outerwear_006_a_woman_in_a_red_and_whi",
+        "category": "outerwear",
+        "caption": "a woman in a red and white striped turtle neck sweater",
+        "relative_path": "data/item_images/outerwear/outerwear_006_a_woman_in_a_red_and_whi.jpg",
+        "size_kb": 23.5
+      },
+      {
+        "item_id": "outerwear_007_a_pregnant_woman_wearing",
+        "category": "outerwear",
+        "caption": "a pregnant woman wearing a black sweater with white polka dots",
+        "relative_path": "data/item_images/outerwear/outerwear_007_a_pregnant_woman_wearing.jpg",
+        "size_kb": 20.5
+      },
+      {
+        "item_id": "outerwear_008_a_pregnant_woman_wearing",
+        "category": "outerwear",
+        "caption": "a pregnant woman wearing a bright orange cardigan sweater",
+        "relative_path": "data/item_images/outerwear/outerwear_008_a_pregnant_woman_wearing.jpg",
+        "size_kb": 21.1
+      },
+      {
+        "item_id": "outerwear_009_a_woman_in_a_striped_swe",
+        "category": "outerwear",
+        "caption": "a woman in a striped sweater poses for a picture",
+        "relative_path": "data/item_images/outerwear/outerwear_009_a_woman_in_a_striped_swe.jpg",
+        "size_kb": 26.8
+      },
+      {
+        "item_id": "outerwear_010_a_woman_wearing_a_green_",
+        "category": "outerwear",
+        "caption": "a woman wearing a green and blue striped sweater",
+        "relative_path": "data/item_images/outerwear/outerwear_010_a_woman_wearing_a_green_.jpg",
+        "size_kb": 22.5
+      },
+      {
+        "item_id": "outerwear_011_arafed_woman_in_a_black_",
+        "category": "outerwear",
+        "caption": "arafed woman in a black and white sweater with a red and black polka print",
+        "relative_path": "data/item_images/outerwear/outerwear_011_arafed_woman_in_a_black_.jpg",
+        "size_kb": 35.5
+      },
+      {
+        "item_id": "outerwear_012_a_woman_wearing_a_blue_a",
+        "category": "outerwear",
+        "caption": "a woman wearing a blue and grey striped turtle neck sweater",
+        "relative_path": "data/item_images/outerwear/outerwear_012_a_woman_wearing_a_blue_a.jpg",
+        "size_kb": 15.7
+      },
+      {
+        "item_id": "outerwear_013_a_woman_wearing_a_pink_a",
+        "category": "outerwear",
+        "caption": "a woman wearing a pink and white sweater and black skirt",
+        "relative_path": "data/item_images/outerwear/outerwear_013_a_woman_wearing_a_pink_a.jpg",
+        "size_kb": 20.1
+      },
+      {
+        "item_id": "outerwear_014_a_woman_in_a_white_sweat",
+        "category": "outerwear",
+        "caption": "a woman in a white sweater and plaid pants stands in front of a white wall",
+        "relative_path": "data/item_images/outerwear/outerwear_014_a_woman_in_a_white_sweat.jpg",
+        "size_kb": 15.1
+      },
+      {
+        "item_id": "outerwear_015_a_woman_in_a_grey_hoodie",
+        "category": "outerwear",
+        "caption": "a woman in a grey hoodie and green pants poses for a picture",
+        "relative_path": "data/item_images/outerwear/outerwear_015_a_woman_in_a_grey_hoodie.jpg",
+        "size_kb": 19.8
+      },
+      {
+        "item_id": "outerwear_016_a_woman_wearing_a_purple",
+        "category": "outerwear",
+        "caption": "a woman wearing a purple turtle neck sweater and jeans",
+        "relative_path": "data/item_images/outerwear/outerwear_016_a_woman_wearing_a_purple.jpg",
+        "size_kb": 15.4
+      },
+      {
+        "item_id": "outerwear_017_a_woman_in_a_turtle_neck",
+        "category": "outerwear",
+        "caption": "a woman in a turtle neck sweater and brown pants",
+        "relative_path": "data/item_images/outerwear/outerwear_017_a_woman_in_a_turtle_neck.jpg",
+        "size_kb": 18.4
+      },
+      {
+        "item_id": "outerwear_018_a_woman_wearing_a_yellow",
+        "category": "outerwear",
+        "caption": "a woman wearing a yellow sweater and white pants",
+        "relative_path": "data/item_images/outerwear/outerwear_018_a_woman_wearing_a_yellow.jpg",
+        "size_kb": 16.1
+      },
+      {
+        "item_id": "outerwear_019_a_woman_wearing_a_turtle",
+        "category": "outerwear",
+        "caption": "a woman wearing a turtle neck sweater and leather pants",
+        "relative_path": "data/item_images/outerwear/outerwear_019_a_woman_wearing_a_turtle.jpg",
+        "size_kb": 18.3
+      },
+      {
+        "item_id": "outerwear_020_a_woman_in_black_leather",
+        "category": "outerwear",
+        "caption": "a woman in black leather pants and a turtle neck sweater",
+        "relative_path": "data/item_images/outerwear/outerwear_020_a_woman_in_black_leather.jpg",
+        "size_kb": 11.1
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Mira",
+      "buyer": "Kai",
+      "item_id": "cam_01",
+      "item_name": "Vintage film camera, works perfectly, Olympus OM-1",
+      "price": 55.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 65.0,
+      "turn": 20
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Zoe",
+      "buyer": "Bo",
+      "item_id": "books_01",
+      "item_name": "Box of 15 sci-fi paperbacks, classic titles",
+      "price": 20.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 35.0,
+      "turn": 24
+    },
+    {
+      "deal_id": "deal_003",
+      "seller": "Iris",
+      "buyer": "Bo",
+      "item_id": "headphones_01",
+      "item_name": "Sony over-ear headphones, WH-CH510, lightly used",
+      "price": 22.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 35.0,
+      "turn": 28
+    },
+    {
+      "deal_id": "deal_004",
+      "seller": "Luna",
+      "buyer": "Finn",
+      "item_id": "laptop_01",
+      "item_name": "HP laptop, 4GB RAM, good for browsing and docs",
+      "price": 75.0,
+      "seller_floor": 75.0,
+      "buyer_ceiling": 95.0,
+      "turn": 32
+    },
+    {
+      "deal_id": "deal_005",
+      "seller": "Sage",
+      "buyer": "Dex",
+      "item_id": "teapot_01",
+      "item_name": "Cast iron teapot, Japanese style, with infuser",
+      "price": 35.0,
+      "seller_floor": 25.0,
+      "buyer_ceiling": 35.0,
+      "turn": 34
+    },
+    {
+      "deal_id": "deal_006",
+      "seller": "Kai",
+      "buyer": "Mira",
+      "item_id": "bike_01",
+      "item_name": "Road bike, aluminum frame, 21-speed, minor scratches",
+      "price": 75.0,
+      "seller_floor": 60.0,
+      "buyer_ceiling": 85.0,
+      "turn": 40
+    },
+    {
+      "deal_id": "deal_007",
+      "seller": "Finn",
+      "buyer": "Rex",
+      "item_id": "games_01",
+      "item_name": "Three Nintendo Switch games: Mario Kart, Zelda, Animal Crossing",
+      "price": 55.0,
+      "seller_floor": 55.0,
+      "buyer_ceiling": 70.0,
+      "turn": 48
+    },
+    {
+      "deal_id": "deal_008",
+      "seller": "Rex",
+      "buyer": "Sage",
+      "item_id": "tools_01",
+      "item_name": "Cordless drill with battery and charger, DeWalt",
+      "price": 50.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 50.0,
+      "turn": 53
+    },
+    {
+      "deal_id": "deal_009",
+      "seller": "Bo",
+      "buyer": "Iris",
+      "item_id": "speaker_01",
+      "item_name": "Bluetooth speaker, waterproof, good bass",
+      "price": 38.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 40.0,
+      "turn": 62
+    },
+    {
+      "deal_id": "deal_010",
+      "seller": "Luna",
+      "buyer": "Kai",
+      "item_id": "watch_01",
+      "item_name": "Timex analog watch, leather strap, runs perfectly",
+      "price": 20.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 65.0,
+      "turn": 68
+    },
+    {
+      "deal_id": "deal_011",
+      "seller": "Mira",
+      "buyer": "Zoe",
+      "item_id": "plants_01",
+      "item_name": "Three potted succulents in ceramic pots",
+      "price": 12.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 18.0,
+      "turn": 74
+    },
+    {
+      "deal_id": "deal_012",
+      "seller": "Zoe",
+      "buyer": "Finn",
+      "item_id": "lamp_01",
+      "item_name": "Desk lamp with adjustable arm, LED bulb included",
+      "price": 15.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 95.0,
+      "turn": 78
+    },
+    {
+      "deal_id": "deal_013",
+      "seller": "Sage",
+      "buyer": "Dex",
+      "item_id": "scarf_01",
+      "item_name": "Handmade wool scarf, teal and grey pattern",
+      "price": 20.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 35.0,
+      "turn": 88
+    },
+    {
+      "deal_id": "deal_014",
+      "seller": "Iris",
+      "buyer": "Luna",
+      "item_id": "yoga_01",
+      "item_name": "Yoga mat with carrying strap, purple, 6mm thick",
+      "price": 18.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "turn": 100
+    }
+  ],
+  "fulfilled_want_ids": []
+}

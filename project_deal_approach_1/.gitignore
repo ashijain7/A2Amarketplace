@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+env.yaml
+results/runs/
+results/phase_1/
+results/aggregates/
+*.egg-info/
+.DS_Store

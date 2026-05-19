@@ -1,0 +1,115 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Taj",
+      "buyer": "Jade",
+      "item_id": "watch_01",
+      "item_name": "Casio digital watch, water resistant, new battery",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 28.0,
+      "turn": 17
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Mira",
+      "buyer": "Kade",
+      "item_id": "cam_01",
+      "item_name": "Vintage film camera, Pentax K1000, working condition",
+      "price": 55.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 60.0,
+      "turn": 20
+    },
+    {
+      "deal_id": "deal_003",
+      "seller": "Lin",
+      "buyer": "Zara",
+      "item_id": "headphone_01",
+      "item_name": "Sony wireless headphones, WH-1000XM3, good condition",
+      "price": 38.0,
+      "seller_floor": 38.0,
+      "buyer_ceiling": 45.0,
+      "turn": 28
+    },
+    {
+      "deal_id": "deal_004",
+      "seller": "Rex",
+      "buyer": "Duke",
+      "item_id": "drill_01",
+      "item_name": "Black & Decker cordless drill, 20V, battery and charger",
+      "price": 42.0,
+      "seller_floor": 42.0,
+      "buyer_ceiling": 55.0,
+      "turn": 30
+    },
+    {
+      "deal_id": "deal_005",
+      "seller": "Jade",
+      "buyer": "Vik",
+      "item_id": "bag_01",
+      "item_name": "Canvas backpack, multiple pockets, gently used",
+      "price": 35.0,
+      "seller_floor": 25.0,
+      "buyer_ceiling": 40.0,
+      "turn": 52
+    },
+    {
+      "deal_id": "deal_006",
+      "seller": "Mira",
+      "buyer": "Lin",
+      "item_id": "lamp_01",
+      "item_name": "Desk lamp, adjustable arm, LED bulb included",
+      "price": 25.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 25.0,
+      "turn": 56
+    },
+    {
+      "deal_id": "deal_007",
+      "seller": "Kade",
+      "buyer": "Nola",
+      "item_id": "bike_01",
+      "item_name": "Mountain bike, 21-speed, needs new brake pads",
+      "price": 75.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 75.0,
+      "turn": 58
+    },
+    {
+      "deal_id": "deal_008",
+      "seller": "Duke",
+      "buyer": "Taj",
+      "item_id": "boots_01",
+      "item_name": "Leather work boots, size 10, lightly worn",
+      "price": 40.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 45.0,
+      "turn": 62
+    },
+    {
+      "deal_id": "deal_009",
+      "seller": "Nola",
+      "buyer": "Rex",
+      "item_id": "game_01",
+      "item_name": "Board game bundle: Catan, Ticket to Ride, Pandemic",
+      "price": 35.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 35.0,
+      "turn": 66
+    },
+    {
+      "deal_id": "deal_010",
+      "seller": "Jade",
+      "buyer": "Vik",
+      "item_id": "service_01",
+      "item_name": "Three hours of dog-sitting or dog-walking",
+      "price": 40.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 40.0,
+      "turn": 88
+    }
+  ],
+  "fulfilled_want_ids": []
+}

@@ -1,0 +1,378 @@
+17:26:09 === STARTING ng_run + phase1 5task run ===
+NeMo Gym is starting a new Ray cluster...
+2026-05-16 17:26:23,390	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+Started Ray cluster at 127.0.0.1:58046
+Waiting for head server to spin up
+Head server is not up yet (status `connection_error`). Sleeping...
+INFO:     Started server process [20968]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
+(policy_model) Using CPython 3.12.13
+(policy_model) Creating virtual environment with seed packages at: .venv
+(policy_model) Activate with: source .venv/bin/activate
+(marketplace) Using CPython 3.12.13
+(marketplace) Creating virtual environment with seed packages at: .venv
+(marketplace) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
+(marketplace_agent) Resolved 138 packages in 981ms
+(marketplace_agent) Checked 138 packages in 2ms
+(policy_model) Resolved 138 packages in 981ms
+(policy_model) Checked 138 packages in 2ms
+(marketplace) Resolved 139 packages in 1.22s
+(marketplace) Checked 139 packages in 1ms
+INFO:     127.0.0.1:58298 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Connecting to Ray cluster at specified address: 127.0.0.1:58046
+2026-05-16 17:26:26,653	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:58046...
+2026-05-16 17:26:26,682	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(policy_model) INFO:     Started server process [21060]
+(policy_model) INFO:     Waiting for application startup.
+(policy_model) INFO:     Application startup complete.
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:19175 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58307 - "GET / HTTP/1.1" 404 Not Found
+Waiting for servers to spin up
+(policy_model) INFO:     127.0.0.1:58310 - "GET / HTTP/1.1" 404 Not Found
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+1 / 3 servers ready. Waiting for servers to spin up: ['marketplace', 'marketplace_agent']
+Connecting to Ray cluster at specified address: 127.0.0.1:58046
+2026-05-16 17:26:27,037	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:58046...
+2026-05-16 17:26:27,064	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace_agent) INFO:     Started server process [21059]
+(marketplace_agent) INFO:     Waiting for application startup.
+(marketplace_agent) INFO:     Application startup complete.
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:11591 (Press CTRL+C to quit)
+Connecting to Ray cluster at specified address: 127.0.0.1:58046
+2026-05-16 17:26:27,327	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:58046...
+2026-05-16 17:26:27,365	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace) INFO:     Started server process [21061]
+(marketplace) INFO:     Waiting for application startup.
+(marketplace) INFO:     Application startup complete.
+(marketplace) INFO:     Uvicorn running on http://127.0.0.1:18909 (Press CTRL+C to quit)
+(marketplace) INFO:     127.0.0.1:58323 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:58324 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace (resources_servers/marketplace)
+{
+    'config_path': 'marketplace',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 21008,
+    'port': 18909,
+    'process_name': 'marketplace',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:18909',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 21011,
+    'port': 11591,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:11591',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashijain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 21015,
+    'port': 19175,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:19175',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:58326 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace) INFO:     127.0.0.1:58353 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     127.0.0.1:58354 - "GET / HTTP/1.1" 404 Not Found
+(policy_model) INFO:     127.0.0.1:58355 - "GET / HTTP/1.1" 404 Not Found
+(marketplace) Hit validation exception! Errors: [
+(marketplace)     {
+(marketplace)         "type": "missing",
+(marketplace)         "loc": [
+(marketplace)             "body",
+(marketplace)             "metadata"
+(marketplace)         ],
+(marketplace)         "msg": "Field required",
+(marketplace)         "input": {}
+(marketplace)     }
+(marketplace) ]
+(marketplace) Full body: {}
+(marketplace) 
+(marketplace) INFO:     127.0.0.1:58359 - "POST /seed_session HTTP/1.1" 422 Unprocessable Entity
+(marketplace_agent) INFO:     127.0.0.1:58360 - "GET / HTTP/1.1" 404 Not Found
+(policy_model) INFO:     127.0.0.1:58361 - "GET / HTTP/1.1" 404 Not Found
+
+====================================================================
+  17:27:10 === LAUNCHING run_phase_1.sh 5task ===
+====================================================================
+============================================================
+  Phase 1 — mode: 5task   (MARKETPLACE_PHASE=1)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: $None
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ValueError: could not convert string to float: 'None'
+
+17:27:10 === run_phase_1.sh 5task EXITED ===
+INFO:     127.0.0.1:58376 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+====================================================================
+  17:27:58 === RELAUNCHING run_phase_1.sh 5task ===
+====================================================================
+============================================================
+  Phase 1 — mode: 5task   (MARKETPLACE_PHASE=1)
+============================================================
+✓ env loaded (key: sk-or-v1-ef622...)
+✓ venv present
+✓ OpenRouter credit remaining: uncapped
+✓ key is uncapped — skipping budget gate
+INFO:     127.0.0.1:58390 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+✓ ng_run head server reachable on port 11000
+✓ task file tasks/phase1_5task.jsonl:        5 tasks
+✓ split into batches:        5 Sonnet-focal,        0 Haiku-focal
+
+============================================================
+  Batch A — Sonnet focal (       5 tasks)
+============================================================
+policy_model_name: anthropic/claude-sonnet-4-5
+
+  NOTE: env.yaml is now Sonnet. If ng_run was started while it was on Haiku,
+        you MUST restart ng_run now for the change to take effect.
+        (Sleep 5s to give you a chance to ctrl-C if needed.)
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because output_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 4931.57it/s]Reading rows: 4it [00:00, 4931.57it/s]
+
+INFO:     127.0.0.1:58392 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                                                                                    Collecting rollouts:   0%|          | 0/5 [07:16<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [07:16<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [07:16<29:04, 436.15s/it]Collecting rollouts:  20%|██        | 1/5 [07:16<29:04, 436.15s/it]                                                                                                                                      Collecting rollouts:  20%|██        | 1/5 [07:40<29:04, 436.15s/it]Collecting rollouts:  20%|██        | 1/5 [07:40<29:04, 436.15s/it]Collecting rollouts:  40%|████      | 2/5 [07:40<09:42, 194.15s/it]Collecting rollouts:  40%|████      | 2/5 [07:40<09:42, 194.15s/it]                                                                                                                                      Collecting rollouts:  40%|████      | 2/5 [07:46<09:42, 194.15s/it]Collecting rollouts:  40%|████      | 2/5 [07:46<09:42, 194.15s/it]Collecting rollouts:  60%|██████    | 3/5 [07:46<03:36, 108.13s/it]Collecting rollouts:  60%|██████    | 3/5 [07:46<03:36, 108.13s/it]                                                                                                                                      Collecting rollouts:  60%|██████    | 3/5 [07:51<03:36, 108.13s/it]Collecting rollouts:  60%|██████    | 3/5 [07:51<03:36, 108.13s/it]Collecting rollouts:  80%|████████  | 4/5 [07:51<01:07, 67.26s/it] Collecting rollouts:  80%|████████  | 4/5 [07:51<01:07, 67.26s/it] Collecting rollouts: 100%|██████████| 5/5 [08:00<00:00, 46.36s/it]Collecting rollouts: 100%|██████████| 5/5 [08:00<00:00, 46.36s/it]Collecting rollouts: 100%|██████████| 5/5 [08:00<00:00, 96.11s/it]Collecting rollouts: 100%|██████████| 5/5 [08:00<00:00, 96.11s/it]
+
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+Computing aggregate metrics
+INFO:     127.0.0.1:58669 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5761499950167389,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2220105.4,
+    "mean/output_tokens": 4910.4,
+    "mean/total_tokens": 2225015.8,
+    "mean/cost": 0.0089142,
+    "mean/is_byok": 0.0
+}
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5761499950167389,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2220105.4,
+    "mean/output_tokens": 4910.4,
+    "mean/total_tokens": 2225015.8,
+    "mean/cost": 0.0089142,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_aggregate_metrics.json
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl
+Aggregate metrics: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase_1/phase1_5task_sonnet_focal_rollouts_aggregate_metrics.json
+policy_model_name: anthropic/claude-sonnet-4-5
+
+============================================================
+  Archiving per-rollout folders into results/runs/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/archive_run.py:32: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Archived 5 runs under results/runs
+✓ archived. results/runs/ now has 5 folder(s)
+
+============================================================
+  Aggregating across all runs
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/analysis/compare.py:111: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.utcnow().isoformat() + "Z",
+Wrote aggregate for 5 runs -> /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/aggregates/phase_1_summary.json
+✓ aggregator wrote results/aggregates/phase_1_summary.json
+
+============================================================
+  Per-rollout rubric scores
+============================================================
+--- Sonnet-focal batch ---
+
+======================================================================
+Rubric scores from: results/phase_1/phase1_5task_sonnet_focal_rollouts.jsonl
+Rollouts: 5
+======================================================================
+
+Task 0: a1_p1_focal_S_vs_H_set_01_focal-Kai_seed42
+  focal=Kai  config=focal_S_vs_H  seed=42
+  reward:               0.593
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.495
+    closure_rate:       1.000  (3/3 targets closed)
+    achievable_targets: 1 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.333
+    seller_profit:      0.000
+    buyer_surplus:      0.188
+  capability_asymmetry: 0.643
+  negotiation_quality:  0.356
+  privacy:              N/A
+
+Task 1: a1_p1_focal_S_vs_H_set_02_focal-Rex_seed42
+  focal=Rex  config=focal_S_vs_H  seed=42
+  reward:               0.540
+  tool_calls:           50  (150 total messages)
+  deal_outcomes:        0.336
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.000
+    seller_profit:      0.250
+    buyer_surplus:      0.214
+  capability_asymmetry: 0.614
+  negotiation_quality:  0.385
+  privacy:              N/A
+
+Task 2: a1_p1_focal_S_vs_H_set_03_focal-Marcus_seed42
+  focal=Marcus  config=focal_S_vs_H  seed=42
+  reward:               0.623
+  tool_calls:           47  (142 total messages)
+  deal_outcomes:        0.515
+    closure_rate:       1.000  (3/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.000
+    seller_profit:      0.250
+    buyer_surplus:      0.520
+  capability_asymmetry: 0.700
+  negotiation_quality:  0.500
+  privacy:              0.860
+
+Task 3: a1_p1_focal_S_vs_H_set_04_focal-Omar_seed42
+  focal=Omar  config=focal_S_vs_H  seed=42
+  reward:               0.536
+  tool_calls:           50  (149 total messages)
+  deal_outcomes:        0.385
+    closure_rate:       0.667  (2/3 targets closed)
+    achievable_targets: 2 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.333
+    seller_profit:      0.308
+    buyer_surplus:      0.040
+  capability_asymmetry: 0.643
+  negotiation_quality:  0.481
+  privacy:              0.720
+
+Task 4: a1_p1_focal_S_vs_H_set_05_focal-Taj_seed42
+  focal=Taj  config=focal_S_vs_H  seed=42
+  reward:               0.589
+  tool_calls:           48  (145 total messages)
+  deal_outcomes:        0.632
+    closure_rate:       1.000  (3/3 targets closed)
+    achievable_targets: 3 of 3
+    normalized_closure: 1.000  (closed / achievable — skill-isolated)
+    pareto_efficiency:  0.667
+    seller_profit:      0.600
+    buyer_surplus:      0.056
+  capability_asymmetry: 0.614
+  negotiation_quality:  0.286
+  privacy:              0.860
+
+
+============================================================
+  Snapshotting run into results/phase1/
+============================================================
+/Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/scripts/snapshot_run.py:59: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = ts or datetime.utcnow()
+Snapshot created: /Users/ashijain/Documents/projectdealpoc/project_deal_approach_1/results/phase1/run_5tasks_focalSvH_seed42_20260516_120606
+  Contents: ['aggregate_metrics.json', 'materialized_inputs.jsonl', 'metadata.json', 'rollouts.jsonl', 'runs']
+
+============================================================
+  Headline (cross-config means + asymmetry test)
+============================================================
+
+Total rollouts: 5
+
+Per-config means:
+  focal_S_vs_H      : mean_reward=0.576  (n=5)
+
+
+Done.
+
+17:36:06 === run_phase_1.sh 5task EXITED ===
+INFO:     127.0.0.1:59539 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+(marketplace_agent) INFO:     Shutting down
+(marketplace) INFO:     Shutting down
+(policy_model) INFO:     Shutting down
+(marketplace) INFO:     Waiting for application shutdown.
+(marketplace_agent) INFO:     Waiting for application shutdown.
+(policy_model) INFO:     Waiting for application shutdown.
+(marketplace) INFO:     Application shutdown complete.
+(marketplace) INFO:     Finished server process [21061]
+(marketplace_agent) INFO:     Application shutdown complete.
+(policy_model) INFO:     Application shutdown complete.
+(policy_model) INFO:     Finished server process [21060]
+(marketplace_agent) INFO:     Finished server process [21059]

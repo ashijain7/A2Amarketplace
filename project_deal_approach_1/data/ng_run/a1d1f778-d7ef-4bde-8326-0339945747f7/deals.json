@@ -1,0 +1,148 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Zara",
+      "buyer": "Marcus",
+      "item_id": "blender_01",
+      "item_name": "Ninja blender, 900W, 2 years old, works perfectly",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "turn": 20
+    },
+    {
+      "deal_id": "deal_002",
+      "seller": "Tess",
+      "buyer": "Dev",
+      "item_id": "guitar_01",
+      "item_name": "Acoustic guitar, Yamaha beginner model, good shape",
+      "price": 65.0,
+      "seller_floor": 55.0,
+      "buyer_ceiling": 75.0,
+      "turn": 34
+    },
+    {
+      "deal_id": "deal_003",
+      "seller": "Marcus",
+      "buyer": "Zara",
+      "item_id": "camera_01",
+      "item_name": "Polaroid OneStep vintage instant camera, tested working",
+      "price": 55.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 65.0,
+      "turn": 40
+    },
+    {
+      "deal_id": "deal_004",
+      "seller": "Luna",
+      "buyer": "Raj",
+      "item_id": "books_01",
+      "item_name": "Box of 15 sci-fi paperbacks, classic authors",
+      "price": 20.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 85.0,
+      "turn": 42
+    },
+    {
+      "deal_id": "deal_005",
+      "seller": "Raj",
+      "buyer": "Ivy",
+      "item_id": "skateboard_01",
+      "item_name": "Complete skateboard, Element deck, barely used",
+      "price": 40.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 55.0,
+      "turn": 44
+    },
+    {
+      "deal_id": "deal_006",
+      "seller": "Sienna",
+      "buyer": "Luna",
+      "item_id": "plants_01",
+      "item_name": "Three pothos plants in pots, healthy and thriving",
+      "price": 18.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "turn": 46
+    },
+    {
+      "deal_id": "deal_007",
+      "seller": "Sienna",
+      "buyer": "Buck",
+      "item_id": "cookware_01",
+      "item_name": "Cast iron skillet, 10 inch, well-seasoned",
+      "price": 22.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 45.0,
+      "turn": 48
+    },
+    {
+      "deal_id": "deal_008",
+      "seller": "Omar",
+      "buyer": "Raj",
+      "item_id": "bike_01",
+      "item_name": "Mountain bike, 21-speed, needs minor tune-up",
+      "price": 85.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 85.0,
+      "turn": 63
+    },
+    {
+      "deal_id": "deal_009",
+      "seller": "Ivy",
+      "buyer": "Omar",
+      "item_id": "printer_01",
+      "item_name": "HP wireless printer with scanner, works great",
+      "price": 48.0,
+      "seller_floor": 38.0,
+      "buyer_ceiling": 50.0,
+      "turn": 68
+    },
+    {
+      "deal_id": "deal_010",
+      "seller": "Dev",
+      "buyer": "Tess",
+      "item_id": "monitor_01",
+      "item_name": "24-inch Dell monitor, 1080p, HDMI, minimal wear",
+      "price": 55.0,
+      "seller_floor": 48.0,
+      "buyer_ceiling": 70.0,
+      "turn": 72
+    },
+    {
+      "deal_id": "deal_011",
+      "seller": "Zara",
+      "buyer": "Sienna",
+      "item_id": "yoga_01",
+      "item_name": "Yoga mat with carrying strap, purple, lightly used",
+      "price": 18.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 20.0,
+      "turn": 74
+    },
+    {
+      "deal_id": "deal_012",
+      "seller": "Luna",
+      "buyer": "Marcus",
+      "item_id": "headphones_01",
+      "item_name": "Sony over-ear headphones, WH-CH510, good condition",
+      "price": 28.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 50.0,
+      "turn": 78
+    },
+    {
+      "deal_id": "deal_013",
+      "seller": "Ivy",
+      "buyer": "Buck",
+      "item_id": "dogsit_01",
+      "item_name": "Dog-sitting service, experienced, one weekend",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 45.0,
+      "turn": 84
+    }
+  ],
+  "fulfilled_want_ids": []
+}

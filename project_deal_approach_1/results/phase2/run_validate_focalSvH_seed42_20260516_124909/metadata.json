@@ -1,0 +1,15 @@
+{
+  "snapshot_id": "run_validate_focalSvH_seed42_20260516_124909",
+  "phase": 2,
+  "kind": "validate",
+  "config_tag": "focalSvH",
+  "seed_tag": "seed42",
+  "timestamp_utc": "2026-05-16T12:49:09.830167Z",
+  "rollout_count": 2,
+  "archived_run_folders": 2,
+  "source": {
+    "rollouts_jsonl": "results/phase_2/phase2_validate_sonnet_focal_rollouts.jsonl",
+    "aggregate_metrics_json": "results/phase_2/phase2_validate_sonnet_focal_rollouts_aggregate_metrics.json",
+    "materialized_inputs_jsonl": "results/phase_2/phase2_validate_sonnet_focal_rollouts_materialized_inputs.jsonl"
+  }
+}
