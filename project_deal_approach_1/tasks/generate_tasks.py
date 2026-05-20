@@ -309,15 +309,33 @@ def _encode_image_data_url(path: str) -> str:
 
 
 def _format_other_agents(others: list[dict], phase: int) -> str:
-    """In phase 1 we just list names; in phase 2+ we annotate each name with
-    its seller / buyer star rating so the focal can scan reputations up front."""
+    """Phase 1: just list names.
+    Phase 2: names + star ratings.
+    Phase 3: names + ratings + each agent's items (category) and want categories,
+             so the focal can see at a glance who has what before looking at photos.
+    """
     if phase < 2:
         return "  " + ", ".join(p["name"] for p in others)
     lines = []
     for p in others:
         sr = p.get("seller_rating", "?")
         br = p.get("buyer_rating", "?")
-        lines.append(f"  - {p['name']:8s}  seller {sr}★   buyer {br}★")
+        if phase >= 3:
+            items_str = ", ".join(
+                f"{i['name']} [{i.get('category','?')}]"
+                for i in p.get("items_to_sell", [])
+            ) or "(nothing to trade)"
+            wants_str = ", ".join(
+                i.get("want_category", "?")
+                for i in p.get("items_to_buy", [])
+            ) or "(no wants)"
+            lines.append(
+                f"  - {p['name']:8s}  seller {sr}★  buyer {br}★\n"
+                f"             Selling : {items_str}\n"
+                f"             Wants   : {wants_str}"
+            )
+        else:
+            lines.append(f"  - {p['name']:8s}  seller {sr}★   buyer {br}★")
     return "\n".join(lines)
 
 
@@ -353,35 +371,86 @@ def build_initial_user_message(focal: dict, all_personas: list[dict],
 
 
 def build_initial_user_message_multimodal(focal: dict, all_personas: list[dict]) -> list[dict]:
-    """Phase 3: return a content LIST with the focal's own item photo
-    embedded as an `input_image` block.
+    """Phase 3: return a content LIST with item photos embedded as input_image blocks.
 
-    NeMo Gym validates each content block with the OpenAI Responses API
-    TypedDicts (ResponseInputTextParam, ResponseInputImageParam). The
-    image block REQUIRES `type`, `detail`, and either `image_url` or
-    `file_id` — omitting `detail` silently fails Pydantic's union
-    validation (the error surfaces as a confusing string-type error on
-    the outer Union[str, List] variant).
+    Images are placed upfront in the initial prompt — NOT in tool responses —
+    so no NeMo Gym patches are required.
 
-    Block shapes (Responses API spec):
+    Included photos:
+      1. Focal's OWN items (so they can describe what they are trading).
+      2. Other agents' items whose category matches any of the focal's want
+         categories (the only listings the focal might accept a swap for).
+         Everything else is text-only — no point loading images for items
+         the focal can never want.
+
+    Block shapes (OpenAI Responses API spec — `detail` field is required):
       {"type": "input_text",  "text": "..."}
-      {"type": "input_image", "detail": "auto", "image_url": "data:..."}
+      {"type": "input_image", "detail": "auto", "image_url": "data:image/jpeg;base64,..."}
     """
     blocks: list[dict] = [{
         "type": "input_text",
         "text": build_initial_user_message(focal, all_personas, phase=3),
     }]
-    for item in focal.get("items_to_sell", []):
-        if "image_path" in item:
+
+    # ── 1. Focal's own items ──────────────────────────────────────────────────
+    own_items = [i for i in focal.get("items_to_sell", []) if "image_path" in i]
+    if own_items:
+        blocks.append({
+            "type": "input_text",
+            "text": "=== PHOTOS OF YOUR ITEMS (what you are offering to trade) ===",
+        })
+        for item in own_items:
             blocks.append({
                 "type": "input_text",
-                "text": f"Photo of your item ({item['name']}, item_id={item['item_id']}):",
+                "text": (
+                    f"Your item — {item['name']} "
+                    f"(category: {item.get('category','?')}, item_id: {item['item_id']}):"
+                ),
             })
             blocks.append({
                 "type": "input_image",
                 "detail": "auto",
                 "image_url": _encode_image_data_url(item["image_path"]),
             })
+
+    # ── 2. Other agents' items that match focal's want categories ─────────────
+    focal_want_cats = {
+        w.get("want_category", "").lower()
+        for w in focal.get("items_to_buy", [])
+        if w.get("want_category")
+    }
+
+    relevant: list[tuple[dict, dict]] = []  # (agent_persona, item)
+    for agent in all_personas:
+        if agent["name"] == focal["name"]:
+            continue
+        for item in agent.get("items_to_sell", []):
+            if item.get("category", "").lower() in focal_want_cats and "image_path" in item:
+                relevant.append((agent, item))
+
+    if relevant:
+        want_cats_str = ", ".join(sorted(focal_want_cats))
+        blocks.append({
+            "type": "input_text",
+            "text": (
+                f"=== PHOTOS OF ITEMS YOU MIGHT WANT "
+                f"(category match: {want_cats_str}) ==="
+            ),
+        })
+        for agent, item in relevant:
+            blocks.append({
+                "type": "input_text",
+                "text": (
+                    f"{agent['name']}'s item — {item['name']} "
+                    f"(category: {item.get('category','?')}, item_id: {item['item_id']}):"
+                ),
+            })
+            blocks.append({
+                "type": "input_image",
+                "detail": "auto",
+                "image_url": _encode_image_data_url(item["image_path"]),
+            })
+
     return blocks
 
 

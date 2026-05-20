@@ -334,9 +334,13 @@ def test_propose_swap_rejected_on_category_mismatch(tmp_path):
     # is outerwear, listing wants tops → mismatch, should produce a 'pass'
     # marker rather than a swap_proposal.
     result = _apply_propose_swap(state, body)
-    # Last event should be a "pass" with a rejection message (no swap_proposal recorded)
-    swap_props = [e for e in state.channel.events if e.action == "swap_proposal"]
-    assert len(swap_props) == 0
+    # The focal's (Kai's) proposal must not have been recorded as a swap_proposal.
+    # (Opponents may have legitimately posted swap proposals between these calls.)
+    focal_swap_props = [
+        e for e in state.channel.events
+        if e.action == "swap_proposal" and e.agent == state.focal_name
+    ]
+    assert len(focal_swap_props) == 0
 
 
 # ---- multimodal task generation -------------------------------------------

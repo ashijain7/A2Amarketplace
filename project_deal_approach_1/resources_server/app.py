@@ -179,38 +179,12 @@ def _role_rating_for_event(personas: list[dict], agent: str, action: str) -> Opt
     return None
 
 
-def _encode_image_to_data_url(image_path: str) -> str | None:
-    """Read a JPEG and return a data URL. None on failure (missing file, etc)."""
-    import base64
-    from pathlib import Path
-    try:
-        p = Path(image_path)
-        if not p.is_absolute():
-            # image_path is project-relative ("data/item_images/...")
-            p = Path(__file__).parent.parent / image_path
-        if not p.exists():
-            return None
-        b64 = base64.b64encode(p.read_bytes()).decode()
-        return f"data:image/jpeg;base64,{b64}"
-    except Exception:
-        return None
-
-
-def _state_snapshot(state: MarketplaceState) -> dict | list:
+def _state_snapshot(state: MarketplaceState) -> dict:
     """Return the marketplace state the focal agent sees after each tool call.
 
-    Phase 1/2: returns a plain dict (text-only tool response).
-    Phase 3 with images: returns a LIST of OpenAI Responses API content blocks
-    [{type: input_text, text: <json of state>},
-     {type: input_text, text: "Photo of <agent>'s <item>:"},
-     {type: input_image, detail: auto, image_url: data:...}, ...]
-    so the focal agent sees actual pixels of every currently-active listing.
-
-    Requires LOCAL PATCHES in NeMo Gym (see docs/PATCHES.md):
-      - `nemo_gym/openai_utils.py` :: `NeMoGymFunctionCallOutput.output` widened
-      - `responses_api_agents/simple_agent/app.py` :: detect-multimodal-response path
-    Without those patches NeMo Gym would 422 on a list-form tool response and
-    you should fall back to returning only the dict form.
+    Always returns a plain dict (JSON-serialised as a string by FastAPI).
+    Images are embedded upfront in the initial task prompt (see generate_tasks.py
+    build_initial_user_message_multimodal), not repeated in every tool response.
     """
     active = []
     for e in state.channel.active_listings(state.ledger.sold_item_ids):
@@ -278,40 +252,7 @@ def _state_snapshot(state: MarketplaceState) -> dict | list:
             "message (do NOT call another tool) to end this rollout."
         )
 
-    # ---- Phase 3 multimodal: attach images if any active listing has one ----
-    # If at least one active listing has a readable image, return a multimodal
-    # content list so the focal SEES the photos in this tool response.
-    # Otherwise fall back to the plain dict (text-only) for phase 1/2 compat.
-    listings_with_images = [
-        a for a in active if a.get("image_path")
-    ]
-    if not listings_with_images:
-        return snapshot
-
-    content_blocks: list[dict] = [{
-        "type": "input_text",
-        "text": json.dumps(snapshot, default=str),
-    }]
-    for entry in listings_with_images:
-        data_url = _encode_image_to_data_url(entry["image_path"])
-        if data_url is None:
-            continue
-        content_blocks.append({
-            "type": "input_text",
-            "text": (
-                f"Photo of {entry['agent']}'s listing "
-                f"{entry.get('event_id','?')} (item {entry.get('item_id','?')}):"
-            ),
-        })
-        content_blocks.append({
-            "type": "input_image",
-            "detail": "auto",
-            "image_url": data_url,
-        })
-    # If image encoding failed for all listings, fall back to the dict.
-    if len(content_blocks) == 1:
-        return snapshot
-    return content_blocks
+    return snapshot
 
 
 def _run_opponents(state: MarketplaceState):
