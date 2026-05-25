@@ -13,18 +13,18 @@ def _patch_personas_dir(monkeypatch):
     )
 
 
-def test_generate_phase1_produces_60_tasks(monkeypatch):
-    """Phase 1: 5 sets × 4 configs × 1 focal × 3 seeds = 60."""
+def test_generate_phase1_produces_165_tasks(monkeypatch):
+    """Phase 1: 5 sets × 11 configs × 1 focal × 3 seeds = 165."""
     _patch_personas_dir(monkeypatch)
     entries = build_task_entries(phase=1, focal_count=1)
-    assert len(entries) == 60
+    assert len(entries) == 165
 
 
-def test_generate_phase2_produces_180_tasks(monkeypatch):
-    """Phase 2: 5 sets × 4 configs × 3 focals × 3 seeds = 180."""
+def test_generate_phase2_produces_495_tasks(monkeypatch):
+    """Phase 2: 5 sets × 11 configs × 3 focals × 3 seeds = 495."""
     _patch_personas_dir(monkeypatch)
     entries = build_task_entries(phase=2, focal_count=3)
-    assert len(entries) == 180
+    assert len(entries) == 495
 
 
 def test_focal_count_changes_task_count(monkeypatch):
@@ -32,8 +32,8 @@ def test_focal_count_changes_task_count(monkeypatch):
     _patch_personas_dir(monkeypatch)
     p1 = build_task_entries(phase=1, focal_count=1)
     p2 = build_task_entries(phase=2, focal_count=3)
-    assert len(p1) == 60
-    assert len(p2) == 180
+    assert len(p1) == 165
+    assert len(p2) == 495
     assert len(p2) == 3 * len(p1)
 
 
@@ -41,7 +41,7 @@ def test_build_task_entries_default_focal_count_is_three(monkeypatch):
     """Default (no focal_count arg) preserves Phase 2 / back-compat behavior."""
     _patch_personas_dir(monkeypatch)
     entries = build_task_entries(phase=2)
-    assert len(entries) == 180
+    assert len(entries) == 495
 
 
 def test_entry_has_top_level_id_and_responses_create_params(monkeypatch):
@@ -135,27 +135,29 @@ def test_metadata_carries_archiver_fields(monkeypatch):
     assert md["approach"] == 1
     assert md["config_name"] in {
         "focal_S_vs_S", "focal_H_vs_S", "focal_S_vs_H", "focal_H_vs_H",
+        "focal_O_vs_H", "focal_H_vs_O", "focal_S_vs_G", "focal_G_vs_S",
+        "focal_O_vs_G", "focal_G_vs_X", "focal_G35_vs_X",
     }
 
 
-def test_write_tasks_phase1_produces_60_line_jsonl(tmp_path, monkeypatch):
+def test_write_tasks_phase1_produces_165_line_jsonl(tmp_path, monkeypatch):
     _patch_personas_dir(monkeypatch)
     out = tmp_path / "tasks_phase1.jsonl"
     write_tasks(phase=1, out_path=out, focal_count=1)
     lines = out.read_text().splitlines()
-    assert len(lines) == 60
+    assert len(lines) == 165
     rec = json.loads(lines[0])
     assert rec["id"] == 0
     assert rec["metadata"]["phase"] == 1
     assert len(rec["responses_create_params"]["tools"]) == 6
 
 
-def test_write_tasks_phase2_produces_180_line_jsonl(tmp_path, monkeypatch):
+def test_write_tasks_phase2_produces_495_line_jsonl(tmp_path, monkeypatch):
     _patch_personas_dir(monkeypatch)
     out = tmp_path / "tasks_phase2.jsonl"
     write_tasks(phase=2, out_path=out, focal_count=3)
     lines = out.read_text().splitlines()
-    assert len(lines) == 180
+    assert len(lines) == 495
     rec = json.loads(lines[0])
     assert rec["id"] == 0
     assert rec["metadata"]["phase"] == 2

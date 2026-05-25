@@ -35,6 +35,10 @@ OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 DEFAULT_MODEL = "anthropic/claude-sonnet-4-5"
 HAIKU_MODEL = "anthropic/claude-haiku-4-5"
+OPUS_MODEL = "anthropic/claude-opus-4-7"
+GEMINI_MODEL = "google/gemini-3.1-pro-preview"
+GEMINI_FLASH_MODEL = "google/gemini-3.5-flash"
+GPT5_5_MODEL = "openai/gpt-5.5"
 JUDGE_MODEL = "openai/gpt-4o-2024-11-20"
 
 MAX_TURNS = 120
