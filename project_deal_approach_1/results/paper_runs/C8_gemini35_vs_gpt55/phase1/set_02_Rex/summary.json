@@ -1,0 +1,25 @@
+{
+  "run_id": "a1_phase1_focal-G35-vs-X_set02_focal-Rex_seed42_20260525_1016",
+  "approach": 1,
+  "phase": 1,
+  "timestamp": "2026-05-25T10:16:12.065289Z",
+  "config": {
+    "model_config": "focal_G35_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_02",
+    "focal_persona": "Rex",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.30416666666666664,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.2751672188435082,
+    "privacy": null,
+    "review_utilization": null,
+    "final_reward": 0.528266790906456
+  },
+  "focal_value_extracted": 10.0,
+  "deal_count": 7
+}

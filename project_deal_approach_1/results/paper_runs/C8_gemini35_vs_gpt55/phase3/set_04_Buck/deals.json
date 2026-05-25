@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 68,
+    "seller": "Sienna",
+    "buyer": "Raj",
+    "item_id": "set_04_sienna_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 63.0,
+    "buyer_ceiling": 91.0
+  }
+]

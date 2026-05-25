@@ -1,0 +1,22 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 22,
+    "seller": "Derek",
+    "buyer": "Jax",
+    "item_id": "set_01_derek_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 56.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 68,
+    "seller": "Priya",
+    "buyer": "Maya",
+    "item_id": "set_01_priya_dresses_01",
+    "price": -1.0,
+    "seller_floor": 50.0,
+    "buyer_ceiling": 55.0
+  }
+]

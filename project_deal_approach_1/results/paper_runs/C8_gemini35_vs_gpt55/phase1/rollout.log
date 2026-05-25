@@ -1,0 +1,32 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C8_gemini35_vs_gpt55/phase1/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C8_gemini35_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 4329.60it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [20:05<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [20:05<1:20:21, 1205.28s/it]                                                                      Collecting rollouts:  20%|██        | 1/5 [20:05<1:20:21, 1205.28s/it]                                                                      Collecting rollouts:  20%|██        | 1/5 [26:12<1:20:21, 1205.28s/it]Collecting rollouts:  60%|██████    | 3/5 [26:12<14:57, 448.50s/it]                                                                      Collecting rollouts:  60%|██████    | 3/5 [26:18<14:57, 448.50s/it]Collecting rollouts:  80%|████████  | 4/5 [26:18<04:55, 295.48s/it]Collecting rollouts: 100%|██████████| 5/5 [26:20<00:00, 198.34s/it]Collecting rollouts: 100%|██████████| 5/5 [26:20<00:00, 316.13s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5483719837590775,
+    "mean/id": 2.0,
+    "mean/input_tokens": 1442603.4,
+    "mean/output_tokens": 3901.6,
+    "mean/total_tokens": 1446505.0,
+    "mean/cost": 0.0060366000000000005,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C8_gemini35_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C8_gemini35_vs_gpt55/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C8_gemini35_vs_gpt55/phase1/rollouts_aggregate_metrics.json

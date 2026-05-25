@@ -1,0 +1,25 @@
+{
+  "run_id": "a1_phase1_focal-G35-vs-X_set01_focal-Kai_seed42_20260525_1016",
+  "approach": 1,
+  "phase": 1,
+  "timestamp": "2026-05-25T10:16:12.080090Z",
+  "config": {
+    "model_config": "focal_G35_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_01",
+    "focal_persona": "Kai",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.23750000000000002,
+    "capability_asymmetry": 0.5571428571428572,
+    "negotiation_quality": 0.6026938803848971,
+    "privacy": null,
+    "review_utilization": null,
+    "final_reward": 0.5410079088008876
+  },
+  "focal_value_extracted": 10.0,
+  "deal_count": 8
+}

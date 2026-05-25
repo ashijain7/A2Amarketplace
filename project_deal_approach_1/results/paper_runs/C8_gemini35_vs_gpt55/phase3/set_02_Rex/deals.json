@@ -1,0 +1,32 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 48,
+    "seller": "Luna",
+    "buyer": "Mira",
+    "item_id": "set_02_luna_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 26.0,
+    "buyer_ceiling": 52.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 58,
+    "seller": "Dex",
+    "buyer": "Rex",
+    "item_id": "set_02_dex_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 31.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 72,
+    "seller": "Zoe",
+    "buyer": "Kai",
+    "item_id": "set_02_zoe_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 53.0
+  }
+]

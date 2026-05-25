@@ -1,0 +1,72 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 31,
+    "seller": "Finn",
+    "buyer": "Rex",
+    "item_id": "games_01",
+    "price": 70.0,
+    "seller_floor": 55.0,
+    "buyer_ceiling": 70.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 35,
+    "seller": "Rex",
+    "buyer": "Sage",
+    "item_id": "tools_01",
+    "price": 50.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 38,
+    "seller": "Mira",
+    "buyer": "Kai",
+    "item_id": "cam_01",
+    "price": 65.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 65.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 42,
+    "seller": "Zoe",
+    "buyer": "Bo",
+    "item_id": "books_01",
+    "price": 25.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 46,
+    "seller": "Iris",
+    "buyer": "Luna",
+    "item_id": "yoga_01",
+    "price": 25.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 25.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 64,
+    "seller": "Iris",
+    "buyer": "Bo",
+    "item_id": "headphones_01",
+    "price": 32.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 68,
+    "seller": "Luna",
+    "buyer": "Finn",
+    "item_id": "laptop_01",
+    "price": 95.0,
+    "seller_floor": 75.0,
+    "buyer_ceiling": 95.0
+  }
+]

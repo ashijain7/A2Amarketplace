@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase2_focal-G35-vs-X_set04_focal-Omar_seed42_20260525_1100",
+  "approach": 1,
+  "phase": 2,
+  "timestamp": "2026-05-25T11:00:49.769728Z",
+  "config": {
+    "model_config": "focal_G35_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_04",
+    "focal_persona": "Omar",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.5248205128205128,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.342277184251527,
+    "privacy": 1.0,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 3,
+      "focal_offer_events": 5,
+      "lookup_rate": 1.0,
+      "pre_offer_ratio": 1.0,
+      "high_rating_preference": 0.6,
+      "combined": 0.8666666666666667
+    },
+    "final_reward": 0.662993898388767
+  },
+  "focal_value_extracted": 28.0,
+  "deal_count": 8
+}

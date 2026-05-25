@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 50,
+    "seller": "Rex",
+    "buyer": "Jade",
+    "item_id": "set_05_rex_dresses_01",
+    "price": -1.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 79.0
+  }
+]
