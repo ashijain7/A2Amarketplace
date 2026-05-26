@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 60,
+    "seller": "Zara",
+    "buyer": "Felix",
+    "item_id": "headphones_01",
+    "price": 40.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0
+  }
+]

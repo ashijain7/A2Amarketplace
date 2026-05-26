@@ -1,0 +1,22 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 66,
+    "seller": "Lin",
+    "buyer": "Samir",
+    "item_id": "books_01",
+    "price": 21.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 30.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 76,
+    "seller": "Maya",
+    "buyer": "Derek",
+    "item_id": "blender_01",
+    "price": 40.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 45,
+    "seller": "Buck",
+    "buyer": "Omar",
+    "item_id": "toolkit_01",
+    "price": 40.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 57,
+    "seller": "Ivy",
+    "buyer": "Omar",
+    "item_id": "printer_01",
+    "price": 50.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 60,
+    "seller": "Sienna",
+    "buyer": "Luna",
+    "item_id": "plants_01",
+    "price": 22.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 25.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 84,
+    "seller": "Sienna",
+    "buyer": "Buck",
+    "item_id": "cookware_01",
+    "price": 32.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 45.0
+  }
+]

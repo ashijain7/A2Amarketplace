@@ -1,0 +1,72 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 17,
+    "seller": "Marcus",
+    "buyer": "Isla",
+    "item_id": "speaker_01",
+    "price": 35.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 26,
+    "seller": "Hank",
+    "buyer": "Diego",
+    "item_id": "toolset_01",
+    "price": 30.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 60,
+    "seller": "Zara",
+    "buyer": "Hank",
+    "item_id": "cookbook_01",
+    "price": 25.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 80.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 72,
+    "seller": "Isla",
+    "buyer": "Kai",
+    "item_id": "teapot_01",
+    "price": 30.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 30.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 74,
+    "seller": "Mira",
+    "buyer": "Felix",
+    "item_id": "blender_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 76,
+    "seller": "Zara",
+    "buyer": "Felix",
+    "item_id": "headphones_01",
+    "price": 42.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 82,
+    "seller": "Priya",
+    "buyer": "Hank",
+    "item_id": "bike_01",
+    "price": 80.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 80.0
+  }
+]

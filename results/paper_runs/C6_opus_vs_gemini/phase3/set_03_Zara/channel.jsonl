@@ -1,0 +1,100 @@
+{"event_id": "psh_001", "turn": 1, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "[swap rejected: target set_03_isla_outerwear_01 is not a listing]"}
+{"event_id": "lst_002", "turn": 2, "agent": "Diego", "action": "listing", "target": "set_03_diego_tops_01", "price": null, "message": "Yooo! I'm so hyped to list this super cute Green Blouse (set_03_diego_tops_01)! It's absolute fire! \ud83d\udd25 I'm looking to swap for some sick dresses or outerwear. Hit me up with those trades, let's gooo!"}
+{"event_id": "lst_003", "turn": 3, "agent": "Zara", "action": "listing", "target": "set_03_zara_bottoms_01", "price": null, "message": "Heyyy swap fam! \ud83d\udda4\u2728 Listing this gorgeous high-waisted Black Skirt with cute button details \u2014 super versatile, pairs with literally everything! \ud83d\udc83 Looking to swap for outerwear \ud83e\udde5 or tops \ud83d\udc5a. Slide into my DMs with your offers! \ud83d\ude18"}
+{"event_id": "lst_004", "turn": 4, "agent": "Felix", "action": "listing", "target": "set_03_felix_bottoms_01", "price": null, "message": "Listing set_03_felix_bottoms_01. Want outerwear."}
+{"event_id": "psh_005", "turn": 5, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Eyes peeled for some cute outerwear or tops \ud83d\udc40\u2728 Make me an offer!"}
+{"event_id": "psh_006", "turn": 6, "agent": "Hank", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_007", "turn": 7, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still here with my cute black skirt \ud83d\udda4 \u2014 outerwear and tops people, where you at? \ud83d\ude18"}
+{"event_id": "psh_008", "turn": 8, "agent": "Isla", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_009", "turn": 9, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Black skirt still available \ud83d\udda4\u2728 \u2014 outerwear & tops sellers, let's make a deal! \ud83e\udd1d"}
+{"event_id": "lst_010", "turn": 10, "agent": "Kai", "action": "listing", "target": "set_03_kai_tops_01", "price": null, "message": "Listing set_03_kai_tops_01 (And Blue Blouse). Looking to swap for outerwear or dresses."}
+{"event_id": "psh_011", "turn": 11, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Hey outerwear/tops folks \u2014 anyone willing to take a black skirt? \ud83d\udda4 It's a great wardrobe staple! \ud83d\ude0a"}
+{"event_id": "lst_012", "turn": 12, "agent": "Lily", "action": "listing", "target": "set_03_lily_bottoms_01", "price": null, "message": "Hello everyone! I have a lovely Sweater And Jeans (set_03_lily_bottoms_01) available. I'm hoping to swap for some dresses or outerwear. Let me know if that works for you!"}
+{"event_id": "psh_013", "turn": 13, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Black skirt still up for grabs \ud83d\udda4 \u2014 any outerwear or tops folks open to a bottoms swap? Pretty please! \ud83e\udd7a\u2728"}
+{"event_id": "psh_014", "turn": 14, "agent": "Marcus", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Isla, Priya \u2014 y'all were eyeing bottoms, right? \ud83d\udc40\ud83d\udda4 Come check my listing! \ud83d\ude18"}
+{"event_id": "lst_016", "turn": 16, "agent": "Mira", "action": "listing", "target": "set_03_mira_outerwear_01", "price": null, "message": "Hi everyone! I'm parting with my beloved Turtle Neck Sweater (set_03_mira_outerwear_01). It has kept me so warm on many cozy winter nights, but I'm ready for a change! I'm exclusively looking to swap for beautiful dresses. Let me know what you have!"}
+{"event_id": "psh_017", "turn": 17, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still here with the black skirt \ud83d\udda4 \u2014 Isla \ud83d\udc40 Priya \ud83d\udc40, you were looking for bottoms, right? Send a proposal! \u2728"}
+{"event_id": "lst_018", "turn": 18, "agent": "Priya", "action": "listing", "target": "set_03_priya_tops_01", "price": null, "message": "The true value of a garment lies not in its price, but in the memories it helps us weave. I offer this simple White Shirt (set_03_priya_tops_01) as a blank canvas for your life's journey. I seek outerwear or bottoms in exchange to continue my own path."}
+{"event_id": "swp_019", "turn": 19, "agent": "Zara", "action": "swap_proposal", "target": "lst_018", "price": null, "message": "Priya! \ud83c\udf38\u2728 Your poetic words got me \u2014 and a crisp white shirt is the ultimate canvas! My black skirt would be a perfect new chapter for you \ud83d\udda4 high-waisted with cute buttons, super versatile. Let's weave this trade together! \ud83e\udd1d\ud83d\udcab"}
+{"event_id": "swp_020", "turn": 20, "agent": "Diego", "action": "swap_proposal", "target": "lst_016", "price": null, "message": "OMG Mira! That Turtle Neck Sweater is absolute fire! \ud83d\udd25 I'm so hyped to offer my Green Blouse (set_03_diego_tops_01) for it! Let's make this epic swap happen!"}
+{"event_id": "psh_021", "turn": 21, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Fingers crossed \ud83e\udd1e\u2728"}
+{"event_id": "swp_022", "turn": 22, "agent": "Felix", "action": "swap_proposal", "target": "lst_016", "price": null, "message": "Offering set_03_felix_bottoms_01 for set_03_mira_outerwear_01."}
+{"event_id": "psh_023", "turn": 23, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Priya \u2014 let me know what you think! \ud83c\udf38\ud83d\udda4"}
+{"event_id": "psh_024", "turn": 24, "agent": "Hank", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_025", "turn": 25, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still hoping to hear from you Priya \ud83c\udf38\u2728"}
+{"event_id": "psh_026", "turn": 26, "agent": "Isla", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_027", "turn": 27, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Patiently waiting on you Priya \ud83c\udf38\ud83e\udd1e"}
+{"event_id": "swp_028", "turn": 28, "agent": "Kai", "action": "swap_proposal", "target": "lst_016", "price": null, "message": "Mira, I am offering set_03_kai_tops_01 (And Blue Blouse) for your set_03_mira_outerwear_01. It is a fair and practical exchange."}
+{"event_id": "psh_029", "turn": 29, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Holding for Priya's response \ud83c\udf38"}
+{"event_id": "swp_030", "turn": 30, "agent": "Lily", "action": "swap_proposal", "target": "lst_016", "price": null, "message": "Hi Mira! Your Turtle Neck Sweater looks so cozy. Would you consider trading it for my Sweater And Jeans (set_03_lily_bottoms_01)? I hope this feels like a fair and lovely trade for both of us!"}
+{"event_id": "psh_031", "turn": 31, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still here \u2728\ud83d\udda4"}
+{"event_id": "swp_032", "turn": 32, "agent": "Marcus", "action": "swap_proposal", "target": "lst_012", "price": null, "message": "Hi Lily, I can offer my Pink Dress (set_03_marcus_dresses_01) for your Sweater And Jeans (set_03_lily_bottoms_01). This meets your request for dresses."}
+{"event_id": "psh_033", "turn": 33, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Hanging tight \ud83d\udda4\u2728"}
+{"event_id": "psh_034", "turn": 34, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_035", "turn": 35, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still waiting on Priya's call \ud83c\udf38\ud83d\udda4"}
+{"event_id": "psh_036", "turn": 36, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_037", "turn": 37, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "My offer's still on the table Priya! \ud83c\udf38\ud83d\udda4 Take a look! \u2728"}
+{"event_id": "psh_038", "turn": 38, "agent": "Diego", "action": "pass", "target": null, "price": null, "message": "Just chilling and waiting to see if anyone's hyped about my Green Blouse! Let's go! \ud83d\udd25"}
+{"event_id": "psh_039", "turn": 39, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Patiently waiting \ud83c\udf38\ud83d\udda4"}
+{"event_id": "evt_040", "turn": 40, "agent": "Felix", "action": "lookup", "target": "Mira", "price": null, "message": "Looking up Mira."}
+{"event_id": "psh_041", "turn": 41, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Still here \u2728"}
+{"event_id": "psh_042", "turn": 42, "agent": "Hank", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_043", "turn": 43, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udda4\ud83c\udf38"}
+{"event_id": "psh_044", "turn": 44, "agent": "Isla", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_045", "turn": 45, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_046", "turn": 46, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Waiting to see if any new outerwear or dresses are listed, or if my current offers are accepted."}
+{"event_id": "psh_047", "turn": 47, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\u2728"}
+{"event_id": "psh_048", "turn": 48, "agent": "Lily", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_049", "turn": 49, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udda4"}
+{"event_id": "lst_050", "turn": 50, "agent": "Marcus", "action": "listing", "target": "set_03_marcus_dresses_01", "price": null, "message": "Listing my Pink Dress (set_03_marcus_dresses_01). I am firm on trading this only for bottoms or tops."}
+{"event_id": "psh_051", "turn": 51, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_052", "turn": 52, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_053", "turn": 53, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83e\udd1e\ud83c\udf38"}
+{"event_id": "psh_054", "turn": 54, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_055", "turn": 55, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_056", "turn": 56, "agent": "Diego", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_057", "turn": 57, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udda4"}
+{"event_id": "psh_058", "turn": 58, "agent": "Felix", "action": "pass", "target": null, "price": null, "message": "Waiting on pending proposals."}
+{"event_id": "psh_059", "turn": 59, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_060", "turn": 60, "agent": "Hank", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udda4\u2728"}
+{"event_id": "lst_062", "turn": 62, "agent": "Isla", "action": "listing", "target": "set_03_isla_outerwear_01", "price": null, "message": "Hiii everyone! \u2728 I'm listing my super cozy Grey Sweater (set_03_isla_outerwear_01)! It's so cute and perfect for layering. I'm looking for some fun bottoms or tops to swap for! Let me know what you have! \ud83d\udc95"}
+{"event_id": "swp_063", "turn": 63, "agent": "Zara", "action": "swap_proposal", "target": "lst_062", "price": null, "message": "Isla!!! \ud83d\udc95\u2728 Your cozy grey sweater is calling my name \ud83e\udd29 \u2014 and I've got the perfect black skirt with cute button details that would pair so cute with literally anything! High-waisted, super versatile \ud83d\udda4 Let's swap, queen! \ud83d\udc51\ud83d\udd04"}
+{"event_id": "evt_064", "turn": 64, "agent": "Kai", "action": "lookup", "target": "Marcus", "price": null, "message": "Methodically checking Marcus's seller reputation before proposing a trade."}
+{"event_id": "psh_065", "turn": 65, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Fingers crossed \ud83e\udd1e\u2728"}
+{"event_id": "psh_066", "turn": 66, "agent": "Lily", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_067", "turn": 67, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "Waiting on Isla \ud83d\udc95\u2728"}
+{"event_id": "psh_068", "turn": 68, "agent": "Marcus", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_069", "turn": 69, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udc95"}
+{"event_id": "psh_070", "turn": 70, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_071", "turn": 71, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38\ud83d\udc95"}
+{"event_id": "psh_072", "turn": 72, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_073", "turn": 73, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\u2728"}
+{"event_id": "evt_074", "turn": 74, "agent": "Diego", "action": "lookup", "target": "Marcus", "price": null, "message": "Yo, let me just check out Marcus real quick to see if he's legit for a trade!"}
+{"event_id": "psh_075", "turn": 75, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "swp_076", "turn": 76, "agent": "Felix", "action": "swap_proposal", "target": "lst_062", "price": null, "message": "Offering set_03_felix_bottoms_01 for set_03_isla_outerwear_01."}
+{"event_id": "psh_077", "turn": 77, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udc95\ud83e\udd1e"}
+{"event_id": "swp_078", "turn": 78, "agent": "Hank", "action": "swap_proposal", "target": "lst_012", "price": null, "message": "Howdy Lily, partner. Got a mighty fine Red Dress (set_03_hank_dresses_01) here that I'd be honored to trade for your bottoms. Let's make a fair deal."}
+{"event_id": "psh_079", "turn": 79, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_080", "turn": 80, "agent": "Isla", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38\u2728"}
+{"event_id": "psh_082", "turn": 82, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_083", "turn": 83, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_084", "turn": 84, "agent": "Lily", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_085", "turn": 85, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\u2728"}
+{"event_id": "psh_086", "turn": 86, "agent": "Marcus", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_087", "turn": 87, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udda4\ud83c\udf38"}
+{"event_id": "psh_088", "turn": 88, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_089", "turn": 89, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_090", "turn": 90, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_091", "turn": 91, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38\u2728"}
+{"event_id": "swp_092", "turn": 92, "agent": "Diego", "action": "swap_proposal", "target": "lst_050", "price": null, "message": "Yooo Marcus! That Pink Dress is straight fire! \ud83d\udd25 I'd be so hyped to swap my Green Blouse (set_03_diego_tops_01) for it! Let's make this deal happen!"}
+{"event_id": "psh_093", "turn": 93, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83d\udc95"}
+{"event_id": "evt_094", "turn": 94, "agent": "Felix", "action": "lookup", "target": "Isla", "price": null, "message": "Looking up Isla."}
+{"event_id": "psh_095", "turn": 95, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_096", "turn": 96, "agent": "Hank", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_097", "turn": 97, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\u2728\ud83d\udda4"}
+{"event_id": "psh_098", "turn": 98, "agent": "Isla", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_099", "turn": 99, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "\ud83c\udf38"}
+{"event_id": "psh_100", "turn": 100, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}

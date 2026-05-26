@@ -1,24 +1,12 @@
 .venv/
 __pycache__/
 *.pyc
-*.egg-info/
-# data/ — intentionally NOT ignored. data/item_images/ holds the DeepFashion
-# subset used for Phase 3, and data/ng_run/ holds per-rollout session caches.
-# Both are pushed to make Phase 3 reproducible.
+.pytest_cache/
 .env
-.env.bak
-.env.bak.*
-.DS_Store
-
-# transient run output
-output.log
-output.logs
+env.yaml
 outputs/
-tasks/batches/
-project_deal_approach_*/output.log
-# output_phase*.log files — intentionally NOT ignored. They capture each
-# rollout's ng_run trace (preflight, progress, snapshot, headline aggregator)
-# and are useful for reproducibility / audit. Only the 14-char truncated
-# API-key prefix appears in them, never the full key.
-project_deal_approach_*/outputs/
-project_deal_approach_*/tasks/batches/
+results/runs/
+results/phase_1/
+results/aggregates/
+*.egg-info/
+.DS_Store

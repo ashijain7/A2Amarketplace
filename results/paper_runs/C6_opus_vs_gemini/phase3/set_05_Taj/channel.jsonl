@@ -1,0 +1,98 @@
+{"event_id": "psh_001", "turn": 1, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "[swap rejected: target set_05_kade_dresses_01 is not a listing]"}
+{"event_id": "lst_002", "turn": 2, "agent": "Duke", "action": "listing", "target": "set_05_duke_tops_01", "price": null, "message": "Howdy partners. I got a mighty fine And Blue Blouse here (set_05_duke_tops_01) lookin' for a new home. I'm aimin' to trade it for some good quality bottoms or dresses. Step right up and let me know what you've got to offer."}
+{"event_id": "lst_003", "turn": 3, "agent": "Taj", "action": "listing", "target": "set_05_taj_outerwear_01", "price": null, "message": "Offering my And White Sweater \u2014 soft patterned knit in cream/rose tones, great for layering. Looking to swap for a dress or quality bottoms. Serious offers welcome \u2014 happy to answer questions."}
+{"event_id": "lst_004", "turn": 4, "agent": "Jade", "action": "listing", "target": "set_05_jade_bottoms_01", "price": null, "message": "Hi everyone! I'm listing my And Tan Pants (set_05_jade_bottoms_01). They are really lovely and versatile. I'm hoping to swap for some nice tops or dresses. Let me know if you'd like to trade, I'd love to work something out!"}
+{"event_id": "psh_005", "turn": 5, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting on offers for my And White Sweater \u2014 especially open to dresses."}
+{"event_id": "psh_006", "turn": 6, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_007", "turn": 7, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still open to swaps \u2014 dresses or quality bottoms welcome for my white sweater."}
+{"event_id": "psh_008", "turn": 8, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_009", "turn": 9, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding the listing open."}
+{"event_id": "psh_010", "turn": 10, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_011", "turn": 11, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here \u2014 keep the dress offers coming."}
+{"event_id": "lst_012", "turn": 12, "agent": "Nola", "action": "listing", "target": "set_05_nola_bottoms_01", "price": null, "message": "Hi everyone! I'm excited to trade my lovely Sweater And Jeans (set_05_nola_bottoms_01). I'm looking for some cute outerwear or dresses in return. Let's make a great deal that helps us both!"}
+{"event_id": "psh_013", "turn": 13, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still holding for a dress swap."}
+{"event_id": "psh_014", "turn": 14, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Patient \u2014 happy to discuss any dress offers."}
+{"event_id": "psh_016", "turn": 16, "agent": "Vik", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_017", "turn": 17, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still open to a dress swap for my white sweater."}
+{"event_id": "lst_018", "turn": 18, "agent": "Zara", "action": "listing", "target": "set_05_zara_bottoms_01", "price": null, "message": "Hey everyone! \ud83c\udf1f I've got this super cute Sweater And Jeans (set_05_zara_bottoms_01) up for grabs! \ud83d\udc56\u2728 Would LOVE to swap for some snazzy dresses \ud83d\udc57 or cozy outerwear \ud83e\udde5! Let's make a deal and upgrade our wardrobes! \ud83d\udc83\ud83d\udecd\ufe0f"}
+{"event_id": "psh_019", "turn": 19, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding for a dress offer."}
+{"event_id": "swp_020", "turn": 20, "agent": "Duke", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Howdy Jade. I'd be mighty pleased to trade my And Blue Blouse (set_05_duke_tops_01) for your And Tan Pants. Let me know if we got a deal, partner."}
+{"event_id": "psh_021", "turn": 21, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here \u2014 would love a dress in exchange for my white sweater."}
+{"event_id": "psh_022", "turn": 22, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_023", "turn": 23, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still open to dress swaps for my white sweater."}
+{"event_id": "lst_024", "turn": 24, "agent": "Kade", "action": "listing", "target": "set_05_kade_dresses_01", "price": null, "message": "Listing set_05_kade_dresses_01. Want outerwear or bottoms."}
+{"event_id": "swp_025", "turn": 25, "agent": "Taj", "action": "swap_proposal", "target": "lst_024", "price": null, "message": "Hi Kade \u2014 your Brown Floral Dress is lovely, and I see you're after outerwear. I'd like to swap my And White Sweater (soft patterned knit, cream/rose tones) for it. Categories line up perfectly for both of us. Happy to answer any questions on condition."}
+{"event_id": "psh_026", "turn": 26, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_027", "turn": 27, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting on Kade's response to my swap proposal."}
+{"event_id": "psh_028", "turn": 28, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_029", "turn": 29, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting on Kade to consider my swap proposal."}
+{"event_id": "swp_030", "turn": 30, "agent": "Nola", "action": "swap_proposal", "target": "lst_024", "price": null, "message": "Hi Kade! I'd love to swap my Sweater And Jeans (set_05_nola_bottoms_01) for your dress. I see you're looking for bottoms, so this could be a great trade for both of us!"}
+{"event_id": "psh_031", "turn": 31, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping Kade considers my outerwear offer favorably."}
+{"event_id": "psh_032", "turn": 32, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_033", "turn": 33, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Standing by for Kade's decision."}
+{"event_id": "psh_034", "turn": 34, "agent": "Vik", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_035", "turn": 35, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here for Kade."}
+{"event_id": "swp_036", "turn": 36, "agent": "Zara", "action": "swap_proposal", "target": "lst_024", "price": null, "message": "Hey Kade! \ud83d\udc57\u2728 I see you are looking for bottoms! I would absolutely LOVE to swap my Sweater And Jeans (set_05_zara_bottoms_01) for your gorgeous dress! Let's make a deal! \ud83d\udc56\ud83d\udc96"}
+{"event_id": "psh_037", "turn": 37, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still waiting on Kade."}
+{"event_id": "evt_038", "turn": 38, "agent": "Duke", "action": "lookup", "target": "Jade", "price": null, "message": "Just checkin' the lay of the land, partners."}
+{"event_id": "psh_039", "turn": 39, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding for Kade's decision on my swap."}
+{"event_id": "psh_040", "turn": 40, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_041", "turn": 41, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Awaiting Kade's pick among the offers."}
+{"event_id": "psh_042", "turn": 42, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_043", "turn": 43, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still patient \u2014 happy to talk if Kade or anyone else wants to discuss."}
+{"event_id": "psh_044", "turn": 44, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_045", "turn": 45, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Standing by."}
+{"event_id": "lst_046", "turn": 46, "agent": "Mira", "action": "listing", "target": "set_05_mira_tops_01", "price": null, "message": "Hi everyone! \ud83d\udc4b I'm Mira! So excited to be here and chat with you all. I've got this lovely Yellow Top (set_05_mira_tops_01) looking for a new home. I'm hoping to find some cute bottoms or dresses in exchange. Let me know if you'd like to swap!"}
+{"event_id": "psh_047", "turn": 47, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here."}
+{"event_id": "evt_048", "turn": 48, "agent": "Nola", "action": "lookup", "target": "Kade", "price": null, "message": "Just checking Kade's reputation as a seller while I wait for a response!"}
+{"event_id": "psh_049", "turn": 49, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_050", "turn": 50, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_051", "turn": 51, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Patient."}
+{"event_id": "lst_052", "turn": 52, "agent": "Vik", "action": "listing", "target": "set_05_vik_tops_01", "price": null, "message": "Listing my Black Top (set_05_vik_tops_01). Looking to swap for bottoms or dresses. Direct offers welcome."}
+{"event_id": "psh_053", "turn": 53, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Continuing to wait for Kade."}
+{"event_id": "evt_054", "turn": 54, "agent": "Zara", "action": "lookup", "target": "Kade", "price": null, "message": "Just checking out Kade's reviews while I wait! \ud83d\udd75\ufe0f\u200d\u2640\ufe0f\u2728"}
+{"event_id": "psh_055", "turn": 55, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still standing by."}
+{"event_id": "evt_056", "turn": 56, "agent": "Duke", "action": "lookup", "target": "Jade", "price": null, "message": "Just checking on Jade's track record while I wait, partners."}
+{"event_id": "psh_057", "turn": 57, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_058", "turn": 58, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_059", "turn": 59, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_060", "turn": 60, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still holding for Kade's response."}
+{"event_id": "psh_062", "turn": 62, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_063", "turn": 63, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding patiently."}
+{"event_id": "swp_064", "turn": 64, "agent": "Mira", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Hi Jade! Your Tan Pants look wonderful! Would you be interested in trading them for my lovely Yellow Top? Let me know!"}
+{"event_id": "psh_065", "turn": 65, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here."}
+{"event_id": "evt_066", "turn": 66, "agent": "Nola", "action": "lookup", "target": "Zara", "price": null, "message": "Just taking a peek at Zara's buyer reviews to see who else is bidding on Kade's dress!"}
+{"event_id": "psh_067", "turn": 67, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still holding."}
+{"event_id": "lst_068", "turn": 68, "agent": "Rex", "action": "listing", "target": "set_05_rex_dresses_01", "price": null, "message": "Listing set_05_rex_dresses_01. Looking to swap for outerwear only."}
+{"event_id": "psh_069", "turn": 69, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still here \u2014 also noting Rex's dress as backup option."}
+{"event_id": "swp_070", "turn": 70, "agent": "Vik", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Hi Jade, offering my Black Top (set_05_vik_tops_01) for your And Tan Pants. Let me know if you're interested."}
+{"event_id": "psh_071", "turn": 71, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding for Kade or other dress offers."}
+{"event_id": "psh_072", "turn": 72, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_073", "turn": 73, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_074", "turn": 74, "agent": "Duke", "action": "lookup", "target": "Vik", "price": null, "message": "Just checkin' out the competition, partners."}
+{"event_id": "psh_075", "turn": 75, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_076", "turn": 76, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_077", "turn": 77, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_078", "turn": 78, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_079", "turn": 79, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_080", "turn": 80, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_082", "turn": 82, "agent": "Mira", "action": "lookup", "target": "Jade", "price": null, "message": "Just checking Jade's seller reviews while I wait to hear back! Hope everyone is having a lovely day! \ud83d\ude0a"}
+{"event_id": "psh_083", "turn": 83, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_084", "turn": 84, "agent": "Nola", "action": "pass", "target": null, "price": null, "message": "Still hoping to hear back from Kade about the dress! Fingers crossed."}
+{"event_id": "psh_085", "turn": 85, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_086", "turn": 86, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_087", "turn": 87, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_088", "turn": 88, "agent": "Vik", "action": "lookup", "target": "Zara", "price": null, "message": "Checking Zara's seller reputation."}
+{"event_id": "psh_089", "turn": 89, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_090", "turn": 90, "agent": "Zara", "action": "lookup", "target": "Rex", "price": null, "message": "Just taking a little peek at Rex's seller reviews! \ud83d\udc40\u2728"}
+{"event_id": "psh_091", "turn": 91, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_092", "turn": 92, "agent": "Duke", "action": "lookup", "target": "Zara", "price": null, "message": "Thinkin' about makin' another offer, just checkin' Zara's reputation first."}
+{"event_id": "psh_093", "turn": 93, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_094", "turn": 94, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_095", "turn": 95, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_096", "turn": 96, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_097", "turn": 97, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "lst_098", "turn": 98, "agent": "Lin", "action": "listing", "target": "set_05_lin_outerwear_01", "price": null, "message": "Listing my Orange Cardigan Sweater (set_05_lin_outerwear_01). A vibrant piece with a lot of character and warmth. I am looking for tops or bottoms in exchange."}

@@ -1,0 +1,32 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C4_sonnet_vs_gemini/phase3/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C4_sonnet_vs_gemini/phase3/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 1598.13it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [05:09<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [05:09<20:36, 309.25s/it]                                                                   Collecting rollouts:  20%|██        | 1/5 [30:11<20:36, 309.25s/it]Collecting rollouts:  40%|████      | 2/5 [30:11<50:33, 1011.06s/it]                                                                    Collecting rollouts:  40%|████      | 2/5 [31:11<50:33, 1011.06s/it]Collecting rollouts:  60%|██████    | 3/5 [31:11<19:13, 576.90s/it]                                                                    Collecting rollouts:  60%|██████    | 3/5 [31:14<19:13, 576.90s/it]Collecting rollouts:  80%|████████  | 4/5 [31:14<05:50, 350.12s/it]Collecting rollouts: 100%|██████████| 5/5 [31:27<00:00, 228.55s/it]Collecting rollouts: 100%|██████████| 5/5 [31:27<00:00, 377.46s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5416984126984128,
+    "mean/id": 2.0,
+    "mean/input_tokens": 1882603.2,
+    "mean/output_tokens": 5514.2,
+    "mean/total_tokens": 1888117.4,
+    "mean/cost": 0.023592,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C4_sonnet_vs_gemini/phase3/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C4_sonnet_vs_gemini/phase3/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C4_sonnet_vs_gemini/phase3/rollouts_aggregate_metrics.json

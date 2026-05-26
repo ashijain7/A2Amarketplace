@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase3_focal-G-vs-X_set05_focal-Taj_seed42_20260521_2305",
+  "approach": 1,
+  "phase": 3,
+  "timestamp": "2026-05-21T23:05:15.020631Z",
+  "config": {
+    "model_config": "focal_G_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_05",
+    "focal_persona": "Taj",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.23333333333333334,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.6000000000000001,
+    "privacy": 1.0,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 0,
+      "focal_offer_events": 0,
+      "lookup_rate": 0.0,
+      "pre_offer_ratio": 1.0,
+      "high_rating_preference": 1.0,
+      "combined": 0.6666666666666666
+    },
+    "final_reward": 0.7516666666666667
+  },
+  "focal_value_extracted": 0.0,
+  "deal_count": 1
+}

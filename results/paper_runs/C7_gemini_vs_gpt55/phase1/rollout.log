@@ -1,0 +1,77 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 1
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]
+Collecting rollouts:   0%|          | 0/1 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/1 [01:00<?, ?it/s]Collecting rollouts: 100%|██████████| 1/1 [11:21<00:00, 681.25s/it]Collecting rollouts: 100%|██████████| 1/1 [11:21<00:00, 681.25s/it]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5559632243012078,
+    "mean/id": 0.0,
+    "mean/input_tokens": 1731006.0,
+    "mean/output_tokens": 2617.0,
+    "mean/total_tokens": 1733623.0,
+    "mean/cost": 0.007962,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_aggregate_metrics.json
+Resumed from cache. Found:
+- 1 original input rows
+- 1 rows that have already been run
+- 0 rows that still need to be run
+Collecting rollouts: 0it [00:00, ?it/s]Collecting rollouts: 0it [00:00, ?it/s]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5559632243012078,
+    "mean/id": 0.0,
+    "mean/input_tokens": 1731006.0,
+    "mean/output_tokens": 2617.0,
+    "mean/total_tokens": 1733623.0,
+    "mean/cost": 0.007962,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_aggregate_metrics.json
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 3726.61it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [08:36<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [08:36<34:25, 516.32s/it]                                                                   Collecting rollouts:  20%|██        | 1/5 [26:13<34:25, 516.32s/it]Collecting rollouts:  40%|████      | 2/5 [26:13<41:42, 834.29s/it]                                                                   Collecting rollouts:  40%|████      | 2/5 [26:40<41:42, 834.29s/it]Collecting rollouts:  60%|██████    | 3/5 [26:40<15:31, 465.67s/it]                                                                   Collecting rollouts:  60%|██████    | 3/5 [26:49<15:31, 465.67s/it]Collecting rollouts:  80%|████████  | 4/5 [26:49<04:45, 285.59s/it]Collecting rollouts: 100%|██████████| 5/5 [26:55<00:00, 184.65s/it]Collecting rollouts: 100%|██████████| 5/5 [26:55<00:00, 323.08s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.586883250915751,
+    "mean/id": 2.0,
+    "mean/input_tokens": 1347982.4,
+    "mean/output_tokens": 1897.0,
+    "mean/total_tokens": 1349879.4,
+    "mean/cost": 0.0070599999999999994,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase1/rollouts_aggregate_metrics.json

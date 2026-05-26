@@ -1,0 +1,26 @@
+{
+  "run_id": "a1_phase2_focal-S-vs-S_set01_focal-Kai_seed42_SALVAGED",
+  "approach": 1,
+  "phase": 2,
+  "timestamp": "2026-05-20T17:43:00Z",
+  "config": {
+    "model_config": "focal_S_vs_S",
+    "focal_model": "anthropic/claude-sonnet-4-5",
+    "opponents_model": "anthropic/claude-sonnet-4-5",
+    "judge_model": "openai/gpt-4o-2024-11-20",
+    "persona_set": "set_01",
+    "focal_persona": "Kai",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.25625,
+    "capability_asymmetry": 0.5571428571428572,
+    "negotiation_quality": 0.5822222222222222,
+    "privacy": null,
+    "review_utilization": 0.0,
+    "final_reward": 0.4419355158730158
+  },
+  "focal_value_extracted": 15.0,
+  "deal_count": 9,
+  "salvage_note": "Original rollout was killed mid-flight at event 328+; truncated to first 100 events and rubrics re-scored."
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 52,
+    "seller": "Jade",
+    "buyer": "Vik",
+    "item_id": "bag_01",
+    "price": 30.0,
+    "seller_floor": 25.0,
+    "buyer_ceiling": 40.0
+  }
+]

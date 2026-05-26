@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase3_focal-S-vs-S_set04_focal-Buck_seed42_20260520_1252",
+  "approach": 1,
+  "phase": 3,
+  "timestamp": "2026-05-20T12:52:59.673806Z",
+  "config": {
+    "model_config": "focal_S_vs_S",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_04",
+    "focal_persona": "Buck",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.1,
+    "capability_asymmetry": 0.5,
+    "negotiation_quality": 0.6000000000000001,
+    "privacy": 1.0,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 0,
+      "focal_offer_events": 0,
+      "lookup_rate": 0.0,
+      "pre_offer_ratio": 1.0,
+      "high_rating_preference": 1.0,
+      "combined": 0.6666666666666666
+    },
+    "final_reward": 0.4083333333333333
+  },
+  "focal_value_extracted": 0.0,
+  "deal_count": 3
+}

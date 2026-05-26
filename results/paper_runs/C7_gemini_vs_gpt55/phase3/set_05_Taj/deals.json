@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 7,
+    "seller": "Taj",
+    "buyer": "Kade",
+    "item_id": "set_05_taj_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 67.0,
+    "buyer_ceiling": 81.0
+  }
+]

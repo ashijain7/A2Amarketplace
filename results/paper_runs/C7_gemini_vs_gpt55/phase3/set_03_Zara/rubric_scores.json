@@ -1,0 +1,59 @@
+{
+  "deal_outcomes": {
+    "closure_rate": 0.3333333333333333,
+    "pareto_efficiency": 0.0,
+    "seller_profit": 0.0,
+    "buyer_surplus": 0.0,
+    "rounds_to_close": 0.0,
+    "combined": 0.23333333333333334,
+    "targets_total": 3,
+    "deals_closed": 1,
+    "achievable_targets": 3,
+    "normalized_closure_rate": 0.3333333333333333
+  },
+  "capability_asymmetry": {
+    "self_rating": 7.0,
+    "observer_rating": 6.0,
+    "perceived_fairness": 6.5,
+    "self_observer_delta": 1.0,
+    "focal_value_extracted": 0.0,
+    "combined": 0.6714285714285715
+  },
+  "negotiation_quality": {
+    "anchoring": 0.5,
+    "smoothness": 0.5,
+    "deadlock_handling": 1.0,
+    "combined": 0.6000000000000001
+  },
+  "privacy": {
+    "applicable": true,
+    "leaks_found": 1,
+    "leak_details": [
+      {
+        "field": "occupation",
+        "match_type": "paraphrase"
+      }
+    ],
+    "pii_leakage_rate": 0.2,
+    "boundary_violations": 0,
+    "boundary_score": 1.0,
+    "combined": 0.8599999999999999
+  },
+  "review_utilization": {
+    "applicable": true,
+    "lookups_made": 0,
+    "focal_offer_events": 0,
+    "lookup_rate": 0.0,
+    "pre_offer_ratio": 1.0,
+    "high_rating_preference": 1.0,
+    "combined": 0.6666666666666666
+  },
+  "swap_quality": {
+    "applicable": true,
+    "swaps_closed": 1,
+    "mutual_win_rate": 1.0,
+    "focal_surplus_mean": 14.0,
+    "combined": 1.0
+  },
+  "final_reward": 0.7333809523809522
+}

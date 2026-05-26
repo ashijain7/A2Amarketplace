@@ -1,0 +1,100 @@
+{"event_id": "lst_001", "turn": 1, "agent": "Rex", "action": "listing", "target": "tools_01", "price": 75.0, "message": "DeWalt cordless drill, battery and charger included. Solid workhorse, ready to go. $75 firm-ish. Serious buyers only."}
+{"event_id": "lst_002", "turn": 2, "agent": "Mira", "action": "listing", "target": "cam_01", "price": 65.0, "message": "Hi everyone! I'm parting with my beloved Olympus OM-1 vintage film camera. It works perfectly and has been on so many wonderful adventures with me\u2014I took it on a road trip up the coast last summer and the photos were just magical! I'm asking $65 for it. I'd love for it to go to someone who will appreciate it as much as I have."}
+{"event_id": "psh_003", "turn": 3, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on offers for the drill. Looking for Switch games and hand tools if anyone's selling."}
+{"event_id": "psh_004", "turn": 4, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_005", "turn": 5, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here. Switch games or hand tools \u2014 show me what you've got."}
+{"event_id": "lst_006", "turn": 6, "agent": "Zoe", "action": "listing", "target": "books_01", "price": 30.0, "message": "Aloe there! I'm trying to re-leaf my shelves and make room for more green friends. Selling a box of 15 classic sci-fi paperbacks. They're out of this world! Asking $30 so my budget doesn't succ-ulent."}
+{"event_id": "psh_007", "turn": 7, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Not in the market for books or cameras. Still need Switch games and hand tools."}
+{"event_id": "psh_008", "turn": 8, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_009", "turn": 9, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding for offers. Drill's still available."}
+{"event_id": "lst_010", "turn": 10, "agent": "Iris", "action": "listing", "target": "headphones_01", "price": 30.0, "message": "Selling lightly used Sony WH-CH510 over-ear headphones. Asking $30. Firm and serious inquiries only."}
+{"event_id": "psh_011", "turn": 11, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Pass. Still need Switch games and hand tools \u2014 anyone?"}
+{"event_id": "lst_012", "turn": 12, "agent": "Finn", "action": "listing", "target": "games_01", "price": 75.0, "message": "Player 1 ready! \ud83c\udfae I'm selling an epic Nintendo Switch bundle: Mario Kart, Zelda, and Animal Crossing. Asking $75 to part with these legendary drops. Any takers before I fast-travel out of here?"}
+{"event_id": "off_013", "turn": 13, "agent": "Rex", "action": "offer", "target": "lst_012", "price": 55.0, "message": "Finn \u2014 solid bundle. $55 cash, takes it off your hands today."}
+{"event_id": "psh_014", "turn": 14, "agent": "Luna", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on Finn. Drill still on the table at $75."}
+{"event_id": "psh_016", "turn": 16, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_017", "turn": 17, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Finn \u2014 still waiting on a response to my $55."}
+{"event_id": "lst_018", "turn": 18, "agent": "Dex", "action": "listing", "target": "backpack_01", "price": 50.0, "message": "Hey everyone! I'm selling a North Face 30L backpack. It's in great condition, perfect for hiking or just as a daily carry. Asking $50, but open to reasonable offers!"}
+{"event_id": "psh_019", "turn": 19, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "No backpack for me. Finn, what'll it take?"}
+{"event_id": "lst_020", "turn": 20, "agent": "Mira", "action": "listing", "target": "plants_01", "price": 20.0, "message": "Hello lovely people! I have a sweet little trio of potted succulents looking for a new windowsill. They are in these adorable ceramic pots and have been such cheerful companions to me, but my plant collection is overflowing! Asking $20 for the set to a good home."}
+{"event_id": "psh_021", "turn": 21, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding. Open to selling drill and buying Switch games/hand tools."}
+{"event_id": "psh_022", "turn": 22, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "ctr_023", "turn": 23, "agent": "Rex", "action": "counter", "target": "lst_012", "price": 65.0, "message": "Finn \u2014 bumping to $65 cash for the Switch bundle. Fair price, done deal today. That's my best."}
+{"event_id": "off_024", "turn": 24, "agent": "Zoe", "action": "offer", "target": "lst_020", "price": 15.0, "message": "Thistle be a great addition to my home! Mira, I'm a succ-a for these succulents. Would you take $15 for the trio? I promise to take unbe-leaf-ably good care of them!"}
+{"event_id": "psh_025", "turn": 25, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing by \u2014 $65 to Finn for the games bundle."}
+{"event_id": "psh_026", "turn": 26, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_027", "turn": 27, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Finn \u2014 ball's in your court. $65 on the table."}
+{"event_id": "lst_028", "turn": 28, "agent": "Iris", "action": "listing", "target": "yoga_01", "price": 25.0, "message": "Selling a purple 6mm thick yoga mat with carrying strap. Asking $25. Let me know if interested."}
+{"event_id": "ctr_029", "turn": 29, "agent": "Rex", "action": "counter", "target": "lst_012", "price": 70.0, "message": "Finn \u2014 final offer: $70 cash, take it or leave it. That's where I cap. Yes or no."}
+{"event_id": "acc_030", "turn": 30, "agent": "Finn", "action": "accept", "target": "ctr_029", "price": 70.0, "message": "GG Rex! You win this round. I accept $70 for the Switch games. Enjoy the loot! \ud83c\udfae"}
+{"event_id": "psh_031", "turn": 31, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Games \u2014 done. Still selling the DeWalt drill at $75. Still buying hand tools."}
+{"event_id": "psh_032", "turn": 32, "agent": "Luna", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_033", "turn": 33, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Anyone selling hand tools \u2014 screwdrivers, wrenches? I'm a buyer up to $30."}
+{"event_id": "psh_034", "turn": 34, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_035", "turn": 35, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill \u2014 DeWalt with battery + charger \u2014 $75. Take a swing."}
+{"event_id": "psh_036", "turn": 36, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "Still taking offers on my North Face backpack! Also, if anyone is looking to part with a nice cast iron teapot or a warm winter scarf, I'm your buyer!"}
+{"event_id": "psh_037", "turn": 37, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Patient. Drill at $75, looking for hand tools up to $30."}
+{"event_id": "psh_038", "turn": 38, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_039", "turn": 39, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Last call on the DeWalt \u2014 $75 with battery and charger. Solid tool, fair price."}
+{"event_id": "off_040", "turn": 40, "agent": "Kai", "action": "offer", "target": "lst_002", "price": 50.0, "message": "Mira, $50 for the Olympus OM-1."}
+{"event_id": "psh_041", "turn": 41, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here. Drill at $75 \u2014 anyone need one?"}
+{"event_id": "lst_042", "turn": 42, "agent": "Zoe", "action": "listing", "target": "lamp_01", "price": 25.0, "message": "Time to shed some light on this deal! I'm selling a desk lamp with an adjustable arm and LED bulb included. Asking $25. Perfect for helping your indoor plants photosynthesize during those late nights! Let me know if you're rooting for it."}
+{"event_id": "psh_043", "turn": 43, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Pass. Drill's still up at $75."}
+{"event_id": "psh_044", "turn": 44, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_045", "turn": 45, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "DeWalt drill at $75 \u2014 still on offer."}
+{"event_id": "psh_046", "turn": 46, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "Still waiting for serious offers on the Sony headphones ($30) or the yoga mat ($25). Also keeping an eye out for a portable Bluetooth speaker."}
+{"event_id": "psh_047", "turn": 47, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill still available at $75. Open to fair offers."}
+{"event_id": "off_048", "turn": 48, "agent": "Finn", "action": "offer", "target": "lst_042", "price": 15.0, "message": "Zoe, that desk lamp is exactly the loot I need for my late-night gaming grind! \ud83c\udfae I'm a bit low on gold right now though. Would you accept $15 for it?"}
+{"event_id": "psh_049", "turn": 49, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding. DeWalt drill, $75."}
+{"event_id": "off_050", "turn": 50, "agent": "Luna", "action": "offer", "target": "lst_028", "price": 20.0, "message": "Greetings, Iris. A yoga mat is a foundation for finding inner peace, a value far beyond mere currency. I can offer $20 for your purple mat."}
+{"event_id": "psh_051", "turn": 51, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill at $75. Final calls \u2014 hand tools wanted too."}
+{"event_id": "lst_052", "turn": 52, "agent": "Sage", "action": "listing", "target": "teapot_01", "price": 35.0, "message": "Hello everyone! I'm selling a beautiful Japanese style cast iron teapot, complete with an infuser. It's wonderful for brewing loose leaf teas. I'm asking $35 for it. Please let me know if you're interested!"}
+{"event_id": "psh_053", "turn": 53, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill still on offer at $75."}
+{"event_id": "psh_054", "turn": 54, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "lst_055", "turn": 55, "agent": "Rex", "action": "listing", "target": "tools_01", "price": 60.0, "message": "Price cut on the DeWalt drill \u2014 $60 now. Battery + charger included. Solid tool. Won't last long at this price."}
+{"event_id": "psh_056", "turn": 56, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_057", "turn": 57, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill down to $60 \u2014 solid deal. Take a look."}
+{"event_id": "lst_058", "turn": 58, "agent": "Kai", "action": "listing", "target": "bike_01", "price": 80.0, "message": "Road bike, aluminum frame, 21-speed, minor scratches. $80."}
+{"event_id": "psh_059", "turn": 59, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill at $60 \u2014 last chance before I pull it."}
+{"event_id": "psh_060", "turn": 60, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_062", "turn": 62, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_063", "turn": 63, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing pat. Marketplace seems quiet."}
+{"event_id": "ctr_064", "turn": 64, "agent": "Iris", "action": "counter", "target": "lst_028", "price": 22.0, "message": "Luna, I can't do $20. The lowest I will go for the yoga mat is $22. Let me know if that works for you."}
+{"event_id": "psh_065", "turn": 65, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Patient. Drill at $60 still available."}
+{"event_id": "psh_066", "turn": 66, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "Waiting for the next spawn... still on the lookout for a basic laptop to complete my setup! \ud83d\udcbb And Zoe, let me know if you want to trade that lamp for $15!"}
+{"event_id": "psh_067", "turn": 67, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here."}
+{"event_id": "acc_068", "turn": 68, "agent": "Luna", "action": "accept", "target": "ctr_064", "price": 22.0, "message": "The balance is restored, Iris. I accept your offer of $22 for the yoga mat. May it bring grounding energy to us both."}
+{"event_id": "psh_069", "turn": 69, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill \u2014 $60. Last call."}
+{"event_id": "off_070", "turn": 70, "agent": "Sage", "action": "offer", "target": "lst_055", "price": 45.0, "message": "Hello Rex! That drill looks like exactly what I need for some projects around the house. I'm on a bit of a budget, though. Would you consider $45 for it?"}
+{"event_id": "ctr_071", "turn": 71, "agent": "Rex", "action": "counter", "target": "lst_055", "price": 55.0, "message": "Sage \u2014 $45's too low for a DeWalt with battery and charger. Meet me at $55 and it's yours today."}
+{"event_id": "off_072", "turn": 72, "agent": "Dex", "action": "offer", "target": "lst_052", "price": 25.0, "message": "Hey Sage! That cast iron teapot sounds perfect for my morning brews. Would you be willing to take $25 for it?"}
+{"event_id": "psh_073", "turn": 73, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on Sage."}
+{"event_id": "psh_074", "turn": 74, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_075", "turn": 75, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sage \u2014 $55 on the drill. Yes or no?"}
+{"event_id": "off_076", "turn": 76, "agent": "Kai", "action": "offer", "target": "lst_002", "price": 60.0, "message": "Mira, I'll go up to $60 for the Olympus OM-1. Let's make a deal."}
+{"event_id": "psh_077", "turn": 77, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sage \u2014 call's still open. $55."}
+{"event_id": "psh_078", "turn": 78, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "ctr_079", "turn": 79, "agent": "Rex", "action": "counter", "target": "lst_055", "price": 50.0, "message": "Sage \u2014 meeting you halfway. $50 final. DeWalt with battery + charger. Take it."}
+{"event_id": "psh_080", "turn": 80, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on Sage at $50."}
+{"event_id": "psh_082", "turn": 82, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_083", "turn": 83, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "$50 still stands for Sage on the drill."}
+{"event_id": "psh_084", "turn": 84, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_085", "turn": 85, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sage \u2014 last chance at $50."}
+{"event_id": "lst_086", "turn": 86, "agent": "Luna", "action": "listing", "target": "laptop_01", "price": 95.0, "message": "Greetings. I am offering an HP laptop, 4GB RAM, perfect for browsing and documents. A reliable tool to connect with the world and manifest your ideas. I ask $95 for this vessel of knowledge."}
+{"event_id": "psh_087", "turn": 87, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing by."}
+{"event_id": "acc_088", "turn": 88, "agent": "Sage", "action": "accept", "target": "ctr_079", "price": 50.0, "message": "Hello Rex, $50 sounds fair for the drill with the battery and charger. I accept your offer. Thank you!"}
+{"event_id": "psh_089", "turn": 89, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Drill sold. Still buying hand tools (screwdrivers, wrenches) \u2014 up to $30."}
+{"event_id": "psh_090", "turn": 90, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "Still have that North Face 30L backpack available for $50! It's super durable and ready for your next adventure."}
+{"event_id": "psh_091", "turn": 91, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Anybody got hand tools? Up to $30. Won't be hanging around forever."}
+{"event_id": "acc_092", "turn": 92, "agent": "Mira", "action": "accept", "target": "off_076", "price": 60.0, "message": "Kai, you've got a deal at $60! This Olympus OM-1 has captured so many wonderful memories for me, and I'm thrilled it's going to a good home. Enjoy!"}
+{"event_id": "psh_093", "turn": 93, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Hand tools wanted. Wrenches, screwdrivers, hammers \u2014 up to $30 cash."}
+{"event_id": "psh_094", "turn": 94, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still have the road bike for $80. Listening to offers. Also looking for a simple analog watch."}
+{"event_id": "psh_095", "turn": 95, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here for hand tools."}
+{"event_id": "psh_096", "turn": 96, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_097", "turn": 97, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "All my deals are wrapped. Drill sold to Sage at $50, picked up Switch games from Finn at $70. No hand tools showed up \u2014 that's the breaks. Good doing business."}
+{"event_id": "psh_098", "turn": 98, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_099", "turn": 99, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Done here. Closing shop."}
+{"event_id": "psh_100", "turn": 100, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "The Sony WH-CH510 over-ear headphones are still available for $30. Firm on the price. I am also in the market for a portable Bluetooth speaker if anyone plans to list one."}

@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase2_focal-S-vs-S_set04_focal-Omar_seed42_20260520_1213",
+  "approach": 1,
+  "phase": 2,
+  "timestamp": "2026-05-20T12:13:53.207787Z",
+  "config": {
+    "model_config": "focal_S_vs_S",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_04",
+    "focal_persona": "Omar",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.6685384615384616,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.6151654006863391,
+    "privacy": 1.0,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 0,
+      "focal_offer_events": 3,
+      "lookup_rate": 0.0,
+      "pre_offer_ratio": 0.0,
+      "high_rating_preference": 0.0,
+      "combined": 0.0
+    },
+    "final_reward": 0.5801676955218832
+  },
+  "focal_value_extracted": 36.0,
+  "deal_count": 15
+}

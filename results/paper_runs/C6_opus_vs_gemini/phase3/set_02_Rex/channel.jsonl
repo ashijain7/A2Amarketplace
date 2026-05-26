@@ -1,0 +1,98 @@
+{"event_id": "lst_001", "turn": 1, "agent": "Rex", "action": "listing", "target": "set_02_rex_outerwear_01", "price": null, "message": "Grey sweater up for swap. Quality knit, good shape. Looking for dresses or bottoms. Straight trades only \u2014 no nonsense."}
+{"event_id": "psh_002", "turn": 2, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_003", "turn": 3, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding for offers on the sweater."}
+{"event_id": "lst_004", "turn": 4, "agent": "Dex", "action": "listing", "target": "set_02_dex_bottoms_01", "price": null, "message": "Hey everyone! I've got some great And White Pants (set_02_dex_bottoms_01) up for trade. I'm mainly looking for outerwear or tops in exchange. Open to creative compromises!"}
+{"event_id": "psh_005", "turn": 5, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still holding. Sweater's available for dresses or bottoms."}
+{"event_id": "psh_006", "turn": 6, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_007", "turn": 7, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sweater's still on the table. Dresses or bottoms \u2014 bring me an offer."}
+{"event_id": "psh_008", "turn": 8, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_009", "turn": 9, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here. Offer up a dress and we can talk."}
+{"event_id": "lst_010", "turn": 10, "agent": "Kai", "action": "listing", "target": "set_02_kai_tops_01", "price": null, "message": "Green Blouse for trade. Want outerwear or bottoms."}
+{"event_id": "psh_011", "turn": 11, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Patience. Holding for dress offers."}
+{"event_id": "psh_012", "turn": 12, "agent": "Luna", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_013", "turn": 13, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sweater still up. Dresses or bottoms \u2014 let's deal."}
+{"event_id": "psh_014", "turn": 14, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Sweater's available. Anyone with a dress out there?"}
+{"event_id": "psh_016", "turn": 16, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "swp_017", "turn": 17, "agent": "Rex", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Dex \u2014 straight up: my grey sweater for your white pants. Both quality pieces, both wanted categories. Let's get it done."}
+{"event_id": "psh_018", "turn": 18, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_019", "turn": 19, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on Dex's call."}
+{"event_id": "lst_020", "turn": 20, "agent": "Bo", "action": "listing", "target": "set_02_bo_tops_01", "price": null, "message": "Howdy pardners. I reckon it's time to part ways with this mighty fine Blue Top (set_02_bo_tops_01). I'm lookin' to rustle up some bottoms or outerwear in return. Let me know if you want to make a trade."}
+{"event_id": "psh_021", "turn": 21, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Dex, still waiting on you."}
+{"event_id": "psh_022", "turn": 22, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_023", "turn": 23, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Proposal's open, Dex."}
+{"event_id": "lst_024", "turn": 24, "agent": "Finn", "action": "listing", "target": "set_02_finn_dresses_01", "price": null, "message": "LFG! Dropping this epic Red Dress (set_02_finn_dresses_01) from my inventory. Looking to trade for some high-tier bottoms. Any takers? GG!"}
+{"event_id": "psh_025", "turn": 25, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing by."}
+{"event_id": "psh_026", "turn": 26, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_027", "turn": 27, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "swp_028", "turn": 28, "agent": "Kai", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "My Green Blouse (set_02_kai_tops_01) for your White Pants. Straight trade."}
+{"event_id": "psh_029", "turn": 29, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "swp_030", "turn": 30, "agent": "Luna", "action": "swap_proposal", "target": "lst_024", "price": null, "message": "Greetings, Finn. True value is found when two items find their rightful place. I offer my Skirt (set_02_luna_bottoms_01) in exchange for your Red Dress. May this exchange bring harmony to both our collections."}
+{"event_id": "psh_031", "turn": 31, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing by."}
+{"event_id": "psh_032", "turn": 32, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_033", "turn": 33, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "lst_034", "turn": 34, "agent": "Sage", "action": "listing", "target": "set_02_sage_tops_01", "price": null, "message": "Hello everyone! I'm offering a lovely White Top (set_02_sage_tops_01) today. I would love to trade it for some bottoms or outerwear. Please let me know if you're interested!"}
+{"event_id": "psh_035", "turn": 35, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still holding."}
+{"event_id": "psh_036", "turn": 36, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_037", "turn": 37, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "swp_038", "turn": 38, "agent": "Bo", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Howdy Dex pardner! I reckon my Blue Top (set_02_bo_tops_01) might do you some good. How about we trade it for them White Pants of yours?"}
+{"event_id": "psh_039", "turn": 39, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_040", "turn": 40, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_041", "turn": 41, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_042", "turn": 42, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_043", "turn": 43, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_044", "turn": 44, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_045", "turn": 45, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_046", "turn": 46, "agent": "Kai", "action": "lookup", "target": "Dex", "price": null, "message": ""}
+{"event_id": "psh_047", "turn": 47, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_048", "turn": 48, "agent": "Luna", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_049", "turn": 49, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_050", "turn": 50, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_051", "turn": 51, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_052", "turn": 52, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_053", "turn": 53, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_054", "turn": 54, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_055", "turn": 55, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_056", "turn": 56, "agent": "Bo", "action": "lookup", "target": "Dex", "price": null, "message": "Just resting by the campfire, waitin' on a reply. Reckon I'll hold my horses for now."}
+{"event_id": "psh_057", "turn": 57, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_058", "turn": 58, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_059", "turn": 59, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_060", "turn": 60, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_062", "turn": 62, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_063", "turn": 63, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_064", "turn": 64, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_065", "turn": 65, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "lst_066", "turn": 66, "agent": "Luna", "action": "listing", "target": "set_02_luna_bottoms_01", "price": null, "message": "Everything flows in cycles. I offer this Skirt (set_02_luna_bottoms_01) to the universe, seeking tops or dresses in return. Let us find balance together."}
+{"event_id": "psh_067", "turn": 67, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_068", "turn": 68, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_069", "turn": 69, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_070", "turn": 70, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_071", "turn": 71, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_072", "turn": 72, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_073", "turn": 73, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_074", "turn": 74, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_075", "turn": 75, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_076", "turn": 76, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_077", "turn": 77, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_078", "turn": 78, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_079", "turn": 79, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_080", "turn": 80, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_082", "turn": 82, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_083", "turn": 83, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "evt_084", "turn": 84, "agent": "Luna", "action": "lookup", "target": "Finn", "price": null, "message": "Patience is a virtue. While the universe considers my offer, I shall quietly observe the threads of destiny surrounding Finn."}
+{"event_id": "psh_085", "turn": 85, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_086", "turn": 86, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_087", "turn": 87, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_088", "turn": 88, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_089", "turn": 89, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_090", "turn": 90, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_091", "turn": 91, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_092", "turn": 92, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_093", "turn": 93, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_094", "turn": 94, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_095", "turn": 95, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_096", "turn": 96, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_097", "turn": 97, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Holding."}
+{"event_id": "psh_098", "turn": 98, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}

@@ -1,0 +1,42 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 70,
+    "seller": "Taj",
+    "buyer": "Jade",
+    "item_id": "watch_01",
+    "price": 28.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 28.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 86,
+    "seller": "Nola",
+    "buyer": "Taj",
+    "item_id": "blender_01",
+    "price": 40.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 92,
+    "seller": "Mira",
+    "buyer": "Lin",
+    "item_id": "lamp_01",
+    "price": 18.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 25.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 98,
+    "seller": "Duke",
+    "buyer": "Taj",
+    "item_id": "boots_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 45.0
+  }
+]

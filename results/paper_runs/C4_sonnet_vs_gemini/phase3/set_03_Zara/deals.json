@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 91,
+    "seller": "Zara",
+    "buyer": "Priya",
+    "item_id": "set_03_zara_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 26.0,
+    "buyer_ceiling": 58.0
+  }
+]

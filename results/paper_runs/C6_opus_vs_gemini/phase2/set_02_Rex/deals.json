@@ -1,0 +1,32 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 30,
+    "seller": "Finn",
+    "buyer": "Rex",
+    "item_id": "games_01",
+    "price": 68.0,
+    "seller_floor": 55.0,
+    "buyer_ceiling": 70.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 38,
+    "seller": "Mira",
+    "buyer": "Kai",
+    "item_id": "cam_01",
+    "price": 60.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 65.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 92,
+    "seller": "Mira",
+    "buyer": "Zoe",
+    "item_id": "plants_01",
+    "price": 15.0,
+    "seller_floor": 12.0,
+    "buyer_ceiling": 18.0
+  }
+]

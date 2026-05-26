@@ -1,0 +1,52 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 45,
+    "seller": "Duke",
+    "buyer": "Taj",
+    "item_id": "boots_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 48,
+    "seller": "Lin",
+    "buyer": "Rex",
+    "item_id": "yoga_01",
+    "price": 18.0,
+    "seller_floor": 12.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 66,
+    "seller": "Rex",
+    "buyer": "Duke",
+    "item_id": "drill_01",
+    "price": 50.0,
+    "seller_floor": 42.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 86,
+    "seller": "Nola",
+    "buyer": "Taj",
+    "item_id": "blender_01",
+    "price": 40.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 92,
+    "seller": "Kade",
+    "buyer": "Mira",
+    "item_id": "bike_01",
+    "price": 75.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 80.0
+  }
+]

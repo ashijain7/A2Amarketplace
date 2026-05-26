@@ -1,0 +1,96 @@
+{"event_id": "lst_001", "turn": 1, "agent": "Taj", "action": "listing", "target": "watch_01", "price": 35.0, "message": "Selling: Casio digital watch, water resistant, new battery. Great condition. Asking $35."}
+{"event_id": "psh_002", "turn": 2, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_003", "turn": 3, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Looking for a kitchen blender and sturdy boots (size 10 or 11)."}
+{"event_id": "lst_004", "turn": 4, "agent": "Kade", "action": "listing", "target": "bike_01", "price": 90.0, "message": "Mountain bike, 21-speed. Needs new brake pads. $90."}
+{"event_id": "psh_005", "turn": 5, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still interested in blender and boots if anyone has them."}
+{"event_id": "lst_006", "turn": 6, "agent": "Zara", "action": "listing", "target": "pot_01", "price": 35.0, "message": "Hey everyone! \ud83c\udf73 I'm selling an amazing 12-inch cast iron skillet, perfectly seasoned and ready for your kitchen adventures! \u2728 Asking $35. Let's make a deal! \ud83d\ude09"}
+{"event_id": "psh_007", "turn": 7, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Watching for blender and boots listings."}
+{"event_id": "off_008", "turn": 8, "agent": "Duke", "action": "offer", "target": "lst_006", "price": 25.0, "message": "Howdy Zara. That skillet looks mighty fine, but $35 is a bit steep for my blood. I can offer you $25 for it right now, partner."}
+{"event_id": "psh_009", "turn": 9, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for more listings."}
+{"event_id": "lst_010", "turn": 10, "agent": "Lin", "action": "listing", "target": "headphone_01", "price": 60.0, "message": "Music is the space between the notes, but one needs a worthy vessel to truly hear it. I am offering these Sony WH-1000XM3 wireless headphones, in good condition, for $60. May they bring focus and peace to your daily journey."}
+{"event_id": "psh_011", "turn": 11, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still looking for blender and boots."}
+{"event_id": "lst_012", "turn": 12, "agent": "Rex", "action": "listing", "target": "drill_01", "price": 55.0, "message": "For sale: Black & Decker cordless drill, 20V. Includes battery and charger. Asking $55. Firm on price. Serious inquiries only."}
+{"event_id": "psh_013", "turn": 13, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping to see a blender or boots soon!"}
+{"event_id": "psh_014", "turn": 14, "agent": "Nola", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Continuing to look for blender and boots."}
+{"event_id": "psh_016", "turn": 16, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_017", "turn": 17, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting patiently for blender or boots."}
+{"event_id": "lst_018", "turn": 18, "agent": "Vik", "action": "listing", "target": "speaker_01", "price": 45.0, "message": "Selling a waterproof Bluetooth speaker, 10hr battery. Works perfectly. Asking $45."}
+{"event_id": "psh_019", "turn": 19, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still seeking blender and boots."}
+{"event_id": "psh_020", "turn": 20, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_021", "turn": 21, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Anyone have a blender or boots?"}
+{"event_id": "psh_022", "turn": 22, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": ""}
+{"event_id": "psh_023", "turn": 23, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Checking marketplace activity."}
+{"event_id": "psh_024", "turn": 24, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_025", "turn": 25, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Watching for new listings."}
+{"event_id": "lst_026", "turn": 26, "agent": "Duke", "action": "listing", "target": "boots_01", "price": 50.0, "message": "Howdy folks. Got a pair of size 10 leather work boots here. Lightly worn, still got plenty of miles left in 'em. Asking $50."}
+{"event_id": "off_027", "turn": 27, "agent": "Taj", "action": "offer", "target": "lst_026", "price": 38.0, "message": "Hi Duke, interested in the boots. Size 10 works for me. Would you take $38?"}
+{"event_id": "lst_028", "turn": 28, "agent": "Lin", "action": "listing", "target": "yoga_01", "price": 20.0, "message": "A yoga mat is not just rubber and foam; it is a foundation for grounding oneself in a chaotic world. I am offering a barely used yoga mat with a carrying strap. Asking $20, a small price for inner peace."}
+{"event_id": "psh_029", "turn": 29, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for responses. Still looking for a blender too."}
+{"event_id": "off_030", "turn": 30, "agent": "Rex", "action": "offer", "target": "lst_028", "price": 15.0, "message": "I can offer $15 for the yoga mat. Let me know if that works for you."}
+{"event_id": "psh_031", "turn": 31, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Monitoring marketplace."}
+{"event_id": "lst_032", "turn": 32, "agent": "Nola", "action": "listing", "target": "game_01", "price": 45.0, "message": "Hi everyone! I'm selling an awesome board game bundle: Catan, Ticket to Ride, and Pandemic. Perfect for game nights! Asking $45."}
+{"event_id": "psh_033", "turn": 33, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still hoping to find a blender."}
+{"event_id": "psh_034", "turn": 34, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_035", "turn": 35, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for Duke's response."}
+{"event_id": "psh_036", "turn": 36, "agent": "Vik", "action": "pass", "target": null, "price": null, "message": "Nothing catches my eye right now. Still taking offers on the Bluetooth speaker."}
+{"event_id": "psh_037", "turn": 37, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Watching for new activity."}
+{"event_id": "psh_038", "turn": 38, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_039", "turn": 39, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still waiting for Duke and looking for a blender."}
+{"event_id": "psh_040", "turn": 40, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": ""}
+{"event_id": "psh_041", "turn": 41, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Continuing to wait."}
+{"event_id": "psh_042", "turn": 42, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_043", "turn": 43, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Checking in."}
+{"event_id": "ctr_044", "turn": 44, "agent": "Duke", "action": "counter", "target": "lst_026", "price": 45.0, "message": "Howdy Taj. I appreciate the offer, but $38 is a mite low for boots with this much life left. How about we shake on $45?"}
+{"event_id": "acc_045", "turn": 45, "agent": "Taj", "action": "accept", "target": "ctr_044", "price": 45.0, "message": "$45 works for me, Duke. Deal!"}
+{"event_id": "ctr_046", "turn": 46, "agent": "Lin", "action": "counter", "target": "lst_028", "price": 18.0, "message": "A solid foundation for practice holds true value, Rex. I would be pleased to pass this mat to you for $18. Shall we find balance there?"}
+{"event_id": "psh_047", "turn": 47, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Great deal on the boots! Still looking for a kitchen blender."}
+{"event_id": "acc_048", "turn": 48, "agent": "Rex", "action": "accept", "target": "ctr_046", "price": 18.0, "message": "I accept your counter of $18 for the yoga mat, Lin. Deal."}
+{"event_id": "psh_049", "turn": 49, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Watch still available. Looking for blender."}
+{"event_id": "psh_050", "turn": 50, "agent": "Nola", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_051", "turn": 51, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still in the market for a blender."}
+{"event_id": "lst_052", "turn": 52, "agent": "Jade", "action": "listing", "target": "bag_01", "price": 35.0, "message": "Hi everyone! I'm selling a gently used canvas backpack with multiple pockets. Really handy for everyday use. I'm asking $35 for it!"}
+{"event_id": "psh_053", "turn": 53, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for blender listings."}
+{"event_id": "psh_054", "turn": 54, "agent": "Vik", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_055", "turn": 55, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping someone lists a blender soon."}
+{"event_id": "off_056", "turn": 56, "agent": "Mira", "action": "offer", "target": "lst_004", "price": 65.0, "message": "Hi Kade! I'm looking for a commuter bike and yours caught my eye. Since I'll need to replace the brake pads before riding it, would you be open to $65 for it?"}
+{"event_id": "psh_057", "turn": 57, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still seeking a blender for smoothies."}
+{"event_id": "psh_058", "turn": 58, "agent": "Kade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_059", "turn": 59, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Watching marketplace."}
+{"event_id": "psh_060", "turn": 60, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still looking for a blender."}
+{"event_id": "off_062", "turn": 62, "agent": "Duke", "action": "offer", "target": "lst_012", "price": 50.0, "message": "Howdy Rex. I could sure use that drill. I know you said firm, but would you take $50 for it? Cash in hand ready to go."}
+{"event_id": "psh_063", "turn": 63, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Continuing to wait for a blender listing."}
+{"event_id": "psh_064", "turn": 64, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "Patience is a virtue in both seeking the right light to read by and the right listener for these headphones."}
+{"event_id": "psh_065", "turn": 65, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Looking for blender. Watch available."}
+{"event_id": "acc_066", "turn": 66, "agent": "Rex", "action": "accept", "target": "off_062", "price": 50.0, "message": "Alright Duke, I'll accept your offer of $50 for the drill. Deal."}
+{"event_id": "psh_067", "turn": 67, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Anyone selling a blender?"}
+{"event_id": "lst_068", "turn": 68, "agent": "Nola", "action": "listing", "target": "blender_01", "price": 40.0, "message": "Hey everyone! I'm selling an awesome Ninja blender, 900W, with all parts included! Works perfectly and makes great smoothies. Asking $40. Let's make a deal!"}
+{"event_id": "off_069", "turn": 69, "agent": "Taj", "action": "offer", "target": "lst_068", "price": 40.0, "message": "Hi Nola! This is exactly what I need for smoothies. I'll take it for $40!"}
+{"event_id": "off_070", "turn": 70, "agent": "Jade", "action": "offer", "target": "lst_001", "price": 24.0, "message": "Hi Taj! I'm really interested in the Casio watch. My budget is a bit tight right now though\u2014would you be willing to consider $24 for it?"}
+{"event_id": "psh_071", "turn": 71, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for Nola's response on the blender."}
+{"event_id": "off_072", "turn": 72, "agent": "Vik", "action": "offer", "target": "lst_052", "price": 30.0, "message": "Hey Jade, I'll offer $30 for the canvas backpack. Let me know if that works for you."}
+{"event_id": "psh_073", "turn": 73, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping to hear from Nola soon."}
+{"event_id": "lst_074", "turn": 74, "agent": "Mira", "action": "listing", "target": "cam_01", "price": 65.0, "message": "Hi everyone! Hope you're all having a great day. I'm selling a beautiful vintage Pentax K1000 film camera. It's in great working condition and perfect for anyone looking to get into film photography. Asking $65! Let me know if you're interested."}
+{"event_id": "psh_075", "turn": 75, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for Nola's decision."}
+{"event_id": "ctr_076", "turn": 76, "agent": "Kade", "action": "counter", "target": "lst_004", "price": 75.0, "message": "$65 is too low. I can do $75."}
+{"event_id": "psh_077", "turn": 77, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still waiting on Nola."}
+{"event_id": "psh_078", "turn": 78, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_079", "turn": 79, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping Nola accepts my offer."}
+{"event_id": "psh_080", "turn": 80, "agent": "Duke", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still awaiting Nola's response."}
+{"event_id": "psh_082", "turn": 82, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_083", "turn": 83, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for Nola and considering Jade's offer."}
+{"event_id": "off_084", "turn": 84, "agent": "Rex", "action": "offer", "target": "lst_032", "price": 30.0, "message": "Nola, I'm interested in the board game bundle. My budget for this is $30 firm. Let me know if we have a deal."}
+{"event_id": "psh_085", "turn": 85, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Continuing to wait."}
+{"event_id": "acc_086", "turn": 86, "agent": "Nola", "action": "accept", "target": "off_069", "price": 40.0, "message": "Hi Taj! I'd love to accept your offer of $40 for the Ninja blender. You're going to love it for your smoothies! Deal!"}
+{"event_id": "ctr_087", "turn": 87, "agent": "Taj", "action": "counter", "target": "lst_001", "price": 28.0, "message": "Hi Jade! Thanks for your interest. I can come down a bit - would you meet me at $28?"}
+{"event_id": "psh_088", "turn": 88, "agent": "Jade", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_089", "turn": 89, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting for Jade's response on the watch."}
+{"event_id": "psh_090", "turn": 90, "agent": "Vik", "action": "pass", "target": null, "price": null, "message": ""}
+{"event_id": "psh_091", "turn": 91, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Hoping to finalize the watch sale."}
+{"event_id": "acc_092", "turn": 92, "agent": "Mira", "action": "accept", "target": "ctr_076", "price": 75.0, "message": "Hi Kade! $75 sounds very fair to me. I gladly accept your offer. Thanks so much, looking forward to fixing it up and riding it!"}
+{"event_id": "psh_093", "turn": 93, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Still waiting for Jade."}
+{"event_id": "off_094", "turn": 94, "agent": "Kade", "action": "offer", "target": "lst_074", "price": 50.0, "message": "$50 for the Pentax."}
+{"event_id": "psh_095", "turn": 95, "agent": "Taj", "action": "pass", "target": null, "price": null, "message": "Waiting on Jade's counter."}
+{"event_id": "psh_096", "turn": 96, "agent": "Zara", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}

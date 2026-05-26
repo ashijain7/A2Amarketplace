@@ -1,0 +1,112 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 28,
+    "seller": "Lin",
+    "buyer": "Samir",
+    "item_id": "books_01",
+    "price": 20.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 30.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 38,
+    "seller": "Maya",
+    "buyer": "Derek",
+    "item_id": "blender_01",
+    "price": 42.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 42,
+    "seller": "Priya",
+    "buyer": "Jax",
+    "item_id": "headphones_01",
+    "price": 88.0,
+    "seller_floor": 80.0,
+    "buyer_ceiling": 90.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 48,
+    "seller": "Samir",
+    "buyer": "Buck",
+    "item_id": "grill_01",
+    "price": 50.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 64,
+    "seller": "Maya",
+    "buyer": "Lin",
+    "item_id": "yoga_mat_01",
+    "price": 22.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 76,
+    "seller": "Derek",
+    "buyer": "Rosa",
+    "item_id": "camera_01",
+    "price": 60.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 70.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 80,
+    "seller": "Buck",
+    "buyer": "Priya",
+    "item_id": "bike_01",
+    "price": 88.0,
+    "seller_floor": 75.0,
+    "buyer_ceiling": 95.0
+  },
+  {
+    "deal_id": "deal_008",
+    "turn": 104,
+    "seller": "Zoe",
+    "buyer": "Lin",
+    "item_id": "teapot_01",
+    "price": 35.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_009",
+    "turn": 109,
+    "seller": "Kai",
+    "buyer": "Jax",
+    "item_id": "keyboard_01",
+    "price": 60.0,
+    "seller_floor": 50.0,
+    "buyer_ceiling": 90.0
+  },
+  {
+    "deal_id": "deal_010",
+    "turn": 116,
+    "seller": "Buck",
+    "buyer": "Samir",
+    "item_id": "toolbox_01",
+    "price": 25.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 30.0
+  },
+  {
+    "deal_id": "deal_011",
+    "turn": 140,
+    "seller": "Zoe",
+    "buyer": "Kai",
+    "item_id": "dog_sitting_01",
+    "price": 25.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 40.0
+  }
+]

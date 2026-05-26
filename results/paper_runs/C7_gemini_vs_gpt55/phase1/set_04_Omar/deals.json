@@ -1,0 +1,42 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 22,
+    "seller": "Zara",
+    "buyer": "Marcus",
+    "item_id": "blender_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 26,
+    "seller": "Omar",
+    "buyer": "Raj",
+    "item_id": "bike_01",
+    "price": 78.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 85.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 31,
+    "seller": "Buck",
+    "buyer": "Omar",
+    "item_id": "toolkit_01",
+    "price": 42.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 33,
+    "seller": "Ivy",
+    "buyer": "Omar",
+    "item_id": "printer_01",
+    "price": 50.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 50.0
+  }
+]

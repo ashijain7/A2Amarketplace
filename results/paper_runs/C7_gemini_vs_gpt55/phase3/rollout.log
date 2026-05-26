@@ -1,0 +1,32 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase3/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase3/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 1285.71it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [50:55<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [50:55<3:23:43, 3055.79s/it]                                                                      Collecting rollouts:  20%|██        | 1/5 [51:01<3:23:43, 3055.79s/it]Collecting rollouts:  40%|████      | 2/5 [51:01<1:03:04, 1261.50s/it]                                                                      Collecting rollouts:  40%|████      | 2/5 [51:01<1:03:04, 1261.50s/it]                                                                      Collecting rollouts:  40%|████      | 2/5 [51:07<1:03:04, 1261.50s/it]Collecting rollouts:  80%|████████  | 4/5 [51:07<07:52, 472.59s/it]   Collecting rollouts: 100%|██████████| 5/5 [51:07<00:00, 613.53s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5468190476190475,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2964728.8,
+    "mean/output_tokens": 2920.8,
+    "mean/total_tokens": 2967649.6,
+    "mean/cost": 0.026725199999999998,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase3/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase3/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/project_deal_approach_1/results/paper_runs/C7_gemini_vs_gpt55/phase3/rollouts_aggregate_metrics.json

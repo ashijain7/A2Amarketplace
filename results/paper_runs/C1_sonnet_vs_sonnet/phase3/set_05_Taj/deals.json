@@ -1,0 +1,32 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 50,
+    "seller": "Rex",
+    "buyer": "Taj",
+    "item_id": "set_05_rex_dresses_01",
+    "price": -1.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 72.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 76,
+    "seller": "Jade",
+    "buyer": "Vik",
+    "item_id": "set_05_jade_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 36.0,
+    "buyer_ceiling": 46.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 96,
+    "seller": "Kade",
+    "buyer": "Zara",
+    "item_id": "set_05_kade_dresses_01",
+    "price": -1.0,
+    "seller_floor": 52.0,
+    "buyer_ceiling": 56.0
+  }
+]

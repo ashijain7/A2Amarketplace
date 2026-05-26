@@ -1,0 +1,152 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 38,
+    "seller": "Zara",
+    "buyer": "Sienna",
+    "item_id": "yoga_01",
+    "price": 18.0,
+    "seller_floor": 12.0,
+    "buyer_ceiling": 20.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 42,
+    "seller": "Luna",
+    "buyer": "Raj",
+    "item_id": "books_01",
+    "price": 30.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 85.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 46,
+    "seller": "Sienna",
+    "buyer": "Luna",
+    "item_id": "plants_01",
+    "price": 22.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 25.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 48,
+    "seller": "Buck",
+    "buyer": "Omar",
+    "item_id": "toolkit_01",
+    "price": 42.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 50,
+    "seller": "Ivy",
+    "buyer": "Omar",
+    "item_id": "printer_01",
+    "price": 40.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 52,
+    "seller": "Tess",
+    "buyer": "Dev",
+    "item_id": "guitar_01",
+    "price": 68.0,
+    "seller_floor": 55.0,
+    "buyer_ceiling": 75.0
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 74,
+    "seller": "Zara",
+    "buyer": "Marcus",
+    "item_id": "blender_01",
+    "price": 44.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_008",
+    "turn": 80,
+    "seller": "Raj",
+    "buyer": "Ivy",
+    "item_id": "skateboard_01",
+    "price": 50.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 55.0
+  },
+  {
+    "deal_id": "deal_009",
+    "turn": 82,
+    "seller": "Sienna",
+    "buyer": "Buck",
+    "item_id": "cookware_01",
+    "price": 28.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_010",
+    "turn": 94,
+    "seller": "Marcus",
+    "buyer": "Zara",
+    "item_id": "camera_01",
+    "price": 58.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 65.0
+  },
+  {
+    "deal_id": "deal_011",
+    "turn": 98,
+    "seller": "Omar",
+    "buyer": "Raj",
+    "item_id": "bike_01",
+    "price": 83.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 85.0
+  },
+  {
+    "deal_id": "deal_012",
+    "turn": 104,
+    "seller": "Ivy",
+    "buyer": "Buck",
+    "item_id": "dogsit_01",
+    "price": 42.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 45.0
+  },
+  {
+    "deal_id": "deal_013",
+    "turn": 106,
+    "seller": "Tess",
+    "buyer": "Dev",
+    "item_id": "games_01",
+    "price": 41.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 75.0
+  },
+  {
+    "deal_id": "deal_014",
+    "turn": 114,
+    "seller": "Luna",
+    "buyer": "Marcus",
+    "item_id": "headphones_01",
+    "price": 35.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_015",
+    "turn": 142,
+    "seller": "Dev",
+    "buyer": "Tess",
+    "item_id": "monitor_01",
+    "price": 62.0,
+    "seller_floor": 48.0,
+    "buyer_ceiling": 70.0
+  }
+]

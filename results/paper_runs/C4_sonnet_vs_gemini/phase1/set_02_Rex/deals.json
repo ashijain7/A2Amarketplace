@@ -1,0 +1,42 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 53,
+    "seller": "Rex",
+    "buyer": "Sage",
+    "item_id": "tools_01",
+    "price": 50.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 66,
+    "seller": "Finn",
+    "buyer": "Rex",
+    "item_id": "games_01",
+    "price": 70.0,
+    "seller_floor": 55.0,
+    "buyer_ceiling": 70.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 76,
+    "seller": "Kai",
+    "buyer": "Mira",
+    "item_id": "bike_01",
+    "price": 75.0,
+    "seller_floor": 60.0,
+    "buyer_ceiling": 85.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 94,
+    "seller": "Mira",
+    "buyer": "Kai",
+    "item_id": "cam_01",
+    "price": 60.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 65.0
+  }
+]

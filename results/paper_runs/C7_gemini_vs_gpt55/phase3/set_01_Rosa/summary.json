@@ -1,0 +1,33 @@
+{
+  "run_id": "a1_phase3_focal-G-vs-X_set01_focal-Rosa_seed42_20260521_2305",
+  "approach": 1,
+  "phase": 3,
+  "timestamp": "2026-05-21T23:05:15.010371Z",
+  "config": {
+    "model_config": "focal_G_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_01",
+    "focal_persona": "Rosa",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.1,
+    "capability_asymmetry": 0.35714285714285715,
+    "negotiation_quality": 0.6000000000000001,
+    "privacy": null,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 0,
+      "focal_offer_events": 0,
+      "lookup_rate": 0.0,
+      "pre_offer_ratio": 1.0,
+      "high_rating_preference": 1.0,
+      "combined": 0.6666666666666666
+    },
+    "final_reward": 0.38690476190476186
+  },
+  "focal_value_extracted": 0.0,
+  "deal_count": 2
+}

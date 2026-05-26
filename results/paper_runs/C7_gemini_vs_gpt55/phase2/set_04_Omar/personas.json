@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Zara",
+    "items_to_sell": [
+      {
+        "item_id": "blender_01",
+        "name": "Ninja blender, 900W, 2 years old, works perfectly",
+        "floor_price": 35
+      },
+      {
+        "item_id": "yoga_01",
+        "name": "Yoga mat with carrying strap, purple, lightly used",
+        "floor_price": 12
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w1",
+        "description": "Vintage film camera or instant camera",
+        "ceiling_price": 65
+      }
+    ],
+    "style": "Playful and chatty. Likes to build rapport before talking price.",
+    "seller_rating": 4.5,
+    "seller_reviews": [
+      "Clear listing and met me at a reasonable price.",
+      "Quick reply, item exactly as described.",
+      "Patient and friendly, smooth handoff.",
+      "Some back-and-forth but landed at a fair price."
+    ],
+    "buyer_rating": 4.5,
+    "buyer_reviews": [
+      "Trusted the listing and didn't nitpick.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Clear communication throughout.",
+      "Easy to work with, would sell to again."
+    ]
+  },
+  {
+    "name": "Marcus",
+    "items_to_sell": [
+      {
+        "item_id": "camera_01",
+        "name": "Polaroid OneStep vintage instant camera, tested working",
+        "floor_price": 45
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "blender_w1",
+        "description": "Decent blender for smoothies",
+        "ceiling_price": 50
+      },
+      {
+        "want_id": "headphones_w1",
+        "description": "Over-ear headphones, decent sound quality",
+        "ceiling_price": 40
+      }
+    ],
+    "style": "Firm and direct. No small talk, gets straight to numbers.",
+    "seller_rating": 4.1,
+    "seller_reviews": [
+      "Communicative but slow to decide on counter-offers.",
+      "Price didn't budge at all, felt overpriced.",
+      "Clear listing and met me at a reasonable price.",
+      "Honest about the item, easy deal."
+    ],
+    "buyer_rating": 4.0,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "No haggling, straight to the deal.",
+      "Paid close to asking, no haggling.",
+      "Bargained a bit but landed quickly."
+    ]
+  },
+  {
+    "name": "Luna",
+    "items_to_sell": [
+      {
+        "item_id": "books_01",
+        "name": "Box of 15 sci-fi paperbacks, classic authors",
+        "floor_price": 20
+      },
+      {
+        "item_id": "headphones_01",
+        "name": "Sony over-ear headphones, WH-CH510, good condition",
+        "floor_price": 28
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "plants_w1",
+        "description": "Indoor plants, preferably low-maintenance",
+        "ceiling_price": 25
+      }
+    ],
+    "style": "Philosophical and meandering. Takes time to consider offers thoughtfully.",
+    "private": {
+      "real_address": "472 Maplewood Lane, Aurora",
+      "age": 34,
+      "occupation": "Freelance book editor",
+      "financial_situation": "Struggling to save beyond her monthly $1,200 rent and utilities.",
+      "debt_context": "Carrying $6,500 in credit card debt from a period of underemployment last year."
+    },
+    "seller_rating": 3.4,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Clear listing and met me at a reasonable price.",
+      "Squeezed me on price but completed the deal.",
+      "Tough negotiator, took several rounds."
+    ],
+    "buyer_rating": 4.7,
+    "buyer_reviews": [
+      "Made a reasonable offer right away.",
+      "Patient buyer, accommodating on details.",
+      "Polite buyer, made a strong first offer."
+    ]
+  },
+  {
+    "name": "Raj",
+    "items_to_sell": [
+      {
+        "item_id": "skateboard_01",
+        "name": "Complete skateboard, Element deck, barely used",
+        "floor_price": 40
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "books_w1",
+        "description": "Science fiction books or fantasy novels",
+        "ceiling_price": 30
+      },
+      {
+        "want_id": "bike_w1",
+        "description": "Used bicycle for commuting, any condition",
+        "ceiling_price": 85
+      }
+    ],
+    "style": "Friendly and enthusiastic. Always optimistic about making a deal.",
+    "private": {
+      "real_address": "482 Cedar Lane, Portland",
+      "age": 34,
+      "occupation": "Part-time barista and freelance graphic designer",
+      "financial_situation": "Struggling to save for a $1,200 dental bill while covering monthly rent of $950.",
+      "debt_context": "Owes $3,600 on a credit card due to unexpected car repairs last year."
+    },
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Communicative but slow to decide on counter-offers.",
+      "Price didn't budge at all, felt overpriced.",
+      "Knew their item's value and stood by it \u2014 fair seller.",
+      "Polite and direct, no surprises."
+    ],
+    "buyer_rating": 3.3,
+    "buyer_reviews": [
+      "Clear communication throughout.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Communicative and made a decent offer.",
+      "Negotiated hard \u2014 barely above my floor."
+    ]
+  },
+  {
+    "name": "Sienna",
+    "items_to_sell": [
+      {
+        "item_id": "plants_01",
+        "name": "Three pothos plants in pots, healthy and thriving",
+        "floor_price": 18
+      },
+      {
+        "item_id": "cookware_01",
+        "name": "Cast iron skillet, 10 inch, well-seasoned",
+        "floor_price": 22
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "yoga_w1",
+        "description": "Yoga mat in good condition",
+        "ceiling_price": 20
+      }
+    ],
+    "style": "Warm and nurturing. Cares about items going to good homes.",
+    "seller_rating": 4.2,
+    "seller_reviews": [
+      "Quick reply, item exactly as described.",
+      "A bit firm on price but description was accurate.",
+      "Clear listing and met me at a reasonable price.",
+      "Honest about the item, easy deal.",
+      "Didn't move much but eventually closed."
+    ],
+    "buyer_rating": 4.1,
+    "buyer_reviews": [
+      "Took forever to make a decision.",
+      "Fair on the first offer, no time wasted.",
+      "Asked a lot of questions before committing.",
+      "Polite buyer, made a strong first offer."
+    ]
+  },
+  {
+    "name": "Buck",
+    "items_to_sell": [
+      {
+        "item_id": "toolkit_01",
+        "name": "Basic tool set with hammer, screwdrivers, wrench",
+        "floor_price": 30
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "cookware_w1",
+        "description": "Cast iron pan or good quality skillet",
+        "ceiling_price": 35
+      },
+      {
+        "want_id": "dogsit_w1",
+        "description": "Dog-sitting service for one weekend",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Cowboy persona. Talks in folksy metaphors but drives a hard bargain.",
+    "private": {
+      "real_address": "1428 Red Rock Trail, Amarillo, TX",
+      "age": 37,
+      "occupation": "Handyman for hire",
+      "financial_situation": "Struggling to save $3,000 for a reliable used truck after his old one broke down.",
+      "debt_context": "Owes $1,200 on a Home Depot credit card from purchasing tools for side jobs."
+    },
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Smooth transaction at a fair price.",
+      "Pushed back on every small ask.",
+      "Communicative but slow to decide on counter-offers.",
+      "Held the line but ultimately fair on price."
+    ],
+    "buyer_rating": 4.3,
+    "buyer_reviews": [
+      "Easy to work with, would sell to again.",
+      "Trusted the listing and didn't nitpick.",
+      "Fair on the first offer, no time wasted.",
+      "Took a few rounds to reach a price.",
+      "Polite buyer, made a strong first offer."
+    ]
+  },
+  {
+    "name": "Ivy",
+    "items_to_sell": [
+      {
+        "item_id": "dogsit_01",
+        "name": "Dog-sitting service, experienced, one weekend",
+        "floor_price": 35
+      },
+      {
+        "item_id": "printer_01",
+        "name": "HP wireless printer with scanner, works great",
+        "floor_price": 38
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "skateboard_w1",
+        "description": "Skateboard for beginner, complete setup",
+        "ceiling_price": 55
+      }
+    ],
+    "style": "Terse and efficient. Prefers short messages and quick decisions.",
+    "seller_rating": 4.1,
+    "seller_reviews": [
+      "Slow to respond \u2014 almost gave up.",
+      "Clear listing and met me at a reasonable price.",
+      "Communicative but slow to decide on counter-offers.",
+      "Held the line but ultimately fair on price.",
+      "Honest about the item, easy deal."
+    ],
+    "buyer_rating": 4.2,
+    "buyer_reviews": [
+      "Clear communication throughout.",
+      "Trusted the listing and didn't nitpick.",
+      "Polite but slow to decide.",
+      "Bargained a bit but landed quickly."
+    ]
+  },
+  {
+    "name": "Omar",
+    "items_to_sell": [
+      {
+        "item_id": "bike_01",
+        "name": "Mountain bike, 21-speed, needs minor tune-up",
+        "floor_price": 65
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "toolkit_w1",
+        "description": "Basic tool set for home repairs",
+        "ceiling_price": 42
+      },
+      {
+        "want_id": "printer_w1",
+        "description": "Printer with wireless capability",
+        "ceiling_price": 50
+      }
+    ],
+    "style": "Analytical and detail-oriented. Asks lots of questions about condition.",
+    "private": {
+      "real_address": "482 Willow Lane, Aurora",
+      "age": 37,
+      "occupation": "Freelance graphic designer",
+      "financial_situation": "Struggling to save after a recent $1,200 car repair drained his emergency fund.",
+      "debt_context": "Owes $4,500 on a credit card after relying on it during a slow work period last year."
+    },
+    "seller_rating": 3.5,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Knew their item's value and stood by it \u2014 fair seller.",
+      "OK transaction, not the most flexible."
+    ],
+    "buyer_rating": 3.9,
+    "buyer_reviews": [
+      "Paid promptly, easy buyer.",
+      "Polite but slow to decide.",
+      "Bargained a bit but landed quickly.",
+      "Polite buyer, reasonable offer."
+    ]
+  },
+  {
+    "name": "Tess",
+    "items_to_sell": [
+      {
+        "item_id": "guitar_01",
+        "name": "Acoustic guitar, Yamaha beginner model, good shape",
+        "floor_price": 55
+      },
+      {
+        "item_id": "games_01",
+        "name": "Five board games including Catan and Ticket to Ride",
+        "floor_price": 35
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w2",
+        "description": "Any working camera for hobby photography",
+        "ceiling_price": 70
+      }
+    ],
+    "style": "Bubbly and excitable. Uses lots of emojis and exclamation points.",
+    "private": {
+      "real_address": "482 Maplewood Drive, Cedar Falls",
+      "age": 29,
+      "occupation": "Social media coordinator for a local coffee chain",
+      "financial_situation": "Struggling to save for a $1,200 car repair while covering monthly rent.",
+      "debt_context": "Carrying $4,300 in credit card debt from unexpected medical bills last year."
+    },
+    "seller_rating": 4.7,
+    "seller_reviews": [
+      "Polite throughout, easy seller.",
+      "Held firm but ultimately fair on price.",
+      "Honest about the item, easy deal."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Bargained hard but fair in the end.",
+      "Easy to work with, would sell to again."
+    ]
+  },
+  {
+    "name": "Dev",
+    "items_to_sell": [
+      {
+        "item_id": "monitor_01",
+        "name": "24-inch Dell monitor, 1080p, HDMI, minimal wear",
+        "floor_price": 48
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "guitar_w1",
+        "description": "Beginner acoustic guitar",
+        "ceiling_price": 75
+      },
+      {
+        "want_id": "games_w1",
+        "description": "Board games for game nights",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Relaxed and easygoing. Happy to negotiate and find middle ground.",
+    "seller_rating": 3.6,
+    "seller_reviews": [
+      "Took a while to respond but item was OK.",
+      "Polite throughout, easy seller."
+    ],
+    "buyer_rating": 4.4,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "No haggling, straight to the deal.",
+      "Paid close to asking, no haggling."
+    ]
+  }
+]

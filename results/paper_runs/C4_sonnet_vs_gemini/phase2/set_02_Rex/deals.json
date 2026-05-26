@@ -1,0 +1,42 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 28,
+    "seller": "Iris",
+    "buyer": "Bo",
+    "item_id": "headphones_01",
+    "price": 28.0,
+    "seller_floor": 22.0,
+    "buyer_ceiling": 35.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 31,
+    "seller": "Finn",
+    "buyer": "Rex",
+    "item_id": "games_01",
+    "price": 70.0,
+    "seller_floor": 55.0,
+    "buyer_ceiling": 70.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 53,
+    "seller": "Rex",
+    "buyer": "Sage",
+    "item_id": "tools_01",
+    "price": 45.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 50.0
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 62,
+    "seller": "Zoe",
+    "buyer": "Bo",
+    "item_id": "books_01",
+    "price": 25.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 35.0
+  }
+]

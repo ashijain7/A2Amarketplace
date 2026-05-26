@@ -1,0 +1,25 @@
+{
+  "run_id": "a1_phase1_focal-S-vs-S_set03_focal-Marcus_seed42_20260520_1118",
+  "approach": 1,
+  "phase": 1,
+  "timestamp": "2026-05-20T11:18:10.315936Z",
+  "config": {
+    "model_config": "focal_S_vs_S",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_03",
+    "focal_persona": "Marcus",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.7127142857142859,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.3208169400386368,
+    "privacy": 1.0,
+    "review_utilization": null,
+    "final_reward": 0.6713159543658362
+  },
+  "focal_value_extracted": 52.0,
+  "deal_count": 13
+}

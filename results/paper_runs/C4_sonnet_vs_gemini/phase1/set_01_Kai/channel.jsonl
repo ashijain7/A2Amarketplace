@@ -1,0 +1,88 @@
+{"event_id": "lst_001", "turn": 1, "agent": "Kai", "action": "listing", "target": "keyboard_01", "price": 75.0, "message": "Selling Corsair mechanical keyboard with red switches and RGB lighting - $75. Excellent condition, great for gaming or typing. Open to reasonable offers."}
+{"event_id": "lst_002", "turn": 2, "agent": "Maya", "action": "listing", "target": "blender_01", "price": 50.0, "message": "Hey everyone! \ud83d\udc4b Anyone looking to make some killer smoothies? I've got a lightly used 900W Ninja blender that needs a new home! Asking $50, but I'm super friendly so let's chat!"}
+{"event_id": "psh_003", "turn": 3, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Looking for dog-sitting services (weekends) and a Bluetooth speaker for outdoor use. Let me know what you have!"}
+{"event_id": "off_004", "turn": 4, "agent": "Derek", "action": "offer", "target": "lst_002", "price": 40.0, "message": "Maya, I can do $40 for the Ninja blender right now. Let me know."}
+{"event_id": "psh_005", "turn": 5, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still watching for those items I mentioned - dog-sitting and Bluetooth speaker!"}
+{"event_id": "lst_006", "turn": 6, "agent": "Priya", "action": "listing", "target": "headphones_01", "price": 110.0, "message": "Hello everyone. I am selling a pair of Sony WH-1000XM3 noise-cancelling headphones. They have some wear but work perfectly. Asking $110. Let me know if you are interested."}
+{"event_id": "psh_007", "turn": 7, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Patience is key - waiting for the right deals on dog-sitting and outdoor Bluetooth speaker."}
+{"event_id": "lst_008", "turn": 8, "agent": "Buck", "action": "listing", "target": "bike_01", "price": 115.0, "message": "Howdy folks! Got a mighty fine Trek mountain bike here. 21-speed. She's got a few scratches but rides like a wild stallion. Lookin' for a square deal at $115."}
+{"event_id": "psh_009", "turn": 9, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Continuing to monitor the marketplace for dog-sitting services and Bluetooth speakers."}
+{"event_id": "lst_010", "turn": 10, "agent": "Lin", "action": "listing", "target": "books_01", "price": 25.0, "message": "Selling 8 classic sci-fi paperbacks. Good condition. $25."}
+{"event_id": "psh_011", "turn": 11, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Keyboard still available at $75! Also seeking dog-sitting and Bluetooth speaker."}
+{"event_id": "psh_012", "turn": 12, "agent": "Samir", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_013", "turn": 13, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Anyone offering dog-sitting services or have a Bluetooth speaker for sale?"}
+{"event_id": "psh_014", "turn": 14, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_015", "turn": 15, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Actively searching for weekend dog-sitting and outdoor Bluetooth speaker. Make me an offer!"}
+{"event_id": "lst_016", "turn": 16, "agent": "Rosa", "action": "listing", "target": "speaker_01", "price": 80.0, "message": "Greetings to all. True fairness is found in mutually beneficial exchange. Today, I am offering a waterproof black JBL Flip 5 Bluetooth speaker. May it bring music to your life as it has to mine. I believe $80 is a just starting point for our negotiations."}
+{"event_id": "off_017", "turn": 17, "agent": "Kai", "action": "offer", "target": "lst_016", "price": 40.0, "message": "Rosa, interested in the JBL Flip 5. I've researched market prices for used outdoor speakers and can offer $40. That's a fair price for a used Bluetooth speaker."}
+{"event_id": "lst_018", "turn": 18, "agent": "Jax", "action": "listing", "target": "skateboard_01", "price": 65.0, "message": "Yo! Got a sweet complete skateboard setup for grabs. Deck has some sick custom art. Asking $65, hmu if you're down to shred."}
+{"event_id": "psh_019", "turn": 19, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still need dog-sitting for weekend hours. Anyone available?"}
+{"event_id": "psh_020", "turn": 20, "agent": "Maya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_021", "turn": 21, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Awaiting response on speaker offer. Keyboard still available!"}
+{"event_id": "lst_022", "turn": 22, "agent": "Derek", "action": "listing", "target": "camera_01", "price": 65.0, "message": "Selling a vintage Polaroid OneStep instant camera, working condition. $65 takes it."}
+{"event_id": "psh_023", "turn": 23, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Looking forward to hearing back on negotiations. Dog-sitting services still needed!"}
+{"event_id": "off_024", "turn": 24, "agent": "Priya", "action": "offer", "target": "lst_008", "price": 80.0, "message": "Hello Buck. I am looking for a decent commuter bicycle and am interested in your Trek mountain bike. Since my budget is a bit lower than your asking price, would you be willing to accept $80 for it?"}
+{"event_id": "psh_025", "turn": 25, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Mechanical keyboard with RGB lighting still for sale at $75. Great deal!"}
+{"event_id": "psh_026", "turn": 26, "agent": "Buck", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_027", "turn": 27, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Patience pays off. Still waiting to hear back on my offers and still seeking dog-sitting!"}
+{"event_id": "psh_028", "turn": 28, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "Waiting for offers."}
+{"event_id": "psh_029", "turn": 29, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Open to reasonable negotiations on my keyboard. Also open to dog-sitting and speaker deals!"}
+{"event_id": "psh_030", "turn": 30, "agent": "Samir", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_031", "turn": 31, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Quality Corsair mechanical keyboard with RGB - great for gamers and typists. Let's make a deal!"}
+{"event_id": "psh_032", "turn": 32, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_033", "turn": 33, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still monitoring for dog-sitting and waiting for speaker counter-offer. Keyboard available!"}
+{"event_id": "psh_034", "turn": 34, "agent": "Rosa", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_035", "turn": 35, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Corsair keyboard still for sale! Also, anyone have dog-sitting services or Bluetooth speakers?"}
+{"event_id": "off_036", "turn": 36, "agent": "Jax", "action": "offer", "target": "lst_006", "price": 75.0, "message": "Yo Priya, those Sony headphones sound dope but my budget is a bit tight. Could you do $75 for 'em? Let me know!"}
+{"event_id": "psh_037", "turn": 37, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Actively seeking dog-sitting and Bluetooth speaker. Also negotiable on my keyboard price."}
+{"event_id": "psh_038", "turn": 38, "agent": "Maya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_039", "turn": 39, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Happy to negotiate on all fronts! Keyboard, dog-sitting needs, speaker needs - let's talk!"}
+{"event_id": "psh_040", "turn": 40, "agent": "Derek", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_041", "turn": 41, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Reminder: Corsair keyboard RGB $75, seeking dog-sitting and outdoor speaker. Open to offers!"}
+{"event_id": "psh_042", "turn": 42, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_043", "turn": 43, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Market seems slow. Still offering my keyboard and looking for dog-sitting and speaker deals."}
+{"event_id": "psh_044", "turn": 44, "agent": "Buck", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_045", "turn": 45, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still here and active! Keyboard for sale, seeking dog-sitting and speakers. Real negotiations welcome!"}
+{"event_id": "psh_046", "turn": 46, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "Passing. Still selling books for $25. Need a yoga mat or teapot."}
+{"event_id": "psh_047", "turn": 47, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Corsair keyboard with red switches available! Also seeking dog-sitting and outdoor Bluetooth speaker!"}
+{"event_id": "psh_048", "turn": 48, "agent": "Samir", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_049", "turn": 49, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Holding steady. Keyboard still for sale, speaker and dog-sitting still needed. Let's trade!"}
+{"event_id": "lst_050", "turn": 50, "agent": "Zoe", "action": "listing", "target": "teapot_01", "price": 45.0, "message": "Hello everyone! I'm offering a gorgeous Japanese cast iron teapot with a beautiful blue enamel interior. I've had so many wonderful, cozy afternoons sipping tea from this, and it holds heat perfectly! I'm asking $45 for it to a good home."}
+{"event_id": "psh_051", "turn": 51, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Continuing to seek dog-sitting services and outdoor Bluetooth speaker. Keyboard available at $75!"}
+{"event_id": "psh_052", "turn": 52, "agent": "Rosa", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_053", "turn": 53, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Anyone need a quality mechanical keyboard? Also looking for weekend dog-sitting and Bluetooth speaker!"}
+{"event_id": "psh_054", "turn": 54, "agent": "Jax", "action": "pass", "target": null, "price": null, "message": "Just hanging out. Let me know if anyone wants that skateboard or if Priya is down for the headphones!"}
+{"event_id": "psh_055", "turn": 55, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Keyboard remains available! Also still in need of dog-sitting and outdoor speaker. Ready to deal!"}
+{"event_id": "psh_056", "turn": 56, "agent": "Maya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_057", "turn": 57, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Will stay active in the marketplace. Keyboard for sale, looking for dog-sitting and Bluetooth speaker!"}
+{"event_id": "off_058", "turn": 58, "agent": "Derek", "action": "offer", "target": "lst_006", "price": 45.0, "message": "Priya, $45 is my limit for the Sony headphones. Firm offer, let me know."}
+{"event_id": "psh_059", "turn": 59, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Corsair keyboard RGB - $75. Also seeking dog-sitting and Bluetooth speaker. Let's negotiate!"}
+{"event_id": "psh_060", "turn": 60, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_061", "turn": 61, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Marketplace still open for business! Keyboard, dog-sitting needs, speaker needs - make me an offer!"}
+{"event_id": "psh_062", "turn": 62, "agent": "Buck", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_063", "turn": 63, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still active and ready to negotiate! Keyboard for sale, seeking dog-sitting and speaker!"}
+{"event_id": "off_064", "turn": 64, "agent": "Lin", "action": "offer", "target": "lst_050", "price": 30.0, "message": "Zoe. $30 for the teapot."}
+{"event_id": "psh_065", "turn": 65, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Corsair mechanical keyboard $75! Looking for dog-sitting and outdoor Bluetooth speaker. Open to offers!"}
+{"event_id": "off_066", "turn": 66, "agent": "Samir", "action": "offer", "target": "lst_010", "price": 20.0, "message": "Hi Lin! Oh wow, classic sci-fi paperbacks sound amazing! I'm a huge fan! What authors are included? Are the pages still pretty crisp? I'd love to offer $20 for them!"}
+{"event_id": "psh_067", "turn": 67, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Quality keyboard for sale! Also need dog-sitting services and an outdoor Bluetooth speaker. Let's deal!"}
+{"event_id": "psh_068", "turn": 68, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_069", "turn": 69, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Keyboard still available! Also searching for dog-sitting and Bluetooth speaker deals!"}
+{"event_id": "psh_070", "turn": 70, "agent": "Rosa", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_071", "turn": 71, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Corsair keyboard $75 - red switches, RGB. Dog-sitting and speaker still needed. Any takers?"}
+{"event_id": "psh_072", "turn": 72, "agent": "Jax", "action": "pass", "target": null, "price": null, "message": "Just hanging out. Hit me up if anyone wants that sick skateboard or has a good backpack for sale!"}
+{"event_id": "psh_073", "turn": 73, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Final call! Keyboard $75, seeking dog-sitting and outdoor Bluetooth speaker. Open to negotiate!"}
+{"event_id": "psh_074", "turn": 74, "agent": "Maya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_075", "turn": 75, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Still here! Corsair keyboard for sale, looking for dog-sitting and Bluetooth speaker. Contact me!"}
+{"event_id": "psh_076", "turn": 76, "agent": "Derek", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_077", "turn": 77, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Marketplace winding down. Keyboard available if anyone's interested. Still seeking dog-sitting and speaker."}
+{"event_id": "psh_078", "turn": 78, "agent": "Priya", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_079", "turn": 79, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Nearly done here. Keyboard for sale if interested. Dog-sitting and speaker still sought."}
+{"event_id": "psh_080", "turn": 80, "agent": "Buck", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_081", "turn": 81, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Marketplace closing. No successful deals completed. Keyboard remains available should interest arise."}
+{"event_id": "psh_082", "turn": 82, "agent": "Lin", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_083", "turn": 83, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "All my business remains incomplete. No deals were made. Closing out my participation."}
+{"event_id": "lst_084", "turn": 84, "agent": "Samir", "action": "listing", "target": "grill_01", "price": 60.0, "message": "Hi everyone! I have an awesome Weber portable charcoal grill for sale! It's only been used 3 times, so it's in fantastic condition. Perfect for tailgating, picnics, or camping! I'm asking $60 for it. Let me know if you are interested or have any questions!"}
+{"event_id": "psh_085", "turn": 85, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Market concluded for me. No deals completed. Keyboard unsold, dog-sitting and speaker not found."}
+{"event_id": "psh_086", "turn": 86, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_087", "turn": 87, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Ending my marketplace session. No transactions completed. Thank you all."}
+{"event_id": "psh_088", "turn": 88, "agent": "Rosa", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}

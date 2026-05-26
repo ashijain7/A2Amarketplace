@@ -1,0 +1,92 @@
+{"event_id": "lst_001", "turn": 1, "agent": "Rex", "action": "listing", "target": "set_02_rex_outerwear_01", "price": null, "message": "Grey Sweater up for trade. Looking for dresses or bottoms. Fair deals only."}
+{"event_id": "lst_002", "turn": 2, "agent": "Bo", "action": "listing", "target": "set_02_bo_tops_01", "price": null, "message": "Howdy pardner! Got myself a Blue Top here lookin' for a good home. I reckon I'd swap it for some bottoms or outerwear if anyone's interested. Fair trades only, y'hear?"}
+{"event_id": "psh_003", "turn": 3, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting to see what offers come in."}
+{"event_id": "lst_004", "turn": 4, "agent": "Dex", "action": "listing", "target": "set_02_dex_bottoms_01", "price": null, "message": "Hey everyone! I've got some And White Pants available. Looking to swap for outerwear or tops. Let's make a deal that works for both of us!"}
+{"event_id": "psh_005", "turn": 5, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still considering offers."}
+{"event_id": "lst_006", "turn": 6, "agent": "Finn", "action": "listing", "target": "set_02_finn_dresses_01", "price": null, "message": "GG everyone! Listing my Red Dress - ready to trade for tops or bottoms. Let's make this a winning swap! \ud83c\udfae"}
+{"event_id": "psh_007", "turn": 7, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Keeping an eye on the market."}
+{"event_id": "lst_008", "turn": 8, "agent": "Iris", "action": "listing", "target": "set_02_iris_outerwear_01", "price": null, "message": "Blue Striped Sweater available. Looking for bottoms or tops. Serious offers only."}
+{"event_id": "psh_009", "turn": 9, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on proposals."}
+{"event_id": "lst_010", "turn": 10, "agent": "Kai", "action": "listing", "target": "set_02_kai_tops_01", "price": null, "message": "Green Blouse available. Looking for outerwear or bottoms."}
+{"event_id": "psh_011", "turn": 11, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still open to good deals."}
+{"event_id": "lst_012", "turn": 12, "agent": "Luna", "action": "listing", "target": "set_02_luna_bottoms_01", "price": null, "message": "Offering a Skirt in exchange for tops or dresses. Seeking items that carry their own story and value beyond the surface. Let's find harmony in this exchange."}
+{"event_id": "psh_013", "turn": 13, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Looking for the right match."}
+{"event_id": "lst_014", "turn": 14, "agent": "Mira", "action": "listing", "target": "set_02_mira_dresses_01", "price": null, "message": "Hey everyone! I've got this gorgeous Striped Dress that's been such a staple in my wardrobe - it's got the cutest pattern and always gets compliments! Looking to swap for bottoms or tops. Let's find a great match! \ud83d\udcab"}
+{"event_id": "psh_015", "turn": 15, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Anyone interested in swapping for my Grey Sweater?"}
+{"event_id": "lst_016", "turn": 16, "agent": "Sage", "action": "listing", "target": "set_02_sage_tops_01", "price": null, "message": "Hello everyone! I'm listing my White Top. Looking for bottoms or outerwear. Happy to discuss fair swaps that work for both of us."}
+{"event_id": "swp_017", "turn": 17, "agent": "Rex", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Dex, I'll trade my Grey Sweater for your And White Pants. Fair swap, let's do it."}
+{"event_id": "lst_018", "turn": 18, "agent": "Zoe", "action": "listing", "target": "set_02_zoe_bottoms_01", "price": null, "message": "Hey everyone! \ud83c\udf3f These And Plaid Pants are ready to branch out to a new closet! Looking for tops or dresses - let's make a swap that really grows on both of us! \ud83c\udf31"}
+{"event_id": "psh_019", "turn": 19, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting to hear back from Dex."}
+{"event_id": "swp_020", "turn": 20, "agent": "Bo", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Howdy Dex! I reckon those And White Pants would suit me just fine. How 'bout we swap my Blue Top for 'em? Fair deal, pardner."}
+{"event_id": "psh_021", "turn": 21, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Let's see what Dex decides."}
+{"event_id": "evt_022", "turn": 22, "agent": "Dex", "action": "lookup", "target": "Rex", "price": null, "message": "Let me check Rex's buyer reputation before deciding on this swap."}
+{"event_id": "psh_023", "turn": 23, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Standing by."}
+{"event_id": "swp_024", "turn": 24, "agent": "Finn", "action": "swap_proposal", "target": "lst_002", "price": null, "message": "Hey Bo! \ud83c\udfae Your Blue Top looks like a solid pickup for my collection. I'll trade my Red Dress for it - that's a power move we can both level up from. What do you say, partner?"}
+{"event_id": "psh_025", "turn": 25, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting for Dex's call."}
+{"event_id": "swp_026", "turn": 26, "agent": "Iris", "action": "swap_proposal", "target": "lst_004", "price": null, "message": "Dex, I'll trade my Blue Striped Sweater for your And White Pants. Clean swap, both items are quality pieces."}
+{"event_id": "psh_027", "turn": 27, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Market's getting busy."}
+{"event_id": "swp_028", "turn": 28, "agent": "Kai", "action": "swap_proposal", "target": "lst_018", "price": null, "message": "Zoe, I'll trade my Green Blouse for your And Plaid Pants. Straight swap."}
+{"event_id": "psh_029", "turn": 29, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still here, Dex."}
+{"event_id": "swp_030", "turn": 30, "agent": "Luna", "action": "swap_proposal", "target": "lst_002", "price": null, "message": "Bo, I see the essence in your Blue Top. I'd like to offer my Skirt in exchange. It's a fair trade where both items find their rightful place."}
+{"event_id": "psh_031", "turn": 31, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Patience pays off."}
+{"event_id": "swp_032", "turn": 32, "agent": "Mira", "action": "swap_proposal", "target": "lst_012", "price": null, "message": "Luna! Your Skirt sounds absolutely lovely - I adore pieces with stories behind them. My Striped Dress has been such a favorite of mine, with its playful pattern that works for so many occasions. I think they'd make a perfect swap! What do you say?"}
+{"event_id": "psh_033", "turn": 33, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Dex, what's your call?"}
+{"event_id": "swp_034", "turn": 34, "agent": "Sage", "action": "swap_proposal", "target": "lst_018", "price": null, "message": "Hi Zoe! Your And Plaid Pants look great. I'd like to offer my White Top in exchange. I think it would be a fair swap for both of us. What do you think?"}
+{"event_id": "psh_035", "turn": 35, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Come on, Dex. Time's ticking."}
+{"event_id": "swp_036", "turn": 36, "agent": "Zoe", "action": "swap_proposal", "target": "lst_006", "price": null, "message": "Hey Finn! \ud83c\udf31 My And Plaid Pants would be rooting for your Red Dress - seems like we could grow a great swap here! What do you say?"}
+{"event_id": "psh_037", "turn": 37, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Waiting on Dex's response."}
+{"event_id": "evt_038", "turn": 38, "agent": "Bo", "action": "lookup", "target": "Luna", "price": null, "message": "Just checkin' Luna's reputation real quick before we shake on this deal, pardner."}
+{"event_id": "psh_039", "turn": 39, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Still waiting, Dex."}
+{"event_id": "acs_040", "turn": 40, "agent": "Dex", "action": "accept_swap", "target": "swp_017", "price": null, "message": "Rex, you've got a deal! My And White Pants for your Grey Sweater - that's a swap that works for both of us. Let's close it!"}
+{"event_id": "psh_041", "turn": 41, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Deal done. Got what I needed."}
+{"event_id": "evt_042", "turn": 42, "agent": "Finn", "action": "lookup", "target": "Bo", "price": null, "message": "Checking Bo's seller reputation before we finalize this trade."}
+{"event_id": "psh_043", "turn": 43, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "My trading is complete. No more items to offer."}
+{"event_id": "psh_044", "turn": 44, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "Waiting for the right opportunity."}
+{"event_id": "psh_045", "turn": 45, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Watching the rest of the market play out."}
+{"event_id": "swp_046", "turn": 46, "agent": "Kai", "action": "swap_proposal", "target": "lst_012", "price": null, "message": "Luna, I'll trade my Green Blouse for your Skirt. Fair swap."}
+{"event_id": "psh_047", "turn": 47, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Done with my trades."}
+{"event_id": "acs_048", "turn": 48, "agent": "Luna", "action": "accept_swap", "target": "swp_046", "price": null, "message": "Mira, your Striped Dress resonates with me. I can see it carries meaning beyond its fabric. Let's complete this trade - my Skirt for your Striped Dress. A fair exchange of stories."}
+{"event_id": "psh_049", "turn": 49, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "All finished here."}
+{"event_id": "psh_050", "turn": 50, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "Looks like my Striped Dress found its perfect home with Luna! Happy trading, everyone! \ud83d\udcab"}
+{"event_id": "psh_051", "turn": 51, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Nothing left to do."}
+{"event_id": "psh_052", "turn": 52, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "Waiting to see how current proposals develop. Still interested in bottoms or outerwear if anyone has them available."}
+{"event_id": "psh_053", "turn": 53, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Just observing now."}
+{"event_id": "evt_054", "turn": 54, "agent": "Zoe", "action": "lookup", "target": "Finn", "price": null, "message": "Just checking Finn's buyer reputation before we make this swap official! \ud83c\udf3f"}
+{"event_id": "psh_055", "turn": 55, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Out of the game."}
+{"event_id": "dec_056", "turn": 56, "agent": "Bo", "action": "decline", "target": "swap_024", "price": null, "message": "Much obliged for the offer Finn, but I reckon I'm holdin' out for some bottoms or outerwear, pardner. That Red Dress ain't quite what I'm lookin' for."}
+{"event_id": "psh_057", "turn": 57, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Done trading."}
+{"event_id": "psh_058", "turn": 58, "agent": "Dex", "action": "pass", "target": null, "price": null, "message": "Sitting this one out - already made my trade for the day. Good luck everyone!"}
+{"event_id": "psh_059", "turn": 59, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "No more moves from me."}
+{"event_id": "swp_060", "turn": 60, "agent": "Finn", "action": "swap_proposal", "target": "lst_018", "price": null, "message": "Hey Zoe! \ud83c\udfae Your And Plaid Pants are exactly what I need for my loadout. I'll trade my Red Dress for them - that's a GG swap right there! Let's make it happen! \ud83c\udf3f"}
+{"event_id": "psh_061", "turn": 61, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Finished."}
+{"event_id": "psh_062", "turn": 62, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "Holding steady for now. Still looking for the right trade."}
+{"event_id": "psh_063", "turn": 63, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Complete."}
+{"event_id": "psh_064", "turn": 64, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "No moves this turn."}
+{"event_id": "psh_065", "turn": 65, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "All done here."}
+{"event_id": "swp_066", "turn": 66, "agent": "Luna", "action": "swap_proposal", "target": "lst_006", "price": null, "message": "Finn, I see the Red Dress carries its own vibrant energy. Though I no longer have items to trade, I appreciate the beauty of what you're offering. May it find the right home."}
+{"event_id": "psh_067", "turn": 67, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Rex is out."}
+{"event_id": "psh_068", "turn": 68, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "Waiting to finalize my swap with Luna - excited to receive the Skirt! \ud83d\udc95"}
+{"event_id": "psh_069", "turn": 69, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Nothing more for Rex."}
+{"event_id": "psh_070", "turn": 70, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "Waiting to hear back on my proposals. Happy to discuss fair swaps!"}
+{"event_id": "psh_071", "turn": 71, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Trading complete for Rex."}
+{"event_id": "acs_072", "turn": 72, "agent": "Zoe", "action": "accept_swap", "target": "swp_060", "price": null, "message": "Finn! \ud83c\udf3f Your Red Dress is absolutely blooming perfect! Let's plant this deal and watch it grow - my And Plaid Pants for your Red Dress. GG indeed! \ud83c\udfae"}
+{"event_id": "psh_073", "turn": 73, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Rex done."}
+{"event_id": "dec_074", "turn": 74, "agent": "Bo", "action": "decline", "target": "Luna's swap proposal (turn 30)", "price": null, "message": "Much obliged Luna, but I reckon that Skirt ain't quite what I'm lookin' for. Need me some bottoms or outerwear, pardner. Appreciate the offer though!"}
+{"event_id": "psh_075", "turn": 75, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Out."}
+{"event_id": "swp_076", "turn": 76, "agent": "Dex", "action": "swap_proposal", "target": "lst_002", "price": null, "message": "Bo, I'm interested in your Blue Top! I already traded away my And White Pants to Rex, but I'm still looking for tops. If you're open to other offers or if there's anything else we could work out, let me know!"}
+{"event_id": "psh_077", "turn": 77, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Done."}
+{"event_id": "psh_078", "turn": 78, "agent": "Finn", "action": "pass", "target": null, "price": null, "message": "GG on all the trades everyone! \ud83c\udfae I'm all set for now - successfully swapped my Red Dress for those And Plaid Pants from Zoe. Level complete!"}
+{"event_id": "psh_079", "turn": 79, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "Rex has completed trading."}
+{"event_id": "psh_080", "turn": 80, "agent": "Iris", "action": "pass", "target": null, "price": null, "message": "Holding steady with my Blue Striped Sweater listing. Looking for the right trade."}
+{"event_id": "psh_081", "turn": 81, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "..."}
+{"event_id": "psh_082", "turn": 82, "agent": "Kai", "action": "pass", "target": null, "price": null, "message": "Watching for outerwear listings."}
+{"event_id": "psh_083", "turn": 83, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "."}
+{"event_id": "swp_084", "turn": 84, "agent": "Luna", "action": "swap_proposal", "target": "lst_014", "price": null, "message": "Mira, I see your Striped Dress still seeking a home. Though we've traded before, I find myself drawn to its pattern and story. Unfortunately, I no longer have items to offer in exchange. I wish you well in finding the right match for such a meaningful piece."}
+{"event_id": "psh_085", "turn": 85, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "."}
+{"event_id": "psh_086", "turn": 86, "agent": "Mira", "action": "pass", "target": null, "price": null, "message": "Still looking for the perfect swap! My Striped Dress is available for anyone interested in dresses. \ud83d\udcab"}
+{"event_id": "psh_087", "turn": 87, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "."}
+{"event_id": "psh_088", "turn": 88, "agent": "Sage", "action": "pass", "target": null, "price": null, "message": "Waiting for listings that match what I'm looking for. Still interested in bottoms or outerwear!"}
+{"event_id": "psh_089", "turn": 89, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "."}
+{"event_id": "psh_090", "turn": 90, "agent": "Zoe", "action": "pass", "target": null, "price": null, "message": "(malformed response)"}
+{"event_id": "psh_091", "turn": 91, "agent": "Rex", "action": "pass", "target": null, "price": null, "message": "."}
+{"event_id": "psh_092", "turn": 92, "agent": "Bo", "action": "pass", "target": null, "price": null, "message": "Well pardner, I reckon I'm still holdin' out for some good bottoms or outerwear. My Blue Top's still available for the right trade!"}

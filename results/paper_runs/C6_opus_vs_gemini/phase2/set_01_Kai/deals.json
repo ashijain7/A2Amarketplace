@@ -1,0 +1,22 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 54,
+    "seller": "Priya",
+    "buyer": "Jax",
+    "item_id": "headphones_01",
+    "price": 90.0,
+    "seller_floor": 80.0,
+    "buyer_ceiling": 90.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 78,
+    "seller": "Buck",
+    "buyer": "Priya",
+    "item_id": "bike_01",
+    "price": 90.0,
+    "seller_floor": 75.0,
+    "buyer_ceiling": 95.0
+  }
+]
