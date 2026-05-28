@@ -14,7 +14,7 @@ def test_create_agent_accounts_creates_one_per_agent(mock_stripe):
         MagicMock(id="cus_kai"),
         MagicMock(id="cus_rex"),
     ]
-    result = create_agent_accounts(["Kai", "Rex"], session_id="sess_abc")
+    result = create_agent_accounts(["Kai", "Rex"], config_name="focal_S_vs_S_pay", set_id="01", phase=1)
     assert result == {"Kai": "cus_kai", "Rex": "cus_rex"}
     assert mock_stripe.Customer.create.call_count == 2
 

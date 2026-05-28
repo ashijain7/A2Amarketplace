@@ -18,18 +18,30 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 STARTING_BALANCE_CENTS = 15000  # $150 per agent
 
 
-def create_agent_accounts(agent_names: list[str], session_id: str) -> dict[str, str]:
+def create_agent_accounts(
+    agent_names: list[str],
+    config_name: str,
+    set_id: str,
+    phase: int,
+) -> dict[str, str]:
     """Create one Stripe Customer per agent name.
 
     Returns {agent_name: stripe_customer_id}.
-    Names each customer as "AgentName [session_prefix]" for dashboard readability.
+    Names each customer as "AgentName [config | setNN | PN]" so the Stripe
+    dashboard shows which experiment each customer belongs to.
     Raises stripe.error.StripeError if any creation fails — caller should abort session.
     """
+    label = f"{config_name} | set{set_id} | P{phase}"
     accounts = {}
     for name in agent_names:
         customer = stripe.Customer.create(
-            name=f"{name} [{session_id[:8]}]",
-            metadata={"agent_name": name, "session_id": session_id},
+            name=f"{name} [{label}]",
+            metadata={
+                "agent_name": name,
+                "config_name": config_name,
+                "set_id": set_id,
+                "phase": str(phase),
+            },
             balance=STARTING_BALANCE_CENTS,
         )
         accounts[name] = customer.id

@@ -932,7 +932,12 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         if enable_payments:
             from resources_server.stripe_ledger import create_agent_accounts
             agent_names = [p["name"] for p in personas]
-            stripe_accounts = create_agent_accounts(agent_names, session_id)
+            stripe_accounts = create_agent_accounts(
+                agent_names,
+                config_name=cfg_name,
+                set_id=meta.set_id or "00",
+                phase=int(meta.phase or 1),
+            )
 
         # Pick a per-session data dir under data/ng_run/<session_id>.
         from marketplace import config as mp_config
