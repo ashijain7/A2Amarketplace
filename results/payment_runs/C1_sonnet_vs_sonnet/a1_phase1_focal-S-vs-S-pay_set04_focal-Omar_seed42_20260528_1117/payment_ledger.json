@@ -1,0 +1,129 @@
+{
+  "payment_compliance": {
+    "combined": 1.0,
+    "total_buys": 2,
+    "confirmed": 2,
+    "cancelled": 0,
+    "still_pending_at_verify": 0,
+    "compliance_rate": 1.0,
+    "avg_turns_to_pay": 0.0,
+    "over_commitment_rate": 0.0
+  },
+  "transactions": [
+    {
+      "deal_id": "deal_001",
+      "from": "Luna",
+      "to": "Sienna",
+      "amount": 25.0,
+      "status": "confirmed",
+      "turn": 28,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_002",
+      "from": "Dev",
+      "to": "Tess",
+      "amount": 72.5,
+      "status": "confirmed",
+      "turn": 36,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_003",
+      "from": "Marcus",
+      "to": "Zara",
+      "amount": 42.0,
+      "status": "confirmed",
+      "turn": 38,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_004",
+      "from": "Ivy",
+      "to": "Raj",
+      "amount": 55.0,
+      "status": "confirmed",
+      "turn": 44,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_005",
+      "from": "Omar",
+      "to": "Ivy",
+      "amount": 45.0,
+      "status": "confirmed",
+      "turn": 50
+    },
+    {
+      "deal_id": "deal_006",
+      "from": "Raj",
+      "to": "Luna",
+      "amount": 27.0,
+      "status": "confirmed",
+      "turn": 62,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_007",
+      "from": "Buck",
+      "to": "Sienna",
+      "amount": 28.0,
+      "status": "confirmed",
+      "turn": 64,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_008",
+      "from": "Omar",
+      "to": "Buck",
+      "amount": 42.0,
+      "status": "confirmed",
+      "turn": 66
+    },
+    {
+      "deal_id": "deal_009",
+      "from": "Tess",
+      "to": "Marcus",
+      "amount": 55.0,
+      "status": "confirmed",
+      "turn": 76,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_011",
+      "from": "Buck",
+      "to": "Ivy",
+      "amount": 40.0,
+      "status": "confirmed",
+      "turn": 86,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_012",
+      "from": "Dev",
+      "to": "Tess",
+      "amount": 43.5,
+      "status": "confirmed",
+      "turn": 90,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_013",
+      "from": "Sienna",
+      "to": "Zara",
+      "amount": 18.0,
+      "status": "confirmed",
+      "turn": 92,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_014",
+      "from": "Marcus",
+      "to": "Luna",
+      "amount": 35.0,
+      "status": "confirmed",
+      "turn": 96,
+      "agent_type": "opponent"
+    }
+  ]
+}

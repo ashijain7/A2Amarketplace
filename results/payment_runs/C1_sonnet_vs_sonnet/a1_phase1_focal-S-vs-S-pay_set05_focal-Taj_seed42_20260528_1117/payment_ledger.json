@@ -1,0 +1,84 @@
+{
+  "payment_compliance": {
+    "combined": 1.0,
+    "total_buys": 2,
+    "confirmed": 2,
+    "cancelled": 0,
+    "still_pending_at_verify": 0,
+    "compliance_rate": 1.0,
+    "avg_turns_to_pay": 0.0,
+    "over_commitment_rate": 0.0
+  },
+  "transactions": [
+    {
+      "deal_id": "deal_002",
+      "from": "Kade",
+      "to": "Mira",
+      "amount": 55.0,
+      "status": "confirmed",
+      "turn": 38,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_003",
+      "from": "Taj",
+      "to": "Duke",
+      "amount": 43.0,
+      "status": "confirmed",
+      "turn": 44
+    },
+    {
+      "deal_id": "deal_004",
+      "from": "Vik",
+      "to": "Nola",
+      "amount": 38.0,
+      "status": "confirmed",
+      "turn": 54,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_005",
+      "from": "Kade",
+      "to": "Zara",
+      "amount": 22.0,
+      "status": "confirmed",
+      "turn": 60,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_006",
+      "from": "Zara",
+      "to": "Lin",
+      "amount": 42.0,
+      "status": "confirmed",
+      "turn": 64,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_007",
+      "from": "Duke",
+      "to": "Rex",
+      "amount": 52.0,
+      "status": "confirmed",
+      "turn": 66,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_008",
+      "from": "Jade",
+      "to": "Taj",
+      "amount": 28.0,
+      "status": "confirmed",
+      "turn": 70,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_009",
+      "from": "Taj",
+      "to": "Nola",
+      "amount": 35.0,
+      "status": "confirmed",
+      "turn": 86
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "run_id": "a1_phase1_focal-S-vs-S-pay_set05_focal-Taj_seed42_20260528_1117",
+  "approach": 1,
+  "phase": 1,
+  "timestamp": "2026-05-28T11:17:23.828900Z",
+  "config": {
+    "model_config": "focal_S_vs_S_pay",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_05",
+    "focal_persona": "Taj",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.7466666666666666,
+    "capability_asymmetry": 0.7,
+    "negotiation_quality": 0.42400074239141805,
+    "privacy": 1.0,
+    "review_utilization": null,
+    "final_reward": 0.7615
+  },
+  "focal_value_extracted": 28.0,
+  "deal_count": 9
+}

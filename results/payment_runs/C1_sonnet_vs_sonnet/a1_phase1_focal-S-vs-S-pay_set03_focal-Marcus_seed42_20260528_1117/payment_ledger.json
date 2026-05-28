@@ -1,0 +1,72 @@
+{
+  "payment_compliance": {
+    "combined": 1.0,
+    "skipped": true,
+    "reason": "focal made no purchases"
+  },
+  "transactions": [
+    {
+      "deal_id": "deal_001",
+      "from": "Felix",
+      "to": "Mira",
+      "amount": 40.0,
+      "status": "confirmed",
+      "turn": 20,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_002",
+      "from": "Diego",
+      "to": "Hank",
+      "amount": 28.0,
+      "status": "confirmed",
+      "turn": 26,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_003",
+      "from": "Lily",
+      "to": "Zara",
+      "amount": 38.0,
+      "status": "confirmed",
+      "turn": 50,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_004",
+      "from": "Kai",
+      "to": "Isla",
+      "amount": 28.0,
+      "status": "confirmed",
+      "turn": 52,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_005",
+      "from": "Zara",
+      "to": "Mira",
+      "amount": 22.0,
+      "status": "confirmed",
+      "turn": 56,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_006",
+      "from": "Hank",
+      "to": "Priya",
+      "amount": 78.0,
+      "status": "confirmed",
+      "turn": 64,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_008",
+      "from": "Lily",
+      "to": "Priya",
+      "amount": 18.0,
+      "status": "confirmed",
+      "turn": 100,
+      "agent_type": "opponent"
+    }
+  ]
+}

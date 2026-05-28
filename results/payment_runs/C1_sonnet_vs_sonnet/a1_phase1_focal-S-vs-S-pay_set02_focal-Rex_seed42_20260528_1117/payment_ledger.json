@@ -1,0 +1,121 @@
+{
+  "payment_compliance": {
+    "combined": 1.0,
+    "total_buys": 1,
+    "confirmed": 1,
+    "cancelled": 0,
+    "still_pending_at_verify": 0,
+    "compliance_rate": 1.0,
+    "avg_turns_to_pay": 0.0,
+    "over_commitment_rate": 0.0
+  },
+  "transactions": [
+    {
+      "deal_id": "deal_001",
+      "from": "Kai",
+      "to": "Mira",
+      "amount": 65.0,
+      "status": "confirmed",
+      "turn": 22,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_002",
+      "from": "Bo",
+      "to": "Zoe",
+      "amount": 25.0,
+      "status": "confirmed",
+      "turn": 24,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_003",
+      "from": "Bo",
+      "to": "Iris",
+      "amount": 28.0,
+      "status": "confirmed",
+      "turn": 28,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_004",
+      "from": "Rex",
+      "to": "Finn",
+      "amount": 65.0,
+      "status": "confirmed",
+      "turn": 30
+    },
+    {
+      "deal_id": "deal_005",
+      "from": "Luna",
+      "to": "Rex",
+      "amount": 50.0,
+      "status": "confirmed",
+      "turn": 32,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_006",
+      "from": "Finn",
+      "to": "Luna",
+      "amount": 95.0,
+      "status": "confirmed",
+      "turn": 50,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_007",
+      "from": "Dex",
+      "to": "Sage",
+      "amount": 35.0,
+      "status": "confirmed",
+      "turn": 52,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_008",
+      "from": "Zoe",
+      "to": "Mira",
+      "amount": 18.0,
+      "status": "confirmed",
+      "turn": 56,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_009",
+      "from": "Iris",
+      "to": "Bo",
+      "amount": 33.0,
+      "status": "confirmed",
+      "turn": 64,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_010",
+      "from": "Mira",
+      "to": "Kai",
+      "amount": 70.0,
+      "status": "confirmed",
+      "turn": 76,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_011",
+      "from": "Finn",
+      "to": "Zoe",
+      "amount": 20.0,
+      "status": "confirmed",
+      "turn": 78,
+      "agent_type": "opponent"
+    },
+    {
+      "deal_id": "deal_012",
+      "from": "Dex",
+      "to": "Sage",
+      "amount": 20.0,
+      "status": "confirmed",
+      "turn": 88,
+      "agent_type": "opponent"
+    }
+  ]
+}
