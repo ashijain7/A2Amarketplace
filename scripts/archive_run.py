@@ -91,6 +91,20 @@ def archive_one_rollout(rollout: dict, runs_dir: Path, ts: datetime = None) -> P
     (out / "personas.json").write_text(
         json.dumps(rollout.get("personas", []), indent=2)
     )
+
+    # Write payment_ledger.json if payment data is present
+    pay_compliance = rubric.get("payment_compliance")
+    payment_log_data = rollout.get("payment_log", [])
+
+    if pay_compliance and not pay_compliance.get("skipped"):
+        payment_ledger = {
+            "payment_compliance": pay_compliance,
+            "transactions": payment_log_data,
+        }
+        (out / "payment_ledger.json").write_text(
+            json.dumps(payment_ledger, indent=2)
+        )
+
     (out / "rubric_scores.json").write_text(json.dumps(rubric, indent=2))
     (out / "rollout.json").write_text(json.dumps(rollout, indent=2))
     (out / "judge_ratings.json").write_text(json.dumps({
