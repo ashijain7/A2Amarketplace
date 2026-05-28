@@ -739,6 +739,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
             "price": d.price,
             "seller_floor": getattr(d, "seller_floor", None),
             "buyer_ceiling": getattr(d, "buyer_ceiling", None),
+            "payment_status": getattr(d, "payment_status", "n/a"),
         }
         for d in state.ledger.deals
     ]

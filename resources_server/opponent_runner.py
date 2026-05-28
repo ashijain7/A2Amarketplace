@@ -179,9 +179,15 @@ class OpponentRunner:
         if action == "accept" and event.target and price is not None:
             deal = self._apply_accept(buyer_or_seller=name, target=event.target,
                                       price=price, turn=current_turn)
+            # Trigger payment for the BUYER regardless of who called accept.
+            # If seller accepted buyer's offer, buyer still owes payment.
             if (self.enable_payments and deal is not None
-                    and deal.buyer == name and deal.payment_status == "pending"):
-                self._request_opponent_payment(name, deal, current_turn)
+                    and deal.payment_status == "pending"):
+                buyer = deal.buyer
+                if buyer != self.focal_name:
+                    # Opponent buyer — request payment via second LLM call
+                    self._request_opponent_payment(buyer, deal, current_turn)
+                # Focal buyer — reminded via pending_payments in state_snapshot
 
         return event.event_id
 
