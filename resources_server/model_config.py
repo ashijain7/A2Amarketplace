@@ -21,6 +21,11 @@ CONFIG_NAMES = [
     "focal_O_vs_G",
     "focal_G_vs_X",
     "focal_G35_vs_X",
+    "focal_S_vs_S_pay",
+    "focal_S_vs_G_pay",
+    "focal_O_vs_G_pay",
+    "focal_G_vs_X_pay",
+    "focal_G35_vs_X_pay",
 ]
 
 _CONFIGS = {
@@ -35,6 +40,11 @@ _CONFIGS = {
     "focal_O_vs_G": {"focal_model": OPUS, "opponents_model": GEMINI},
     "focal_G_vs_X": {"focal_model": GEMINI, "opponents_model": GPT5_5},
     "focal_G35_vs_X": {"focal_model": GEMINI_FLASH, "opponents_model": GPT5_5},
+    "focal_S_vs_S_pay":   {"focal_model": SONNET,       "opponents_model": SONNET,  "enable_payments": True},
+    "focal_S_vs_G_pay":   {"focal_model": SONNET,       "opponents_model": GEMINI,  "enable_payments": True},
+    "focal_O_vs_G_pay":   {"focal_model": OPUS,         "opponents_model": GEMINI,  "enable_payments": True},
+    "focal_G_vs_X_pay":   {"focal_model": GEMINI,       "opponents_model": GPT5_5,  "enable_payments": True},
+    "focal_G35_vs_X_pay": {"focal_model": GEMINI_FLASH, "opponents_model": GPT5_5,  "enable_payments": True},
 }
 
 
@@ -44,4 +54,6 @@ def get_model_config(name: str) -> dict:
         raise ValueError(
             f"Unknown model config: {name}. Choices: {sorted(_CONFIGS.keys())}"
         )
-    return dict(_CONFIGS[name])
+    cfg = dict(_CONFIGS[name])
+    cfg.setdefault("enable_payments", False)
+    return cfg
