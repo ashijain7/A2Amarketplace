@@ -31,7 +31,9 @@ def create_agent_accounts(
     dashboard shows which experiment each customer belongs to.
     Raises stripe.error.StripeError if any creation fails — caller should abort session.
     """
-    label = f"{config_name} | set{set_id} | P{phase}"
+    # Shorten config name: focal_S_vs_S_pay → SvS, focal_G35_vs_X_pay → G35vX
+    short = config_name.removeprefix("focal_").removesuffix("_pay").replace("_vs_", "v")
+    label = f"{short} | set{set_id} | P{phase}"
     accounts = {}
     for name in agent_names:
         customer = stripe.Customer.create(
