@@ -561,6 +561,13 @@ def main():
         ),
     )
     ap.add_argument(
+        "--config", type=str, default=None,
+        help=(
+            "Single model config name (e.g. 'focal_S_vs_S_pay' for payment runs). "
+            "Takes precedence over --config-filter when both are supplied."
+        ),
+    )
+    ap.add_argument(
         "--config-filter", type=str, default=None,
         help=(
             "Comma-separated list of model configs to include "
@@ -584,10 +591,12 @@ def main():
     if args.focal_count is None:
         args.focal_count = 1 if args.phase == 1 else DEFAULT_FOCAL_COUNT
 
-    configs = (
-        [c.strip() for c in args.config_filter.split(",")]
-        if args.config_filter else None
-    )
+    if args.config:
+        configs = [args.config.strip()]
+    elif args.config_filter:
+        configs = [c.strip() for c in args.config_filter.split(",")]
+    else:
+        configs = None
     seeds = (
         [int(s.strip()) for s in args.seeds.split(",")]
         if args.seeds else None
@@ -600,8 +609,12 @@ def main():
         n_configs = len(configs) if configs else len(CONFIG_NAMES)
         n_seeds = len(seeds) if seeds else len(SEEDS)
         total = 5 * n_configs * args.focal_count * n_seeds
-        kind = f"{total}task"
-        args.out = Path(__file__).parent / f"phase{args.phase}_{kind}.jsonl"
+        # When a single --config is given, embed the config name for clarity
+        if args.config:
+            args.out = Path(__file__).parent / f"phase{args.phase}_{args.config}_{total}task.jsonl"
+        else:
+            kind = f"{total}task"
+            args.out = Path(__file__).parent / f"phase{args.phase}_{kind}.jsonl"
 
     # Make sure the right phase is active for personas/templates downstream
     os.environ["MARKETPLACE_PHASE"] = str(args.phase)
