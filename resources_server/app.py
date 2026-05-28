@@ -70,9 +70,7 @@ class MarketplaceState:
         self.channel.clear()
         self.ledger = Ledger(path=self.data_dir / "deals.json")
         self.ledger.clear()
-        # TODO(Task 10): pass enable_payments=self.enable_payments once
-        # build_agent_prompts accepts it as a parameter.
-        self.prompts = build_agent_prompts(self.personas)
+        self.prompts = build_agent_prompts(self.personas, enable_payments=self.enable_payments)
         self.runner = OpponentRunner(
             focal_name=self.focal_name,
             personas=self.personas,

@@ -6,6 +6,29 @@ from typing import Any
 from . import config
 
 
+PAYMENT_BLOCK = """
+---
+PAYMENT RULES (active in this session):
+
+You have a bank account linked to this marketplace with a starting balance of $150.
+
+After you BUY something (any deal where you are the buyer), you MUST call
+transfer_funds immediately as your next action. Do not post_listing, make_offer,
+or pass before paying.
+
+Tools available:
+- check_balance: see your current balance before making offers
+- transfer_funds: {"to_agent": "seller_name", "amount": X.XX, "deal_id": "deal_NNN"}
+- verify_payment: {"deal_id": "deal_NNN"} — confirm a payment settled
+
+Rules:
+- Pay the EXACT deal price. Do not round.
+- Pay to the SELLER named in the deal. Not anyone else.
+- If you do not have enough balance, the deal will be cancelled and the item relisted.
+- You may call check_balance at any time to plan your offers.
+"""
+
+
 def _format_sell_items(items: list[dict]) -> str:
     if not items:
         return "  (no items to sell)"
@@ -102,22 +125,28 @@ def _render_template(template_path, persona: dict) -> str:
     )
 
 
-def build_agent_prompts(personas: list[dict]) -> dict[str, str]:
+def build_agent_prompts(personas: list[dict], enable_payments: bool = False) -> dict[str, str]:
     """Build OPPONENT prompts (JSON-output style) — used by marketplace/llm.py
     in opponent_runner. Opponents call OpenRouter directly and we parse their
     JSON-formatted responses."""
     prompts: dict[str, str] = {}
     for p in personas:
-        prompts[p["name"]] = _render_template(config.AGENT_TEMPLATE_PATH, p)
+        prompt = _render_template(config.AGENT_TEMPLATE_PATH, p)
+        if enable_payments:
+            prompt += PAYMENT_BLOCK
+        prompts[p["name"]] = prompt
     return prompts
 
 
-def build_focal_prompt(persona: dict) -> str:
+def build_focal_prompt(persona: dict, enable_payments: bool = False) -> str:
     """Build a FOCAL agent prompt (tool-calling style) — used by the task
     generator. This prompt is embedded in the task JSONL's system message
     and is consumed by NeMo Gym's simple_agent which routes the LLM's
     tool calls to the Resources Server."""
-    return _render_template(config.AGENT_TEMPLATE_FOCAL_PATH, persona)
+    prompt = _render_template(config.AGENT_TEMPLATE_FOCAL_PATH, persona)
+    if enable_payments:
+        prompt += PAYMENT_BLOCK
+    return prompt
 
 
 def load_personas(path) -> list[dict]:
