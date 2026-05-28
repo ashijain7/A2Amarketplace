@@ -59,6 +59,9 @@ class MarketplaceState:
     # Phase 2: per-rollout log of every lookup_agent call by the focal.
     # Used by the review_utilization rubric.
     _focal_lookups: list = field(default_factory=list)
+    enable_payments: bool = False
+    stripe_accounts: dict = field(default_factory=dict)   # {agent_name: stripe_customer_id}
+    payment_log: list = field(default_factory=list)        # [{deal_id, from, to, amount, status, turn}]
 
     def __post_init__(self):
         self.data_dir = Path(self.data_dir)
@@ -67,6 +70,8 @@ class MarketplaceState:
         self.channel.clear()
         self.ledger = Ledger(path=self.data_dir / "deals.json")
         self.ledger.clear()
+        # TODO(Task 10): pass enable_payments=self.enable_payments once
+        # build_agent_prompts accepts it as a parameter.
         self.prompts = build_agent_prompts(self.personas)
         self.runner = OpponentRunner(
             focal_name=self.focal_name,
@@ -76,6 +81,9 @@ class MarketplaceState:
             ledger=self.ledger,
             opponents_model=self.opponents_model,
             phase=self.phase,
+            enable_payments=self.enable_payments,
+            stripe_accounts=self.stripe_accounts,
+            payment_log=self.payment_log,
         )
 
     def next_turn(self) -> int:
@@ -870,10 +878,17 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         cfg = get_model_config(cfg_name)
         focal_model = cfg["focal_model"]
         opponents_model = cfg["opponents_model"]
+        enable_payments = cfg.get("enable_payments", False)
 
         # Reproducible shuffles for any persona-randomized code paths.
         if meta.seed is not None:
             random.seed(meta.seed)
+
+        stripe_accounts = {}
+        if enable_payments:
+            from resources_server.stripe_ledger import create_agent_accounts
+            agent_names = [p["name"] for p in personas]
+            stripe_accounts = create_agent_accounts(agent_names, session_id)
 
         # Pick a per-session data dir under data/ng_run/<session_id>.
         from marketplace import config as mp_config
@@ -890,6 +905,8 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
             config_name=cfg_name,
             data_dir=data_dir,
             phase=int(meta.phase or 1),
+            enable_payments=enable_payments,
+            stripe_accounts=stripe_accounts,
         )
         self._sessions[session_id] = state
         return BaseSeedSessionResponse()

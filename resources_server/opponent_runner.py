@@ -33,6 +33,9 @@ class OpponentRunner:
         ledger: Ledger,
         opponents_model: str,
         phase: int = 1,
+        enable_payments: bool = False,
+        stripe_accounts: dict = None,
+        payment_log: list = None,
     ):
         self.focal_name = focal_name
         self.personas = personas
@@ -41,6 +44,9 @@ class OpponentRunner:
         self.ledger = ledger
         self.opponents_model = opponents_model
         self.phase = phase
+        self.enable_payments = enable_payments
+        self.stripe_accounts = stripe_accounts if stripe_accounts is not None else {}
+        self.payment_log = payment_log if payment_log is not None else []
         self._opponents = [p for p in personas if p["name"] != focal_name]
         self._cursor = 0
 
