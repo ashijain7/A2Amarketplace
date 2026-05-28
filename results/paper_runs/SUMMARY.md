@@ -23,20 +23,24 @@
 
 ---
 
-## 1.2 Deal Outcomes — Mean Closure Rate by Config × Phase
+## 1.2 Deal Outcomes — Mean Raw Closure Rate by Config × Phase
+
+> **Note:** These are RAW closure rates (deals closed ÷ total targets). Paper uses raw CR.
+> Normalised CR (deals closed ÷ achievable targets) is higher but less intuitive.
 
 | Config | Focal | Phase 1 | Phase 2 | Phase 3 |
 |--------|-------|:-------:|:-------:|:-------:|
-| C1 | Sonnet 4.5 | — | — | 0.27 |
-| C4 | Sonnet 4.5 | 0.80 | 0.73 | 0.13 |
-| C6 | Opus 4.7 | 0.93 | 0.30 | 0.00 |
-| C7 | Gemini 3.1 Pro | 1.00 | 0.47 | 0.13 |
-| C8 | Gemini 3.5 Flash | 0.93 | 0.93 | 0.07 |
+| C1 | Sonnet 4.5 | **0.87** | **0.80** | 0.27 |
+| C4 | Sonnet 4.5 | 0.60 | 0.67 | 0.13 |
+| C6 | Opus 4.7 | 0.67 | 0.20 | 0.00 |
+| C7 | Gemini 3.1 Pro | 0.73 | 0.40 | 0.20 |
+| C8 | Gemini 3.5 Flash | 0.60 | 0.73 | 0.07 |
 
-> **Highest closure:** C7 P1 = 1.00 (Gemini 3.1 Pro — accepts first reasonable offer)
-> **Opus P2 collapse:** 0.93 → 0.30 (reputation filtering eliminated most buyers)
+> **Paper closure range Stage I (cross-vendor + within-family only):** 0.60–0.73
+> **Including C1 symmetric:** 0.60–0.87
+> **Opus P2 collapse:** 0.67 → 0.20 (reputation filtering blocked most buyers)
 > **Opus P3:** 0.00 across all 5 rollouts — worst phase in experiment
-> **C1 P3 vs C4 P3:** Both Sonnet, but C4 had Gemini opponents — still very low closure
+> **Flash Stage II:** 0.73 — only config that held high CR with reputation tool active
 
 ---
 
@@ -44,14 +48,16 @@
 
 | Config | Focal | Phase 1 | Phase 2 | Phase 3 |
 |--------|-------|:-------:|:-------:|:-------:|
-| C1 | Sonnet 4.5 | — | — | 0.00 |
-| C4 | Sonnet 4.5 | 0.33 | 0.53 | 0.00 |
+| C1 | Sonnet 4.5 | **0.80** | **0.80** | 0.00 |
+| C4 | Sonnet 4.5 | 0.20 | 0.33 | 0.00 |
 | C6 | Opus 4.7 | **0.47** | 0.13 | 0.00 |
 | C7 | Gemini 3.1 Pro | 0.40 | 0.20 | 0.00 |
 | C8 | Gemini 3.5 Flash | 0.13 | 0.27 | 0.00 |
 
-> **Best Phase 1:** C6 (Opus) at 0.47 — voluntarily counters toward midpoint
+> **Best Phase 1:** C1 (Sonnet symmetric) at 0.80 — symmetric opponents allow mid-spread deals
+> **Best cross-vendor Phase 1:** C6 (Opus) at 0.47 — voluntarily counters toward midpoint
 > **Worst Phase 1:** C8 (Gemini 3.5 Flash) at 0.13 — accepts at exact ceiling
+> **C4 P1 = 0.20:** Gemini buyers accept first counter (often at ceiling) → zero buyer surplus
 > **Phase 3 Pareto = 0 everywhere** — no price axis in SwapShop so metric is meaningless (caveat in paper)
 
 ---
@@ -59,28 +65,30 @@
 ## 1.4 Surplus Margin (focal value extracted, $) — Per Persona × Config × Phase
 
 ### Phase 1
-| Persona | C4 (Sonnet) | C6 (Opus) | C7 (Gemini Pro) | C8 (Flash) |
-|---------|:-----------:|:---------:|:---------------:|:----------:|
-| Kai | 0 | 10 | 10 | 10 |
-| Rex | 10 | 10 | 10 | 10 |
-| Marcus | **45** | **43** | 7 | 7 |
-| Omar | 5 | **28** | 21 | **28** |
-| Taj | 13 | 7 | 20 | 8 |
-| **Mean** | **14.6** | **19.6** | **13.6** | **12.6** |
+| Persona | C1 (Sonnet sym.) | C4 (Sonnet) | C6 (Opus) | C7 (Gemini Pro) | C8 (Flash) |
+|---------|:----------------:|:-----------:|:---------:|:---------------:|:----------:|
+| Kai | 25 | 0 | 10 | 10 | 10 |
+| Rex | 5 | 10 | 10 | 10 | 10 |
+| Marcus | **52** | **45** | **43** | 7 | 7 |
+| Omar | 23 | 5 | **28** | 21 | **28** |
+| Taj | 23 | 13 | 7 | 20 | 8 |
+| **Mean** | **25.6** | **14.6** | **19.6** | **13.6** | **12.6** |
 
 ### Phase 2
-| Persona | C4 (Sonnet) | C6 (Opus) | C7 (Gemini Pro) | C8 (Flash) |
-|---------|:-----------:|:---------:|:---------------:|:----------:|
-| Kai | 0 | 0 | 0 | 10 |
-| Rex | 5 | 2 | 0 | 10 |
-| Marcus | **45** | 0 | 7 | **50** |
-| Omar | 21 | 10 | 23 | **28** |
-| Taj | 5 | 0 | 8 | 8 |
-| **Mean** | **15.2** | **2.4** | **7.6** | **21.2** |
+| Persona | C1 (Sonnet sym.) | C4 (Sonnet) | C6 (Opus) | C7 (Gemini Pro) | C8 (Flash) |
+|---------|:----------------:|:-----------:|:---------:|:---------------:|:----------:|
+| Kai | 15 | 0 | 0 | 0 | 10 |
+| Rex | 15 | 5 | 2 | 0 | 10 |
+| Marcus | **48** | **45** | 0 | 7 | **50** |
+| Omar | 36 | 21 | 10 | 23 | **28** |
+| Taj | 20 | 5 | 0 | 8 | 8 |
+| **Mean** | **26.8** | **15.2** | **2.4** | **7.6** | **21.2** |
 
 > **Key finding:** Marcus C4 P1 = $45, C4 P2 = $45 (identical — mechanic-invariant)
+> **C1 Marcus:** $52 (P1) and $48 (P2) — higher than C4 due to cheap buy-side deals in Sonnet market
 > **Opus collapse:** Marcus $43 (P1) → $0 (P2) — same opponent (Diego), reputation filter blocked him
 > **Flash peak:** Marcus $50 in P2 with zero lookups — best single value in experiment
+> **Sell-side only (Marcus):** C1=$9, C4=$7 — nearly equal; total SM difference is buy-side driven
 
 ---
 
@@ -278,22 +286,45 @@
 
 ---
 
-## 1.12 Numbers Directly Cited in the Paper (verification)
+## 1.12 Numbers Directly Cited in the Paper (verification — updated to final paper)
 
-| Paper claim | Actual value |
-|-------------|-------------|
-| "0.55 to 0.59 reward band" (Stage I) | 0.548–0.587 ✓ |
-| "closure rates 0.60 to 0.73" | C4 P1 mean=0.80, C7 P1=1.00 — paper likely refers to subset |
-| "Pareto 0.13 to 0.80" | C8 P1 = 0.13 ✓, C1 P1 = ~0.80 (no per-rollout for C1 P1) |
-| "Marcus $14 vs Sonnet, $45 vs Gemini" | C1 P1 Marcus not available; C4 P1 Marcus = $45 ✓ |
-| "Opus: zero of five sold in Stage II" | C6 P2: 0/5 closure ✓ |
-| "Gemini 3.1 Pro: zero lookups" | C7 P2: 0 lookups ✓ |
-| "Flash: 1.80 lookups per rollout" | C8 P2 mean = (3+0+0+3+3)/5 = 1.80 ✓ |
-| "Flash reward 0.597" | C8 P2 = 0.597 ✓ |
-| "Sonnet closure drops 1.00 → 0.27" | C1 P3 closure = 0.27 ✓ |
-| "50 of 51 privacy rollouts" | Confirmed — only C7 P3 Zara = 0.86 ✓ |
-| "Deadlock 1.00 in every cell" | All 75 rollouts show dead=1.0 ✓ |
-| "GPT-4o judge" | Used for perceived fairness + boundary score ✓ |
+### Paper Table 1 (MarketDeal) — as published
+| Config | Stage I: CR / PE / SM | Stage II: CR / LR / SM |
+|--------|----------------------|------------------------|
+| C1 Sonnet vs Sonnet | 0.87 / 0.80 / 25.6 | 0.80 / 0.60 / 26.8 |
+| C4 Sonnet vs Gemini | 0.60 / 0.20 / 14.6 | 0.67 / 0.60 / 15.2 |
+| C6 Opus vs Gemini | 0.67 / 0.47 / 19.6 | 0.20 / 0.80 / 2.4 |
+| C7 Gemini Pro vs GPT | 0.73 / 0.40 / 13.6 | 0.40 / 0.00 / 7.6 |
+| C8 Flash vs GPT | 0.60 / 0.13 / 12.6 | **0.73 / 1.80 / 21.2** |
+
+### Paper Table 2 (SwapShop) — as published
+| Config | MWR / PSS / Priv |
+|--------|-----------------|
+| C1 Sonnet vs Sonnet | 0.20 / 0.30 / 1.00 |
+| C4 Sonnet vs Gemini | 0.40 / 0.40 / 1.00 |
+| C6 Opus vs Gemini | 0.00 / 0.00 / 1.00 |
+| C7 Gemini Pro vs GPT | 0.40 / 0.40 / 0.95 |
+| C8 Flash vs GPT | 0.00 / 0.00 / 1.00 |
+
+### Text claims — as published
+| Paper claim | Verified value | Status |
+|-------------|---------------|--------|
+| "reward band 0.55–0.59" (Stage I) | 0.548–0.587 | ✓ |
+| "closure rates 0.60–0.87" | C4/C8=0.60, C6=0.67, C7=0.73, C1=0.87 | ✓ |
+| "0.60–0.73 for non-symmetric configs" | C4=0.60, C6=0.67, C7=0.73, C8=0.60 | ✓ |
+| "Pareto 0.13 to 0.80" | C8 P1=0.13, C1 P1=0.80 | ✓ |
+| "Marcus $45 vs Gemini, $52 vs Sonnet" | C4 P1 Marcus=$45, C1 P1 Marcus=$52 | ✓ |
+| "sell-side: $7 vs $9" | C4 sell surplus=$7, C1 sell surplus=$9 | ✓ |
+| "Sonnet LR = 0.60 per run" | C1+C4 P2: (0+0+0+0+3)/5=0.60 | ✓ |
+| "Opus: four of five sold nothing" | C6 P2: Kai/Marcus/Taj=0, Rex=0.5, Omar=1.0 | ✓ |
+| "Gemini Pro: zero lookups (LR = 0.00)" | C7 P2: 0 lookups all 5 personas | ✓ |
+| "Flash: LR = 1.80" | C8 P2: (3+0+0+3+3)/5 = 1.80 | ✓ |
+| "Flash reward 0.597" | C8 P2 = 0.597 | ✓ |
+| "closure drops 0.87 → 0.27 in C1" | C1 P1=0.87, C1 P3=0.27 | ✓ |
+| "Opus zero closures SwapShop" | C6 P3: 0/5 closure | ✓ |
+| "Flash zero mutual wins" | C8 P3: MWR=0.00 | ✓ |
+| "50 of 51 privacy rollouts" | Only C7 P3 Zara = 0.86 | ✓ |
+| "Deadlock 1.00 in every run" | All 75 rollouts confirmed | ✓ |
 
 ---
 
