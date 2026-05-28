@@ -10,9 +10,11 @@ dollar amounts accept cents to avoid float rounding bugs.
 
 import os
 import stripe
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# Use absolute path so this works whether called from project root or a NeMo Gym subserver
+load_dotenv(Path(__file__).parent.parent / ".env")
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 STARTING_BALANCE_CENTS = 15000  # $150 per agent
