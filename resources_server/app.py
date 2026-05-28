@@ -130,6 +130,20 @@ class LookupAgentBody(BaseModel):
     role: str  # "seller" | "buyer"
 
 
+class CheckBalanceBody(BaseModel):
+    pass
+
+
+class TransferFundsBody(BaseModel):
+    to_agent: str
+    amount: float
+    deal_id: str
+
+
+class VerifyPaymentBody(BaseModel):
+    deal_id: str
+
+
 # Phase 3 swap bodies
 class PostListingPhase3Body(BaseModel):
     item_id: str
@@ -844,6 +858,9 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         app.post("/reject_offer")(self.reject_offer)
         app.post("/pass")(self.do_pass)  # `pass` is a reserved keyword.
         app.post("/lookup_agent")(self.lookup_agent)
+        app.post("/check_balance")(self.check_balance)
+        app.post("/transfer_funds")(self.transfer_funds)
+        app.post("/verify_payment")(self.verify_payment)
         # Phase 3 swap endpoints
         app.post("/propose_swap")(self.propose_swap)
         app.post("/accept_swap")(self.accept_swap)
@@ -1021,6 +1038,106 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
     ) -> dict:
         state = self._get_state_for_request(request)
         return _apply_lookup_agent(state, body)
+
+    async def check_balance(self, request: Request) -> dict:
+        state = self._get_state_for_request(request)
+        if not state.enable_payments:
+            return {"skipped": True, "reason": "payments not enabled"}
+        cid = state.stripe_accounts.get(state.focal_name)
+        if not cid:
+            return {"error": "no stripe account for focal agent"}
+        from resources_server.stripe_ledger import get_balance_cents
+        balance_cents = get_balance_cents(cid)
+        return {"agent": state.focal_name, "balance": balance_cents / 100}
+
+    async def transfer_funds(self, body: TransferFundsBody, request: Request) -> dict:
+        state = self._get_state_for_request(request)
+        if not state.enable_payments:
+            return {"skipped": True, "reason": "payments not enabled"}
+
+        deal = next((d for d in state.ledger.deals if d.deal_id == body.deal_id), None)
+        if deal is None:
+            return {"error": f"deal '{body.deal_id}' not found"}
+
+        if deal.buyer != state.focal_name:
+            return {"error": f"you are not the buyer on deal '{body.deal_id}' — only the buyer pays"}
+
+        if deal.payment_status == "confirmed":
+            return {"error": f"deal '{body.deal_id}' is already paid"}
+        if deal.payment_status == "cancelled":
+            return {"error": f"deal '{body.deal_id}' was cancelled"}
+
+        if abs(body.amount - deal.price) > 0.01:
+            return {"error": f"amount ${body.amount} does not match deal price ${deal.price}"}
+
+        if body.to_agent != deal.seller:
+            return {"error": f"'{body.to_agent}' is not the seller on this deal — pay '{deal.seller}'"}
+
+        from_cid = state.stripe_accounts.get(state.focal_name)
+        to_cid = state.stripe_accounts.get(body.to_agent)
+        if not from_cid or not to_cid:
+            return {"error": "stripe account not found"}
+
+        from resources_server.stripe_ledger import transfer
+        amount_cents = round(body.amount * 100)
+        result = transfer(from_cid, to_cid, amount_cents)
+
+        if result["success"]:
+            state.ledger.confirm_deal(body.deal_id)
+            state.payment_log.append({
+                "deal_id": body.deal_id, "from": state.focal_name,
+                "to": body.to_agent, "amount": body.amount,
+                "status": "confirmed", "turn": state._turn,
+            })
+            state.channel.post(
+                turn=state._turn, agent=state.focal_name, action="pass",
+                target=None, price=None,
+                message=f"[PAYMENT: ${body.amount:.2f} sent to {body.to_agent} for {body.deal_id}]",
+            )
+        else:
+            state.ledger.cancel_deal(body.deal_id)
+            state.payment_log.append({
+                "deal_id": body.deal_id, "from": state.focal_name,
+                "to": body.to_agent, "amount": body.amount,
+                "status": "cancelled", "reason": result.get("error"), "turn": state._turn,
+            })
+            state.channel.post(
+                turn=state._turn, agent="SYSTEM", action="pass",
+                target=None, price=None,
+                message=(
+                    f"[SYSTEM: payment failed — {result.get('error')}. "
+                    f"Deal {body.deal_id} cancelled. "
+                    f"{state.focal_name} balance: ${result.get('balance', 0):.2f}]"
+                ),
+            )
+        return result
+
+    async def verify_payment(self, body: VerifyPaymentBody, request: Request) -> dict:
+        state = self._get_state_for_request(request)
+        if not state.enable_payments:
+            return {"skipped": True}
+
+        deal = next((d for d in state.ledger.deals if d.deal_id == body.deal_id), None)
+        if deal is None:
+            return {"error": f"deal '{body.deal_id}' not found"}
+
+        response = {
+            "deal_id": body.deal_id,
+            "status": deal.payment_status,
+            "paid": deal.payment_status == "confirmed",
+        }
+
+        if deal.payment_status == "pending":
+            if deal.buyer == state.focal_name:
+                response["you_are"] = "buyer"
+                response["you_owe"] = deal.price
+                response["owe_to"] = deal.seller
+            else:
+                response["you_are"] = "seller"
+                response["waiting_for_payment_from"] = deal.buyer
+                response["amount"] = deal.price
+
+        return response
 
     async def propose_swap(
         self, body: ProposeSwapBody, request: Request
