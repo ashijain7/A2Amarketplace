@@ -6,6 +6,10 @@ this module is never imported — existing runs have zero dependency on it.
 
 Balance unit: Stripe uses integer cents. All public functions that take
 dollar amounts accept cents to avoid float rounding bugs.
+
+Visibility: we use CustomerBalanceTransaction instead of Customer.modify
+so every payment shows up as an auditable line item in the Stripe dashboard
+under Customer → Balance transactions.
 """
 
 import os
@@ -26,16 +30,17 @@ def create_agent_accounts(
     set_id: str,
     phase: int,
 ) -> dict[str, str]:
-    """Create one Stripe Customer per agent name.
+    """Create one Stripe Customer per agent with an opening balance transaction.
 
     Returns {agent_name: stripe_customer_id}.
-    Names each customer as "AgentName [config | setNN | PN]" so the Stripe
-    dashboard shows which experiment each customer belongs to.
-    Raises stripe.error.StripeError if any creation fails — caller should abort session.
+    Names each customer as "AgentName [SvS | set_01 | P1]" for dashboard clarity.
+    Uses CustomerBalanceTransaction for the opening balance so it appears in history.
+    Raises stripe.error.StripeError if any creation fails.
     """
-    # Shorten config name: focal_S_vs_S_pay → SvS, focal_G35_vs_X_pay → G35vX
+    # Fix: set_id already has the "set_" prefix (e.g. "set_01"), use as-is
+    # Shorten config: focal_S_vs_S_pay → SvS, focal_G35_vs_X_pay → G35vX
     short = config_name.removeprefix("focal_").removesuffix("_pay").replace("_vs_", "v")
-    label = f"{short} | set{set_id} | P{phase}"
+    label = f"{short} | {set_id} | P{phase}"
     accounts = {}
     for name in agent_names:
         customer = stripe.Customer.create(
@@ -46,7 +51,13 @@ def create_agent_accounts(
                 "set_id": set_id,
                 "phase": str(phase),
             },
-            balance=STARTING_BALANCE_CENTS,
+        )
+        # Fund via balance transaction — visible in dashboard as "Opening balance"
+        stripe.CustomerBalanceTransaction.create(
+            customer.id,
+            amount=STARTING_BALANCE_CENTS,
+            currency="usd",
+            description="Opening balance — marketplace funding",
         )
         accounts[name] = customer.id
     return accounts
@@ -58,10 +69,18 @@ def get_balance_cents(customer_id: str) -> int:
     return customer.balance
 
 
-def transfer(from_customer_id: str, to_customer_id: str, amount_cents: int) -> dict:
-    """Move amount_cents from sender to receiver via Stripe balance modification.
+def transfer(
+    from_customer_id: str,
+    to_customer_id: str,
+    amount_cents: int,
+    description: str = "",
+) -> dict:
+    """Move amount_cents from sender to receiver using Stripe balance transactions.
 
-    Reads both balances fresh from Stripe before writing.
+    Each transfer creates TWO visible entries in the Stripe dashboard:
+      - Sender: negative transaction (debit)
+      - Receiver: positive transaction (credit)
+
     Never writes a negative balance — returns insufficient_funds error instead.
 
     Returns:
@@ -82,18 +101,33 @@ def transfer(from_customer_id: str, to_customer_id: str, amount_cents: int) -> d
             "shortfall": (amount_cents - sender_balance) / 100,
         }
 
-    new_sender_balance = sender_balance - amount_cents
-    assert new_sender_balance >= 0, "balance guard: would write negative"
+    assert sender_balance - amount_cents >= 0, "balance guard: would write negative"
 
-    stripe.Customer.modify(from_customer_id, balance=new_sender_balance)
+    desc = description or f"Marketplace payment ${amount_cents / 100:.2f}"
 
-    receiver = stripe.Customer.retrieve(to_customer_id)
-    new_receiver_balance = receiver.balance + amount_cents
-    stripe.Customer.modify(to_customer_id, balance=new_receiver_balance)
+    # Debit sender — visible as negative transaction in their history
+    stripe.CustomerBalanceTransaction.create(
+        from_customer_id,
+        amount=-amount_cents,
+        currency="usd",
+        description=f"Paid: {desc}",
+    )
+
+    # Credit receiver — visible as positive transaction in their history
+    stripe.CustomerBalanceTransaction.create(
+        to_customer_id,
+        amount=amount_cents,
+        currency="usd",
+        description=f"Received: {desc}",
+    )
+
+    # Read updated balances back from Stripe
+    sender_new = stripe.Customer.retrieve(from_customer_id).balance
+    receiver_new = stripe.Customer.retrieve(to_customer_id).balance
 
     return {
         "success": True,
         "amount": amount_cents / 100,
-        "sender_new_balance": new_sender_balance / 100,
-        "receiver_new_balance": new_receiver_balance / 100,
+        "sender_new_balance": sender_new / 100,
+        "receiver_new_balance": receiver_new / 100,
     }

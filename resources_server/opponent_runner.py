@@ -422,7 +422,7 @@ class OpponentRunner:
 
         from resources_server.stripe_ledger import transfer
         amount_cents = round(deal.price * 100)
-        result = transfer(buyer_cid, seller_cid, amount_cents)
+        result = transfer(buyer_cid, seller_cid, amount_cents, description=f"{deal.item_name} ({deal.deal_id})")
 
         if result["success"]:
             self.ledger.confirm_deal(deal.deal_id)

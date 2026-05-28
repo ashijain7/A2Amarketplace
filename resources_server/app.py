@@ -1113,7 +1113,7 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
 
         from resources_server.stripe_ledger import transfer
         amount_cents = round(body.amount * 100)
-        result = transfer(from_cid, to_cid, amount_cents)
+        result = transfer(from_cid, to_cid, amount_cents, description=f"{deal.item_name} ({body.deal_id})")
 
         if result["success"]:
             state.ledger.confirm_deal(body.deal_id)
