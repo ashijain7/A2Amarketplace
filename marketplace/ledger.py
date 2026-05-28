@@ -39,6 +39,7 @@ class Deal:
     item_b_name: str | None = None
     item_b_floor: float | None = None  # agent_b's private valuation of their item
     item_a_ceiling: float | None = None  # agent_a's private ceiling for item_b's category
+    payment_status: str = "n/a"   # "n/a" | "pending" | "confirmed" | "cancelled"
 
 
 class Ledger:
@@ -72,7 +73,9 @@ class Ledger:
         item_b_name: str | None = None,
         item_b_floor: float | None = None,
         item_a_ceiling: float | None = None,
+        pending: bool = False,
     ) -> Deal:
+        status = "pending" if pending else "n/a"
         deal = Deal(
             deal_id=f"deal_{self._next_deal_num:03d}",
             seller=seller,
@@ -88,13 +91,15 @@ class Ledger:
             item_b_name=item_b_name,
             item_b_floor=item_b_floor,
             item_a_ceiling=item_a_ceiling,
+            payment_status=status,
         )
         self._next_deal_num += 1
         self.deals.append(deal)
-        self.sold_item_ids.add(item_id)
-        # In a swap, both items become "sold" (unavailable for further trades).
-        if deal_type == "swap" and item_b_id:
-            self.sold_item_ids.add(item_b_id)
+        if not pending:
+            self.sold_item_ids.add(item_id)
+            # In a swap, both items become "sold" (unavailable for further trades).
+            if deal_type == "swap" and item_b_id:
+                self.sold_item_ids.add(item_b_id)
         self._save()
         return deal
 
@@ -107,6 +112,35 @@ class Ledger:
     def fulfill_want(self, want_id: str):
         self.fulfilled_want_ids.add(want_id)
         self._save()
+
+    def confirm_deal(self, deal_id: str) -> bool:
+        """Mark a pending deal as confirmed and mark item as sold."""
+        for deal in self.deals:
+            if deal.deal_id == deal_id:
+                deal.payment_status = "confirmed"
+                self.sold_item_ids.add(deal.item_id)
+                if deal.deal_type == "swap" and deal.item_b_id:
+                    self.sold_item_ids.add(deal.item_b_id)
+                self._save()
+                return True
+        return False
+
+    def cancel_deal(self, deal_id: str) -> bool:
+        """Cancel a pending deal — item stays available."""
+        for deal in self.deals:
+            if deal.deal_id == deal_id:
+                deal.payment_status = "cancelled"
+                self.sold_item_ids.discard(deal.item_id)
+                self._save()
+                return True
+        return False
+
+    def pending_deals_for_buyer(self, buyer_name: str) -> list:
+        """Return all deals with status='pending' where buyer_name is the buyer."""
+        return [
+            d for d in self.deals
+            if d.buyer == buyer_name and d.payment_status == "pending"
+        ]
 
     def _save(self):
         data = {
