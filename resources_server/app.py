@@ -274,6 +274,25 @@ def _state_snapshot(state: MarketplaceState) -> dict:
             "message (do NOT call another tool) to end this rollout."
         )
 
+    # Show focal what payments are pending (payments extension only)
+    if getattr(state, "enable_payments", False):
+        pending_payments = [
+            {
+                "deal_id": d.deal_id,
+                "owe_to": d.seller,
+                "amount": d.price,
+                "item": d.item_name,
+            }
+            for d in state.ledger.deals
+            if d.payment_status == "pending" and d.buyer == state.focal_name
+        ]
+        if pending_payments:
+            snapshot["pending_payments"] = pending_payments
+            snapshot["payment_reminder"] = (
+                f"You have {len(pending_payments)} unpaid deal(s). "
+                "Call transfer_funds for each before continuing."
+            )
+
     return snapshot
 
 
