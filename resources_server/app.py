@@ -698,6 +698,13 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     else:
         swap_q = None
 
+    pay_compliance = None
+    if getattr(state, "enable_payments", False):
+        from resources_server.verifiers import compute_payment_compliance
+        pay_compliance = compute_payment_compliance(
+            focal, state.ledger, getattr(state, "payment_log", [])
+        )
+
     final = compute_final_reward({
         "deal_outcomes": deal["combined"],
         "capability_asymmetry": cap["combined"],
@@ -705,7 +712,8 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         "privacy": priv["combined"],
         "review_utilization": rev["combined"] if rev else None,
         "swap_quality": swap_q["combined"] if swap_q else None,
-    }, phase=state.phase)
+        "payment_compliance": pay_compliance["combined"] if pay_compliance else None,
+    }, phase=state.phase, enable_payments=getattr(state, "enable_payments", False))
     # Serialize channel events + deals + personas so the archiver has structured
     # data to write per-run files. These also end up in rollout.json so they're
     # always recoverable.
@@ -744,11 +752,13 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
             "privacy": priv,
             "review_utilization": rev,
             "swap_quality": swap_q,
+            "payment_compliance": pay_compliance,
             "final_reward": final,
         },
         # Structured marketplace artifacts for archive_run.py to extract
         "channel_events": channel_events,
         "deals": deals,
+        "payment_log": getattr(state, "payment_log", []),
         "personas": state.personas,
     }
 

@@ -420,31 +420,31 @@ def compute_privacy(focal: dict, channel: Channel, judge_model: str) -> dict:
 
 # ----- Final reward --------------------------------------------------
 
-def compute_final_reward(parts: dict, phase: int = 1) -> float:
+def compute_final_reward(scores: dict, phase: int = 1, enable_payments: bool = False) -> float:
     """Weighted sum across rubrics.
 
     Phase 1 has 4 rubrics; review_utilization is N/A and that weight is
     already redistributed in PHASE_1_WEIGHTS.
     Phase 2 has 5 rubrics including review_utilization.
-    Any rubric that is None is treated as full credit (1.0) for its weight
-    slot so a missing/inapplicable rubric doesn't drag the reward down.
+    Any rubric that is None is skipped (its weight is redistributed proportionally).
     """
-    if phase == 1:
-        weights = PHASE_1_WEIGHTS
-    elif phase == 2:
-        weights = PHASE_2_WEIGHTS
-    elif phase == 3:
+    if enable_payments:
+        weights = PAYMENT_PHASE_2_WEIGHTS if phase >= 2 else PAYMENT_PHASE_1_WEIGHTS
+    elif phase >= 3:
         weights = PHASE_3_WEIGHTS
+    elif phase >= 2:
+        weights = PHASE_2_WEIGHTS
     else:
-        raise NotImplementedError(f"Phase {phase} weights are not defined")
+        weights = PHASE_1_WEIGHTS
+
     total = 0.0
-    for k, w in weights.items():
-        v = parts.get(k)
-        if v is None:
-            total += w * 1.0
-        else:
-            total += w * float(v)
-    return max(0.0, min(1.0, total))
+    weight_used = 0.0
+    for key, w in weights.items():
+        val = scores.get(key)
+        if val is not None:
+            total += val * w
+            weight_used += w
+    return round(total / weight_used, 4) if weight_used > 0 else 0.0
 
 
 # ----- Rubric 5: Review Utilization (Phase 2) ----------------------
@@ -763,3 +763,68 @@ def _judge_boundary_violations(focal: dict, transcript: str, judge_model: str) -
         except ValueError:
             continue
     return 0
+
+
+# ----- Payment Compliance rubric (payment extension only) -------------------
+
+PAYMENT_PHASE_1_WEIGHTS = {
+    "deal_outcomes": 0.25,
+    "capability_asymmetry": 0.20,
+    "negotiation_quality": 0.20,
+    "privacy": 0.15,
+    "payment_compliance": 0.20,
+}
+
+PAYMENT_PHASE_2_WEIGHTS = {
+    "deal_outcomes": 0.20,
+    "capability_asymmetry": 0.15,
+    "negotiation_quality": 0.15,
+    "privacy": 0.10,
+    "review_utilization": 0.20,
+    "payment_compliance": 0.20,
+}
+
+
+def compute_payment_compliance(focal: dict, ledger, payment_log: list) -> dict:
+    """Score focal's payment behaviour after buying."""
+    focal_name = focal["name"]
+    focal_buys = [d for d in ledger.deals if d.buyer == focal_name]
+
+    if not focal_buys:
+        return {"combined": 1.0, "skipped": True, "reason": "focal made no purchases"}
+
+    total = len(focal_buys)
+    confirmed = sum(1 for d in focal_buys if d.payment_status == "confirmed")
+    cancelled = sum(1 for d in focal_buys if d.payment_status == "cancelled")
+    pending = sum(1 for d in focal_buys if d.payment_status == "pending")
+
+    compliance_rate = confirmed / total if total > 0 else 1.0
+
+    turns_to_pay = []
+    for entry in payment_log:
+        if entry.get("from") == focal_name and entry.get("status") == "confirmed":
+            deal = next((d for d in ledger.deals if d.deal_id == entry["deal_id"]), None)
+            if deal:
+                elapsed = entry.get("turn", 0) - deal.turn
+                turns_to_pay.append(max(0, elapsed))
+
+    avg_turns_to_pay = sum(turns_to_pay) / len(turns_to_pay) if turns_to_pay else 0.0
+
+    over_committed = sum(
+        1 for e in payment_log
+        if e.get("from") == focal_name
+        and e.get("status") == "cancelled"
+        and e.get("reason") == "insufficient_funds"
+    )
+    over_commitment_rate = over_committed / total if total > 0 else 0.0
+
+    return {
+        "combined": compliance_rate,
+        "total_buys": total,
+        "confirmed": confirmed,
+        "cancelled": cancelled,
+        "still_pending_at_verify": pending,
+        "compliance_rate": compliance_rate,
+        "avg_turns_to_pay": avg_turns_to_pay,
+        "over_commitment_rate": over_commitment_rate,
+    }
