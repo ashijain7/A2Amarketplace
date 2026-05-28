@@ -41,7 +41,7 @@ def test_transfer_success(mock_stripe):
     assert result["sender_new_balance"] == 105.0
     assert result["receiver_new_balance"] == 195.0
     # Two CustomerBalanceTransaction.create calls: one debit, one credit
-    assert mock_stripe.CustomerBalanceTransaction.create.call_count == 2
+    assert mock_stripe.Customer.create_balance_transaction.call_count == 2
 
 
 def test_transfer_insufficient_funds(mock_stripe):
@@ -52,7 +52,7 @@ def test_transfer_insufficient_funds(mock_stripe):
     assert result["error"] == "insufficient_funds"
     assert result["balance"] == 30.0
     assert result["shortfall"] == 15.0
-    mock_stripe.CustomerBalanceTransaction.create.assert_not_called()
+    mock_stripe.Customer.create_balance_transaction.assert_not_called()
 
 
 def test_transfer_never_writes_negative_balance(mock_stripe):
@@ -66,5 +66,5 @@ def test_transfer_never_writes_negative_balance(mock_stripe):
     assert result["success"] is True
     assert result["sender_new_balance"] == 0.0
     # Debit call should have amount=-4500
-    debit_call = mock_stripe.CustomerBalanceTransaction.create.call_args_list[0]
+    debit_call = mock_stripe.Customer.create_balance_transaction.call_args_list[0]
     assert debit_call[1]["amount"] == -4500

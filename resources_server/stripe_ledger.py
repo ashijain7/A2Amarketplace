@@ -53,7 +53,7 @@ def create_agent_accounts(
             },
         )
         # Fund via balance transaction — visible in dashboard as "Opening balance"
-        stripe.CustomerBalanceTransaction.create(
+        stripe.Customer.create_balance_transaction(
             customer.id,
             amount=STARTING_BALANCE_CENTS,
             currency="usd",
@@ -106,7 +106,7 @@ def transfer(
     desc = description or f"Marketplace payment ${amount_cents / 100:.2f}"
 
     # Debit sender — visible as negative transaction in their history
-    stripe.CustomerBalanceTransaction.create(
+    stripe.Customer.create_balance_transaction(
         from_customer_id,
         amount=-amount_cents,
         currency="usd",
@@ -114,7 +114,7 @@ def transfer(
     )
 
     # Credit receiver — visible as positive transaction in their history
-    stripe.CustomerBalanceTransaction.create(
+    stripe.Customer.create_balance_transaction(
         to_customer_id,
         amount=amount_cents,
         currency="usd",
