@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from marketplace import config as mp_config
 from marketplace.build_agents import build_focal_prompt
 from resources_server.focal_selection import select_focal_personas
-from resources_server.model_config import CONFIG_NAMES
+from resources_server.model_config import CONFIG_NAMES, get_model_config
 
 SETS = ["set_01", "set_02", "set_03", "set_04", "set_05"]
 SEEDS = [42, 43, 44]
@@ -235,7 +235,46 @@ PASS_TOOL: dict = _function_tool(
 )
 
 
-def tools_for_phase(phase: int) -> list[dict]:
+PAYMENT_TOOLS: list[dict] = [
+    _function_tool(
+        name="check_balance",
+        description=(
+            "Check your current bank balance before making offers. "
+            "Use this to make sure you can afford what you want to buy."
+        ),
+        properties={},
+        required=[],
+    ),
+    _function_tool(
+        name="transfer_funds",
+        description=(
+            "Send payment to the seller after a deal closes. "
+            "You MUST call this immediately after buying something. "
+            "Pay the exact deal price to the exact seller named in the deal."
+        ),
+        properties={
+            "to_agent": {"type": "string",
+                         "description": "The name of the seller you are paying."},
+            "amount": {"type": "number",
+                       "description": "Exact deal price in dollars. Do not round."},
+            "deal_id": {"type": "string",
+                        "description": "The deal_id from the deal that just closed."},
+        },
+        required=["to_agent", "amount", "deal_id"],
+    ),
+    _function_tool(
+        name="verify_payment",
+        description="Confirm that a specific deal has been paid. Use after calling transfer_funds.",
+        properties={
+            "deal_id": {"type": "string",
+                        "description": "The deal_id you want to verify payment for."},
+        },
+        required=["deal_id"],
+    ),
+]
+
+
+def tools_for_phase(phase: int, enable_payments: bool = False) -> list[dict]:
     """Build the tool catalog for this phase.
 
     Phase 1: 6 money tools (post_listing, make_offer, counter_offer,
@@ -247,7 +286,7 @@ def tools_for_phase(phase: int) -> list[dict]:
              Pure barter, no money.
     """
     if phase == 3:
-        return [
+        tools = [
             POST_LISTING_PHASE3_TOOL,
             PROPOSE_SWAP_TOOL,
             ACCEPT_SWAP_TOOL,
@@ -255,9 +294,13 @@ def tools_for_phase(phase: int) -> list[dict]:
             PASS_TOOL,
             LOOKUP_AGENT_TOOL,
         ]
-    if phase >= 2:
-        return MARKETPLACE_TOOLS + [LOOKUP_AGENT_TOOL]
-    return MARKETPLACE_TOOLS
+    elif phase >= 2:
+        tools = MARKETPLACE_TOOLS + [LOOKUP_AGENT_TOOL]
+    else:
+        tools = list(MARKETPLACE_TOOLS)
+    if enable_payments:
+        tools = tools + PAYMENT_TOOLS
+    return tools
 
 
 # === Initial user-message builder ===========================================
@@ -463,7 +506,9 @@ def _build_entry(idx: int, phase: int, config_name: str, set_id: str,
         f"a1_p{phase}_{config_name}_{set_id}_focal-"
         f"{focal['name']}_seed{seed}"
     )
-    system_prompt = build_focal_prompt(focal)
+    cfg = get_model_config(config_name)
+    enable_payments = cfg.get("enable_payments", False)
+    system_prompt = build_focal_prompt(focal, enable_payments=enable_payments)
     # Phase 3 embeds the focal's own item image as multimodal content blocks;
     # phases 1/2 use a plain string.
     if phase >= 3:
@@ -478,7 +523,7 @@ def _build_entry(idx: int, phase: int, config_name: str, set_id: str,
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_content},
             ],
-            "tools": tools_for_phase(phase),
+            "tools": tools_for_phase(phase, enable_payments=enable_payments),
             "parallel_tool_calls": False,
             "max_output_tokens": 2000,  # per-turn cap; avoids OpenRouter credit allocation issue
         },
