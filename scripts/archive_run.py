@@ -92,11 +92,11 @@ def archive_one_rollout(rollout: dict, runs_dir: Path, ts: datetime = None) -> P
         json.dumps(rollout.get("personas", []), indent=2)
     )
 
-    # Write payment_ledger.json if payment data is present
+    # Write payment_ledger.json whenever payment_log exists (even if focal didn't buy)
     pay_compliance = rubric.get("payment_compliance")
     payment_log_data = rollout.get("payment_log", [])
 
-    if pay_compliance and not pay_compliance.get("skipped"):
+    if pay_compliance is not None or payment_log_data:
         payment_ledger = {
             "payment_compliance": pay_compliance,
             "transactions": payment_log_data,
