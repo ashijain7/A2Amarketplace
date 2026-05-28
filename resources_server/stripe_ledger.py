@@ -121,17 +121,15 @@ def transfer(
         description=f"Received: {desc}",
     )
 
-    # Update metadata on both customers so the Stripe event log shows
-    # something meaningful (customer.updated event will include last_payment)
+    # Read updated balances and write last_payment to metadata for event log visibility.
+    # Stripe merges metadata automatically — no need to spread existing keys.
     sender_new_obj = stripe.Customer.retrieve(from_customer_id)
     receiver_new_obj = stripe.Customer.retrieve(to_customer_id)
     stripe.Customer.modify(from_customer_id, metadata={
-        **dict(sender_new_obj.metadata or {}),
-        "last_payment": f"Paid {desc}  balance=${sender_new_obj.balance / 100 * -1:.2f}",
+        "last_payment": f"Paid {desc} — balance: ${abs(sender_new_obj.balance) / 100:.2f}",
     })
     stripe.Customer.modify(to_customer_id, metadata={
-        **dict(receiver_new_obj.metadata or {}),
-        "last_payment": f"Received {desc}  balance=${receiver_new_obj.balance / 100 * -1:.2f}",
+        "last_payment": f"Received {desc} — balance: ${abs(receiver_new_obj.balance) / 100:.2f}",
     })
     sender_new = sender_new_obj.balance
     receiver_new = receiver_new_obj.balance
