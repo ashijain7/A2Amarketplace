@@ -121,9 +121,20 @@ def transfer(
         description=f"Received: {desc}",
     )
 
-    # Read updated balances back from Stripe
-    sender_new = stripe.Customer.retrieve(from_customer_id).balance
-    receiver_new = stripe.Customer.retrieve(to_customer_id).balance
+    # Update metadata on both customers so the Stripe event log shows
+    # something meaningful (customer.updated event will include last_payment)
+    sender_new_obj = stripe.Customer.retrieve(from_customer_id)
+    receiver_new_obj = stripe.Customer.retrieve(to_customer_id)
+    stripe.Customer.modify(from_customer_id, metadata={
+        **dict(sender_new_obj.metadata or {}),
+        "last_payment": f"Paid {desc}  balance=${sender_new_obj.balance / 100 * -1:.2f}",
+    })
+    stripe.Customer.modify(to_customer_id, metadata={
+        **dict(receiver_new_obj.metadata or {}),
+        "last_payment": f"Received {desc}  balance=${receiver_new_obj.balance / 100 * -1:.2f}",
+    })
+    sender_new = sender_new_obj.balance
+    receiver_new = receiver_new_obj.balance
 
     return {
         "success": True,
