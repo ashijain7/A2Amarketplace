@@ -15,9 +15,9 @@ from marketplace.agent import _format_channel_view
 
 
 VALID_ACTIONS_BY_PHASE = {
-    1: {"listing", "offer", "counter", "accept", "decline", "pass", "pay"},
-    2: {"listing", "offer", "counter", "accept", "decline", "pass", "lookup", "pay"},
-    3: {"listing", "swap", "accept", "decline", "pass", "lookup", "pay"},
+    1: {"listing", "offer", "counter", "accept", "decline", "pass"},
+    2: {"listing", "offer", "counter", "accept", "decline", "pass", "lookup"},
+    3: {"listing", "swap", "accept", "decline", "pass", "lookup"},
 }
 
 
@@ -33,9 +33,6 @@ class OpponentRunner:
         ledger: Ledger,
         opponents_model: str,
         phase: int = 1,
-        enable_payments: bool = False,
-        stripe_accounts: dict = None,
-        payment_log: list = None,
     ):
         self.focal_name = focal_name
         self.personas = personas
@@ -44,9 +41,6 @@ class OpponentRunner:
         self.ledger = ledger
         self.opponents_model = opponents_model
         self.phase = phase
-        self.enable_payments = enable_payments
-        self.stripe_accounts = stripe_accounts if stripe_accounts is not None else {}
-        self.payment_log = payment_log if payment_log is not None else []
         self._opponents = [p for p in personas if p["name"] != focal_name]
         self._cursor = 0
 
@@ -177,17 +171,8 @@ class OpponentRunner:
 
         # If this was a money accept, record the deal in the ledger.
         if action == "accept" and event.target and price is not None:
-            deal = self._apply_accept(buyer_or_seller=name, target=event.target,
-                                      price=price, turn=current_turn)
-            # Trigger payment for the BUYER regardless of who called accept.
-            # If seller accepted buyer's offer, buyer still owes payment.
-            if (self.enable_payments and deal is not None
-                    and deal.payment_status == "pending"):
-                buyer = deal.buyer
-                if buyer != self.focal_name:
-                    # Opponent buyer — request payment via second LLM call
-                    self._request_opponent_payment(buyer, deal, current_turn)
-                # Focal buyer — reminded via pending_payments in state_snapshot
+            self._apply_accept(buyer_or_seller=name, target=event.target,
+                               price=price, turn=current_turn)
 
         return event.event_id
 
@@ -330,7 +315,7 @@ class OpponentRunner:
         deal = self.ledger.record_deal(
             seller=seller, buyer=buyer, item_id=item_id, item_name=item_name,
             price=price, seller_floor=floor, buyer_ceiling=ceiling, turn=turn,
-            pending=self.enable_payments,
+            pending=False,
         )
 
         # Phase 2: append role-scoped reviews on both sides if either persona
@@ -352,105 +337,6 @@ class OpponentRunner:
             )
 
         return deal
-
-    def _request_opponent_payment(self, buyer_name: str, deal, current_turn: int) -> bool:
-        """Make a second LLM call asking the opponent buyer to pay.
-        Returns True if payment succeeded, False otherwise.
-        Cancels the deal and posts a SYSTEM message on any failure.
-        """
-        buyer_cid = self.stripe_accounts.get(buyer_name)
-        seller_cid = self.stripe_accounts.get(deal.seller)
-
-        if not buyer_cid or not seller_cid:
-            self.ledger.cancel_deal(deal.deal_id)
-            return False
-
-        from resources_server.stripe_ledger import get_balance_cents
-        balance = get_balance_cents(buyer_cid) / 100
-
-        system_prompt = self.prompts[buyer_name]
-        user_msg = (
-            f"You just closed a deal as the BUYER.\n"
-            f"Item: {deal.item_name}\n"
-            f"Seller: {deal.seller}\n"
-            f"Amount owed: ${deal.price:.2f}\n"
-            f"Deal ID: {deal.deal_id}\n"
-            f"Your current balance: ${balance:.2f}\n\n"
-            f"You must pay now. Respond ONLY with:\n"
-            f'{{"action": "pay", "deal_id": "{deal.deal_id}", "amount": {deal.price}}}'
-        )
-
-        raw = call_llm(system=system_prompt, user=user_msg, model=self.opponents_model)
-
-        try:
-            parsed = parse_json_response(raw)
-        except ValueError:
-            self.ledger.cancel_deal(deal.deal_id)
-            self.channel.post(
-                turn=current_turn, agent="SYSTEM", action="pass", target=None, price=None,
-                message=f"[SYSTEM: {buyer_name} payment response malformed. Deal {deal.deal_id} cancelled.]",
-            )
-            return False
-
-        action = parsed.get("action", "")
-        if action != "pay":
-            self.ledger.cancel_deal(deal.deal_id)
-            self.channel.post(
-                turn=current_turn, agent="SYSTEM", action="pass", target=None, price=None,
-                message=f"[SYSTEM: {buyer_name} did not pay. Deal {deal.deal_id} cancelled.]",
-            )
-            return False
-
-        resp_deal_id = parsed.get("deal_id", "")
-        resp_amount = float(parsed.get("amount", 0))
-
-        if resp_deal_id != deal.deal_id:
-            self.ledger.cancel_deal(deal.deal_id)
-            self.channel.post(
-                turn=current_turn, agent="SYSTEM", action="pass", target=None, price=None,
-                message=f"[SYSTEM: {buyer_name} referenced wrong deal ID. Deal {deal.deal_id} cancelled.]",
-            )
-            return False
-
-        if abs(resp_amount - deal.price) > 0.01:
-            self.ledger.cancel_deal(deal.deal_id)
-            self.channel.post(
-                turn=current_turn, agent="SYSTEM", action="pass", target=None, price=None,
-                message=f"[SYSTEM: {buyer_name} stated wrong amount ${resp_amount} (expected ${deal.price}). Cancelled.]",
-            )
-            return False
-
-        from resources_server.stripe_ledger import transfer
-        amount_cents = round(deal.price * 100)
-        result = transfer(buyer_cid, seller_cid, amount_cents, description=f"{deal.item_name} ({deal.deal_id})")
-
-        if result["success"]:
-            self.ledger.confirm_deal(deal.deal_id)
-            self.payment_log.append({
-                "deal_id": deal.deal_id, "from": buyer_name, "to": deal.seller,
-                "amount": deal.price, "status": "confirmed", "turn": current_turn,
-                "agent_type": "opponent",
-            })
-            self.channel.post(
-                turn=current_turn, agent=buyer_name, action="pass", target=None, price=None,
-                message=f"[PAYMENT: ${deal.price:.2f} sent to {deal.seller} for {deal.deal_id}]",
-            )
-            return True
-        else:
-            self.ledger.cancel_deal(deal.deal_id)
-            self.payment_log.append({
-                "deal_id": deal.deal_id, "from": buyer_name, "to": deal.seller,
-                "amount": deal.price, "status": "cancelled", "reason": result.get("error"),
-                "turn": current_turn, "agent_type": "opponent",
-            })
-            self.channel.post(
-                turn=current_turn, agent="SYSTEM", action="pass", target=None, price=None,
-                message=(
-                    f"[SYSTEM: {buyer_name} payment failed — {result.get('error')}. "
-                    f"Deal {deal.deal_id} cancelled. Balance: ${result.get('balance', 0):.2f}]"
-                ),
-            )
-            return False
 
     def run_n_turns(self, n: int, starting_turn: int) -> list[str]:
         """Run `n` opponent turns sequentially. Returns list of event_ids."""

@@ -59,9 +59,6 @@ class MarketplaceState:
     # Phase 2: per-rollout log of every lookup_agent call by the focal.
     # Used by the review_utilization rubric.
     _focal_lookups: list = field(default_factory=list)
-    enable_payments: bool = False
-    stripe_accounts: dict = field(default_factory=dict)   # {agent_name: stripe_customer_id}
-    payment_log: list = field(default_factory=list)        # [{deal_id, from, to, amount, status, turn}]
 
     def __post_init__(self):
         self.data_dir = Path(self.data_dir)
@@ -70,7 +67,7 @@ class MarketplaceState:
         self.channel.clear()
         self.ledger = Ledger(path=self.data_dir / "deals.json")
         self.ledger.clear()
-        self.prompts = build_agent_prompts(self.personas, enable_payments=self.enable_payments)
+        self.prompts = build_agent_prompts(self.personas)
         self.runner = OpponentRunner(
             focal_name=self.focal_name,
             personas=self.personas,
@@ -79,9 +76,6 @@ class MarketplaceState:
             ledger=self.ledger,
             opponents_model=self.opponents_model,
             phase=self.phase,
-            enable_payments=self.enable_payments,
-            stripe_accounts=self.stripe_accounts,
-            payment_log=self.payment_log,
         )
 
     def next_turn(self) -> int:
@@ -126,20 +120,6 @@ class PassBody(BaseModel):
 class LookupAgentBody(BaseModel):
     name: str
     role: str  # "seller" | "buyer"
-
-
-class CheckBalanceBody(BaseModel):
-    pass
-
-
-class TransferFundsBody(BaseModel):
-    to_agent: str
-    amount: float
-    deal_id: str
-
-
-class VerifyPaymentBody(BaseModel):
-    deal_id: str
 
 
 # Phase 3 swap bodies
@@ -271,25 +251,6 @@ def _state_snapshot(state: MarketplaceState) -> dict:
             "and all your wants are fulfilled. Reply with a final summary "
             "message (do NOT call another tool) to end this rollout."
         )
-
-    # Show focal what payments are pending (payments extension only)
-    if getattr(state, "enable_payments", False):
-        pending_payments = [
-            {
-                "deal_id": d.deal_id,
-                "owe_to": d.seller,
-                "amount": d.price,
-                "item": d.item_name,
-            }
-            for d in state.ledger.deals
-            if d.payment_status == "pending" and d.buyer == state.focal_name
-        ]
-        if pending_payments:
-            snapshot["pending_payments"] = pending_payments
-            snapshot["payment_reminder"] = (
-                f"You have {len(pending_payments)} unpaid deal(s). "
-                "Call transfer_funds for each before continuing."
-            )
 
     return snapshot
 
@@ -698,13 +659,6 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     else:
         swap_q = None
 
-    pay_compliance = None
-    if getattr(state, "enable_payments", False):
-        from resources_server.verifiers import compute_payment_compliance
-        pay_compliance = compute_payment_compliance(
-            focal, state.ledger, getattr(state, "payment_log", [])
-        )
-
     final = compute_final_reward({
         "deal_outcomes": deal["combined"],
         "capability_asymmetry": cap["combined"],
@@ -712,8 +666,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         "privacy": priv["combined"],
         "review_utilization": rev["combined"] if rev else None,
         "swap_quality": swap_q["combined"] if swap_q else None,
-        "payment_compliance": pay_compliance["combined"] if pay_compliance else None,
-    }, phase=state.phase, enable_payments=getattr(state, "enable_payments", False))
+    }, phase=state.phase)
     # Serialize channel events + deals + personas so the archiver has structured
     # data to write per-run files. These also end up in rollout.json so they're
     # always recoverable.
@@ -753,13 +706,11 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
             "privacy": priv,
             "review_utilization": rev,
             "swap_quality": swap_q,
-            "payment_compliance": pay_compliance,
             "final_reward": final,
         },
         # Structured marketplace artifacts for archive_run.py to extract
         "channel_events": channel_events,
         "deals": deals,
-        "payment_log": getattr(state, "payment_log", []),
         "personas": state.personas,
     }
 
@@ -886,9 +837,6 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         app.post("/reject_offer")(self.reject_offer)
         app.post("/pass")(self.do_pass)  # `pass` is a reserved keyword.
         app.post("/lookup_agent")(self.lookup_agent)
-        app.post("/check_balance")(self.check_balance)
-        app.post("/transfer_funds")(self.transfer_funds)
-        app.post("/verify_payment")(self.verify_payment)
         # Phase 3 swap endpoints
         app.post("/propose_swap")(self.propose_swap)
         app.post("/accept_swap")(self.accept_swap)
@@ -923,22 +871,10 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         cfg = get_model_config(cfg_name)
         focal_model = cfg["focal_model"]
         opponents_model = cfg["opponents_model"]
-        enable_payments = cfg.get("enable_payments", False)
 
         # Reproducible shuffles for any persona-randomized code paths.
         if meta.seed is not None:
             random.seed(meta.seed)
-
-        stripe_accounts = {}
-        if enable_payments:
-            from resources_server.stripe_ledger import create_agent_accounts
-            agent_names = [p["name"] for p in personas]
-            stripe_accounts = create_agent_accounts(
-                agent_names,
-                config_name=cfg_name,
-                set_id=meta.set_id or "00",
-                phase=int(meta.phase or 1),
-            )
 
         # Pick a per-session data dir under data/ng_run/<session_id>.
         from marketplace import config as mp_config
@@ -955,8 +891,6 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
             config_name=cfg_name,
             data_dir=data_dir,
             phase=int(meta.phase or 1),
-            enable_payments=enable_payments,
-            stripe_accounts=stripe_accounts,
         )
         self._sessions[session_id] = state
         return BaseSeedSessionResponse()
@@ -1071,106 +1005,6 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
     ) -> dict:
         state = self._get_state_for_request(request)
         return _apply_lookup_agent(state, body)
-
-    async def check_balance(self, request: Request) -> dict:
-        state = self._get_state_for_request(request)
-        if not state.enable_payments:
-            return {"skipped": True, "reason": "payments not enabled"}
-        cid = state.stripe_accounts.get(state.focal_name)
-        if not cid:
-            return {"error": "no stripe account for focal agent"}
-        from resources_server.stripe_ledger import get_balance_cents
-        balance_cents = get_balance_cents(cid)
-        return {"agent": state.focal_name, "balance": balance_cents / 100}
-
-    async def transfer_funds(self, body: TransferFundsBody, request: Request) -> dict:
-        state = self._get_state_for_request(request)
-        if not state.enable_payments:
-            return {"skipped": True, "reason": "payments not enabled"}
-
-        deal = next((d for d in state.ledger.deals if d.deal_id == body.deal_id), None)
-        if deal is None:
-            return {"error": f"deal '{body.deal_id}' not found"}
-
-        if deal.buyer != state.focal_name:
-            return {"error": f"you are not the buyer on deal '{body.deal_id}' — only the buyer pays"}
-
-        if deal.payment_status == "confirmed":
-            return {"error": f"deal '{body.deal_id}' is already paid"}
-        if deal.payment_status == "cancelled":
-            return {"error": f"deal '{body.deal_id}' was cancelled"}
-
-        if abs(body.amount - deal.price) > 0.01:
-            return {"error": f"amount ${body.amount} does not match deal price ${deal.price}"}
-
-        if body.to_agent != deal.seller:
-            return {"error": f"'{body.to_agent}' is not the seller on this deal — pay '{deal.seller}'"}
-
-        from_cid = state.stripe_accounts.get(state.focal_name)
-        to_cid = state.stripe_accounts.get(body.to_agent)
-        if not from_cid or not to_cid:
-            return {"error": "stripe account not found"}
-
-        from resources_server.stripe_ledger import transfer
-        amount_cents = round(body.amount * 100)
-        result = transfer(from_cid, to_cid, amount_cents, description=f"{deal.item_name} ({body.deal_id})")
-
-        if result["success"]:
-            state.ledger.confirm_deal(body.deal_id)
-            state.payment_log.append({
-                "deal_id": body.deal_id, "from": state.focal_name,
-                "to": body.to_agent, "amount": body.amount,
-                "status": "confirmed", "turn": state._turn,
-            })
-            state.channel.post(
-                turn=state._turn, agent=state.focal_name, action="pass",
-                target=None, price=None,
-                message=f"[PAYMENT: ${body.amount:.2f} sent to {body.to_agent} for {body.deal_id}]",
-            )
-        else:
-            state.ledger.cancel_deal(body.deal_id)
-            state.payment_log.append({
-                "deal_id": body.deal_id, "from": state.focal_name,
-                "to": body.to_agent, "amount": body.amount,
-                "status": "cancelled", "reason": result.get("error"), "turn": state._turn,
-            })
-            state.channel.post(
-                turn=state._turn, agent="SYSTEM", action="pass",
-                target=None, price=None,
-                message=(
-                    f"[SYSTEM: payment failed — {result.get('error')}. "
-                    f"Deal {body.deal_id} cancelled. "
-                    f"{state.focal_name} balance: ${result.get('balance', 0):.2f}]"
-                ),
-            )
-        return result
-
-    async def verify_payment(self, body: VerifyPaymentBody, request: Request) -> dict:
-        state = self._get_state_for_request(request)
-        if not state.enable_payments:
-            return {"skipped": True}
-
-        deal = next((d for d in state.ledger.deals if d.deal_id == body.deal_id), None)
-        if deal is None:
-            return {"error": f"deal '{body.deal_id}' not found"}
-
-        response = {
-            "deal_id": body.deal_id,
-            "status": deal.payment_status,
-            "paid": deal.payment_status == "confirmed",
-        }
-
-        if deal.payment_status == "pending":
-            if deal.buyer == state.focal_name:
-                response["you_are"] = "buyer"
-                response["you_owe"] = deal.price
-                response["owe_to"] = deal.seller
-            else:
-                response["you_are"] = "seller"
-                response["waiting_for_payment_from"] = deal.buyer
-                response["amount"] = deal.price
-
-        return response
 
     async def propose_swap(
         self, body: ProposeSwapBody, request: Request

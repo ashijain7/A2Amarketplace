@@ -92,19 +92,6 @@ def archive_one_rollout(rollout: dict, runs_dir: Path, ts: datetime = None) -> P
         json.dumps(rollout.get("personas", []), indent=2)
     )
 
-    # Write payment_ledger.json whenever payment_log exists (even if focal didn't buy)
-    pay_compliance = rubric.get("payment_compliance")
-    payment_log_data = rollout.get("payment_log", [])
-
-    if pay_compliance is not None or payment_log_data:
-        payment_ledger = {
-            "payment_compliance": pay_compliance,
-            "transactions": payment_log_data,
-        }
-        (out / "payment_ledger.json").write_text(
-            json.dumps(payment_ledger, indent=2)
-        )
-
     (out / "rubric_scores.json").write_text(json.dumps(rubric, indent=2))
     (out / "rollout.json").write_text(json.dumps(rollout, indent=2))
     (out / "judge_ratings.json").write_text(json.dumps({
