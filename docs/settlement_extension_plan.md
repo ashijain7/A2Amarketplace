@@ -203,11 +203,11 @@ exactly as before.
 Each is worked through with alternatives + edge cases before any Day 1 code. Tick as settled:
 
 - [x] **D1. Who actually pays?** → **Option B**: role-symmetric, every agent participates, no auto-settle.
-- [~] **D2. How does the agent know to pay — and what if it forgets?** → pending jumps the queue (one-shot) + counterparty reminder + unpaid-at-120 = not done.
+- [x] **D2. How does the agent know to pay — and what if it forgets?** → pending jumps the queue (one-shot) + a reminder of its jobs in its view + counterparty reminder + unpaid-at-120 = not done.
 - [x] **D3. Buttons + rules + channels** → re-choose until paid; agent-typed amount/recipient (logged); three-place model with the private room built in Day 1.
 - [x] **D4. Where the payment stage is stored** → **C (split)**: ledger keeps coarse done/not-done; a separate payment-tracker holds the play-by-play.
-- [ ] **D5. The pretend backend behind a swappable window** — define the interface now.
-- [ ] **D6. The on/off switch + phase guard** — `enable_settlement`, MarketDeal-only (block Phase 3).
+- [x] **D5. The pretend backend behind a swappable window** → **A**: define the thin interface now (execute / is-settled / list-methods); Day-1 dummy behind it.
+- [x] **D6. The on/off switch + phase guard** → **named config**, OFF by default, MarketDeal-only (Phase 3 guarded off).
 
 **Edge-case bank (Day 1):** pay before choosing → reject; choose method twice → allowed until paid;
 pay twice → blocked (idempotent); confirm before pay → reject; confirm twice → idempotent; act on a
@@ -246,6 +246,17 @@ deferred to Day 3); Phase 3 swap → settlement off; agent never pays → `MAX_T
   **settlement-tracker** (in the new module, keyed by `deal_id`) holds the **play-by-play**: the
   detailed stage (AGREED→…→CONFIRMED/FAILED), chosen method, typed amount + recipient, attempt
   count. They sync at two points only: CONFIRMED → `ledger.confirm_deal`; FAILED → `ledger.cancel_deal`.
+- **D5 = define the swappable backend interface now (Option A).** A thin "window" the settlement
+  module calls: `execute_payment(...) -> {success, reference, failure_reason}`,
+  `check_settled(...) -> bool`, `available_methods() -> list`. Day 1 = a **no-op backend** (always
+  success/settled; the 5 method names). Day 2's realistic backend — and any later real-Razorpay
+  backend — slot in **behind the same interface** (manager's Phase 5).
+- **D6 = on/off switch (named config), default OFF, phase-guarded.** A fresh switch
+  `enable_settlement`, exposed as a **named config variant** (like the existing model configs),
+  **OFF by default** so the 75-run baseline is untouched. Valid only in **Phases 1–2** (money);
+  **forced off in Phase 3** (swap). Threaded through `app.py` / `opponent_runner.py` /
+  `build_agents.py` / `tasks/generate_tasks.py` / `model_config.py` (see `git show 61022ea` for the
+  old wiring pattern). A quick env override may be added for ad-hoc tests.
 
 ---
 
@@ -296,4 +307,7 @@ matrix, score, validate the judge), **Phase 5** (optional real Razorpay rails).
     Wallet/leak-scan/cheater deferred to Day 3.
   - **D4 settled:** split storage (C) — ledger keeps coarse status; a separate settlement-tracker
     holds stage/method/typed-amount/attempts; sync at confirm/cancel only.
-  - **Next:** settle **D5** (the swappable backend interface) and **D6** (on/off switch + phase guard), then implement Day 1.
+  - **D5 settled (A):** thin backend interface defined now (execute / check-settled / list-methods); Day-1 no-op behind it.
+  - **D6 settled:** on/off switch = named config, OFF by default, money-phases-only (Phase 3 guarded).
+  - **All D1–D6 settled → Day 1 is fully designed.** **Next:** build Day 1 in small reviewed steps
+    (no big-bang), then run a mini-simulation and eyeball it; then brainstorm Day 2.
