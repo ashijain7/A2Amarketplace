@@ -1,0 +1,12 @@
+{
+  "_comment": "Reference copy of the Claude Code wiring. It is already registered via `claude mcp add` (see README). The bash wrapper loads your keys from razorpay_mcp/.env at runtime, so no secrets live in this file.",
+  "mcpServers": {
+    "razorpay": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "set -a; source /Users/ashi.jain/Documents/project_deal/razorpay_mcp/.env; set +a; exec docker run --rm -i -e RAZORPAY_KEY_ID -e RAZORPAY_KEY_SECRET razorpay/mcp"
+      ]
+    }
+  }
+}

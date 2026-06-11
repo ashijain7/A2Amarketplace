@@ -1,0 +1,22 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Lin",
+      "buyer": "Samir",
+      "item_id": "books_01",
+      "item_name": "Set of 8 classic sci-fi paperbacks, good condition",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 30.0,
+      "turn": 28,
+      "deal_type": "money",
+      "item_b_id": null,
+      "item_b_name": null,
+      "item_b_floor": null,
+      "item_a_ceiling": null,
+      "payment_status": "pending"
+    }
+  ],
+  "fulfilled_want_ids": []
+}

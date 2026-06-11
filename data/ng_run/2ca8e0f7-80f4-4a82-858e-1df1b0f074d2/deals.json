@@ -1,0 +1,22 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Luna",
+      "buyer": "Raj",
+      "item_id": "books_01",
+      "item_name": "Box of 15 sci-fi paperbacks, classic authors",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 85.0,
+      "turn": 24,
+      "deal_type": "money",
+      "item_b_id": null,
+      "item_b_name": null,
+      "item_b_floor": null,
+      "item_a_ceiling": null,
+      "payment_status": "pending"
+    }
+  ],
+  "fulfilled_want_ids": []
+}

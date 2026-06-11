@@ -1,0 +1,22 @@
+{
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "seller": "Mira",
+      "buyer": "Kai",
+      "item_id": "cam_01",
+      "item_name": "Vintage film camera, works perfectly, Olympus OM-1",
+      "price": 55.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 65.0,
+      "turn": 20,
+      "deal_type": "money",
+      "item_b_id": null,
+      "item_b_name": null,
+      "item_b_floor": null,
+      "item_a_ceiling": null,
+      "payment_status": "pending"
+    }
+  ],
+  "fulfilled_want_ids": []
+}

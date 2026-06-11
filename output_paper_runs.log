@@ -1,66 +1,333 @@
 NeMo Gym is starting a new Ray cluster...
-2026-05-26 13:37:21,313	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+2026-05-28 16:12:36,784	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
 /Users/ashi.jain/Documents/project_deal/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
   warnings.warn(
-Started Ray cluster at 127.0.0.1:61919
+Started Ray cluster at 127.0.0.1:52290
 Waiting for head server to spin up
 Head server is not up yet (status `connection_error`). Sleeping...
-INFO:     Started server process [80021]
+INFO:     Started server process [50099]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:11000 (Press CTRL+C to quit)
-(marketplace_agent) Using CPython 3.12.13
-(marketplace_agent) Creating virtual environment with seed packages at: .venv
-(marketplace_agent) Activate with: source .venv/bin/activate
 (policy_model) Using CPython 3.12.13
 (policy_model) Creating virtual environment with seed packages at: .venv
 (policy_model) Activate with: source .venv/bin/activate
+(marketplace_agent) Using CPython 3.12.13
+(marketplace_agent) Creating virtual environment with seed packages at: .venv
+(marketplace_agent) Activate with: source .venv/bin/activate
 (marketplace_resources_server) Using CPython 3.12.13
 (marketplace_resources_server) Creating virtual environment with seed packages at: .venv
 (marketplace_resources_server) Activate with: source .venv/bin/activate
-(marketplace_resources_server) error: Distribution not found at: file:///Users/ashi.jain/Documents/project_deal/project_deal_approach_1
-INFO:     127.0.0.1:62138 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
-(marketplace_agent) Resolved 138 packages in 399ms
-(marketplace_agent) Checked 138 packages in 1ms
-(policy_model) Resolved 138 packages in 399ms
+(marketplace_resources_server) Resolved 121 packages in 339ms
+(marketplace_resources_server) Checked 121 packages in 1ms
+(marketplace_agent) Resolved 138 packages in 343ms
+(marketplace_agent) Checked 138 packages in 2ms
+(policy_model) Resolved 138 packages in 487ms
 (policy_model) Checked 138 packages in 1ms
+INFO:     127.0.0.1:52547 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
 [nemo_gym_runtime_patch] applied: NeMoGymResponse.service_tier now accepts any str
 [nemo_gym_runtime_patch] applied: NeMoGymResponse.service_tier now accepts any str
-Connecting to Ray cluster at specified address: 127.0.0.1:61919
-2026-05-26 13:37:23,935	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:61919...
-2026-05-26 13:37:23,961	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+Connecting to Ray cluster at specified address: 127.0.0.1:52290
+2026-05-28 16:12:39,731	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:52290...
+2026-05-28 16:12:39,762	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
 /Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
   warnings.warn(
 (policy_model) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
-(policy_model) INFO:     Started server process [80142]
+(policy_model) INFO:     Started server process [50219]
 (policy_model) INFO:     Waiting for application startup.
 (policy_model) INFO:     Application startup complete.
-(policy_model) INFO:     Uvicorn running on http://127.0.0.1:13875 (Press CTRL+C to quit)
-Connecting to Ray cluster at specified address: 127.0.0.1:61919
-2026-05-26 13:37:24,259	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:61919...
-2026-05-26 13:37:24,283	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+(policy_model) INFO:     Uvicorn running on http://127.0.0.1:16616 (Press CTRL+C to quit)
+Connecting to Ray cluster at specified address: 127.0.0.1:52290
+2026-05-28 16:12:40,078	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:52290...
+2026-05-28 16:12:40,104	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
 /Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
   warnings.warn(
 (marketplace_agent) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
-(marketplace_agent) INFO:     Started server process [80141]
+(marketplace_agent) INFO:     Started server process [50218]
 (marketplace_agent) INFO:     Waiting for application startup.
 (marketplace_agent) INFO:     Application startup complete.
-(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:18320 (Press CTRL+C to quit)
-INFO:     127.0.0.1:62152 - "GET / HTTP/1.1" 404 Not Found
+(marketplace_agent) INFO:     Uvicorn running on http://127.0.0.1:18079 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52566 - "GET / HTTP/1.1" 404 Not Found
 Waiting for servers to spin up
-Traceback (most recent call last):
-  File "/Users/ashi.jain/Documents/project_deal/.venv/bin/ng_run", line 10, in <module>
-    sys.exit(run())
-             ^^^^^
-  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/cli.py", line 409, in run
-    rh.start(global_config_dict_parser_config)
-  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/cli.py", line 232, in start
-    self.wait_for_spinup()
-  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/cli.py", line 295, in wait_for_spinup
-    self.poll()
-  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/cli.py", line 273, in poll
-    raise RuntimeError(print_str)
-RuntimeError: Process `marketplace_resources_server` finished unexpectedly!
+(marketplace_agent) INFO:     127.0.0.1:52568 - "GET / HTTP/1.1" 404 Not Found
+(policy_model) INFO:     127.0.0.1:52569 - "GET / HTTP/1.1" 404 Not Found
+Checking for HTTP server statuses (you should see some HTTP requests to `/` that may 404. This is expected.
+2 / 3 servers ready. Waiting for servers to spin up: ['marketplace_resources_server']
+[nemo_gym_runtime_patch] applied: NeMoGymResponse.service_tier now accepts any str
+Connecting to Ray cluster at specified address: 127.0.0.1:52290
+2026-05-28 16:12:42,007	INFO worker.py:1814 -- Connecting to existing Ray cluster at address: 127.0.0.1:52290...
+2026-05-28 16:12:42,031	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+(marketplace_resources_server) Adding a uvicorn logging filter so that the logs aren't spammed with 200 OK messages. This is to help errors pop up better and filter out noise.
+(marketplace_resources_server) INFO:     Started server process [50217]
+(marketplace_resources_server) INFO:     Waiting for application startup.
+(marketplace_resources_server) INFO:     Application startup complete.
+(marketplace_resources_server) INFO:     Uvicorn running on http://127.0.0.1:8765 (Press CTRL+C to quit)
+(marketplace_resources_server) INFO:     127.0.0.1:52582 - "GET / HTTP/1.1" 404 Not Found
+All 3 / 3 servers ready! Polling every 60s
+
+####################################################################################################
+#
+# Server Instances
+#
+####################################################################################################
+
+[1] marketplace_resources_server (resources_servers/marketplace)
+{
+    'config_path': 'marketplace_resources_server',
+    'dir_path': '/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'marketplace',
+    'pid': 50163,
+    'port': 8765,
+    'process_name': 'marketplace_resources_server',
+    'server_type': 'resources_servers',
+    'url': 'http://127.0.0.1:8765',
+}
+[2] marketplace_agent (responses_api_agents/simple_agent)
+{
+    'config_path': 'marketplace_agent',
+    'dir_path': '/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'simple_agent',
+    'pid': 50164,
+    'port': 18079,
+    'process_name': 'marketplace_agent',
+    'server_type': 'responses_api_agents',
+    'url': 'http://127.0.0.1:18079',
+}
+[3] policy_model (responses_api_models/openai_model)
+{
+    'config_path': 'policy_model',
+    'dir_path': '/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model',
+    'entrypoint': 'app.py',
+    'host': '127.0.0.1',
+    'name': 'openai_model',
+    'pid': 50170,
+    'port': 16616,
+    'process_name': 'policy_model',
+    'server_type': 'responses_api_models',
+    'url': 'http://127.0.0.1:16616',
+}
+####################################################################################################
+
+INFO:     127.0.0.1:52636 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55192 - "GET /global_config_dict_yaml HTTP/1.1" 200 OK
+*** SIGTERM received at time=1781067717 ***
+(policy_model) INFO:     Shutting down
+(marketplace_agent) INFO:     Shutting down
+PC: @        0x19d5e2f30  (unknown)  kevent
+(marketplace_resources_server) INFO:     Shutting down
+    @        0x10c19b968  (unknown)  absl::lts_20230802::AbslFailureSignalHandler()
+    @        0x19d629764  (unknown)  _sigtramp
+    @        0x10363df10  (unknown)  select_kqueue_control_impl
+    @        0x102e7bdc4  (unknown)  _PyEval_EvalFrameDefault
+    @        0x102f273f0  (unknown)  PyEval_EvalCode
+    @        0x102f27248  (unknown)  run_mod.llvm.6291332073204791707
+    @        0x102fe4608  (unknown)  pyrun_file
+    @        0x102fe3db8  (unknown)  _PyRun_SimpleFileObject
+    @        0x102fe3b90  (unknown)  _PyRun_AnyFileObject
+    @        0x102fe397c  (unknown)  pymain_run_file_obj
+    @        0x102fe3838  (unknown)  pymain_run_file
+    @        0x102fcc3cc  (unknown)  Py_RunMain
+    @        0x102f94160  (unknown)  pymain_main.llvm.14189181413505638194
+    @        0x102f93f8c  (unknown)  main
+    @        0x19d255d54  (unknown)  start
+[2026-06-10 10:31:57,947 E 50099 5006053] logging.cc:474: *** SIGTERM received at time=1781067717 ***
+[2026-06-10 10:31:57,954 E 50099 5006053] logging.cc:474: PC: @        0x19d5e2f30  (unknown)  kevent
+[2026-06-10 10:31:57,954 E 50099 5006053] logging.cc:474:     @        0x10c19ba88  (unknown)  absl::lts_20230802::AbslFailureSignalHandler()
+[2026-06-10 10:31:57,955 E 50099 5006053] logging.cc:474:     @        0x19d629764  (unknown)  _sigtramp
+[2026-06-10 10:31:57,955 E 50099 5006053] logging.cc:474:     @        0x10363df10  (unknown)  select_kqueue_control_impl
+[2026-06-10 10:31:57,955 E 50099 5006053] logging.cc:474:     @        0x102e7bdc4  (unknown)  _PyEval_EvalFrameDefault
+[2026-06-10 10:31:57,978 E 50099 5006053] logging.cc:474:     @        0x102f273f0  (unknown)  PyEval_EvalCode
+[2026-06-10 10:31:57,990 E 50099 5006053] logging.cc:474:     @        0x102f27248  (unknown)  run_mod.llvm.6291332073204791707
+[2026-06-10 10:31:57,990 E 50099 5006053] logging.cc:474:     @        0x102fe4608  (unknown)  pyrun_file
+[2026-06-10 10:31:57,990 E 50099 5006053] logging.cc:474:     @        0x102fe3db8  (unknown)  _PyRun_SimpleFileObject
+[2026-06-10 10:31:57,991 E 50099 5006053] logging.cc:474:     @        0x102fe3b90  (unknown)  _PyRun_AnyFileObject
+[2026-06-10 10:31:57,991 E 50099 5006053] logging.cc:474:     @        0x102fe397c  (unknown)  pymain_run_file_obj
+[2026-06-10 10:31:57,991 E 50099 5006053] logging.cc:474:     @        0x102fe3838  (unknown)  pymain_run_file
+[2026-06-10 10:31:57,992 E 50099 5006053] logging.cc:474:     @        0x102fcc3cc  (unknown)  Py_RunMain
+(marketplace_agent) INFO:     Waiting for application shutdown.
+(policy_model) INFO:     Waiting for application shutdown.
+(marketplace_resources_server) INFO:     Waiting for application shutdown.
+[2026-06-10 10:31:58,005 E 50099 5006053] logging.cc:474:     @        0x102f94160  (unknown)  pymain_main.llvm.14189181413505638194
+[2026-06-10 10:31:58,007 E 50099 5006053] logging.cc:474:     @        0x102f93f8c  (unknown)  main
+[2026-06-10 10:31:58,007 E 50099 5006053] logging.cc:474:     @        0x19d255d54  (unknown)  start
+(marketplace_agent) INFO:     Application shutdown complete.
+(marketplace_agent) INFO:     Finished server process [50218]
+(policy_model) INFO:     Application shutdown complete.
+(policy_model) INFO:     Finished server process [50219]
+(marketplace_resources_server) INFO:     Application shutdown complete.
+(marketplace_resources_server) INFO:     Finished server process [50217]
+Sending interrupt signals to servers...
+Waiting for processes to finish...
+(marketplace_agent) Exception ignored in atexit callback: <function shutdown at 0x108fd4a40>
+(marketplace_agent) Traceback (most recent call last):
+(marketplace_agent)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 107, in wrapper
+(marketplace_agent)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1143, in wrapper
+(marketplace_agent)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2123, in shutdown
+(policy_model) Exception ignored in atexit callback: <function shutdown at 0x106e9ca40>
+(policy_model) Traceback (most recent call last):
+(policy_model)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 107, in wrapper
+(marketplace_resources_server) Exception ignored in atexit callback: <function shutdown at 0x10709ae80>
+(marketplace_resources_server) Traceback (most recent call last):
+(marketplace_resources_server)   File "/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 107, in wrapper
+(marketplace_resources_server)   File "/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1143, in wrapper
+(policy_model)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 1143, in wrapper
+(policy_model)   File "/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2123, in shutdown
+(policy_model)   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(policy_model)   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(policy_model)   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(policy_model)   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+(policy_model)   File "<frozen importlib._bootstrap_external>", line 1132, in get_code
+(policy_model)   File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+(policy_model) PermissionError: [Errno 1] Operation not permitted: '/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/.venv/lib/python3.12/site-packages/ray/dag/__init__.py'
+(marketplace_resources_server)   File "/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2123, in shutdown
+(marketplace_resources_server)   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(marketplace_resources_server)   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(marketplace_resources_server)   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(marketplace_agent)   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(marketplace_resources_server)   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+(marketplace_agent)   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(marketplace_resources_server)   File "<frozen importlib._bootstrap_external>", line 1132, in get_code
+(marketplace_agent)   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(marketplace_resources_server)   File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+(marketplace_agent)   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+(marketplace_agent)   File "<frozen importlib._bootstrap_external>", line 1132, in get_code
+(marketplace_resources_server) PermissionError: [Errno 1] Operation not permitted: '/Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/.venv/lib/python3.12/site-packages/ray/dag/__init__.py'
+(marketplace_agent)   File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+(marketplace_agent) PermissionError: [Errno 1] Operation not permitted: '/Users/ashi.jain/Documents/nemo_gym_lib/responses_api_agents/simple_agent/.venv/lib/python3.12/site-packages/ray/dag/__init__.py'
+/bin/bash: line 62: 50219 Segmentation fault: 11  NEMO_GYM_CONFIG_DICT='marketplace_resources_server:
+  resources_servers:
+    marketplace:
+      entrypoint: app.py
+      domain: agent
+      host: 127.0.0.1
+      port: 8765
+marketplace_agent:
+  responses_api_agents:
+    simple_agent:
+      entrypoint: app.py
+      resources_server:
+        type: resources_servers
+        name: marketplace_resources_server
+      model_server:
+        type: responses_api_models
+        name: policy_model
+      max_steps: 50
+      host: 127.0.0.1
+      port: 18079
+policy_model:
+  responses_api_models:
+    openai_model:
+      entrypoint: app.py
+      openai_base_url: ${policy_base_url}
+      openai_api_key: ${policy_api_key}
+      openai_model: ${policy_model_name}
+      openai_default_headers: {}
+      host: 127.0.0.1
+      port: 16616
+policy_base_url: https://openrouter.ai/api/v1
+policy_api_key: ${oc.env:OPENROUTER_API_KEY}
+policy_model_name: anthropic/claude-sonnet-4-5
+judge_base_url: https://openrouter.ai/api/v1
+judge_api_key: ${oc.env:OPENROUTER_API_KEY}
+judge_model_name: openai/gpt-4o-2024-11-20
+config_paths:
+- /Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/configs/marketplace.yaml
+- /Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/configs/openai_model.yaml
+use_absolute_ip: false
+port_range_low: 10001
+port_range_high: 20000
+head_server:
+  host: 127.0.0.1
+  port: 11000
+disallowed_ports:
+- 11000
+- 8765
+- 18079
+- 16616
+head_server_deps:
+- ray[default]==2.55.1
+- openai==2.7.2
+python_version: 3.12.13
+skip_venv_if_present: false
+dry_run: false
+uv_cache_dir: /Users/ashi.jain/Documents/nemo_gym_lib/cache/uv
+uv_venv_dir: /Users/ashi.jain/Documents/nemo_gym_lib
+ray_head_node_address: 127.0.0.1:52290
+' NEMO_GYM_CONFIG_PATH=policy_model python app.py
+/bin/bash: line 62: 50218 Segmentation fault: 11  NEMO_GYM_CONFIG_DICT='marketplace_resources_server:
+  resources_servers:
+    marketplace:
+      entrypoint: app.py
+      domain: agent
+      host: 127.0.0.1
+      port: 8765
+marketplace_agent:
+  responses_api_agents:
+    simple_agent:
+      entrypoint: app.py
+      resources_server:
+        type: resources_servers
+        name: marketplace_resources_server
+      model_server:
+        type: responses_api_models
+        name: policy_model
+      max_steps: 50
+      host: 127.0.0.1
+      port: 18079
+policy_model:
+  responses_api_models:
+    openai_model:
+      entrypoint: app.py
+      openai_base_url: ${policy_base_url}
+      openai_api_key: ${policy_api_key}
+      openai_model: ${policy_model_name}
+      openai_default_headers: {}
+      host: 127.0.0.1
+      port: 16616
+policy_base_url: https://openrouter.ai/api/v1
+policy_api_key: ${oc.env:OPENROUTER_API_KEY}
+policy_model_name: anthropic/claude-sonnet-4-5
+judge_base_url: https://openrouter.ai/api/v1
+judge_api_key: ${oc.env:OPENROUTER_API_KEY}
+judge_model_name: openai/gpt-4o-2024-11-20
+config_paths:
+- /Users/ashi.jain/Documents/nemo_gym_lib/resources_servers/marketplace/configs/marketplace.yaml
+- /Users/ashi.jain/Documents/nemo_gym_lib/responses_api_models/openai_model/configs/openai_model.yaml
+use_absolute_ip: false
+port_range_low: 10001
+port_range_high: 20000
+head_server:
+  host: 127.0.0.1
+  port: 11000
+disallowed_ports:
+- 11000
+- 8765
+- 18079
+- 16616
+head_server_deps:
+- ray[default]==2.55.1
+- openai==2.7.2
+python_version: 3.12.13
+skip_venv_if_present: false
+dry_run: false
+uv_cache_dir: /Users/ashi.jain/Documents/nemo_gym_lib/cache/uv
+uv_venv_dir: /Users/ashi.jain/Documents/nemo_gym_lib
+ray_head_node_address: 127.0.0.1:52290
+' NEMO_GYM_CONFIG_PATH=marketplace_agent python app.py
+Some processes (marketplace_resources_server) didn't shutdown within the 5s timeout, killing instead. You may see messages like:
+```bash
+rpc_client.h:203: Failed to connect to GCS within 60 seconds. GCS may have been killed. It's either GCS is terminated by `ray stop` or is killed unexpectedly. If it is killed unexpectedly, see the log file gcs_server.out. https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#logging-directory-structure. The program will terminate.
+```
+
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [50099]
+NeMo Gym finished!
 Shutting down Ray cluster spun up by NeMo Gym...
-[2026-05-26 13:38:25,035 E 80142 3574837] rpc_client.h:203: Failed to connect to GCS within 60 seconds. GCS may have been killed. It's either GCS is terminated by `ray stop` or is killed unexpectedly. If it is killed unexpectedly, see the log file gcs_server.out. https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#logging-directory-structure. The program will terminate.
-[2026-05-26 13:38:25,361 E 80141 3574885] rpc_client.h:203: Failed to connect to GCS within 60 seconds. GCS may have been killed. It's either GCS is terminated by `ray stop` or is killed unexpectedly. If it is killed unexpectedly, see the log file gcs_server.out. https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#logging-directory-structure. The program will terminate.

@@ -6,6 +6,7 @@ plumbing in one place so swapping providers or models is trivial.
 """
 
 import json
+import time
 from typing import Optional
 from openai import OpenAI
 
@@ -13,6 +14,13 @@ from . import config
 
 
 _client: Optional[OpenAI] = None
+
+
+class LLMCallError(RuntimeError):
+    """Raised when an LLM call cannot produce a usable response after retries.
+
+    Callers (especially the privacy judges) MUST NOT swallow this into a
+    benign default — a failed check is not evidence of a clean result."""
 
 
 def get_client() -> OpenAI:
@@ -33,37 +41,46 @@ def call_llm(
     model: str = config.DEFAULT_MODEL,
     temperature: float = config.LLM_TEMPERATURE,
     max_tokens: int = config.LLM_MAX_TOKENS,
+    max_attempts: int = 4,
 ) -> str:
-    """Make a single chat-completion call. Returns the raw text response.
+    """Make a chat-completion call and return the raw text response.
 
-    Defensive against providers that intermittently return an envelope
-    with `choices=None` or `choices=[]` (observed with openai/gpt-5.5
-    via OpenRouter): retries once, then returns "" so callers can fall
-    back instead of crashing the rollout.
+    Retries on BOTH failure modes — a raised exception (timeout, rate-limit,
+    transient network/provider error) and an empty envelope (`choices`
+    missing, no message, or empty content, as observed with some models via
+    OpenRouter) — with exponential backoff. If every attempt fails, it RAISES
+    LLMCallError rather than returning "". This is deliberate: previously a
+    persistent failure returned "", which downstream judges read as "no leak"
+    / "no violation", silently biasing scores toward a clean result. A check
+    that did not run must surface, not masquerade as a passing check.
     """
     client = get_client()
-    for attempt in (1, 2):
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
-        choices = getattr(response, "choices", None) or []
-        if not choices:
-            if attempt == 1:
-                continue
-            return ""
-        msg = getattr(choices[0], "message", None)
-        if msg is None:
-            if attempt == 1:
-                continue
-            return ""
-        return getattr(msg, "content", None) or ""
-    return ""
+    last_err = "unknown error"
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+            choices = getattr(response, "choices", None) or []
+            if choices:
+                msg = getattr(choices[0], "message", None)
+                content = getattr(msg, "content", None) if msg is not None else None
+                if content:
+                    return content
+            last_err = "empty response (no choices / message / content)"
+        except Exception as e:  # noqa: BLE001 — retry any provider error
+            last_err = f"{type(e).__name__}: {e}"
+        if attempt < max_attempts:
+            time.sleep(min(2 ** (attempt - 1), 8))  # 1s, 2s, 4s, 8s
+    raise LLMCallError(
+        f"call_llm failed after {max_attempts} attempts ({model}): {last_err}"
+    )
 
 
 def parse_json_response(text: str) -> dict:
