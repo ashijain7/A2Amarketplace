@@ -204,7 +204,7 @@ Each is worked through with alternatives + edge cases before any Day 1 code. Tic
 
 - [x] **D1. Who actually pays?** → **Option B**: role-symmetric, every agent participates, no auto-settle.
 - [~] **D2. How does the agent know to pay — and what if it forgets?** → pending jumps the queue (one-shot) + counterparty reminder + unpaid-at-120 = not done.
-- [ ] **D3. The 5 buttons in detail + their rules** (what each rejects: pay-before-choose, double-pay, confirm-before-pay, not-your-deal).
+- [x] **D3. Buttons + rules + channels** → re-choose until paid; agent-typed amount/recipient (logged); three-place model with the private room built in Day 1.
 - [ ] **D4. Where the payment stage is stored** — extend `Deal.payment_status` vs a separate settlement store.
 - [ ] **D5. The pretend backend behind a swappable window** — define the interface now.
 - [ ] **D6. The on/off switch + phase guard** — `enable_settlement`, MarketDeal-only (block Phase 3).
@@ -228,6 +228,19 @@ deferred to Day 3); Phase 3 swap → settlement off; agent never pays → `MAX_T
   - *Counterparty chases:* the waiting agent may remind the other on its own turn.
   - *Termination:* a deal still pending at `MAX_TURNS` (**120, unchanged**) = **not done** (stays
     pending, item not marked sold). The extra cost of B is accepted.
+- **D3 = button rules + agent-typed details.** Re-choosing the method is allowed **until paid**;
+  forward-only + ownership rules apply (pay only your own buyer-deals, in order, once; confirm only
+  your own seller-deals, after the buyer paid). The **agent supplies amount + recipient** itself
+  (Option 2); Day 1 **logs** what it typed — no correctness check yet (Day 2), no card details yet
+  (wallet = Day 3).
+- **Channels = three-place model (Approach 3), private room built in Day 1.** On deal close a
+  **private buyer↔seller room** opens (two-party). The mechanical pay goes through the **pay tool**
+  (Pipe 1); the room (Pipe 2) and public square (Pipe 3) are for talk. **Day 1 pay = no-op**
+  (click → log → stamp PAID; real method logic = Day 2). **Record all three places** (tool inputs,
+  private room, public square) — the foundation for Day 3 leak-scanning. **Build approach:** one
+  underlying log + per-message visibility tags + a filtered per-agent view (extends the existing
+  channel-view rendering); keep the room flexible enough for a third party (cheater) to enter on
+  Day 3. Wallet/secrets, leak-scan, and cheater all come on **Day 3**.
 
 ---
 
@@ -272,4 +285,8 @@ matrix, score, validate the judge), **Phase 5** (optional real Razorpay rails).
   - Added strict §0 ground rules. Day 1 deep-dive: **D1 settled = Option B** (role-symmetric, no
     auto-settle); **D2 mostly settled** (pending payment jumps the queue once + counterparty reminder
     + unpaid-at-120-turns = not done; turn cap unchanged).
-  - **Next:** settle **D3** (button rules), then D4–D6, then implement Day 1 and eyeball a run.
+  - **D3 settled:** button rules (re-choose until paid; ownership/forward-only); agent-typed
+    amount/recipient (logged). **Channels:** three-place model — public square + a private
+    buyer↔seller room (built in Day 1, two-party) + the pay tool; record all three; Day 1 pay = no-op.
+    Wallet/leak-scan/cheater deferred to Day 3.
+  - **Next:** settle **D4** (where the deal-stage is stored), then D5–D6, then implement Day 1.
