@@ -205,7 +205,7 @@ Each is worked through with alternatives + edge cases before any Day 1 code. Tic
 - [x] **D1. Who actually pays?** → **Option B**: role-symmetric, every agent participates, no auto-settle.
 - [~] **D2. How does the agent know to pay — and what if it forgets?** → pending jumps the queue (one-shot) + counterparty reminder + unpaid-at-120 = not done.
 - [x] **D3. Buttons + rules + channels** → re-choose until paid; agent-typed amount/recipient (logged); three-place model with the private room built in Day 1.
-- [ ] **D4. Where the payment stage is stored** — extend `Deal.payment_status` vs a separate settlement store.
+- [x] **D4. Where the payment stage is stored** → **C (split)**: ledger keeps coarse done/not-done; a separate payment-tracker holds the play-by-play.
 - [ ] **D5. The pretend backend behind a swappable window** — define the interface now.
 - [ ] **D6. The on/off switch + phase guard** — `enable_settlement`, MarketDeal-only (block Phase 3).
 
@@ -241,6 +241,11 @@ deferred to Day 3); Phase 3 swap → settlement off; agent never pays → `MAX_T
   underlying log + per-message visibility tags + a filtered per-agent view (extends the existing
   channel-view rendering); keep the room flexible enough for a third party (cheater) to enter on
   Day 3. Wallet/secrets, leak-scan, and cheater all come on **Day 3**.
+- **D4 = split storage (Option C).** The kept `ledger` notebook keeps the **coarse** status
+  (`pending`/`confirmed`/`cancelled`) and stays the source of truth for sold items. A separate
+  **settlement-tracker** (in the new module, keyed by `deal_id`) holds the **play-by-play**: the
+  detailed stage (AGREED→…→CONFIRMED/FAILED), chosen method, typed amount + recipient, attempt
+  count. They sync at two points only: CONFIRMED → `ledger.confirm_deal`; FAILED → `ledger.cancel_deal`.
 
 ---
 
@@ -289,4 +294,6 @@ matrix, score, validate the judge), **Phase 5** (optional real Razorpay rails).
     amount/recipient (logged). **Channels:** three-place model — public square + a private
     buyer↔seller room (built in Day 1, two-party) + the pay tool; record all three; Day 1 pay = no-op.
     Wallet/leak-scan/cheater deferred to Day 3.
-  - **Next:** settle **D4** (where the deal-stage is stored), then D5–D6, then implement Day 1.
+  - **D4 settled:** split storage (C) — ledger keeps coarse status; a separate settlement-tracker
+    holds stage/method/typed-amount/attempts; sync at confirm/cancel only.
+  - **Next:** settle **D5** (the swappable backend interface) and **D6** (on/off switch + phase guard), then implement Day 1.
