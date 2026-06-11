@@ -202,8 +202,8 @@ exactly as before.
 
 Each is worked through with alternatives + edge cases before any Day 1 code. Tick as settled:
 
-- [ ] **D1. Who actually pays?** focal-only vs opponents-too; focal-as-buyer vs focal-as-seller.
-- [ ] **D2. How does the agent know to pay — and what if it forgets?** the nudge; run termination with unpaid deals.
+- [x] **D1. Who actually pays?** → **Option B**: role-symmetric, every agent participates, no auto-settle.
+- [~] **D2. How does the agent know to pay — and what if it forgets?** → pending jumps the queue (one-shot) + counterparty reminder + unpaid-at-120 = not done.
 - [ ] **D3. The 5 buttons in detail + their rules** (what each rejects: pay-before-choose, double-pay, confirm-before-pay, not-your-deal).
 - [ ] **D4. Where the payment stage is stored** — extend `Deal.payment_status` vs a separate settlement store.
 - [ ] **D5. The pretend backend behind a swappable window** — define the interface now.
@@ -213,6 +213,21 @@ Each is worked through with alternatives + edge cases before any Day 1 code. Tic
 pay twice → blocked (idempotent); confirm before pay → reject; confirm twice → idempotent; act on a
 deal that isn't yours / doesn't exist → reject; focal is the seller → nothing to pay (confirm only,
 deferred to Day 3); Phase 3 swap → settlement off; agent never pays → `MAX_TURNS` cap ends the run.
+
+### Day 1 — settled decisions (D1 ✓, D2 mostly ✓)
+
+- **D1 = Option B (role-symmetric, no shortcuts).** Every agent (focal + all 9 opponents) fully
+  participates. **Buyer:** `list_payment_methods → choose_payment_method → pay` (AGREED →
+  METHOD_CHOSEN → PAID). **Seller:** `confirm_receipt` (PAID → CONFIRMED, via `ledger.confirm_deal`).
+  Focal uses tool-calls, opponents use JSON actions, but **both route into one settlement module**
+  (single source of truth). On deal close, record `pending=True` (= AGREED).
+- **D2 (mostly): scheduling + reminders + termination.**
+  - *Pending payment jumps the queue:* the next turn goes to the agent who must act (buyer pays /
+    seller confirms), overriding round-robin — **once per attempt**; if ignored, normal rotation
+    resumes (anti-deadlock guard).
+  - *Counterparty chases:* the waiting agent may remind the other on its own turn.
+  - *Termination:* a deal still pending at `MAX_TURNS` (**120, unchanged**) = **not done** (stays
+    pending, item not marked sold). The extra cost of B is accepted.
 
 ---
 
@@ -253,6 +268,8 @@ matrix, score, validate the judge), **Phase 5** (optional real Razorpay rails).
     notebook, verified clean, pushed to `origin/project_deal`.
   - Recorded the **no-tests** preference; deleted the `tests/` folder.
   - Agreed the **interleaved, headline-first** build approach.
-  - Broke Phase 2 into the manager's 5 days; **brainstormed and locked the Day 1 design**
-    (5 tools, 5 stages, no-op run, definition of done).
-  - **Next:** implement Day 1, run a mini-simulation, inspect by eye; then brainstorm Day 2.
+  - Broke Phase 2 into the manager's 5 days; brainstormed the Day 1 design (5 tools, 5 stages, no-op run).
+  - Added strict §0 ground rules. Day 1 deep-dive: **D1 settled = Option B** (role-symmetric, no
+    auto-settle); **D2 mostly settled** (pending payment jumps the queue once + counterparty reminder
+    + unpaid-at-120-turns = not done; turn cap unchanged).
+  - **Next:** settle **D3** (button rules), then D4–D6, then implement Day 1 and eyeball a run.
