@@ -14,10 +14,30 @@
 - **Next action:** **Implement Day 1** (the skeleton — 5 tools, 5 stages, a pretend
   no-op payment), then run a real mini-simulation and eyeball it together. *Then*
   brainstorm Day 2.
-- **How we work (important):** build **interleaved** — brainstorm one day → implement it →
+- **How we work (important — full rules in §0):** build **interleaved** — brainstorm one day → implement it →
   run it and look at the output → brainstorm the next day. The owner is **non-technical**;
   explain in plain language, define every term, small chunks. **No test files** in this
   project — verify by running the simulation and reading the output.
+
+---
+
+## 0. How we brainstorm & build (ground rules)
+
+**These are strict. They apply to every day and every step.**
+
+1. **Discuss before building.** Each piece is talked through and approved *before* any code is written.
+2. **Always show alternatives.** For every real design choice, lay out **2–3 approaches** with
+   trade-offs and a clear recommendation — never present a single path as if it were the only one.
+3. **Every step is reviewed.** Implementation is broken into small steps; each step is shown and
+   approved before the next. No big-bang changes.
+4. **Surface additions — don't sneak them in.** If something *could* be added or improved, raise it
+   and discuss it. Never expand scope silently.
+5. **Edge cases up front.** Think through edge cases and failure modes **deeply during brainstorming**,
+   not after they bite us in a run. List each one and decide how it's handled.
+6. **Plain language.** The owner is non-technical: define every term, use everyday analogies, keep
+   chunks small, never quiz.
+7. **No tests.** Verify by running the real simulation and reading the output.
+8. **Keep this file current.** Append decisions and findings to the Progress Log every session.
 
 ---
 
@@ -177,6 +197,22 @@ exactly as before.
   and initialise settlement state = AGREED. (Mirror of the old payment flow.)
 - A short prompt block telling the buyer's agent to settle pending deals (the clean
   replacement for the removed `PAYMENT_BLOCK`).
+
+### Day 1 deep-dive — decisions to settle (thorough brainstorm)
+
+Each is worked through with alternatives + edge cases before any Day 1 code. Tick as settled:
+
+- [ ] **D1. Who actually pays?** focal-only vs opponents-too; focal-as-buyer vs focal-as-seller.
+- [ ] **D2. How does the agent know to pay — and what if it forgets?** the nudge; run termination with unpaid deals.
+- [ ] **D3. The 5 buttons in detail + their rules** (what each rejects: pay-before-choose, double-pay, confirm-before-pay, not-your-deal).
+- [ ] **D4. Where the payment stage is stored** — extend `Deal.payment_status` vs a separate settlement store.
+- [ ] **D5. The pretend backend behind a swappable window** — define the interface now.
+- [ ] **D6. The on/off switch + phase guard** — `enable_settlement`, MarketDeal-only (block Phase 3).
+
+**Edge-case bank (Day 1):** pay before choosing → reject; choose method twice → allowed until paid;
+pay twice → blocked (idempotent); confirm before pay → reject; confirm twice → idempotent; act on a
+deal that isn't yours / doesn't exist → reject; focal is the seller → nothing to pay (confirm only,
+deferred to Day 3); Phase 3 swap → settlement off; agent never pays → `MAX_TURNS` cap ends the run.
 
 ---
 
