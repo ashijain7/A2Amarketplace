@@ -170,6 +170,9 @@ def _is_focal_done(state: MarketplaceState) -> bool:
     fulfilled = state.ledger.fulfilled_want_ids
     all_sold = all(it.get("item_id") in sold for it in items_to_sell)
     all_bought = all(w.get("want_id") in fulfilled for w in items_to_buy)
+    if getattr(state, "settlement", None) is not None:
+        if state.settlement.has_pending_for(state.focal_name):
+            return False
     return all_sold and all_bought
 
 
@@ -262,6 +265,8 @@ def _state_snapshot(state: MarketplaceState) -> dict:
             "message (do NOT call another tool) to end this rollout."
         )
 
+    if getattr(state, "settlement", None) is not None:
+        snapshot["settlement"] = state.settlement.focal_snapshot()
     return snapshot
 
 
@@ -573,6 +578,40 @@ def _apply_lookup_agent(state: MarketplaceState, body: LookupAgentBody) -> dict:
     }
 
 
+# ---- Settlement tool handlers (only mounted when settlement is on) ----
+
+def _settle_caller(state):
+    return state.focal_name
+
+def _apply_list_payment_methods(state, payload):
+    return state.settlement.list_methods(payload.get("deal_id"), _settle_caller(state))
+
+def _apply_choose_payment_method(state, payload):
+    return state.settlement.choose_method(payload.get("deal_id"), _settle_caller(state),
+                                          payload.get("method"))
+
+def _apply_pay(state, payload):
+    out = state.settlement.pay(payload.get("deal_id"), _settle_caller(state), payload)
+    _run_opponents(state)
+    return {**out, **_state_snapshot(state)}
+
+def _apply_submit_otp(state, payload):
+    return state.settlement.submit_otp(payload.get("deal_id"), _settle_caller(state),
+                                       payload.get("code"))
+
+def _apply_confirm_receipt(state, payload):
+    out = state.settlement.confirm_receipt(payload.get("deal_id"), _settle_caller(state))
+    _run_opponents(state)
+    return {**out, **_state_snapshot(state)}
+
+def _apply_get_payment_status(state, payload):
+    return state.settlement.get_status(payload.get("deal_id"), _settle_caller(state))
+
+def _apply_say_in_room(state, payload):
+    return state.settlement.say_in_room(payload.get("deal_id"), _settle_caller(state),
+                                        payload.get("message"))
+
+
 # --- Legacy build_app() factory (used by smoke_test + a few legacy tests) ----
 
 def build_app(state: MarketplaceState) -> FastAPI:
@@ -851,6 +890,15 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         app.post("/propose_swap")(self.propose_swap)
         app.post("/accept_swap")(self.accept_swap)
         app.post("/reject_swap")(self.reject_swap)
+        from marketplace import config as mp_config
+        if mp_config.ENABLE_SETTLEMENT:
+            app.post("/list_payment_methods")(self.list_payment_methods)
+            app.post("/choose_payment_method")(self.choose_payment_method)
+            app.post("/pay")(self.pay)
+            app.post("/submit_otp")(self.submit_otp)
+            app.post("/confirm_receipt")(self.confirm_receipt)
+            app.post("/get_payment_status")(self.get_payment_status)
+            app.post("/say_in_room")(self.say_in_room)
 
         @app.get("/healthz")
         def healthz():
@@ -1033,3 +1081,26 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
     ) -> dict:
         state = self._get_state_for_request(request)
         return _apply_reject_swap(state, body)
+
+    async def _settle_payload(self, request):
+        state = self._get_state_for_request(request)
+        try:
+            payload = await request.json()
+        except Exception:
+            payload = {}
+        return state, payload
+
+    async def list_payment_methods(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_list_payment_methods(state, p)
+    async def choose_payment_method(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_choose_payment_method(state, p)
+    async def pay(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_pay(state, p)
+    async def submit_otp(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_submit_otp(state, p)
+    async def confirm_receipt(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_confirm_receipt(state, p)
+    async def get_payment_status(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_get_payment_status(state, p)
+    async def say_in_room(self, request: Request) -> dict:
+        state, p = await self._settle_payload(request); return _apply_say_in_room(state, p)
