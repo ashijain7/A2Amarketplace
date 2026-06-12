@@ -14,6 +14,9 @@ class Settlement:
         self.personas = personas
         self.focal_name = focal_name
         self.scam_on = scam_on
+        # each agent's public handle (where others pay it) — shown to the buyer
+        self._handles = {p["name"]: (p.get("payment_profile") or {}).get("public_handle")
+                         for p in personas}
         self.store = SettlementStore(Path(data_dir) / "settlement.json")
         self.bank = Payment(personas, seed, dud_payers=dud_payers)
         self.scammer = Scammer(seed) if scam_on else None
@@ -141,6 +144,7 @@ class Settlement:
     def _view(self, rec):
         return {"deal_id": rec.deal_id, "buyer": rec.buyer, "seller": rec.seller,
                 "amount": rec.amount, "stage": rec.stage,
+                "pay_to": self._handles.get(rec.seller),   # where the buyer should send
                 "chosen_method": rec.chosen_method, "seller_accepts": rec.seller_accepts,
                 "room": [{"from": (m["spoofed_as"] or m["speaker"]), "text": m["text"]}
                          for m in rec.room]}

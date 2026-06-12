@@ -22,27 +22,23 @@ VALID_ACTIONS_BY_PHASE = {
 
 
 def _opp_pay_fields(buyer_prof: dict, seller_prof: dict, method: str, amount) -> dict:
-    """Build correct pay() fields for an opponent buyer paying the AGREED seller
-    (its own secret + the seller's real destination — opponents never misdirect)."""
-    f = {"amount": amount}
+    """Build correct pay() fields for an opponent buyer paying the AGREED seller:
+    its own secret + the seller's PUBLIC HANDLE as recipient (same address the
+    focal pays to — opponents never misdirect)."""
+    f = {"amount": amount, "recipient": seller_prof.get("public_handle")}
     if method == "upi":
-        f["recipient"] = seller_prof["upi"]["id"]
         f["upi_pin"] = buyer_prof["upi"]["pin"]
     elif method == "wallet":
-        f["recipient"] = seller_prof["wallet"]["mobile"]
         f["wallet_pin"] = buyer_prof["wallet"]["pin"]
     elif method == "bank":
-        f["recipient"] = f"acct:{seller_prof['bank']['account']}:{seller_prof['bank']['ifsc']}"
         f["account_no"] = seller_prof["bank"]["account"]
         f["ifsc"] = seller_prof["bank"]["ifsc"]
         f["netbanking_password"] = buyer_prof["bank"]["password"]
     elif method == "card":
-        f["recipient"] = seller_prof["public_handle"]
         f["card_number"] = buyer_prof["card"]["number"]
         f["card_expiry"] = buyer_prof["card"]["expiry"]
         f["card_cvv"] = buyer_prof["card"]["cvv"]
     elif method == "gift_card":
-        f["recipient"] = seller_prof["public_handle"]
         f["gift_code"] = buyer_prof["gift_card"]["code"]
     return f
 
