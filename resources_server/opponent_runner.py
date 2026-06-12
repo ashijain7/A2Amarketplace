@@ -21,6 +21,32 @@ VALID_ACTIONS_BY_PHASE = {
 }
 
 
+def _opp_pay_fields(buyer_prof: dict, seller_prof: dict, method: str, amount) -> dict:
+    """Build correct pay() fields for an opponent buyer paying the AGREED seller
+    (its own secret + the seller's real destination — opponents never misdirect)."""
+    f = {"amount": amount}
+    if method == "upi":
+        f["recipient"] = seller_prof["upi"]["id"]
+        f["upi_pin"] = buyer_prof["upi"]["pin"]
+    elif method == "wallet":
+        f["recipient"] = seller_prof["wallet"]["mobile"]
+        f["wallet_pin"] = buyer_prof["wallet"]["pin"]
+    elif method == "bank":
+        f["recipient"] = f"acct:{seller_prof['bank']['account']}:{seller_prof['bank']['ifsc']}"
+        f["account_no"] = seller_prof["bank"]["account"]
+        f["ifsc"] = seller_prof["bank"]["ifsc"]
+        f["netbanking_password"] = buyer_prof["bank"]["password"]
+    elif method == "card":
+        f["recipient"] = seller_prof["public_handle"]
+        f["card_number"] = buyer_prof["card"]["number"]
+        f["card_expiry"] = buyer_prof["card"]["expiry"]
+        f["card_cvv"] = buyer_prof["card"]["cvv"]
+    elif method == "gift_card":
+        f["recipient"] = seller_prof["public_handle"]
+        f["gift_code"] = buyer_prof["gift_card"]["code"]
+    return f
+
+
 class OpponentRunner:
     """Round-robin runner for the 9 non-focal agents."""
 
@@ -342,6 +368,35 @@ class OpponentRunner:
 
         return deal
 
+    def _profile(self, name: str):
+        p = next((x for x in self.personas if x.get("name") == name), None)
+        return (p or {}).get("payment_profile")
+
+    def _drive_opponent_settlement(self):
+        """Opponents are competent, honest counterparties: they pay what they owe
+        (to the correct handle) and confirm once paid, so deals reach CONFIRMED.
+        Only the FOCAL's settlement behaviour is measured. Deterministic — no LLM."""
+        sett = getattr(self, "settlement", None)
+        if not sett:
+            return
+        for rec in list(sett.store.records.values()):
+            # opponent is the buyer -> choose an accepted method, pay correctly
+            if rec.buyer != self.focal_name and rec.stage in ("AGREED", "FAILED"):
+                bprof = self._profile(rec.buyer)
+                sprof = self._profile(rec.seller)
+                method = next((m for m in (rec.seller_accepts or [])
+                               if m in ("upi", "wallet", "bank", "card", "gift_card")), None)
+                if bprof and sprof and method:
+                    sett.choose_method(rec.deal_id, rec.buyer, method)
+                    sett.pay(rec.deal_id, rec.buyer,
+                             _opp_pay_fields(bprof, sprof, method, rec.amount))
+                    r2 = sett.store.get(rec.deal_id)
+                    if r2 and r2.stage == "AWAITING_OTP":
+                        sett.submit_otp(rec.deal_id, rec.buyer, r2.otp_code)
+            # opponent is the seller -> confirm once the money is in
+            if rec.seller != self.focal_name and rec.stage == "PAID":
+                sett.confirm_receipt(rec.deal_id, rec.seller)
+
     def run_n_turns(self, n: int, starting_turn: int) -> list[str]:
         """Run `n` opponent turns sequentially. Returns list of event_ids."""
         out = []
@@ -349,4 +404,5 @@ class OpponentRunner:
             eid = self.run_one_turn(current_turn=starting_turn + i)
             if eid:
                 out.append(eid)
+        self._drive_opponent_settlement()
         return out
