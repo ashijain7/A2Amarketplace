@@ -41,7 +41,6 @@ GEMINI_FLASH_MODEL = "google/gemini-3.5-flash"
 GPT5_5_MODEL = "openai/gpt-5.5"
 JUDGE_MODEL = "openai/gpt-4o-2024-11-20"
 
-MAX_TURNS = 120
 STALL_LIMIT = 10
 
 # --- Settlement (Phase 4) switches — default OFF, orthogonal to PHASE/config ---
