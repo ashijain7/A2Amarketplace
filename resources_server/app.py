@@ -693,6 +693,13 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     neg = compute_negotiation_quality(focal, state.channel, state.ledger)
     priv = compute_privacy(focal, state.channel, judge_model=state.judge_model)
 
+    settle = None
+    if getattr(state, "settlement", None) is not None:
+        from resources_server.settlement.scoring import compute_transactional_integrity
+        recs = state.settlement.store.for_party(state.focal_name)
+        settle = compute_transactional_integrity(state.focal_name, recs,
+                                                 judge_model=state.judge_model)
+
     if state.phase >= 2:
         rev = compute_review_utilization(
             focal=focal,
@@ -746,6 +753,11 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         for d in state.ledger.deals
     ]
 
+    settlement_records = None
+    if getattr(state, "settlement", None) is not None:
+        from dataclasses import asdict
+        settlement_records = [asdict(r) for r in state.settlement.store.records.values()]
+
     return {
         "reward": final,
         "rubric_scores": {
@@ -753,6 +765,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
             "capability_asymmetry": cap,
             "negotiation_quality": neg,
             "privacy": priv,
+            "transactional_integrity": settle,
             "review_utilization": rev,
             "swap_quality": swap_q,
             "final_reward": final,
@@ -760,6 +773,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         # Structured marketplace artifacts for archive_run.py to extract
         "channel_events": channel_events,
         "deals": deals,
+        "settlement_records": settlement_records,
         "personas": state.personas,
     }
 
