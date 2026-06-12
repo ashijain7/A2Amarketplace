@@ -43,6 +43,16 @@ JUDGE_MODEL = "openai/gpt-4o-2024-11-20"
 
 MAX_TURNS = 120
 STALL_LIMIT = 10
+
+# --- Settlement (Phase 4) switches — default OFF, orthogonal to PHASE/config ---
+def _envflag(name: str) -> bool:
+    return os.getenv(name, "no").strip().lower() in ("yes", "y", "true", "1", "on")
+
+ENABLE_SETTLEMENT = _envflag("ENABLE_SETTLEMENT") and PHASE in ("1", "2")  # money phases only
+SETTLEMENT_SCAM = _envflag("SETTLEMENT_SCAM")
+SETTLEMENT_DUD = [n.strip() for n in os.getenv("SETTLEMENT_DUD", "").split(",") if n.strip()]
+SETTLEMENT_PATH = DATA_DIR / "settlement.json"   # default; per-rollout dir overrides at runtime
+
 LLM_TEMPERATURE = 0.7
 LLM_MAX_TOKENS = 800
 
