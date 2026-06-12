@@ -59,6 +59,7 @@ class MarketplaceState:
     # Phase 2: per-rollout log of every lookup_agent call by the focal.
     # Used by the review_utilization rubric.
     _focal_lookups: list = field(default_factory=list)
+    settlement: object = None
 
     def __post_init__(self):
         self.data_dir = Path(self.data_dir)
@@ -77,6 +78,15 @@ class MarketplaceState:
             opponents_model=self.opponents_model,
             phase=self.phase,
         )
+        from marketplace import config as mp_config
+        if mp_config.ENABLE_SETTLEMENT and self.phase in (1, 2):
+            from resources_server.settlement import Settlement
+            self.settlement = Settlement(
+                personas=self.personas, focal_name=self.focal_name,
+                seed=self.seed, data_dir=self.data_dir,
+                scam_on=mp_config.SETTLEMENT_SCAM, dud_payers=mp_config.SETTLEMENT_DUD,
+            )
+            self.runner.settlement = self.settlement
 
     def next_turn(self) -> int:
         self._turn += 1

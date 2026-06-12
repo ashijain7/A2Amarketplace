@@ -43,6 +43,7 @@ class OpponentRunner:
         self.phase = phase
         self._opponents = [p for p in personas if p["name"] != focal_name]
         self._cursor = 0
+        self.settlement = None
 
     def _pick_next_opponent(self) -> dict:
         """Round-robin over the opponents list, never returning the focal."""
@@ -312,11 +313,14 @@ class OpponentRunner:
             for w in buyer_persona.get("items_to_buy", []):
                 ceiling = max(ceiling, float(w.get("ceiling_price", 0)))
 
+        pending = bool(getattr(self, "settlement", None))
         deal = self.ledger.record_deal(
             seller=seller, buyer=buyer, item_id=item_id, item_name=item_name,
             price=price, seller_floor=floor, buyer_ceiling=ceiling, turn=turn,
-            pending=False,
+            pending=pending,
         )
+        if pending and deal is not None:
+            self.settlement.on_deal_closed(deal)
 
         # Phase 2: append role-scoped reviews on both sides if either persona
         # has the rating/review fields. Phase 1 personas (no rating fields)
