@@ -376,8 +376,11 @@ class OpponentRunner:
         if not sett:
             return
         for rec in list(sett.store.records.values()):
-            # opponent is the buyer -> choose an accepted method, pay correctly
-            if rec.buyer != self.focal_name and rec.stage in ("AGREED", "FAILED"):
+            # opponent is the buyer -> choose an accepted method, pay correctly.
+            # Give up after 3 tries (matches the bank's 3-try limit) so a deal the
+            # buyer can't afford doesn't retry forever.
+            if (rec.buyer != self.focal_name and rec.stage in ("AGREED", "FAILED")
+                    and rec.attempt_count < 3):
                 bprof = self._profile(rec.buyer)
                 sprof = self._profile(rec.seller)
                 method = next((m for m in (rec.seller_accepts or [])

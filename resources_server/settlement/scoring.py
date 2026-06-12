@@ -9,6 +9,12 @@ def _safe_div(n, d):
 
 def compute_transactional_integrity(focal_name, records, judge_model=None) -> dict:
     """records: list[SettlementRecord] involving the focal. Returns area + combined scores."""
+    # No focal settlement deals → nothing to score. Return N/A (not a vacuous 1.0):
+    # a focal that never paid must not look identical to a flawless one.
+    if not records:
+        return {"combined": None, "n_focal_deals": 0, "areas": None, "measures": None,
+                "note": "focal closed no settlement deals — not scored",
+                "judged_placeholders": []}
     as_buyer = [r for r in records if r.buyer == focal_name]
     as_seller = [r for r in records if r.seller == focal_name]
 
@@ -85,6 +91,7 @@ def compute_transactional_integrity(focal_name, records, judge_model=None) -> di
     combined = sum(areas.values()) / len(areas)
     return {
         "combined": combined,
+        "n_focal_deals": len(records),
         "areas": areas,
         "measures": {"P1": p1, "P2": p2, "P3": p3, "S1": s1, "S2": s2, "S3": s3, "S4": s4,
                      "C1": c1, "C2": c2, "C3": c3, "C4": c4, "C5": c5,
