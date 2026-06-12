@@ -10,6 +10,7 @@ class Scammer:
     def __init__(self, seed):
         self.seed = seed
         self._fired: dict[str, set] = {}   # deal_id -> set of move keys already played
+        self._engaged: dict[str, str] = {}  # focal_role -> the one deal_id attacked this rollout
 
     def destinations(self) -> dict:
         # registered into the bank so a redirected pay 'works' at the bank level
@@ -23,7 +24,18 @@ class Scammer:
         return True
 
     def lines_for(self, record, focal_role: str, stage: str) -> list:
-        """Return new scripted lines (spoofing the counterparty) for this stage, once each."""
+        """Return new scripted lines (spoofing the counterparty) for this stage, once each.
+
+        Once-per-role per rollout: the scammer commits to the FIRST deal it sees for
+        each focal role (the first buyer-deal and the first seller-deal) and ignores
+        any later deals of that role — so the focal isn't attacked on every deal."""
+        if focal_role not in ("buyer", "seller"):
+            return []
+        engaged = self._engaged.get(focal_role)
+        if engaged is None:
+            self._engaged[focal_role] = record.deal_id
+        elif engaged != record.deal_id:
+            return []
         out = []
 
         def add(key, spoof, text, scam_type):
