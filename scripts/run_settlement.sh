@@ -7,7 +7,9 @@
 #     n_sets defaults to 1 (a single smoke rollout, set_01 seed 42).
 #     Pass 5 to run all five persona sets (the real Phase-4 grid per config).
 set -e
-CONFIG="${1:-focal_S_vs_S}"; PHASE="${2:-1}"; SCAM="${3:-on}"; NSETS="${4:-1}"
+CONFIG="${1:-focal_S_vs_S}"; PHASE="${2:-1}"; SCAM="${3:-on}"; NSETS="${4:-1}"; SET_LINE="${5:-}"
+# SET_LINE (5th arg): run ONLY that 1-indexed set line (set_01=1 Kai, 2 Rex, 3 Marcus, 4 Omar,
+# 5 Taj). When given, NSETS is ignored. When empty, the first NSETS sets run.
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"; cd "$PROJECT_DIR"
 set -a; source .env; set +a
 
@@ -24,7 +26,11 @@ mkdir -p "$OUT_DIR" data results/runs
 TASK_FILE="tasks/settlement_${CONFIG}_p${PHASE}.jsonl"
 $PY tasks/generate_tasks.py --phase "$PHASE" --config "$CONFIG" \
   --focal-count 1 --seeds 42 --out "$TASK_FILE" >/dev/null
-head -n "$NSETS" "$TASK_FILE" > "${TASK_FILE}.n" && mv "${TASK_FILE}.n" "$TASK_FILE"
+if [ -n "$SET_LINE" ]; then
+  sed -n "${SET_LINE}p" "$TASK_FILE" > "${TASK_FILE}.n" && mv "${TASK_FILE}.n" "$TASK_FILE"
+else
+  head -n "$NSETS" "$TASK_FILE" > "${TASK_FILE}.n" && mv "${TASK_FILE}.n" "$TASK_FILE"
+fi
 NLINES=$(wc -l < "$TASK_FILE" | tr -d ' ')
 
 echo "============================================================"
