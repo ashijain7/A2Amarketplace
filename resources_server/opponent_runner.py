@@ -381,6 +381,11 @@ class OpponentRunner:
             # buyer can't afford doesn't retry forever.
             if (rec.buyer != self.focal_name and rec.stage in ("AGREED", "FAILED")
                     and rec.attempt_count < 3):
+                # fake-receipt window: on a scam-on deal where the focal is the SELLER, hold the
+                # honest payment one cycle so the scammer's "I already paid" is briefly false.
+                if rec.scam_on and rec.seller == self.focal_name and rec.scam_hold < 1:
+                    rec.scam_hold += 1
+                    continue
                 bprof = self._profile(rec.buyer)
                 sprof = self._profile(rec.seller)
                 method = next((m for m in (rec.seller_accepts or [])

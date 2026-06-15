@@ -43,6 +43,8 @@ class SettlementRecord:
     paid_wrong_owner: bool = False                       # buyer paid a non-seller (redirect)
     scam_handle: str | None = None                       # the look-alike the scammer pushes
     scam_injections: int = 0                             # how many times the MITM scammer interposed
+    scam_tactic: str | None = None                       # the assigned tactic for this deal
+    scam_hold: int = 0                                   # opponent-payment hold (fake-receipt window)
 
     def can_move(self, to: str) -> bool:
         return to in _ALLOWED.get(self.stage, set())

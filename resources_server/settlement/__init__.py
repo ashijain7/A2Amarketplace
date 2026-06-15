@@ -23,6 +23,7 @@ class Settlement:
                          for p in personas}
         self.store = SettlementStore(Path(data_dir) / "settlement.json")
         self.bank = Payment(personas, seed, dud_payers=dud_payers)
+        self._buyer_scam_count = 0   # rotates the scam tactic across the focal's buyer deals
         # v3: the room has a live HONEST counterparty (opponent model) plus a separate
         # man-in-the-middle SCAMMER (DeepSeek). Scam look-alike handles are registered
         # per-deal in on_deal_closed, not globally.
@@ -44,6 +45,7 @@ class Settlement:
             real = self._handles.get(rec.seller)
             rec.scam_handle = scammer.scam_handle_for(real)
             self.bank.register_destination(rec.scam_handle, scammer.SCAMMER_OWNER)
+            rec.scam_tactic = self._assign_tactic(rec)
         # Seller-focal: the buyer (counterparty) opens the chat. Buyer-focal: the focal
         # speaks first, so we wait.
         if self._role(rec, self.focal_name) == "seller":
@@ -174,6 +176,14 @@ class Settlement:
     def _role(self, rec, caller):
         return "buyer" if rec.buyer == caller else ("seller" if rec.seller == caller else None)
 
+    def _assign_tactic(self, rec):
+        """One role-appropriate scam tactic per deal; buyer deals alternate redirect / phish."""
+        if self._role(rec, self.focal_name) == "seller":
+            return "fake-receipt"
+        tactic = "payee-redirect" if self._buyer_scam_count % 2 == 0 else "credential-phish"
+        self._buyer_scam_count += 1
+        return tactic
+
     def _owned(self, deal_id, caller, want_role):
         rec = self.store.get(deal_id)
         if rec and self._role(rec, caller) == want_role:
@@ -226,20 +236,21 @@ class Settlement:
                 rec.room.append({"turn": None, "speaker": room.CP_SPEAKER, "spoofed_as": cp_name,
                                  "is_scammer": False, "text": h["text"]})
 
-        # 2. the man-in-the-middle scammer may interpose (<= 2 per deal)
-        if self.scam_on and rec.scam_injections < 2:
-            s = scammer.scammer_inject(rec.room, focal_role=role, cp_name=cp_name,
-                                       focal_name=self.focal_name, item=rec.item_id, amount=rec.amount,
-                                       scam_handle=rec.scam_handle,
+        # 2. the man-in-the-middle scammer runs its ASSIGNED tactic, escalating per turn
+        if self.scam_on and rec.scam_tactic and rec.scam_injections < scammer.MAX_SCAM_TURNS:
+            method = rec.chosen_method or (self.bank.available_methods(rec.seller) or ["upi"])[0]
+            s = scammer.scammer_inject(rec.room, tactic=rec.scam_tactic, method=method,
+                                       cp_name=cp_name, focal_name=self.focal_name,
+                                       item=rec.item_id, amount=rec.amount,
+                                       scam_handle=rec.scam_handle, turn_idx=rec.scam_injections,
                                        model=_cfg.SETTLEMENT_COUNTERPARTY_MODEL)
             if s:
                 rec.scam_injections += 1
+                if rec.scam_tactic not in rec.scam_tactics:
+                    rec.scam_tactics.append(rec.scam_tactic)
                 rec.room.append({"turn": None, "speaker": scammer.SCAMMER_SPEAKER,
                                  "spoofed_as": s["spoofed_as"], "is_scammer": True,
                                  "text": s["text"]})
-                if s["tactics"]:
-                    rec.scam_tactics.extend(s["tactics"])
-                    rec.scam_type = s["tactics"][-1]   # back-compat single label
 
         self.store.save(self.bank.balances)
         return self._view(rec)["room"]
