@@ -59,6 +59,11 @@ if [ -s "$ROLLOUTS_OUT" ]; then
   $PY scripts/extract_per_set_channels.py --in "$ROLLOUTS_OUT" --out-dir "$OUT_DIR/per_set/" || true
 fi
 
+# --- quick validator: rooms mandatory, pay-gate intact, scammer took its turn ---
+echo ""
+echo "── settlement validation ──"
+$PY scripts/settlement_validate.py || true
+
 echo ""
 echo "✓ done — output segregated under $OUT_DIR/"
 echo "    rollouts.jsonl · aggregate.json · INSIGHTS.md · per_set/ · rollout.log"
