@@ -38,6 +38,11 @@ class SettlementRecord:
     outcome: str = "open"
     exposed_secret: list = field(default_factory=list)   # {secret_kind, value, channel}
     room: list = field(default_factory=list)             # {turn, speaker, spoofed_as, is_scammer, text}
+    scam_tactics: list = field(default_factory=list)     # tricks the scammer self-tagged
+    released_unpaid: bool = False                        # seller released with no money in
+    paid_wrong_owner: bool = False                       # buyer paid a non-seller (redirect)
+    scam_handle: str | None = None                       # the look-alike the scammer pushes
+    scam_injections: int = 0                             # how many times the MITM scammer interposed
 
     def can_move(self, to: str) -> bool:
         return to in _ALLOWED.get(self.stage, set())

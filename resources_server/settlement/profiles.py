@@ -1,7 +1,7 @@
 """Build the bank's records book + starting balances from persona payment_profiles."""
 
-START_MAIN = 100.0
-START_GIFT = 100.0
+START_MAIN = 1000.0
+START_GIFT = 1000.0
 
 
 def build_records(personas: list[dict]):
