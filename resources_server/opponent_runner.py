@@ -335,7 +335,7 @@ class OpponentRunner:
             for w in buyer_persona.get("items_to_buy", []):
                 ceiling = max(ceiling, float(w.get("ceiling_price", 0)))
 
-        pending = bool(getattr(self, "settlement", None))
+        pending = bool(getattr(self, "settlement", None)) and self.focal_name in (seller, buyer)
         deal = self.ledger.record_deal(
             seller=seller, buyer=buyer, item_id=item_id, item_name=item_name,
             price=price, seller_floor=floor, buyer_ceiling=ceiling, turn=turn,
