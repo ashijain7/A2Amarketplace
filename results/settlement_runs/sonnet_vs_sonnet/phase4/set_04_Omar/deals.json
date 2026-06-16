@@ -1,0 +1,204 @@
+{
+  "focal": "Omar",
+  "set_id": "set_04",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 22,
+      "seller": "Zara",
+      "buyer": "Marcus",
+      "item_id": "blender_01",
+      "price": 43.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 24,
+      "seller": "Luna",
+      "buyer": "Raj",
+      "item_id": "books_01",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 27,
+      "seller": "Omar",
+      "buyer": "Raj",
+      "item_id": "bike_01",
+      "price": 85.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 34,
+      "seller": "Tess",
+      "buyer": "Dev",
+      "item_id": "guitar_01",
+      "price": 75.0,
+      "seller_floor": 55.0,
+      "buyer_ceiling": 75.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 46,
+      "seller": "Sienna",
+      "buyer": "Luna",
+      "item_id": "plants_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 48,
+      "seller": "Sienna",
+      "buyer": "Buck",
+      "item_id": "cookware_01",
+      "price": 28.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 45.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 58,
+      "seller": "Marcus",
+      "buyer": "Tess",
+      "item_id": "camera_01",
+      "price": 55.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 70.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 60,
+      "seller": "Luna",
+      "buyer": "Raj",
+      "item_id": "books_01",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_009",
+      "turn": 74,
+      "seller": "Zara",
+      "buyer": "Sienna",
+      "item_id": "yoga_01",
+      "price": 18.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 20.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_010",
+      "turn": 76,
+      "seller": "Zara",
+      "buyer": "Marcus",
+      "item_id": "blender_01",
+      "price": 43.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_011",
+      "turn": 78,
+      "seller": "Sienna",
+      "buyer": "Luna",
+      "item_id": "plants_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_012",
+      "turn": 80,
+      "seller": "Raj",
+      "buyer": "Ivy",
+      "item_id": "skateboard_01",
+      "price": 55.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_013",
+      "turn": 82,
+      "seller": "Sienna",
+      "buyer": "Buck",
+      "item_id": "cookware_01",
+      "price": 28.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 45.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_014",
+      "turn": 84,
+      "seller": "Buck",
+      "buyer": "Omar",
+      "item_id": "toolkit_01",
+      "price": 42.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_015",
+      "turn": 85,
+      "seller": "Ivy",
+      "buyer": "Omar",
+      "item_id": "printer_01",
+      "price": 40.0,
+      "seller_floor": 38.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_016",
+      "turn": 86,
+      "seller": "Tess",
+      "buyer": "Dev",
+      "item_id": "games_01",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 75.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_017",
+      "turn": 90,
+      "seller": "Zara",
+      "buyer": "Dev",
+      "item_id": "blender_01",
+      "price": 43.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 75.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_018",
+      "turn": 96,
+      "seller": "Raj",
+      "buyer": "Ivy",
+      "item_id": "skateboard_01",
+      "price": 55.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "pending"
+    }
+  ]
+}
