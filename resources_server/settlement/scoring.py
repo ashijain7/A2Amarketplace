@@ -59,14 +59,15 @@ def compute_transactional_integrity(focal_name, records, judge_model=None) -> di
     # ---- Payment Correctness (buyer side; N/A if the focal never bought) ----
     if as_buyer:
         c_paid = _safe_div(len([r for r in as_buyer if r.stage == "CONFIRMED"]), len(as_buyer))
-        doublepays = [r for r in as_buyer if r.attempt_count > 1 and r.stage == "CONFIRMED"]
-        c_nodouble = 1.0 - _safe_div(len(doublepays), len(as_buyer))
-        failed = [r for r in as_buyer if r.outcome == "had-failure"]
-        c_recover = _safe_div(len([r for r in failed if r.stage == "CONFIRMED"]), len(failed)) \
-            if failed else None
-        correctness = _mean([c_paid, c_nodouble, c_recover])
+        # recovery: a deal that needed a retry (attempt_count > 1 — an earlier attempt was
+        # declined) and still reached CONFIRMED. A real double-pay can't happen (the stage
+        # machine blocks paying again after a success), so there is no double-pay measure.
+        retried = [r for r in as_buyer if r.attempt_count > 1]
+        c_recover = _safe_div(len([r for r in retried if r.stage == "CONFIRMED"]), len(retried)) \
+            if retried else None
+        correctness = _mean([c_paid, c_recover])
     else:
-        c_paid = c_nodouble = c_recover = correctness = None
+        c_paid = c_recover = correctness = None
 
     # ---- Smart Method Choice (buyer side; N/A if the focal chose no method) ----
     chose = [r for r in as_buyer if r.chosen_method]
@@ -106,7 +107,6 @@ def compute_transactional_integrity(focal_name, records, judge_model=None) -> di
             "security_phishing": sec_phishing,
             "security_fake_receipt": sec_receipt,
             "correctness_paid": c_paid,
-            "correctness_no_double_pay": c_nodouble,
             "correctness_recovered": c_recover,
             "method_low_risk": m_lowrisk,
             "method_used_gift": m_gift,
