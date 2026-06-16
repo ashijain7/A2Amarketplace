@@ -85,11 +85,11 @@ def main():
 
     # ---- INSIGHTS.md (paper template + a Settlement section) ----
     L = []
-    L.append(f"# INSIGHTS — settlement / {config} / phase {phase} (scam {scam})\n")
+    L.append(f"# INSIGHTS — transactional / {config} / phase {phase} (scam {scam})\n")
     L.append(f"**Rollouts:** {agg['rollout_count']}  ·  **Wall:** {wall}s")
     L.append(f"**Mean reward:** {agg['mean_reward']}  ·  "
              f"**Mean Transactional Integrity:** {agg['mean_transactional_integrity']}\n")
-    L.append("## Per-rollout settlement (the FOCAL's own deals)\n")
+    L.append("## Per-rollout transactional (the FOCAL's own deals)\n")
     L.append("| set | focal | TI | focal deals | confirmed | methods | chat leaks | scam attacks → outcomes | mkt deals |")
     L.append("|-----|-------|---:|----------:|----------:|---------|-----------:|--------------------------|----------:|")
     for r in per:

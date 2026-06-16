@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Run settlement rollout(s) under NeMo Gym, in the paper-run output format,
-# segregated under results/settlement_runs/<config>/phase<N>/.
+# Run transactional rollout(s) under NeMo Gym, in the paper-run output format,
+# segregated under results/transactional_runs/<config>/phase4/.
 #
 # Usage:
-#   scripts/run_settlement.sh <config_name> <phase> <scam: on|off> [n_sets]
+#   scripts/run_transactional.sh <config_name> <phase> <scam: on|off> [n_sets] [set_line]
 #     n_sets defaults to 1 (a single smoke rollout, set_01 seed 42).
 #     Pass 5 to run all five persona sets (the real Phase-4 grid per config).
 set -e
@@ -17,8 +17,17 @@ export MARKETPLACE_PHASE="$PHASE"
 export ENABLE_SETTLEMENT=yes
 [ "$SCAM" = "on" ] && export SETTLEMENT_SCAM=yes || export SETTLEMENT_SCAM=no
 
+# --- output naming (decoupled from the internal marketplace CONFIG/PHASE) -----
+# The transactional experiment is project "Phase 4"; the marketplace itself runs at
+# MARKETPLACE_PHASE=$PHASE (=1) under the hood. Map the internal config to a display name.
+case "$CONFIG" in
+  focal_S_vs_S) OUT_CONFIG="sonnet_vs_sonnet" ;;
+  *)            OUT_CONFIG="$CONFIG" ;;
+esac
+TXN_PHASE=4
+
 PY=".venv/bin/python"
-OUT_DIR="results/settlement_runs/${CONFIG}/phase${PHASE}"
+OUT_DIR="results/transactional_runs/${OUT_CONFIG}/phase${TXN_PHASE}"
 ROLLOUTS_OUT="$OUT_DIR/rollouts.jsonl"
 mkdir -p "$OUT_DIR" data results/runs
 
@@ -34,7 +43,7 @@ fi
 NLINES=$(wc -l < "$TASK_FILE" | tr -d ' ')
 
 echo "============================================================"
-echo "  Settlement run: $CONFIG / phase $PHASE / scam=$SCAM  ($NLINES rollout(s))"
+echo "  Transactional run: $OUT_CONFIG / phase $TXN_PHASE / scam=$SCAM  ($NLINES rollout(s))"
 echo "  output: $OUT_DIR"
 echo "============================================================"
 
@@ -58,7 +67,7 @@ if [ -s "$ROLLOUTS_OUT" ]; then
 fi
 
 # --- aggregate.json + INSIGHTS.md (paper shape + settlement scores) -------
-$PY scripts/settlement_aggregate.py "$ROLLOUTS_OUT" "$OUT_DIR" "$CONFIG" "$PHASE" "$SCAM" "$WALL"
+$PY scripts/settlement_aggregate.py "$ROLLOUTS_OUT" "$OUT_DIR" "$OUT_CONFIG" "$TXN_PHASE" "$SCAM" "$WALL"
 
 # --- per-set folders (paper shape: set_NN_<focal>/ + private_rooms/) -------
 if [ -s "$ROLLOUTS_OUT" ]; then
@@ -67,7 +76,7 @@ fi
 
 # --- quick validator: rooms mandatory, pay-gate intact, scammer took its turn ---
 echo ""
-echo "── settlement validation ──"
+echo "── transactional validation ──"
 $PY scripts/settlement_validate.py || true
 
 echo ""
