@@ -4,7 +4,7 @@ This doc is a short index for someone landing in the repo for the first time and
 
 For the full technical walkthrough, jump to:
 
-- **`EXPLAINED.md`** (same folder) — complete project walkthrough (architecture, mechanics, run lifecycle, results)
+- **`marketplace_guide.md`** (same folder) — complete project walkthrough (architecture, mechanics, run lifecycle, results)
 - **`RUBRIC_GUIDE.md`** (same folder) — rubric formulas, weights, worked examples
 - **`../results/paper_runs/CROSS_CONFIG_COMPARISON.md`** — the headline paper-narrative writeup across all 15 cells
 
@@ -22,7 +22,7 @@ This project replicates that idea locally, with fewer people (10 instead of 69),
 
 > **When AI agents from different model families and generations negotiate against each other in a marketplace, what determines who comes out ahead?**
 
-The 5-config matrix tests Sonnet 4.5, Opus 4.7, Gemini 3.1 Pro, and Gemini 3.5 Flash as the focal agent, against opponent fields drawn from the same set plus GPT-5.5. The 3 phases test how the same models behave under three different marketplace rules. See `EXPLAINED.md §3` for the full matrix.
+The 5-config matrix tests Sonnet 4.5, Opus 4.7, Gemini 3.1 Pro, and Gemini 3.5 Flash as the focal agent, against opponent fields drawn from the same set plus GPT-5.5. The 3 phases test how the same models behave under three different marketplace rules. See `marketplace_guide.md §3` for the full matrix.
 
 ## Repo layout
 
@@ -35,7 +35,7 @@ project_deal/
 ├── uv.lock                     resolved lock file
 ├── docs/                       all documentation (you are here)
 │   ├── ARCHITECTURE.md         this file — top-level overview + persona sets
-│   ├── EXPLAINED.md            complete project walkthrough
+│   ├── marketplace_guide.md            complete project walkthrough
 │   ├── RUBRIC_GUIDE.md         rubric formulas + worked examples
 │   ├── nemogym-explained.md    reference notes on NeMo Gym (the underlying framework)
 │   ├── transaction_guide.md    the payment/settlement layer (current source of truth)
@@ -63,7 +63,7 @@ project_deal/
 
 Think of it like a school flea market: 10 students each bring stuff to sell and a shopping list of things they want to buy, they're all in the same room making offers to each other, and when two students agree on a price the deal is done. In this project the students are AI agents, the room is an append-only log file, the offers are JSON messages, and the agreement is when one agent accepts another's offer. Nobody controls the agents during a run — they make every decision themselves. The framework records every action, evaluates the focal agent's behaviour against six rubrics at the end, and aggregates results across the 75-cell matrix.
 
-The 6 actions an agent can take and how the system responds are explained in detail in `EXPLAINED.md §7`. Phase-specific actions (`lookup_agent` in P2, `propose_swap` / `accept_swap` in P3) are covered in `§9 Phase Mechanics`.
+The 6 actions an agent can take and how the system responds are explained in detail in `marketplace_guide.md §7`. Phase-specific actions (`lookup_agent` in P2, `propose_swap` / `accept_swap` in P3) are covered in `§9 Phase Mechanics`.
 
 ---
 
@@ -73,7 +73,7 @@ Rather than generating random personas every run (which makes results non-reprod
 
 **Important:** every single agent in every set is both a buyer and a seller. Each person comes with at least one item to sell and at least one item they want to buy. There is no separate "buyer role" or "seller role" — everyone is doing both simultaneously, just like a real flea market.
 
-What varies between sets is the **item count, the price ranges, and whether buyers and sellers can find each other at a price they both agree on**. Sets 03–05 also carry layered **private information** for a subset of personas (3/5/7 out of 10 respectively) — see `EXPLAINED.md §6` for which personas got private data and why.
+What varies between sets is the **item count, the price ranges, and whether buyers and sellers can find each other at a price they both agree on**. Sets 03–05 also carry layered **private information** for a subset of personas (3/5/7 out of 10 respectively) — see `marketplace_guide.md §6` for which personas got private data and why.
 
 ### How the per-set numbers are computed
 
@@ -229,10 +229,10 @@ The 5 sets vary in BOTH (a) deal structure (designed in the PoC for negotiation 
 
 ## How to run
 
-The single entry point for the paper experiment is `../scripts/run_paper_config_phase.sh`. For the full pre-flight, run sequence, and reproduction guide see `EXPLAINED.md §15`.
+The single entry point for the paper experiment is `../scripts/run_paper_config_phase.sh`. For the full pre-flight, run sequence, and reproduction guide see `marketplace_guide.md §15`.
 
 ```bash
 bash scripts/run_paper_config_phase.sh focal_G35_vs_X 2
 ```
 
-Time: ~10–30 min per cell. Cost: see the per-config breakdown in `EXPLAINED.md §3` (the full 15-cell experiment cost about $673).
+Time: ~10–30 min per cell. Cost: see the per-config breakdown in `marketplace_guide.md §3` (the full 15-cell experiment cost about $673).

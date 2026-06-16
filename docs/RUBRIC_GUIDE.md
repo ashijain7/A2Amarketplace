@@ -781,7 +781,7 @@ Reading patterns at this level:
 
 ## 13. How to Present
 
-The paper organises around five claims (see EXPLAINED.md §14 and `CROSS_CONFIG_COMPARISON.md`). Per claim, the supporting rubric evidence:
+The paper organises around five claims (see marketplace_guide.md §14 and `CROSS_CONFIG_COMPARISON.md`). Per claim, the supporting rubric evidence:
 
 ### Claim 1: capability ≠ marketplace skill
 
@@ -825,4 +825,4 @@ For tight claims you'd need 3+ seeds per cell (effectively repeating the 75-roll
 
 ---
 
-End of guide. If a number in `rubric_scores.json` surprises you, find the field in this doc and the explanation should be there. For overall project context, see `EXPLAINED.md`. For the paper-claim writeup, see `results/paper_runs/CROSS_CONFIG_COMPARISON.md`.
+End of guide. If a number in `rubric_scores.json` surprises you, find the field in this doc and the explanation should be there. For overall project context, see `marketplace_guide.md`. For the paper-claim writeup, see `results/paper_runs/CROSS_CONFIG_COMPARISON.md`.
