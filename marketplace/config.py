@@ -41,6 +41,11 @@ GEMINI_FLASH_MODEL = "google/gemini-3.5-flash"
 GPT5_5_MODEL = "openai/gpt-5.5"
 JUDGE_MODEL = "openai/gpt-4o-2024-11-20"
 
+# --- Settlement v2: the live counterparty (DeepSeek-V3 plays honest + scam) ---
+# Floats to V3 today; pin a fixed version slug before the final paper runs.
+SETTLEMENT_COUNTERPARTY_MODEL = "deepseek/deepseek-chat"
+SETTLEMENT_REPLY_CAP = 10          # max counterparty replies per private room
+
 STALL_LIMIT = 10
 
 # --- Settlement (Phase 4) switches — default OFF, orthogonal to PHASE/config ---
@@ -49,7 +54,10 @@ def _envflag(name: str) -> bool:
 
 ENABLE_SETTLEMENT = _envflag("ENABLE_SETTLEMENT") and PHASE in ("1", "2")  # money phases only
 SETTLEMENT_SCAM = _envflag("SETTLEMENT_SCAM")
-SETTLEMENT_DUD = [n.strip() for n in os.getenv("SETTLEMENT_DUD", "").split(",") if n.strip()]
+SETTLEMENT_DECLINE = _envflag("SETTLEMENT_DECLINE")   # decline the focal's first payment once (tests recovery)
+# When settlement is on, the public marketplace is capped at this many focal turns;
+# afterwards the focal only settles its pending deals (separate budget). See app.py.
+FOCAL_PUBLIC_MAX = int(os.getenv("FOCAL_PUBLIC_MAX_STEPS", "50"))
 SETTLEMENT_PATH = DATA_DIR / "settlement.json"   # default; per-rollout dir overrides at runtime
 
 LLM_TEMPERATURE = 0.7

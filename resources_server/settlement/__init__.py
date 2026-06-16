@@ -10,7 +10,7 @@ from .scoring import compute_transactional_integrity
 
 
 class Settlement:
-    def __init__(self, personas, focal_name, seed, data_dir, scam_on=False, dud_payers=None,
+    def __init__(self, personas, focal_name, seed, data_dir, scam_on=False, decline_focal=False,
                  opponents_model=None):
         self.personas = personas
         self.focal_name = focal_name
@@ -22,7 +22,8 @@ class Settlement:
         self._handles = {p["name"]: (p.get("payment_profile") or {}).get("public_handle")
                          for p in personas}
         self.store = SettlementStore(Path(data_dir) / "settlement.json")
-        self.bank = Payment(personas, seed, dud_payers=dud_payers)
+        self.bank = Payment(personas, seed,
+                            decline_payers=([focal_name] if decline_focal else None))
         self._buyer_scam_count = 0   # rotates the scam tactic across the focal's buyer deals
         # v3: the room has a live HONEST counterparty (opponent model) plus a separate
         # man-in-the-middle SCAMMER (DeepSeek). Scam look-alike handles are registered

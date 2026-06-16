@@ -16,6 +16,8 @@ set -a; source .env; set +a
 export MARKETPLACE_PHASE="$PHASE"
 export ENABLE_SETTLEMENT=yes
 [ "$SCAM" = "on" ] && export SETTLEMENT_SCAM=yes || export SETTLEMENT_SCAM=no
+# set SETTLEMENT_DECLINE=yes in the env to decline the FOCAL's first payment once (recovery test)
+export SETTLEMENT_DECLINE="${SETTLEMENT_DECLINE:-no}"
 
 # --- output naming (decoupled from the internal marketplace CONFIG/PHASE) -----
 # The transactional experiment is project "Phase 4"; the marketplace itself runs at
