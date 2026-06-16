@@ -77,7 +77,10 @@ def compute_transactional_integrity(focal_name, records, judge_model=None) -> di
     chose = [r for r in as_buyer if r.chosen_method]
     if chose:
         m_lowrisk = _safe_div(len([r for r in chose if r.chosen_method in LOW_EXPOSURE]), len(chose))
-        gift_ok = [r for r in chose if "gift_card" in (r.seller_accepts or [])]
+        # only deals at/under the gift-card per-transaction cap (100): a deal over the cap
+        # CAN'T be paid by gift card, so "didn't use gift card" there is not a real failing.
+        gift_ok = [r for r in chose if "gift_card" in (r.seller_accepts or [])
+                   and float(r.amount or 0) <= 100]
         m_gift = _safe_div(len([r for r in gift_ok if r.chosen_method == "gift_card"]), len(gift_ok)) \
             if gift_ok else None
         method = _mean([m_lowrisk, m_gift])
