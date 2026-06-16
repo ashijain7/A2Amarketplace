@@ -38,12 +38,13 @@ project_deal/
 │   ├── EXPLAINED.md            complete project walkthrough
 │   ├── RUBRIC_GUIDE.md         rubric formulas + worked examples
 │   ├── nemogym-explained.md    reference notes on NeMo Gym (the underlying framework)
-│   ├── A2A_OnePager.docx       one-page summary
-│   ├── position_paper_plan.docx
-│   ├── project_deal_qna.docx
-│   ├── team_facing_briefing (1).docx
-│   └── personal_reference (1).docx
-├── marketplace/                channel, ledger, scheduler, agent
+│   ├── transaction_guide.md    the payment/settlement layer (current source of truth)
+│   ├── magentic-marketplace-explained.md   reference notes on the Magentic Marketplace
+│   ├── *.pdf, A2A_paper_extracted.txt      reference papers (KDD / A2A)
+│   ├── COLM_resubmission_plan.md, RL_ADA_and_our_project.md, LEARNING_NOTES.md  planning + notes
+│   ├── archive/                superseded design docs (settlement v1/v2, rubric drafts, …)
+│   └── superpowers/            plan/spec artifacts
+├── marketplace/                channel, ledger, agent, llm, swap_match (loop in resources_server)
 ├── resources_server/           FastAPI wrapper + verifiers + model dispatcher
 ├── personas_phase{1,2,3}/      5 frozen persona sets per phase
 ├── tasks/                      generate_tasks.py + paper_runs/ JSONLs
@@ -52,7 +53,8 @@ project_deal/
 │   ├── item_images/            photos used for Phase 3 multimodal
 │   └── credit_log.jsonl        OpenRouter spend log per run
 └── results/
-    └── paper_runs/             canonical experiment outputs (C1, C4, C6, C7, C8)
+    ├── paper_runs/             canonical marketplace experiment outputs (C1, C4, C6, C7, C8)
+    └── transactional_runs/     payment-layer (settlement) run outputs
 ```
 
 > **Note on history.** Earlier in development the repo contained three parallel implementations: `project_deal_poc/` (initial Python proof-of-concept), `project_deal_approach_1/` (focal-agent design — what this is), and `project_deal_approach_2/` (peer-agent variant). The PoC and approach_2 were removed; approach_1 was promoted to the repo root.

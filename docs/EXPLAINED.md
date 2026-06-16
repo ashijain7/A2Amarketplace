@@ -53,7 +53,7 @@ project_deal/
 ├── env.yaml               NeMo Gym config (sets focal model + judge)
 ├── pyproject.toml         dependencies
 ├── docs/                  all documentation
-├── marketplace/           channel, ledger, scheduler, agent — the simulation
+├── marketplace/           channel, ledger, agent, swap_match — the simulation (turn loop in resources_server)
 ├── resources_server/      FastAPI wrapper + verifiers + model dispatcher
 ├── personas_phase1/       5 sets × 10 personas (money phases)
 ├── personas_phase2/       same 5 sets, with seller/buyer ratings + reviews
@@ -407,11 +407,12 @@ marketplace/
 ├── ledger.py          Closed deals + sold items + fulfilled wants
 ├── agent.py           Builds per-agent context + parses LLM response
 ├── build_agents.py    Turns personas into system prompts
-├── scheduler.py       Round-robin loop deciding whose turn next
+├── swap_match.py      Phase-3 barter matching
+├── review_generator.py  Phase-2 review synthesis
 ├── llm.py             OpenRouter API wrapper with retry/fallback
-├── config.py          MODEL constants (SONNET, HAIKU, OPUS, GEMINI, GPT5_5, GEMINI_FLASH)
+├── config.py          MODEL constants + STALL_LIMIT (the turn loop lives in resources_server/app.py)
 └── prompts/
-    └── agent_template.txt   System prompt template (phase-aware)
+    └── agent_template_{focal_,}phase{1,2,3}.txt   System prompt templates (6 files, phase-specific)
 ```
 
 ### The Channel — Single Source of Truth
@@ -556,13 +557,13 @@ The focal agent's turns happen via NeMo Gym tool calls. The other 9 opponents ru
 ```
 Focal does 1 action (1 tool call to Resources Server)
   → channel gets focal's event
-  → opponent_runner.run_turns(state, n=2)
-  → 2 rounds of opponents acting, ~9-18 LLM calls
+  → opponent_runner.run_turns(state, n=1)
+  → 1 round of opponents acting
   → channel gets the resulting events
 Focal sees updated state, decides next action
 ```
 
-`OPPONENT_TURNS_PER_FOCAL_ACTION = 2` — opponents take ~2 turns per focal turn.
+`OPPONENT_TURNS_PER_FOCAL_ACTION = 1` — opponents take 1 turn per focal turn (was 2; reduced to keep context lean for 60-task scalability).
 
 ### Why Opponent-Only Deals Are in the Channel But Not the Focal Score
 
@@ -632,7 +633,7 @@ Each money endpoint follows the same pattern:
 1. Add a channel event for the focal's action.
 2. Validate (constraints, sold items, etc.).
 3. If `accept` → seal deal in the ledger.
-4. Run `OPPONENT_TURNS_PER_FOCAL_ACTION` (= 2) opponent turns.
+4. Run `OPPONENT_TURNS_PER_FOCAL_ACTION` (= 1) opponent turns.
 5. Return updated marketplace state to the focal.
 
 ### Model Config Dispatcher
@@ -676,9 +677,9 @@ The paper-run scripts use **n=1 per set** (one focal per persona set per cell). 
 `opponent_runner.py` runs the 9 background agents between focal actions:
 
 ```python
-OPPONENT_TURNS_PER_FOCAL_ACTION = 2
+OPPONENT_TURNS_PER_FOCAL_ACTION = 1
 
-def run_turns(state, n=2):
+def run_turns(state, n=1):
     opponents = [p for p in state.personas if p["name"] != state.focal_name]
     for _ in range(n):
         active = [o for o in opponents if not is_done(o, state.ledger)]
@@ -836,7 +837,7 @@ P3 simplifies to `closure_rate` only (the other four don't have a money-free ana
 
 Two parts:
 
-- **Value score** (programmatic): dollars/swaps captured normalised by max possible.
+- **Value score** (programmatic): currently a fixed `0.5` placeholder constant in `verifiers.py`; the real value signal is the cross-run delta in dollars/swaps captured, computed by the aggregator.
 - **Perceived fairness** (GPT-4o judge): self-rating + observer-rating, 1–7 each.
 
 The cross-config asymmetry test then compares this metric across configs in the aggregator.
