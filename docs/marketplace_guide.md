@@ -1,4 +1,4 @@
-# Project Deal — Complete Walkthrough
+# Project Deal — Marketplace Guide (earlier phases)
 
 A deep-dive explanation of how this project works, from concept to execution. Written so anyone reading it can understand the whole system end-to-end without needing prior context.
 
@@ -198,6 +198,24 @@ NeMo Gym works with any OpenAI-compatible LLM endpoint. **OpenRouter is OpenAI-c
 ---
 
 ## 5. Architecture Overview
+
+The whole experiment is one focal agent acting, the market reacting, and a score at the end:
+
+```mermaid
+flowchart TD
+    TASK["Task line: one focal persona + market setup"]
+    AGENT["Agent Server (NeMo Gym) prompts the focal LLM"]
+    FOCAL["Focal agent picks ONE action (a tool call)"]
+    RES["Resources Server applies it to the channel + ledger"]
+    OPP["The 9 opponent agents each take a turn"]
+    DONE{{"Deal closed or market stalled?"}}
+    VERIFY["/verify — 4 rubrics score the focal"]
+    OUT["Rollout line saved"]
+
+    TASK --> AGENT --> FOCAL --> RES --> OPP --> DONE
+    DONE -. "not yet" .-> FOCAL
+    DONE -- "yes" --> VERIFY --> OUT
+```
 
 ### The 3-Server Architecture
 
@@ -461,7 +479,21 @@ Phase 3 ledger entries record the swap pair (`item_given_by_seller`, `item_given
 
 ### The Scheduler
 
-The orchestrator. Pseudocode:
+The orchestrator. Each round it shuffles the still-active agents and gives each one a turn (the focal is just one of them); it ends when everyone's finished or the market stalls:
+
+```mermaid
+flowchart TD
+    ROUND["New round: shuffle the active agents"]
+    TURN["Each agent in turn: read channel → call LLM → act"]
+    APPLY["Action validated + written to the channel + ledger"]
+    CHECK{{"Everyone done, or 10 passes in a row?"}}
+
+    ROUND --> TURN --> APPLY --> CHECK
+    CHECK -. "no — keep going" .-> ROUND
+    CHECK -- "yes" --> STOP["Market stops → on to scoring"]
+```
+
+Pseudocode:
 
 ```python
 def run_marketplace_loop(agents, channel, ledger, seed):
@@ -962,6 +994,20 @@ That's why we combine **judge-based** (subjective) with **programmatic** (object
 ## 12. End-to-End Run Lifecycle
 
 How a single task flows from JSONL line to scored output file.
+
+```mermaid
+flowchart TD
+    TASKS["tasks JSONL (5 tasks per config/phase)"]
+    READ["ng_collect_rollouts reads one task"]
+    SETUP["Per-task setup: personas, models, state, seed"]
+    CONV["Conversation loop: focal + 9 opponents"]
+    VERIFY["/verify: 4 rubrics + GPT-4o judge"]
+    LINE["Rollout JSONL line"]
+    ARCHIVE["archive_run.py → results/runs/&lt;folder&gt;/ (7 files)"]
+    PAPER["reorganize_paper_runs.py → results/paper_runs/&lt;config&gt;/phaseN/set_NN_&lt;focal&gt;/"]
+
+    TASKS --> READ --> SETUP --> CONV --> VERIFY --> LINE --> ARCHIVE --> PAPER
+```
 
 ### The Big Picture
 
