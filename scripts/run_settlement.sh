@@ -60,9 +60,9 @@ fi
 # --- aggregate.json + INSIGHTS.md (paper shape + settlement scores) -------
 $PY scripts/settlement_aggregate.py "$ROLLOUTS_OUT" "$OUT_DIR" "$CONFIG" "$PHASE" "$SCAM" "$WALL"
 
-# --- per-set channels/deals (same helper as paper runs) -------------------
+# --- per-set folders (paper shape: set_NN_<focal>/ + private_rooms/) -------
 if [ -s "$ROLLOUTS_OUT" ]; then
-  $PY scripts/extract_per_set_channels.py --in "$ROLLOUTS_OUT" --out-dir "$OUT_DIR/per_set/" || true
+  $PY scripts/settlement_per_set.py --in "$ROLLOUTS_OUT" --out-dir "$OUT_DIR" || true
 fi
 
 # --- quick validator: rooms mandatory, pay-gate intact, scammer took its turn ---
@@ -72,5 +72,5 @@ $PY scripts/settlement_validate.py || true
 
 echo ""
 echo "✓ done — output segregated under $OUT_DIR/"
-echo "    rollouts.jsonl · aggregate.json · INSIGHTS.md · per_set/ · rollout.log"
+echo "    rollouts.jsonl · aggregate.json · INSIGHTS.md · set_NN_<focal>/ (+ private_rooms/) · rollout.log"
 echo "    raw payment play-by-play: data/ng_run/*/settlement.json"
