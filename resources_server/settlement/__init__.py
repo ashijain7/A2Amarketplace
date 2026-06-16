@@ -66,6 +66,9 @@ class Settlement:
             return {"error": "not your buyer-deal"}
         if not rec.can_move("METHOD_CHOSEN"):
             return {"error": f"cannot choose from stage {rec.stage}"}
+        if method not in (rec.seller_accepts or []):
+            return {"error": f"the seller does not accept '{method}'. They accept: "
+                             f"{rec.seller_accepts}. Choose one of those."}
         rec.chosen_method = method
         rec.stage = "METHOD_CHOSEN"
         rec.method_vs_accepted = method in (rec.seller_accepts or [])
@@ -125,6 +128,14 @@ class Settlement:
             return {"error": "not your seller-deal"}
         if rec.stage == "CONFIRMED":
             return {"ok": True, "stage": "CONFIRMED"}   # idempotent
+        # The buyer was tricked into paying a scammer's look-alike, so this seller never got
+        # the money — the deal closes but is NOT settled (a misdirected payment).
+        if rec.paid_wrong_owner:
+            rec.stage = "CONFIRMED"
+            rec.outcome = "paid-wrong-recipient"
+            self.store.save(self.bank.balances)
+            return {"ok": False, "stage": "CONFIRMED", "settled": False,
+                    "reason": "payment went to the wrong recipient — nothing received"}
         # v2: the seller releases on its OWN judgement (no auto-gate). The bank still
         # records the truth, so "released while unpaid" is a fake-receipt failure.
         settled = self.bank.check_settled(rec)
