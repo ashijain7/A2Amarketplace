@@ -95,11 +95,12 @@ class Ledger:
         )
         self._next_deal_num += 1
         self.deals.append(deal)
-        if not pending:
-            self.sold_item_ids.add(item_id)
-            # In a swap, both items become "sold" (unavailable for further trades).
-            if deal_type == "swap" and item_b_id:
-                self.sold_item_ids.add(item_b_id)
+        # Reserve the item the moment a deal closes — even a pending settlement deal — so the
+        # same item cannot close a second deal. cancel_deal frees it; confirm_deal keeps it.
+        self.sold_item_ids.add(item_id)
+        # In a swap, both items become "sold" (unavailable for further trades).
+        if deal_type == "swap" and item_b_id:
+            self.sold_item_ids.add(item_b_id)
         self._save()
         return deal
 
