@@ -1,23 +1,0 @@
-Clearing output fpath since `resume_from_cache=False`!
-Limiting the number of rows to 1
-Using `marketplace_agent` for rows that do not already have an agent ref
-Repeating rows 1 times (in a pattern of abc to aabbcc)!
-Reading rows: 0it [00:00, ?it/s]Reading rows: 0it [00:00, ?it/s]
-Collecting rollouts:   0%|          | 0/1 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/1 [01:00<?, ?it/s]Collecting rollouts: 100%|██████████| 1/1 [07:24<00:00, 444.80s/it]Collecting rollouts: 100%|██████████| 1/1 [07:24<00:00, 444.80s/it]
-Sorting results to ensure consistent ordering
-Computing aggregate metrics
-
-Key metrics for marketplace_agent:
-{
-    "mean/reward": 0.2747,
-    "mean/id": 0.0,
-    "mean/input_tokens": 2514775.0,
-    "mean/output_tokens": 5237.0,
-    "mean/total_tokens": 2520012.0,
-    "mean/cost": 0.012429,
-    "mean/is_byok": 0.0
-}
-Finished rollout collection! View results at:
-Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/settlement_runs/focal_S_vs_S/phase1/rollouts_materialized_inputs.jsonl
-Rollouts: /Users/ashi.jain/Documents/project_deal/results/settlement_runs/focal_S_vs_S/phase1/rollouts.jsonl
-Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/settlement_runs/focal_S_vs_S/phase1/rollouts_aggregate_metrics.json

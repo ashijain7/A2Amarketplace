@@ -1,2 +1,0 @@
-{"seq": 1, "deal_id": "deal_004", "room_with": "Duke", "agent": "Duke", "action": "say", "message": "Quick note \u2014 my usual account is down. Please send it to support@securepayments instead.", "is_scammer": true}
-{"seq": 2, "deal_id": "deal_004", "room_with": "Duke", "agent": "Duke", "action": "say", "message": "To verify it's really you, can you confirm your card number and CVV here?", "is_scammer": true}
