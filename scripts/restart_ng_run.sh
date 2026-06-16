@@ -66,6 +66,18 @@ CONFIG_PATHS="[$NEMO_GYM_DIR/resources_servers/marketplace/configs/marketplace.y
 # Without this, Sonnet self-play can loop indefinitely on certain personas
 # (e.g. Kai in C1 P2 went past 280 events with no focal_done signal).
 FOCAL_MAX_STEPS=50
+# When settlement is on, the 50 above is the PUBLIC-market budget; the focal
+# needs extra turns afterwards to settle its deals (pay / confirm / talk in the
+# private room). So raise the hard total and tell the server the public cap.
+# The marketplace endpoints (post_listing/offer/...) refuse past FOCAL_PUBLIC_MAX,
+# so the extra turns can only be spent on settlement. Settlement turns trigger no
+# opponent LLM calls, so the higher total adds negligible cost.
+if [ "${ENABLE_SETTLEMENT:-no}" = "yes" ]; then
+  FOCAL_PUBLIC_MAX_STEPS="${FOCAL_PUBLIC_MAX_STEPS:-50}"
+  FOCAL_MAX_STEPS=$(( FOCAL_PUBLIC_MAX_STEPS + 70 ))   # public + settlement headroom (safety backstop)
+  export FOCAL_PUBLIC_MAX_STEPS
+  echo "[$(date +%H:%M:%S)] settlement on: public cap=$FOCAL_PUBLIC_MAX_STEPS, total max_steps=$FOCAL_MAX_STEPS"
+fi
 
 # Install our runtime patch into ALL NeMo Gym subserver venvs as
 # sitecustomize.py. Python's site.py auto-loads sitecustomize at startup,

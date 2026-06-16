@@ -31,6 +31,8 @@ def get_client() -> OpenAI:
         _client = OpenAI(
             api_key=config.OPENROUTER_API_KEY,
             base_url=config.OPENROUTER_BASE_URL,
+            timeout=90.0,      # fail fast on a stalled connection (SDK default is ~10 min)
+            max_retries=0,     # call_llm owns retry/backoff — don't double-retry per stall
         )
     return _client
 

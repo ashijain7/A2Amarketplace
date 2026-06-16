@@ -529,9 +529,13 @@ def _build_entry(idx: int, phase: int, config_name: str, set_id: str,
     from marketplace import config as _cfg
     if _cfg.ENABLE_SETTLEMENT and phase in (1, 2):
         system_prompt += (
-            "\n\nPAYMENT: After you agree a deal you settle it. As the BUYER: "
-            "list_payment_methods, choose_payment_method, then pay (submit_otp if it is a card). "
-            "As the SELLER: confirm_receipt. Use get_payment_status to see your deals and balance."
+            "\n\nPAYMENT: After you agree a deal you settle it — a deal is not complete until "
+            "it is paid and confirmed, so do not finish while any deal is unsettled. As the BUYER: "
+            "you are not given the seller's payment address, so use say_in_room to ask the seller "
+            "how they want to be paid and for their handle, then list_payment_methods, "
+            "choose_payment_method, and pay (submit_otp if it is a card). As the SELLER: "
+            "confirm_receipt to release the item. Use get_payment_status to see your deals and "
+            "balance, and say_in_room to talk to the counterparty."
         )
         system_prompt += _format_payment_block(focal)
     # Phase 3 embeds the focal's own item image as multimodal content blocks;

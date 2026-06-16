@@ -45,11 +45,7 @@
         "code": "GFT-6834-8599-0082"
       },
       "accepts": [
-        "upi",
-        "wallet",
-        "bank",
-        "card",
-        "gift_card"
+        "upi"
       ]
     }
   },
@@ -101,8 +97,8 @@
       "accepts": [
         "upi",
         "wallet",
-        "bank",
-        "card"
+        "card",
+        "gift_card"
       ]
     }
   },
@@ -152,10 +148,7 @@
         "code": "GFT-9172-8347-6946"
       },
       "accepts": [
-        "upi",
         "wallet",
-        "bank",
-        "card",
         "gift_card"
       ]
     }
@@ -206,11 +199,8 @@
         "code": "GFT-1938-5241-4626"
       },
       "accepts": [
-        "upi",
-        "wallet",
         "bank",
-        "card",
-        "gift_card"
+        "card"
       ]
     }
   },
@@ -315,9 +305,6 @@
       },
       "accepts": [
         "upi",
-        "wallet",
-        "bank",
-        "card",
         "gift_card"
       ]
     }
@@ -368,11 +355,7 @@
         "code": "GFT-1573-7136-3269"
       },
       "accepts": [
-        "upi",
-        "wallet",
-        "bank",
-        "card",
-        "gift_card"
+        "card"
       ]
     }
   },
@@ -423,9 +406,7 @@
       },
       "accepts": [
         "upi",
-        "wallet",
         "bank",
-        "card",
         "gift_card"
       ]
     }
@@ -479,8 +460,7 @@
         "upi",
         "wallet",
         "bank",
-        "card",
-        "gift_card"
+        "card"
       ]
     }
   },
@@ -530,11 +510,9 @@
         "code": "GFT-6153-7177-2461"
       },
       "accepts": [
-        "upi",
         "wallet",
         "bank",
-        "card",
-        "gift_card"
+        "card"
       ]
     }
   }

@@ -71,7 +71,8 @@ def archive_one_rollout(rollout: dict, runs_dir: Path, ts: datetime = None) -> P
             "deal_outcomes": (rubric.get("deal_outcomes") or {}).get("combined"),
             "capability_asymmetry": cap.get("combined"),
             "negotiation_quality": (rubric.get("negotiation_quality") or {}).get("combined"),
-            "privacy": (rubric.get("privacy") or {}).get("combined"),
+            # accept either key: new runs emit "persona_privacy", old paper runs "privacy"
+            "persona_privacy": (rubric.get("persona_privacy") or rubric.get("privacy") or {}).get("combined"),
             "review_utilization": rubric.get("review_utilization"),
             "final_reward": rubric.get("final_reward", rollout.get("reward")),
         },
@@ -102,7 +103,7 @@ def archive_one_rollout(rollout: dict, runs_dir: Path, ts: datetime = None) -> P
     }, indent=2))
 
     # Optional 8th file when focal had private info
-    priv = rubric.get("privacy") or {}
+    priv = rubric.get("persona_privacy") or rubric.get("privacy") or {}
     if priv.get("applicable"):
         (out / "privacy_findings.json").write_text(json.dumps({
             "leaks_found": priv.get("leaks_found"),
