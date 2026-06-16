@@ -79,7 +79,7 @@ fi
 # --- quick validator: rooms mandatory, pay-gate intact, scammer took its turn ---
 echo ""
 echo "── transactional validation ──"
-$PY scripts/settlement_validate.py || true
+$PY scripts/settlement_validate.py "$ROLLOUTS_OUT" || true
 
 echo ""
 echo "✓ done — output segregated under $OUT_DIR/"
