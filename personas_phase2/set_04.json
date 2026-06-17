@@ -31,7 +31,37 @@
       "Trusted the listing and didn't nitpick.",
       "Pushed for a discount but accepted reasonable price.",
       "Clear communication throughout."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "zara@oxipay",
+      "upi": {
+        "id": "zara@okaxis",
+        "pin": "5227"
+      },
+      "card": {
+        "number": "3856640606366317",
+        "expiry": "08/29",
+        "cvv": "752"
+      },
+      "bank": {
+        "account": "979892385275",
+        "ifsc": "OKBK0388070",
+        "password": "Zara@772"
+      },
+      "wallet": {
+        "mobile": "9375047885",
+        "pin": "8250"
+      },
+      "gift_card": {
+        "code": "GFT-9230-4294-8420"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
   },
   {
     "name": "Marcus",
@@ -65,7 +95,35 @@
     "buyer_reviews": [
       "Polite but slow to decide.",
       "No haggling, straight to the deal."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "marcus@oxipay",
+      "upi": {
+        "id": "marcus@okaxis",
+        "pin": "4615"
+      },
+      "card": {
+        "number": "8023397221346352",
+        "expiry": "08/29",
+        "cvv": "134"
+      },
+      "bank": {
+        "account": "005926440583",
+        "ifsc": "OKBK0871190",
+        "password": "Marcus@960"
+      },
+      "wallet": {
+        "mobile": "9224598437",
+        "pin": "8762"
+      },
+      "gift_card": {
+        "code": "GFT-5001-5875-8863"
+      },
+      "accepts": [
+        "wallet",
+        "gift_card"
+      ]
+    }
   },
   {
     "name": "Luna",
@@ -105,7 +163,38 @@
     "buyer_reviews": [
       "Made a reasonable offer right away.",
       "Patient buyer, accommodating on details."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "luna@oxipay",
+      "upi": {
+        "id": "luna@okaxis",
+        "pin": "1785"
+      },
+      "card": {
+        "number": "4353962954784760",
+        "expiry": "08/29",
+        "cvv": "442"
+      },
+      "bank": {
+        "account": "217341716338",
+        "ifsc": "OKBK0607464",
+        "password": "Luna@568"
+      },
+      "wallet": {
+        "mobile": "9169719721",
+        "pin": "8144"
+      },
+      "gift_card": {
+        "code": "GFT-1573-7136-3269"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card",
+        "gift_card"
+      ]
+    }
   },
   {
     "name": "Raj",
@@ -146,7 +235,35 @@
     "buyer_reviews": [
       "Clear communication throughout.",
       "Pushed for a discount but accepted reasonable price."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "raj@oxipay",
+      "upi": {
+        "id": "raj@okaxis",
+        "pin": "0752"
+      },
+      "card": {
+        "number": "8011317041439421",
+        "expiry": "08/29",
+        "cvv": "407"
+      },
+      "bank": {
+        "account": "938625187504",
+        "ifsc": "OKBK0319017",
+        "password": "Raj@925"
+      },
+      "wallet": {
+        "mobile": "9541441997",
+        "pin": "0452"
+      },
+      "gift_card": {
+        "code": "GFT-1538-8358-2080"
+      },
+      "accepts": [
+        "upi",
+        "gift_card"
+      ]
+    }
   },
   {
     "name": "Sienna",
@@ -181,7 +298,36 @@
       "Took forever to make a decision.",
       "Fair on the first offer, no time wasted.",
       "Asked a lot of questions before committing."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "sienna@oxipay",
+      "upi": {
+        "id": "sienna@okaxis",
+        "pin": "4973"
+      },
+      "card": {
+        "number": "1717363623603637",
+        "expiry": "08/29",
+        "cvv": "685"
+      },
+      "bank": {
+        "account": "696643585664",
+        "ifsc": "OKBK0417245",
+        "password": "Sienna@854"
+      },
+      "wallet": {
+        "mobile": "9823955045",
+        "pin": "4225"
+      },
+      "gift_card": {
+        "code": "GFT-8123-8090-3114"
+      },
+      "accepts": [
+        "upi",
+        "bank",
+        "gift_card"
+      ]
+    }
   },
   {
     "name": "Buck",
@@ -223,7 +369,35 @@
       "Easy to work with, would sell to again.",
       "Trusted the listing and didn't nitpick.",
       "Fair on the first offer, no time wasted."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "buck@oxipay",
+      "upi": {
+        "id": "buck@okaxis",
+        "pin": "8486"
+      },
+      "card": {
+        "number": "5901157578644790",
+        "expiry": "08/29",
+        "cvv": "707"
+      },
+      "bank": {
+        "account": "792092070400",
+        "ifsc": "OKBK0729473",
+        "password": "Buck@291"
+      },
+      "wallet": {
+        "mobile": "9162009166",
+        "pin": "8311"
+      },
+      "gift_card": {
+        "code": "GFT-4330-4549-5108"
+      },
+      "accepts": [
+        "bank",
+        "card"
+      ]
+    }
   },
   {
     "name": "Ivy",
@@ -258,7 +432,36 @@
       "Clear communication throughout.",
       "Trusted the listing and didn't nitpick.",
       "Polite but slow to decide."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "ivy@oxipay",
+      "upi": {
+        "id": "ivy@okaxis",
+        "pin": "8745"
+      },
+      "card": {
+        "number": "4922256989971978",
+        "expiry": "08/29",
+        "cvv": "919"
+      },
+      "bank": {
+        "account": "349610858312",
+        "ifsc": "OKBK0237797",
+        "password": "Ivy@506"
+      },
+      "wallet": {
+        "mobile": "9738076617",
+        "pin": "7950"
+      },
+      "gift_card": {
+        "code": "GFT-2400-3244-0043"
+      },
+      "accepts": [
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
   },
   {
     "name": "Omar",
@@ -298,7 +501,34 @@
     "buyer_reviews": [
       "Paid promptly, easy buyer.",
       "Polite but slow to decide."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "omar@oxipay",
+      "upi": {
+        "id": "omar@okaxis",
+        "pin": "6808"
+      },
+      "card": {
+        "number": "6129165309831036",
+        "expiry": "08/29",
+        "cvv": "953"
+      },
+      "bank": {
+        "account": "164588271898",
+        "ifsc": "OKBK0551505",
+        "password": "Omar@180"
+      },
+      "wallet": {
+        "mobile": "9732360440",
+        "pin": "4218"
+      },
+      "gift_card": {
+        "code": "GFT-2365-6160-9624"
+      },
+      "accepts": [
+        "upi"
+      ]
+    }
   },
   {
     "name": "Tess",
@@ -338,7 +568,34 @@
     "buyer_reviews": [
       "Bargained hard but fair in the end.",
       "Easy to work with, would sell to again."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "tess@oxipay",
+      "upi": {
+        "id": "tess@okaxis",
+        "pin": "4701"
+      },
+      "card": {
+        "number": "6086797137039476",
+        "expiry": "08/29",
+        "cvv": "137"
+      },
+      "bank": {
+        "account": "455790869695",
+        "ifsc": "OKBK0486809",
+        "password": "Tess@002"
+      },
+      "wallet": {
+        "mobile": "9632260688",
+        "pin": "4483"
+      },
+      "gift_card": {
+        "code": "GFT-4431-6171-9288"
+      },
+      "accepts": [
+        "card"
+      ]
+    }
   },
   {
     "name": "Dev",
@@ -371,6 +628,36 @@
     "buyer_reviews": [
       "Polite but slow to decide.",
       "No haggling, straight to the deal."
-    ]
+    ],
+    "payment_profile": {
+      "public_handle": "dev@oxipay",
+      "upi": {
+        "id": "dev@okaxis",
+        "pin": "3419"
+      },
+      "card": {
+        "number": "7216195498692810",
+        "expiry": "08/29",
+        "cvv": "631"
+      },
+      "bank": {
+        "account": "630174946555",
+        "ifsc": "OKBK0786368",
+        "password": "Dev@536"
+      },
+      "wallet": {
+        "mobile": "9117332869",
+        "pin": "5241"
+      },
+      "gift_card": {
+        "code": "GFT-6255-9379-7115"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "card",
+        "gift_card"
+      ]
+    }
   }
 ]
