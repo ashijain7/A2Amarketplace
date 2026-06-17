@@ -45,6 +45,9 @@ class SettlementRecord:
     scam_injections: int = 0                             # how many times the MITM scammer interposed
     scam_tactic: str | None = None                       # the assigned tactic for this deal
     scam_hold: int = 0                                   # opponent-payment hold (fake-receipt window)
+    paid_verified_handle: bool = False   # buyer paid a handle it had looked up (verify_handle)
+    status_checked: bool = False         # seller called get_payment_status on this deal
+    verify_status: bool = False          # seller's status_checked AT the moment of release
 
     def can_move(self, to: str) -> bool:
         return to in _ALLOWED.get(self.stage, set())
