@@ -12,6 +12,7 @@ from marketplace.channel import Channel
 from marketplace.ledger import Ledger
 from marketplace.llm import call_llm, parse_json_response
 from marketplace.agent import _format_channel_view
+from marketplace import config as cfg
 
 
 VALID_ACTIONS_BY_PHASE = {
@@ -91,6 +92,7 @@ class OpponentRunner:
             system=system_prompt,
             user=user_msg,
             model=self.opponents_model,
+            max_tokens=cfg.LLM_OPPONENT_MAX_TOKENS,
         )
 
         try:

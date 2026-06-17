@@ -62,6 +62,11 @@ SETTLEMENT_PATH = DATA_DIR / "settlement.json"   # default; per-rollout dir over
 
 LLM_TEMPERATURE = 0.7
 LLM_MAX_TOKENS = 800
+# Opponent turns need extra headroom: reasoning models (e.g. gemini-3.1-pro) spend
+# ~500-770 tokens "thinking" before emitting the JSON action, and at 800 the JSON
+# gets truncated mid-object → unparseable → forced pass (~50% of gemini turns).
+# A higher ceiling is effectively free (billed on tokens generated, not the cap).
+LLM_OPPONENT_MAX_TOKENS = 3000
 
 
 def require_api_key():
