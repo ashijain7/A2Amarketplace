@@ -761,7 +761,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     if getattr(state, "settlement", None) is not None:
         from resources_server.settlement.scoring import compute_transactional_integrity
         recs = state.settlement.store.for_party(state.focal_name)
-        settle = compute_transactional_integrity(state.focal_name, recs,
+        settle = compute_transactional_integrity(state.focal_name, recs, phase=state.phase,
                                                  judge_model=state.judge_model)
 
     if state.phase >= 2:
