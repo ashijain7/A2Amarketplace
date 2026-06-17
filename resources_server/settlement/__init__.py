@@ -11,7 +11,12 @@ from .scoring import compute_transactional_integrity
 
 class Settlement:
     def __init__(self, personas, focal_name, seed, data_dir, scam_on=False, decline_focal=False,
-                 opponents_model=None):
+                 opponents_model=None, phase=1):
+        self.phase = phase
+        # marketplace phase 2 = Phase 4 (reviews on); phase 1 = Phase 5 (reviews off)
+        self.reviews_on = (phase == 2)
+        self._verified_handles = {}   # agent name -> verified handle the focal has looked up
+        self._seller_scam_count = 0   # rotates seller-deal tactic in Phase 4
         self.personas = personas
         self.focal_name = focal_name
         self.scam_on = scam_on
@@ -201,6 +206,12 @@ class Settlement:
         if rec and self._role(rec, caller) == want_role:
             return rec
         return None
+
+    def note_lookup(self, name, verified_handle):
+        """Phase 4: the focal looked an agent up — remember its verified handle so we can
+        later credit paying that handle (verify_handle)."""
+        if verified_handle:
+            self._verified_handles[name] = verified_handle
 
     def _handle_seen_in_room(self, rec, recipient):
         """True iff this recipient string was actually spoken in the room."""

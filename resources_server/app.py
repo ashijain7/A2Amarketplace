@@ -90,7 +90,7 @@ class MarketplaceState:
                 personas=self.personas, focal_name=self.focal_name,
                 seed=self.seed, data_dir=self.data_dir,
                 scam_on=mp_config.SETTLEMENT_SCAM, decline_focal=mp_config.SETTLEMENT_DECLINE,
-                opponents_model=self.opponents_model,
+                opponents_model=self.opponents_model, phase=self.phase,
             )
             self.runner.settlement = self.settlement
 
@@ -629,12 +629,16 @@ def _apply_lookup_agent(state: MarketplaceState, body: LookupAgentBody) -> dict:
             "target_agent": body.name,
             "role": body.role,
         })
+    vh = (persona.get("payment_profile") or {}).get("public_handle")
+    if getattr(state, "settlement", None) is not None and body.name != state.focal_name:
+        state.settlement.note_lookup(body.name, vh)
     return {
         "name": body.name,
         "role": body.role,
         "rating": rating,
         "review_count": len(reviews),
         "reviews": reviews[-5:],  # last 5 most recent
+        "verified_handle": vh,
     }
 
 
