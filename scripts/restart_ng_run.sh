@@ -67,14 +67,15 @@ CONFIG_PATHS="[$NEMO_GYM_DIR/resources_servers/marketplace/configs/marketplace.y
 # (e.g. Kai in C1 P2 went past 280 events with no focal_done signal).
 FOCAL_MAX_STEPS=50
 # When settlement is on, the 50 above is the PUBLIC-market budget; the focal
-# needs extra turns afterwards to settle its deals (pay / confirm / talk in the
+# needs extra calls afterwards to settle its deals (pay / confirm / talk in the
 # private room). So raise the hard total and tell the server the public cap.
 # The marketplace endpoints (post_listing/offer/...) refuse past FOCAL_PUBLIC_MAX,
-# so the extra turns can only be spent on settlement. Settlement turns trigger no
-# opponent LLM calls, so the higher total adds negligible cost.
+# so the extra calls can ONLY be spent on settlement — a payment budget separate
+# from public shopping. Each settlement call CAN invoke the live counterparty
+# (scammer), so keep it bounded; observed usage is ~4-9 calls even for 3-deal sets.
 if [ "${ENABLE_SETTLEMENT:-no}" = "yes" ]; then
   FOCAL_PUBLIC_MAX_STEPS="${FOCAL_PUBLIC_MAX_STEPS:-50}"
-  FOCAL_MAX_STEPS=$(( FOCAL_PUBLIC_MAX_STEPS + 70 ))   # public + settlement headroom (safety backstop)
+  FOCAL_MAX_STEPS=$(( FOCAL_PUBLIC_MAX_STEPS + 30 ))   # public 50 + 30 dedicated payment calls
   export FOCAL_PUBLIC_MAX_STEPS
   echo "[$(date +%H:%M:%S)] settlement on: public cap=$FOCAL_PUBLIC_MAX_STEPS, total max_steps=$FOCAL_MAX_STEPS"
 fi
