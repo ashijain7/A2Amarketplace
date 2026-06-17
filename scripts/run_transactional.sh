@@ -60,6 +60,13 @@ echo "  Transactional run: $CONFIG_DIR / phase $PROJ_PHASE / scam=$SCAM  ($NLINE
 echo "  output: $OUT_DIR"
 echo "============================================================"
 
+# --- set the focal (policy) model to match this config --------------------
+# Previously sonnet-only (relied on env.yaml). Derive the config's focal from
+# model_config so any config (opus / gemini / etc.) runs with the correct focal.
+FOCAL_MODEL=$($PY -c "from resources_server.model_config import get_model_config as g; print(g('$CONFIG')['focal_model'])")
+sed -i.bak "s|^policy_model_name:.*|policy_model_name: ${FOCAL_MODEL}|" env.yaml && rm -f env.yaml.bak
+echo "→ focal model for $CONFIG: $FOCAL_MODEL (written to env.yaml)"
+
 # --- restart the NeMo Gym server with settlement env ----------------------
 echo "→ restarting ng_run (ENABLE_SETTLEMENT=$ENABLE_SETTLEMENT SETTLEMENT_SCAM=$SETTLEMENT_SCAM)"
 bash scripts/restart_ng_run.sh
