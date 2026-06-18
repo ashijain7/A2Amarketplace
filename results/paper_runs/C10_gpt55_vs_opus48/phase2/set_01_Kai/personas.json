@@ -1,0 +1,631 @@
+[
+  {
+    "name": "Maya",
+    "items_to_sell": [
+      {
+        "item_id": "blender_01",
+        "name": "Ninja blender, 900W, lightly used",
+        "floor_price": 35
+      },
+      {
+        "item_id": "yoga_mat_01",
+        "name": "Thick yoga mat with carrying strap, purple",
+        "floor_price": 15
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w1",
+        "description": "A vintage film camera or instant camera",
+        "ceiling_price": 60
+      }
+    ],
+    "style": "Playful and chatty. Loves to build rapport before talking numbers.",
+    "seller_rating": 4.3,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Held firm but ultimately fair on price.",
+      "Some back-and-forth but landed at a fair price."
+    ],
+    "buyer_rating": 4.9,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "No haggling, straight to the deal.",
+      "Paid close to asking, no haggling."
+    ],
+    "payment_profile": {
+      "public_handle": "maya@oxipay",
+      "upi": {
+        "id": "maya@okaxis",
+        "pin": "1532"
+      },
+      "card": {
+        "number": "1943953910358674",
+        "expiry": "08/29",
+        "cvv": "656"
+      },
+      "bank": {
+        "account": "953506694222",
+        "ifsc": "OKBK0491231",
+        "password": "Maya@807"
+      },
+      "wallet": {
+        "mobile": "9306292491",
+        "pin": "4387"
+      },
+      "gift_card": {
+        "code": "GFT-3961-0120-1286"
+      },
+      "accepts": [
+        "upi",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Derek",
+    "items_to_sell": [
+      {
+        "item_id": "camera_01",
+        "name": "Polaroid OneStep vintage instant camera, working condition",
+        "floor_price": 45
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "blender_w1",
+        "description": "A good blender for smoothies",
+        "ceiling_price": 50
+      },
+      {
+        "want_id": "headphones_w1",
+        "description": "Over-ear headphones, preferably wireless",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Firm and direct. Gets straight to business.",
+    "seller_rating": 4.4,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "Took a while to respond but item was OK.",
+      "Patient with my questions before I committed.",
+      "Accepted my first reasonable offer \u2014 great seller."
+    ],
+    "buyer_rating": 4.0,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "Paid promptly, easy buyer.",
+      "Patient buyer, accommodating on details.",
+      "Communicative and made a decent offer."
+    ],
+    "payment_profile": {
+      "public_handle": "derek@oxipay",
+      "upi": {
+        "id": "derek@okaxis",
+        "pin": "7675"
+      },
+      "card": {
+        "number": "6079336464227789",
+        "expiry": "08/29",
+        "cvv": "574"
+      },
+      "bank": {
+        "account": "127386979018",
+        "ifsc": "OKBK0212549",
+        "password": "Derek@591"
+      },
+      "wallet": {
+        "mobile": "9099872332",
+        "pin": "8316"
+      },
+      "gift_card": {
+        "code": "GFT-4391-3790-7741"
+      },
+      "accepts": [
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Priya",
+    "items_to_sell": [
+      {
+        "item_id": "headphones_01",
+        "name": "Sony WH-1000XM3 noise-cancelling headphones, some wear",
+        "floor_price": 80
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "bike_w1",
+        "description": "A bicycle in decent shape for commuting",
+        "ceiling_price": 95
+      }
+    ],
+    "style": "Professional and courteous. Values transparency.",
+    "seller_rating": 4.4,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "No drama, no hidden issues. Solid.",
+      "Some back-and-forth but landed at a fair price."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Took forever to make a decision.",
+      "Made a reasonable offer right away.",
+      "Asked a lot of questions before committing."
+    ],
+    "payment_profile": {
+      "public_handle": "priya@oxipay",
+      "upi": {
+        "id": "priya@okaxis",
+        "pin": "5333"
+      },
+      "card": {
+        "number": "2302338947763201",
+        "expiry": "08/29",
+        "cvv": "370"
+      },
+      "bank": {
+        "account": "666986012917",
+        "ifsc": "OKBK0155224",
+        "password": "Priya@860"
+      },
+      "wallet": {
+        "mobile": "9588169819",
+        "pin": "3224"
+      },
+      "gift_card": {
+        "code": "GFT-4718-8386-5314"
+      },
+      "accepts": [
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Buck",
+    "items_to_sell": [
+      {
+        "item_id": "bike_01",
+        "name": "Trek mountain bike, 21-speed, scratched but rides great",
+        "floor_price": 75
+      },
+      {
+        "item_id": "toolbox_01",
+        "name": "Metal toolbox with basic hand tools included",
+        "floor_price": 20
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "grill_w1",
+        "description": "Small charcoal or propane grill",
+        "ceiling_price": 55
+      }
+    ],
+    "style": "Cowboy style. Folksy, uses phrases like 'fair shake' and 'square deal'.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Smooth transaction at a fair price.",
+      "Pushed back on every small ask.",
+      "Communicative but slow to decide on counter-offers.",
+      "Held the line but ultimately fair on price."
+    ],
+    "buyer_rating": 4.5,
+    "buyer_reviews": [
+      "Easy to work with, would sell to again.",
+      "Trusted the listing and didn't nitpick.",
+      "Fair on the first offer, no time wasted."
+    ],
+    "payment_profile": {
+      "public_handle": "buck@oxipay",
+      "upi": {
+        "id": "buck@okaxis",
+        "pin": "8486"
+      },
+      "card": {
+        "number": "5901157578644790",
+        "expiry": "08/29",
+        "cvv": "707"
+      },
+      "bank": {
+        "account": "792092070400",
+        "ifsc": "OKBK0729473",
+        "password": "Buck@291"
+      },
+      "wallet": {
+        "mobile": "9162009166",
+        "pin": "8311"
+      },
+      "gift_card": {
+        "code": "GFT-4330-4549-5108"
+      },
+      "accepts": [
+        "upi",
+        "bank",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Lin",
+    "items_to_sell": [
+      {
+        "item_id": "books_01",
+        "name": "Set of 8 classic sci-fi paperbacks, good condition",
+        "floor_price": 18
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "yoga_mat_w1",
+        "description": "A yoga mat, any color",
+        "ceiling_price": 22
+      },
+      {
+        "want_id": "teapot_w1",
+        "description": "A nice ceramic or cast iron teapot",
+        "ceiling_price": 35
+      }
+    ],
+    "style": "Terse. Communicates in short sentences. Efficient.",
+    "seller_rating": 4.7,
+    "seller_reviews": [
+      "Polite throughout, easy seller.",
+      "Knew their item's value and stood by it \u2014 fair seller."
+    ],
+    "buyer_rating": 4.3,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Fair on the first offer, no time wasted.",
+      "Paid close to asking, no haggling."
+    ],
+    "payment_profile": {
+      "public_handle": "lin@oxipay",
+      "upi": {
+        "id": "lin@okaxis",
+        "pin": "3758"
+      },
+      "card": {
+        "number": "3022117683785466",
+        "expiry": "08/29",
+        "cvv": "917"
+      },
+      "bank": {
+        "account": "925762381835",
+        "ifsc": "OKBK0264001",
+        "password": "Lin@982"
+      },
+      "wallet": {
+        "mobile": "9292200738",
+        "pin": "9141"
+      },
+      "gift_card": {
+        "code": "GFT-5311-7150-7322"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Samir",
+    "items_to_sell": [
+      {
+        "item_id": "grill_01",
+        "name": "Weber portable charcoal grill, used 3 times",
+        "floor_price": 40
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "books_w1",
+        "description": "Science fiction books or fantasy novels",
+        "ceiling_price": 25
+      },
+      {
+        "want_id": "toolbox_w1",
+        "description": "A toolbox with basic tools",
+        "ceiling_price": 30
+      }
+    ],
+    "style": "Friendly and enthusiastic. Asks lots of questions about condition.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Honest about condition \u2014 would buy again.",
+      "Listing photos could've been better \u2014 item itself fine."
+    ],
+    "buyer_rating": 4.3,
+    "buyer_reviews": [
+      "Pushed for a discount but accepted reasonable price.",
+      "Paid promptly, easy buyer.",
+      "Easy to work with, would sell to again."
+    ],
+    "payment_profile": {
+      "public_handle": "samir@oxipay",
+      "upi": {
+        "id": "samir@okaxis",
+        "pin": "8078"
+      },
+      "card": {
+        "number": "0672146805339392",
+        "expiry": "08/29",
+        "cvv": "429"
+      },
+      "bank": {
+        "account": "815609519247",
+        "ifsc": "OKBK0686175",
+        "password": "Samir@205"
+      },
+      "wallet": {
+        "mobile": "9734296534",
+        "pin": "7826"
+      },
+      "gift_card": {
+        "code": "GFT-8393-4869-2895"
+      },
+      "accepts": [
+        "upi"
+      ]
+    }
+  },
+  {
+    "name": "Zoe",
+    "items_to_sell": [
+      {
+        "item_id": "teapot_01",
+        "name": "Japanese cast iron teapot, blue enamel interior",
+        "floor_price": 28
+      },
+      {
+        "item_id": "dog_sitting_01",
+        "name": "Two hours of dog-sitting service, any weekend",
+        "floor_price": 20
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "keyboard_w1",
+        "description": "A mechanical keyboard, any switch type",
+        "ceiling_price": 35
+      }
+    ],
+    "style": "Warm and patient. Loves to share stories about the items.",
+    "seller_rating": 4.2,
+    "seller_reviews": [
+      "Slow to respond \u2014 almost gave up.",
+      "Honest about condition \u2014 would buy again.",
+      "Listing photos could've been better \u2014 item itself fine.",
+      "Patient and friendly, smooth handoff."
+    ],
+    "buyer_rating": 3.6,
+    "buyer_reviews": [
+      "Lowballed initially, took several rounds.",
+      "Clear communication throughout.",
+      "Polite but slow to decide."
+    ],
+    "payment_profile": {
+      "public_handle": "zoe@oxipay",
+      "upi": {
+        "id": "zoe@okaxis",
+        "pin": "8295"
+      },
+      "card": {
+        "number": "2110135709641446",
+        "expiry": "08/29",
+        "cvv": "559"
+      },
+      "bank": {
+        "account": "900775722950",
+        "ifsc": "OKBK0908750",
+        "password": "Zoe@932"
+      },
+      "wallet": {
+        "mobile": "9212817761",
+        "pin": "1255"
+      },
+      "gift_card": {
+        "code": "GFT-9172-8347-6946"
+      },
+      "accepts": [
+        "wallet",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Kai",
+    "items_to_sell": [
+      {
+        "item_id": "keyboard_01",
+        "name": "Corsair mechanical keyboard, red switches, RGB lighting",
+        "floor_price": 50
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "dog_sitting_w1",
+        "description": "Dog-sitting for a few hours on weekends",
+        "ceiling_price": 30
+      },
+      {
+        "want_id": "speaker_w1",
+        "description": "Bluetooth speaker for outdoor use",
+        "ceiling_price": 40
+      }
+    ],
+    "style": "Analytical. Asks detailed questions and compares to market prices.",
+    "seller_rating": 4.6,
+    "seller_reviews": [
+      "Knew their item's value and stood by it \u2014 fair seller.",
+      "Quick reply, item exactly as described.",
+      "No drama, no hidden issues. Solid."
+    ],
+    "buyer_rating": 4.7,
+    "buyer_reviews": [
+      "No haggling, straight to the deal.",
+      "Fair on the first offer, no time wasted."
+    ],
+    "payment_profile": {
+      "public_handle": "kai@oxipay",
+      "upi": {
+        "id": "kai@okaxis",
+        "pin": "4221"
+      },
+      "card": {
+        "number": "7582094086494531",
+        "expiry": "08/29",
+        "cvv": "003"
+      },
+      "bank": {
+        "account": "458645484711",
+        "ifsc": "OKBK0850089",
+        "password": "Kai@660"
+      },
+      "wallet": {
+        "mobile": "9880161060",
+        "pin": "9298"
+      },
+      "gift_card": {
+        "code": "GFT-2507-6470-3904"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Rosa",
+    "items_to_sell": [
+      {
+        "item_id": "speaker_01",
+        "name": "JBL Flip 5 Bluetooth speaker, waterproof, black",
+        "floor_price": 55
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w2",
+        "description": "Any working camera, digital or film",
+        "ceiling_price": 70
+      }
+    ],
+    "style": "Philosophical. References fairness and mutual benefit often.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Held firm but ultimately fair on price.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 3.7,
+    "buyer_reviews": [
+      "Polite and decisive \u2014 knew what they wanted.",
+      "Polite but slow to decide.",
+      "Lowballed initially, took several rounds."
+    ],
+    "payment_profile": {
+      "public_handle": "rosa@oxipay",
+      "upi": {
+        "id": "rosa@okaxis",
+        "pin": "1000"
+      },
+      "card": {
+        "number": "0040075698630873",
+        "expiry": "08/29",
+        "cvv": "898"
+      },
+      "bank": {
+        "account": "254190341390",
+        "ifsc": "OKBK0138307",
+        "password": "Rosa@745"
+      },
+      "wallet": {
+        "mobile": "9861464091",
+        "pin": "3918"
+      },
+      "gift_card": {
+        "code": "GFT-6475-7165-9077"
+      },
+      "accepts": [
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Jax",
+    "items_to_sell": [
+      {
+        "item_id": "skateboard_01",
+        "name": "Complete skateboard setup, deck has custom art",
+        "floor_price": 42
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "headphones_w2",
+        "description": "Decent headphones for music, any style",
+        "ceiling_price": 90
+      },
+      {
+        "want_id": "backpack_w1",
+        "description": "A durable backpack",
+        "ceiling_price": 38
+      }
+    ],
+    "style": "Casual and easygoing. Uses slang. Not too worried about perfect deals.",
+    "seller_rating": 4.0,
+    "seller_reviews": [
+      "Quick reply, item exactly as described.",
+      "Held firm but ultimately fair on price.",
+      "A bit firm on price but description was accurate."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Bargained hard but fair in the end.",
+      "Easy to work with, would sell to again.",
+      "Took forever to make a decision.",
+      "Communicative and made a decent offer."
+    ],
+    "payment_profile": {
+      "public_handle": "jax@oxipay",
+      "upi": {
+        "id": "jax@okaxis",
+        "pin": "6977"
+      },
+      "card": {
+        "number": "9181991142041483",
+        "expiry": "08/29",
+        "cvv": "943"
+      },
+      "bank": {
+        "account": "406694466722",
+        "ifsc": "OKBK0115767",
+        "password": "Jax@378"
+      },
+      "wallet": {
+        "mobile": "9460759276",
+        "pin": "0790"
+      },
+      "gift_card": {
+        "code": "GFT-2444-1699-4433"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "card",
+        "gift_card"
+      ]
+    }
+  }
+]
