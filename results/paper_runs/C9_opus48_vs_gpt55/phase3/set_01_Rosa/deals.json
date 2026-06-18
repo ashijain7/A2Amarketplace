@@ -1,0 +1,35 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 42,
+    "seller": "Jax",
+    "buyer": "Zoe",
+    "item_id": "set_01_jax_dresses_01",
+    "price": -1.0,
+    "seller_floor": 42.0,
+    "buyer_ceiling": 56.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 46,
+    "seller": "Lin",
+    "buyer": "Rosa",
+    "item_id": "set_01_lin_tops_01",
+    "price": -1.0,
+    "seller_floor": 25.0,
+    "buyer_ceiling": 30.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 50,
+    "seller": "Priya",
+    "buyer": "Kai",
+    "item_id": "set_01_priya_dresses_01",
+    "price": -1.0,
+    "seller_floor": 50.0,
+    "buyer_ceiling": 58.0,
+    "payment_status": "n/a"
+  }
+]

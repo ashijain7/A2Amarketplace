@@ -1,0 +1,35 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 23,
+    "seller": "Rex",
+    "buyer": "Dex",
+    "item_id": "set_02_rex_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 64.0,
+    "buyer_ceiling": 96.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 36,
+    "seller": "Zoe",
+    "buyer": "Finn",
+    "item_id": "set_02_zoe_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 54.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 48,
+    "seller": "Luna",
+    "buyer": "Kai",
+    "item_id": "set_02_luna_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 26.0,
+    "buyer_ceiling": 53.0,
+    "payment_status": "n/a"
+  }
+]
