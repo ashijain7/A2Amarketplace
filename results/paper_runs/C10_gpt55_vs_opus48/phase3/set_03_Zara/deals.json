@@ -1,0 +1,24 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 60,
+    "seller": "Hank",
+    "buyer": "Zara",
+    "item_id": "set_03_hank_dresses_01",
+    "price": -1.0,
+    "seller_floor": 38.0,
+    "buyer_ceiling": 0.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 68,
+    "seller": "Marcus",
+    "buyer": "Lily",
+    "item_id": "set_03_marcus_dresses_01",
+    "price": -1.0,
+    "seller_floor": 46.0,
+    "buyer_ceiling": 77.0,
+    "payment_status": "n/a"
+  }
+]
