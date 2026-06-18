@@ -33,36 +33,6 @@
     }
   ],
   "balances": {
-    "Hank": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Marcus": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 50.0
-      }
-    },
-    "Lily": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
     "Priya": {
       "start": {
         "main": 100.0,
@@ -73,37 +43,7 @@
         "gift": 100.0
       }
     },
-    "Zara": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
     "Mira": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Isla": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Kai": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -130,6 +70,66 @@
       },
       "final": {
         "main": 150.0,
+        "gift": 100.0
+      }
+    },
+    "Zara": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Kai": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Lily": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Marcus": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 50.0
+      }
+    },
+    "Isla": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Hank": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
         "gift": 100.0
       }
     }

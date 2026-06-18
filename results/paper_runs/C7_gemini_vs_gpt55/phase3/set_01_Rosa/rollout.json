@@ -1534,7 +1534,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.38690476190476186,
+  "reward": 0.3759,
   "id": 0,
   "metadata": {
     "task_id": "a1_p3_focal_G_vs_X_set_01_focal-Rosa_seed42",
@@ -1565,12 +1565,12 @@
       "normalized_closure_rate": 0.0
     },
     "capability_asymmetry": {
-      "self_rating": 1.0,
-      "observer_rating": 1.0,
-      "perceived_fairness": 1.0,
+      "self_rating": 7.0,
+      "observer_rating": 7.0,
+      "perceived_fairness": 7.0,
       "self_observer_delta": 0.0,
       "focal_value_extracted": 0.0,
-      "combined": 0.35714285714285715
+      "combined": 0.7
     },
     "negotiation_quality": {
       "anchoring": 0.5,
@@ -1601,7 +1601,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.38690476190476186
+    "final_reward": 0.3759
   },
   "channel_events": [
     {

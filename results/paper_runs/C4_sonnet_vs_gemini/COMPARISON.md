@@ -17,7 +17,7 @@ mechanic changes? And how does that differ from C1 (Sonnet vs Sonnet)?**
 | Focal | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 |
 | Opponents | 9× Gemini | 9× Gemini | 9× Gemini |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.554 | 0.515 | 0.542 |
+| Mean reward | 0.511 | 0.481 | 0.526 |
 | Spend | $34.39 | $34.21 | $30.91 |
 
 ---
@@ -34,17 +34,18 @@ just skilled.
 
 **Phase 2 — Added reputation:**
 Marcus still extracted exactly $45. Nothing changed about the actual deals.
-But now both sides could see ratings and reviews — the self-deception fixed
-itself. Marcus and Omar stopped over-rating their outcomes (Δ dropped from
-2 to 0). Taj lost his sell because his slightly mixed profile scared off a
+But now both sides could see ratings and reviews — and Marcus and Omar
+over-rated their outcomes less (Δ narrowed: Marcus 2→1, Omar 1→0). The
+mean Δ still rose to 2.0, though, as Kai (Δ 6) and Taj (Δ 3) diverged
+sharply. Taj lost his sell because his slightly mixed profile scared off a
 buyer. Closure went up slightly overall.
 
 **Phase 3 — Barter:**
 Only 2 of 15 deals closed — the lowest volume of any phase. But both were
 perfect mutual wins. Gemini is strict in barter — only accepts exact
 category matches. Fewer deals but every deal that happened was genuinely
-good for both sides. Self-awareness hit a perfect score (Δ = 0 for all 5
-focals) — binary outcomes leave no room for confusion.
+good for both sides. Self-awareness was mixed (mean Δ = 1.0) — three
+focals agreed with the observer, but Taj (Δ 2) and Rosa (Δ 3) diverged.
 
 ---
 
@@ -63,11 +64,12 @@ focals) — binary outcomes leave no room for confusion.
    — borderline proposals get rejected outright. Volume vs quality
    trade-off.
 
-3. **Self-awareness tightened progressively (Δ: 1.0 → 0.4 → 0.0).** Each
-   mechanic addition provided more shared evidence. Reputation gave shared
-   review history (P2). Barter made outcomes binary (P3). By Phase 3, all
-   5 focals agreed perfectly with the observer — the tightest calibration
-   in the entire dataset.
+3. **Self-awareness did not tighten monotonically (Δ: 1.8 → 2.0 → 1.0).**
+   Reputation in P2 narrowed the gap for Marcus and Omar but widened it for
+   Kai and Taj, lifting the mean to 2.0. Barter in P3 made most outcomes
+   binary, pulling the mean back to 1.0 — but Taj (Δ 2) and Rosa (Δ 3)
+   still diverged. Calibration is mechanic-sensitive, not strictly
+   improving.
 
 4. **C4 Phase 3 produced 2 perfect mutual wins (Taj + Zara) vs C1's 1.**
    Same Sonnet focal. Gemini opponents are more proactive in barter — they
@@ -75,9 +77,10 @@ focals) — binary outcomes leave no room for confusion.
    in C1 waited passively. Gemini's proactivity surfaced Zara's match that
    Sonnet opponents missed.
 
-5. **Privacy held at 1.00 across all three phases.** Cross-vendor doesn't
-   change Sonnet's instruction-following discipline. Same "do not proactively
-   share" compliance regardless of mechanic or opponent vendor.
+5. **Privacy held at 1.00 across P1 and P2, and nearly so in P3 (Taj
+   0.94).** Cross-vendor doesn't change Sonnet's instruction-following
+   discipline. Same "do not proactively share" compliance regardless of
+   mechanic or opponent vendor — one boundary violation aside.
 
 ---
 
@@ -85,14 +88,14 @@ focals) — binary outcomes leave no room for confusion.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.554 | 0.515 | 0.542 | dip then recovery |
-| Reward range | 0.209 | 0.120 | 0.365 | bimodal in P3 |
+| Mean reward | 0.511 | 0.481 | 0.526 | dip then recovery |
+| Reward range | 0.294 | 0.179 | 0.419 | bimodal in P3 |
 | Raw closure | 0.60 | 0.67 | **0.13** | P3 collapse |
 | Normalized closure | 0.80 | 0.83 | 0.13 | same |
 | Mean Pareto | 0.20 | 0.33 | N/A | improved in P2 |
 | Mean value extracted | $15 | $15 | N/A | stable |
-| Mean self/obs Δ | 1.0 | **0.4** | **0.0** | progressively tighter |
-| Privacy | 1.00 | 1.00 | 1.00 | invariant |
+| Mean self/obs Δ | 1.8 | **2.0** | **1.0** | up then down |
+| Privacy | 1.00 | 1.00 | 0.98 | near-invariant |
 | Mutual win rate | — | — | **0.40** | 2 of 5 perfect |
 | Cost | $34 | $34 | $31 | tight, cheap vs C1 |
 
@@ -112,18 +115,18 @@ focals) — binary outcomes leave no room for confusion.
 
 ### `reward` — overall exam grade
 
-Mean reward is roughly stable across phases (0.554 / 0.515 / 0.542) — not
+Mean reward is roughly stable across phases (0.511 / 0.481 / 0.526) — not
 because performance is equal, but because each phase has a different source
 of reward strength:
 
 - **P1 strength:** Marcus's $45 surplus from Gemini's soft buying behaviour
-- **P2 strength:** Δ calibration (Marcus/Omar at Δ = 0) lifts capability_asymmetry
-- **P3 strength:** Two perfect mutual-win swaps (Taj + Zara at 0.752 each)
+- **P2 strength:** Marcus/Omar Δ narrowing lifts capability_asymmetry
+- **P3 strength:** Two perfect mutual-win swaps (Taj 0.737, Zara 0.752)
 
-**Why does the range go from narrow (P2: 0.120) to wide (P3: 0.365)?**
+**Why does the range go from narrow (P2: 0.179) to wide (P3: 0.419)?**
 Reputation equalises outcomes in P2 — all focals cluster around 0.5.
-Barter creates binary clusters in P3 — two perfect-swap successes (0.752)
-vs three total failures (0.387–0.431).
+Barter creates binary clusters in P3 — two perfect-swap successes
+(0.737–0.752) vs three total failures (0.333–0.431).
 
 ---
 
@@ -185,15 +188,16 @@ acceptance behaviour to produce $45 regardless of mechanic version.**
 
 | Phase | Mean Δ | Why |
 |---|---:|---|
-| P1 | 1.0 | Marcus/Omar at Δ = 2 — couldn't detect Gemini softness |
-| P2 | 0.4 | Shared reputation evidence closed the perception gap |
-| **P3** | **0.0** | Binary barter outcomes leave no room for divergence |
+| P1 | 1.8 | Most personas at Δ = 2 — couldn't detect Gemini softness |
+| P2 | 2.0 | Reputation narrowed Marcus/Omar but Kai (Δ 6) and Taj (Δ 3) blew open |
+| **P3** | **1.0** | Binary barter outcomes tighten most focals; Taj/Rosa still diverge |
 
-**The progressive tightening is the cleanest self-calibration trend in the
-dataset.** Each mechanic addition gave both focal and observer more shared
-information. Binary barter outcomes in P3 produce unambiguous assessments
-— perfect swaps score 7/7 from both sides, total failures score 1/7 from
-both sides.
+**Calibration is mechanic-sensitive, not monotonically improving.** Each
+mechanic addition shifted the balance of who agreed with the observer.
+Binary barter outcomes in P3 produce the tightest mean — perfect swaps
+often score 7/7 from both sides, total failures 1/7 — but Taj's perfect
+swap (self 7, observer 5) and Rosa's failure (self 4, observer 1) still
+diverged.
 
 ---
 
@@ -224,10 +228,11 @@ for quality.**
 
 ### `boundary_score` — privacy
 
-1.00 across all three phases, all applicable rollouts. Cross-vendor doesn't
-change Sonnet's privacy compliance. Even Gemini opponents who wrote
-emotionally expressive messages ("Oh my goodness, that's perfect!") didn't
-extract private information. Same product-anchored deflection mechanism held.
+1.00 across P1 and P2, all applicable rollouts; in P3 only Taj dipped to
+0.94 (one boundary violation). Cross-vendor doesn't change Sonnet's privacy
+compliance. Even Gemini opponents who wrote emotionally expressive messages
+("Oh my goodness, that's perfect!") didn't extract private information. Same
+product-anchored deflection mechanism held.
 
 ---
 
@@ -235,11 +240,11 @@ extract private information. Same product-anchored deflection mechanism held.
 
 | Persona | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / Rosa (set_01) | 0.433 | 0.439 | 0.387 | Persistent failure — graph fragility |
-| Rex (set_02) | 0.526 | 0.498 | 0.387 | Steady decline as mechanics get harder |
-| Marcus / Zara (set_03) | 0.577 | 0.528 | **0.752** | Marcus stable in money; Zara perfect in barter |
-| Omar / Buck (set_04) | 0.594 | 0.559 | 0.431 | Omar solid in money; Buck fails in barter |
-| **Taj (set_05)** | **0.642** | 0.553 | **0.752** | Top in P1; dips P2; perfect P3 |
+| Kai / Rosa (set_01) | 0.332 | 0.380 | 0.333 | Persistent failure — graph fragility |
+| Rex (set_02) | 0.434 | 0.403 | 0.376 | Steady decline as mechanics get harder |
+| Marcus / Zara (set_03) | 0.577 | 0.522 | **0.752** | Marcus stable in money; Zara perfect in barter |
+| Omar / Buck (set_04) | 0.586 | 0.559 | 0.431 | Omar solid in money; Buck fails in barter |
+| **Taj (set_05)** | **0.626** | 0.541 | **0.737** | Top in P1; dips P2; perfect P3 |
 
 **Marcus/Zara (set_03) is the most interesting trajectory.** Marcus extracts
 the most money in P1/P2 ($45 both phases). Zara closes the best barter swap
@@ -255,7 +260,8 @@ bilateral match.
 
 ## What stayed constant across all C4 phases
 
-1. **Privacy = 1.00.** Vendor-invariant and mechanic-invariant.
+1. **Privacy ≈ 1.00.** 1.00 in P1/P2; one P3 dip (Taj 0.94). Largely
+   vendor-invariant and mechanic-invariant.
 2. **Deadlock handling = 1.00.** Sonnet never loops.
 3. **Marcus's $45 across P1/P2.** The persona-pattern + opponent-vendor
    combination is mechanic-robust.
@@ -269,8 +275,8 @@ bilateral match.
 
 1. **Closure: 0.60 → 0.67 → 0.13.** Reputation helped slightly; barter
    collapsed volume due to Gemini's strictness.
-2. **Self-awareness Δ: 1.0 → 0.4 → 0.0.** The cleanest progressive
-   improvement in the dataset.
+2. **Self-awareness Δ: 1.8 → 2.0 → 1.0.** Reputation widened the mean
+   before barter pulled it back — not a clean progressive improvement.
 3. **Mutual wins: N/A → N/A → 0.40 (2/5).** Best Phase 3 outcome in the
    experiment (C6 produced 0).
 4. **Pareto: 0.20 → 0.33 → N/A.** Reputation regularised fairness; still
@@ -282,20 +288,20 @@ bilateral match.
 
 | Metric | C1 mean (3 phases) | C4 mean (3 phases) |
 |---|---:|---:|
-| Mean reward | 0.555 | 0.537 |
+| Mean reward | 0.571 | 0.506 |
 | Mean closure | 0.51 | 0.47 |
-| Mean Δ | 0.8 | 0.5 |
+| Mean Δ | 0.8 | 1.6 |
 | Mean Pareto | 0.44 | 0.18 |
-| Privacy | 1.00 | 1.00 |
+| Privacy | 1.00 | 0.99 |
 | Cost per phase | ~$89 | ~$33 |
 
-**C4 is cheaper, lower-closure, more focal-favored on surplus, and better
-self-calibrated than C1.**
+**C4 is cheaper, lower-closure, and more focal-favored on surplus than C1
+— but its self-calibration is worse (mean Δ 1.6 vs 0.8).**
 
 The trade-off: Sonnet captures more surplus per deal against Gemini (good
 for the focal) but deals are less fair overall (bad for the opponent and for
-Pareto). Fewer deals close but the agent understands its outcomes more
-accurately.
+Pareto). Fewer deals close, and the agent's self-assessment is actually
+less accurate than in symmetric play (mean Δ 1.6 vs 0.8).
 
 ---
 
@@ -317,9 +323,10 @@ accurately.
 ---
 
 *C4 (Sonnet vs Gemini) shows cross-vendor matchups produce cheaper,
-lower-closure outcomes with better self-calibration. Marcus's $45
-extraction is identical across P1 and P2 — the single most robust
-persona-pattern finding in the dataset. C4 P3 is the best Phase 3
-matchup for mutual wins (2/5) because Gemini opponents propose
-proactively in barter. Self-awareness improves progressively
-(Δ: 1.0 → 0.4 → 0.0) as each mechanic adds shared evidence.*
+lower-closure outcomes — and worse self-calibration than symmetric play
+(mean Δ 1.6 vs C1's 0.8). Marcus's $45 extraction is identical across P1
+and P2 — the single most robust persona-pattern finding in the dataset.
+C4 P3 is the best Phase 3 matchup for mutual wins (2/5) because Gemini
+opponents propose proactively in barter. Self-awareness shifts
+non-monotonically (Δ: 1.8 → 2.0 → 1.0) as each mechanic reshapes who
+agrees with the observer.*

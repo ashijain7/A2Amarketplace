@@ -2366,7 +2366,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.5172,
+  "reward": 0.5119,
   "id": 2,
   "metadata": {
     "task_id": "a1_p2_focal_O_vs_G_set_03_focal-Marcus_seed42",
@@ -2460,7 +2460,7 @@
       "combined": 0.3333333333333333
     },
     "swap_quality": null,
-    "final_reward": 0.5172
+    "final_reward": 0.5119
   },
   "channel_events": [
     {

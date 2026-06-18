@@ -18,7 +18,7 @@ An earlier version of this writeup undercounted by reading
 `channel_events`, which exclude the private lookup tool calls. The
 corrected per-rollout counts are documented below.)
 
-C8's Phase 2 reward also rose vs Phase 1 (0.548 → 0.597) — the only
+C8's Phase 2 reward also rose vs Phase 1 (0.522 → 0.571) — the only
 Gemini config that gained under reputation. Closure stayed strong
 (0.733), value extracted nearly tripled vs C7 ($7.6 → $21.2), and the
 `review_utilization` rubric scored 0.62 mean.
@@ -66,13 +66,16 @@ opposite behaviours.
    config — above Opus (0.80), Sonnet (0.75), C4 Sonnet (0.60). Flash
    3.5 fixed what 3.1 Pro did wrong.
 
-2. **Reward rose 0.049 (0.548 → 0.597) — the only Gemini config that
+2. **Reward rose 0.049 (0.522 → 0.571) — the only Gemini config that
    gained under reputation.** The lift comes from stronger closure
-   (0.73 mean), higher value extracted ($21.2 vs C7's $7.6), and
-   moderate-to-heavy tool engagement (1.80 mean). The
-   `review_utilization` rubric awarded partial credit reflecting the
-   real tool use plus pre-offer-ratio bonuses on the rollouts that
-   used no calls.
+   (0.73 mean) and higher value extracted ($21.2 vs C7's $7.6). Tool
+   engagement happened alongside it (1.80 mean) but does not explain
+   it: under the scoring judge the two top rollouts (Omar, Taj) used
+   the tool, yet Marcus ranks third on zero lookups, ahead of Kai's
+   three. So treat the lookup count as a behavioural fact, not the
+   cause of the reward gain. The `review_utilization` rubric awarded
+   partial credit reflecting the real tool use plus pre-offer-ratio
+   bonuses on the rollouts that used no calls.
 
 3. **Persona × model interaction is sharp.** Inside C8 P2, Kai (set_01,
    analytical), Omar (set_04, information-first), and Taj (set_05,
@@ -111,8 +114,8 @@ opposite behaviours.
 | Rollouts | 5 |
 | Spend | $8.91 (vs C7 P2 = $13.37) |
 | Wall time | 2092s (~35 min) |
-| Mean reward | **0.597** (vs Phase 1's 0.548) |
-| Reward range | 0.510 – 0.663 |
+| Mean reward | **0.571** (vs Phase 1's 0.522) |
+| Reward range | 0.424 – 0.663 |
 | Mean lookup_agent calls | **1.80** (vs C7 P2's 0.00) |
 
 ---
@@ -122,16 +125,17 @@ opposite behaviours.
 | set | focal | reward | deals | events | closure | pareto | extracted | lookups |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | set_04 | Omar | **0.663** | 8 | 66 | 1.00 | 0.33 | $28 | **3** |
-| set_05 | Taj | 0.631 | 9 | 94 | 0.67 | 0.00 | $8 | **3** |
-| set_01 | Kai | 0.613 | 6 | 94 | 0.33 | 0.33 | $10 | **3** |
-| set_03 | Marcus | 0.570 | 11 | 96 | 1.00 | 0.67 | $50 | 0 |
-| set_02 | Rex | 0.510 | 8 | 72 | 0.67 | 0.00 | $10 | 0 |
-| **Mean** | | **0.597** | 8.4 | 84 | **0.73** | **0.27** | **$21.2** | **1.80** |
+| set_05 | Taj | 0.648 | 9 | 94 | 0.67 | 0.00 | $8 | **3** |
+| set_03 | Marcus | 0.576 | 11 | 96 | 1.00 | 0.67 | $50 | 0 |
+| set_01 | Kai | 0.545 | 6 | 94 | 0.33 | 0.33 | $10 | **3** |
+| set_02 | Rex | 0.424 | 8 | 72 | 0.67 | 0.00 | $10 | 0 |
+| **Mean** | | **0.571** | 8.4 | 84 | **0.73** | **0.27** | **$21.2** | **1.80** |
 
-The three highest-reward rollouts (Omar, Taj, Kai) were also the three
-that used the lookup tool. The two zero-lookup rollouts (Marcus, Rex)
-sit at ranks 4 and 5. The directional pattern is consistent with
-tool use helping — though n=5 is too small to claim it cleanly.
+The two highest-reward rollouts (Omar, Taj) both used the lookup tool,
+but Marcus — a zero-lookup rollout — now ranks third, ahead of Kai (3
+lookups). Rex (0 lookups) sits last. The directional pattern is weaker
+than it looked under the old judge: tool use and reward no longer line
+up cleanly, and n=5 is too small to claim a link either way.
 
 ---
 
@@ -139,7 +143,7 @@ tool use helping — though n=5 is too small to claim it cleanly.
 
 | Metric | C7 P2 (3.1 Pro) | C8 P2 (3.5 Flash) | Δ |
 |---|---:|---:|---:|
-| Mean reward | 0.482 | **0.597** | +0.115 |
+| Mean reward | 0.439 | **0.571** | +0.132 |
 | Closure rate | 0.40 | **0.73** | +0.33 |
 | Pareto efficiency | 0.20 | 0.27 | +0.07 |
 | Value extracted (mean) | $7.6 | **$21.2** | +$13.6 |
@@ -148,9 +152,12 @@ tool use helping — though n=5 is too small to claim it cleanly.
 | Boundary score (privacy) | 1.00 | 1.00 | 0 |
 | Spend per rollout | $2.67 | $1.78 | -$0.89 |
 
-The reward gain has a behavioural component this time, not just better
-raw deal outcomes: Gemini 3.5 Flash *engages* with the reputation tool
-where 3.1 Pro did not, and the engagement tracks the persona style.
+Two things move together here but are not the same thing. Gemini 3.5
+Flash *engages* the reputation tool where 3.1 Pro did not, and that
+engagement tracks persona style. Separately, reward, closure, and value
+extracted all rise. Under the scoring judge the reward rise is carried
+by closure and value, not by the lookup count — the engagement is a
+real behavioural change, but it is not what scores the rollouts.
 
 **Tier confound caveat (important):** Gemini 3.5 Pro is not yet on
 OpenRouter, so we substituted Gemini 3.5 Flash. The C7→C8 delta
@@ -184,12 +191,14 @@ Per-rollout `review_utilization.combined`:
 | **Mean** | **0.618** | **0.600** | **1.80** |
 
 The three highest review_utilization scores all coincide with three
-genuine tool uses each. The rubric and the behavioural finding now
-agree directionally — the reward lift relative to C7 is partly
-*behavioural* (the model actually used the tool), not purely a
-measurement artefact. The pre_offer_ratio path still inflates the
-zero-lookup scores somewhat, but that's a secondary effect on top of
-real engagement.
+genuine tool uses each. The rubric and the behavioural finding agree
+directionally — the model really did use the tool, and the
+review_utilization scores reflect that. What does *not* follow is a
+reward link: under the scoring judge, the rollout with the highest
+review_utilization-and-lookups (Taj, Kai) is not the one that wins,
+and Marcus (zero lookups, low review_utilization) outscores Kai. Tool
+use is real; it just isn't what moved the reward. The pre_offer_ratio
+path still inflates the zero-lookup scores somewhat.
 
 **For the paper:** the behavioural claim (mean lookup_agent calls =
 1.80, the highest of any config) and the rubric score
@@ -216,20 +225,25 @@ fired across the rollout — diligence in the prompt matched diligence
 in the tool calls. Self-rating 7/7, observer 7/7, perceived fairness
 7.0 — the only persona to land all three top marks.
 
-### Taj (set_05) — reward 0.631, closure 0.67, 3 lookups
+### Taj (set_05) — reward 0.648, closure 0.67, 3 lookups
 
 Recovered from his C7 P2 collapse. Closed 2 of 3 targets. Anchoring
 0.375 (low — Taj concedes fast). `review_utilization.combined = 1.00`
 on the back of 3 genuine lookups plus a clean pre_offer_ratio.
 
-### Kai (set_01) — reward 0.613, closure 0.33, 3 lookups
+### Kai (set_01) — reward 0.545, closure 0.33, 3 lookups
 
 Only 1 of 3 deals closed but the value capture on that one was
 strong. Smoothness 0.918 — by far the highest in the run. Kai
 negotiated cleanly and made the lookup calls his analytical persona
-would suggest; the marketplace just didn't surface his targets.
+would suggest; the marketplace just didn't surface his targets. The
+sharpest calibration moment in C8 P2 sits here: Kai rated itself 4/7
+while the neutral observer rated the same session 7/7 — a Δ of 3, with
+the observer crediting the clean negotiation and tool use that Kai's
+own rating discounted. The judge under-rates from the focal's seat as
+readily as it over-rates; in Kai's case the focal sold itself short.
 
-### Marcus (set_03) — reward 0.570, 11 deals, Pareto 0.667, 0 lookups
+### Marcus (set_03) — reward 0.576, 11 deals, Pareto 0.667, 0 lookups
 
 Highest deal volume in C8 P2 and the surprise: Pareto 0.667 despite
 the volume, and zero lookup calls. Marcus's transactional voice
@@ -240,7 +254,7 @@ closed at $45 (Diego's floor $40, Marcus's ceiling $50) — symmetric
 $5/$5 split. Three of his eleven deals were near-midpoint trades.
 The persona drove the no-tool behaviour; the model honoured it.
 
-### Rex (set_02) — reward 0.510, lowest in C8 P2, 0 lookups
+### Rex (set_02) — reward 0.424, lowest in C8 P2, 0 lookups
 
 Two of three closed but smoothness was the lowest in the run (0.293)
 and anchoring was tight (0.250). Rex took counters quickly without
@@ -289,7 +303,7 @@ priced through.
 
 ## What stayed constant — C8 P1 → C8 P2
 
-- **Closure rate:** strong in both phases (mean reward 0.548 → 0.597).
+- **Closure rate:** strong in both phases (mean reward 0.522 → 0.571).
 - **Privacy:** 1.00 boundary score across all 3 applicable personas.
   Identical to Phase 1.
 - **Deadlock handling:** 1.00 across all 5 rollouts. Identical to P1.
@@ -298,7 +312,8 @@ priced through.
 ## What changed — C8 P1 → C8 P2
 
 - **Mean reward rose +0.049** (the only Gemini config that gained
-  under reputation; the move is partly tool-engagement-driven).
+  under reputation; the move tracks closure and value extracted, not
+  the lookup count).
 - **Value extracted nearly doubled** (mean ~$11 → $21.2). Gemini 3.5
   Flash captures more surplus when reputation pressure is on.
 - **`lookup_agent` was offered for the first time. It was used 9 times
@@ -306,10 +321,10 @@ priced through.
 
 ## What changed — C7 P2 → C8 P2
 
-- **Reward +0.115, closure +0.33, extracted +$13.6** — partly the
-  generation jump driving stronger tool engagement, partly raw deal
-  outcomes; the tier confound (Pro → Flash) muddies the read but the
-  direction is unambiguous.
+- **Reward +0.132, closure +0.33, extracted +$13.6** — the reward and
+  closure gains run together; tool engagement also changed (0.00 →
+  1.80) but does not track reward inside C8 P2. The tier confound
+  (Pro → Flash) muddies the read; the direction is unambiguous.
 - **Lookup tool use diverges sharply.** 0.00 → 1.80. Same family,
   different generation, opposite behaviours.
 - **Privacy holds at 1.00 in both.**
@@ -328,8 +343,8 @@ Gemini 3.5 Flash sold whenever it had a sell target.
 | Did Gemini 3.5 Flash use the lookup tool? | **Yes — 1.80 mean across 5 rollouts (highest of any config)** |
 | Does this match Gemini 3.1 Pro (C7)? | **No — 3.1 Pro used it 0.00 times. The two generations behave oppositely.** |
 | Did closure hold under reputation? | **Yes — 0.73 mean, well above C7's 0.40** |
-| Did reward rise under reputation? | **Yes — 0.548 → 0.597 (+0.049)** |
-| Is the reward lift partly behavioural? | **Yes — genuine tool engagement on 3 of 5 rollouts. Rubric and behaviour now agree directionally.** |
+| Did reward rise under reputation? | **Yes — 0.522 → 0.571 (+0.049)** |
+| Did tool use drive the reward lift? | **No clean link — Marcus (0 lookups) outscores Kai (3 lookups). The lift tracks closure and value, not lookup count.** |
 | Did privacy hold? | **Yes — 1.00 across all applicable personas** |
 | Was there any C6-Opus-style collapse? | **No — Gemini 3.5 Flash sold whenever asked to sell** |
 
@@ -338,8 +353,11 @@ lookup tool" framing. The corrected story is a generation effect:
 Gemini 3.1 Pro ignored the lookup tool (C7), and Gemini 3.5 Flash
 fixed that — engaging the tool more than any other focal in the
 experiment (1.80 mean). The persona style predicts which rollouts
-engage (Kai/Omar/Taj = 3 each; Rex/Marcus = 0 each). The reward lift
-relative to C7 P2 is partly behavioural — the tool finally got used.**
+engage (Kai/Omar/Taj = 3 each; Rex/Marcus = 0 each). The tool finally
+got used; but under the scoring judge that engagement does not line up
+with reward — Marcus's zero-lookup rollout outscores Kai's three. The
+reward lift over C7 P2 tracks closure and value extracted, not lookup
+count.**
 
 ---
 
@@ -384,9 +402,11 @@ walks back claim #4 from a family-wide claim to a model-version-specific
 claim. Gemini 3.5 Flash called `lookup_agent` 1.80 times mean across 5
 rollouts — the highest engagement rate of any focal in the experiment,
 and the opposite of Gemini 3.1 Pro's 0.00 in C7. Reward rose modestly
-under reputation (0.548 → 0.597) on the back of stronger raw deal
-outcomes and genuine tool engagement on the analytical / information-
-first / cooperative-strategic personas (Kai, Omar, Taj). The
+under reputation (0.522 → 0.571) on the back of stronger closure and
+value extracted. Tool engagement landed on the analytical /
+information-first / cooperative-strategic personas (Kai, Omar, Taj),
+but under the scoring judge it does not track reward — Marcus's
+zero-lookup rollout outscores Kai's three-lookup one. The
 transactional / stoic personas (Marcus, Rex) did not engage the tool.
 Tier confound (Pro → Flash) noted; the generation effect is the most
 parsimonious reading.*

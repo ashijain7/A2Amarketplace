@@ -67,16 +67,6 @@
     }
   ],
   "balances": {
-    "Jade": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 72.0,
-        "gift": 100.0
-      }
-    },
     "Lin": {
       "start": {
         "main": 100.0,
@@ -87,27 +77,17 @@
         "gift": 100.0
       }
     },
-    "Zara": {
+    "Jade": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 100.0,
+        "main": 72.0,
         "gift": 100.0
       }
     },
-    "Rex": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Kade": {
+    "Vik": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -127,13 +107,13 @@
         "gift": 100.0
       }
     },
-    "Duke": {
+    "Nola": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 100.0,
+        "main": 135.0,
         "gift": 100.0
       }
     },
@@ -147,17 +127,37 @@
         "gift": 100.0
       }
     },
-    "Nola": {
+    "Kade": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 135.0,
+        "main": 100.0,
         "gift": 100.0
       }
     },
-    "Vik": {
+    "Duke": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Rex": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Zara": {
       "start": {
         "main": 100.0,
         "gift": 100.0

@@ -2319,7 +2319,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.4412,
+  "reward": 0.422,
   "id": 1,
   "metadata": {
     "task_id": "a1_p2_focal_S_vs_S_set_02_focal-Rex_seed42",
@@ -2351,11 +2351,11 @@
     },
     "capability_asymmetry": {
       "self_rating": 7.0,
-      "observer_rating": 7.0,
-      "perceived_fairness": 7.0,
-      "self_observer_delta": 0.0,
+      "observer_rating": 5.0,
+      "perceived_fairness": 6.0,
+      "self_observer_delta": 2.0,
       "focal_value_extracted": 10.0,
-      "combined": 0.7
+      "combined": 0.6428571428571428
     },
     "negotiation_quality": {
       "anchoring": 0.3125,
@@ -2411,7 +2411,7 @@
       "combined": 0.3333333333333333
     },
     "swap_quality": null,
-    "final_reward": 0.4412
+    "final_reward": 0.422
   },
   "channel_events": [
     {

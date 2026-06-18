@@ -38,7 +38,7 @@ many buyers. C7 Gemini used it zero times and got penalised by the rubric.
 
 ## The 5 things that matter most
 
-1. **Reward dropped 0.105 (0.587 → 0.482)** — same monotonic decline seen
+1. **Reward dropped 0.114 (0.553 → 0.439)** — same monotonic decline seen
    in C6 but for the opposite reason. Opus over-used the tool and filtered
    too aggressively. Gemini ignored the tool entirely. Both failed Phase 2.
 
@@ -74,8 +74,8 @@ many buyers. C7 Gemini used it zero times and got penalised by the rubric.
 | New tool | `lookup_agent` — free silent lookup of review history |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.482** (vs Phase 1's 0.587) |
-| Reward range | 0.407 – 0.536 |
+| Mean reward | **0.439** (vs Phase 1's 0.553) |
+| Reward range | 0.295 – 0.536 |
 
 ---
 
@@ -104,14 +104,14 @@ Gemini couldn't close.
 
 | Persona | Phase 1 | Phase 2 | Change |
 |---|---|---|---|
-| Kai | 0.504 | **0.407** | −0.097 |
-| Rex | 0.524 | 0.472 | −0.052 |
-| Marcus | 0.536 | **0.527** | −0.009 (held) |
+| Kai | 0.456 | **0.295** | −0.161 |
+| Rex | 0.404 | 0.359 | −0.045 |
+| Marcus | 0.536 | **0.533** | −0.003 (held) |
 | Omar | 0.635 | **0.536** | −0.099 |
 | Taj | **0.736** | 0.470 | **−0.266** |
-| **Mean** | **0.587** | **0.482** | **−0.105** |
+| **Mean** | **0.553** | **0.439** | **−0.114** |
 
-**Marcus held nearly perfectly (−0.009).** His speaker sale to Isla at $35
+**Marcus held nearly perfectly (−0.003).** His speaker sale to Isla at $35
 happened at turn 17 — before any reputation dynamics kicked in. His one
 successful deal was identical to Phase 1.
 
@@ -161,24 +161,29 @@ is a major drag on the mean reward.
 
 ---
 
-## Self-awareness — improved from Phase 1
+## Self-awareness — regressed from Phase 1
 
 | Persona | Self | Observer | Δ | vs Phase 1 |
 |---|---|---|---|---|
-| Kai | 3 | 4 | 1 | improved from 3 |
-| Rex | 5 | 5 | **0** | improved |
-| Marcus | 7 | 6 | 1 | held |
+| Kai | 1 | 5 | **4** | regressed from 1 |
+| Rex | 3 | 4 | 1 | improved from 3 |
+| Marcus | 7 | 7 | **0** | held |
 | Omar | 7 | 6 | 1 | slight regression |
 | Taj | 7 | 7 | **0** | improved |
-| **Mean Δ** | | | **0.6** | improved from 1.0 |
+| **Mean Δ** | | | **1.2** | up from 1.0 |
 
-Kai's Δ = 3 from Phase 1 tightened to Δ = 1 in Phase 2. When Kai closed
-zero deals in Phase 2 (vs 1 in Phase 1), his self-rating adjusted down to
-3/7 — closer to the observer's 4/7. Total failure is easier to be accurate
-about than partial failure with a ceiling-paid buy.
+Kai's Δ widened to 4 in Phase 2 — the largest gap in this phase. When Kai
+closed zero deals, his self-rating crashed to 1/7 ("total failure") while
+the observer still saw 5/7 worth of engagement. Total-failure self-ratings
+overshoot when the observer credits the attempt.
 
-Mean Δ = 0.6 — same as C1 and C4 Phase 2. Self-awareness improved under
-reputation even without using the lookup tool.
+This is the opposite direction from Phase 1's Rex (who over-rated a weak
+session). Across the two phases Gemini's gaps run both ways — over-rating
+zero-surplus closes and under-rating partial-effort sessions. The error is
+not a consistent optimism bias; it is noise in both directions.
+
+Mean Δ = 1.2 — worse than Phase 1's 1.0. Self-awareness did not improve
+under reputation; the gap widened, driven by Kai's zero-deal undershoot.
 
 ---
 

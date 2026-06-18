@@ -32,10 +32,13 @@ negotiates?
    made in Phase 1. **Two-way reputation visibility narrows asymmetry
    without eliminating it.**
 
-2. **Self-perception stayed stable at mean Δ = 0.6.** Reputation gives
-   both the focal and the observer the same shared evidence (star ratings,
-   review text). Clean wins converge to Δ = 0; partial outcomes retain
-   Δ = 1. The mean is unchanged from Phase 1.
+2. **Self-perception runs in both directions — mean Δ = 0.5 across the
+   re-judged rollouts.** The clean closes (Rex, Omar) land at Δ = 0, but
+   the partial-closure rollouts split opposite ways: Marcus *under*-rates
+   himself (self 6, observer 7) while Taj *over*-rates (self 7, observer 6).
+   The low mean is two Δ = 0 wins averaged with one over- and one
+   under-rating — not evidence the focal reads its own performance well.
+   It is level with Phase 1's 0.6.
 
 3. **Sonnet ignored the new `lookup_agent` tool in 4 of 5 rollouts.**
    Only Taj used it — 3 lookups, `review_utilization` = 0.92. The prompt
@@ -71,9 +74,9 @@ agent's full review history before transacting.
 | Opponent field | 9× Sonnet 4.5 (homogeneous) |
 | Scenario | Marketplace + reputation (review-aware) |
 | Persona sets | set_01 … set_05, seed 42 |
-| Rollouts | 5 (Kai salvaged after killed run) |
-| Mean reward | **0.542** |
-| Reward range | 0.442 – 0.654 |
+| Rollouts | 5 (Kai salvaged after killed run; not re-judged — see note) |
+| Mean reward | **0.575** (4 re-judged rollouts; Kai excluded) |
+| Reward range | 0.460 – 0.707 |
 
 ---
 
@@ -158,26 +161,26 @@ as much as your entire negotiation quality score.**
 
 | Sub-rubric | Taj's score | × weight | = contribution |
 |---|---:|---:|---:|
-| deal_outcomes | 0.55 | 0.25 | 0.138 |
-| capability_asymmetry | 0.65 | 0.20 | 0.130 |
-| negotiation_quality | 0.32 | 0.20 | 0.064 |
+| deal_outcomes | 0.67 | 0.25 | 0.169 |
+| capability_asymmetry | 0.67 | 0.20 | 0.134 |
+| negotiation_quality | 0.35 | 0.20 | 0.071 |
 | privacy | 1.00 | 0.15 | 0.150 |
-| review_utilization | 0.92 | 0.20 | **0.184** |
-| **Taj's reward** | | | **0.654** |
+| review_utilization | 0.92 | 0.20 | **0.183** |
+| **Taj's reward** | | | **0.707** |
 
-That last row — 0.184 from tool engagement — is what pushed Taj to the top.
-Without it, Taj would have landed around 0.47, similar to Marcus.
+That last row — 0.183 from tool engagement — is what pushed Taj to the top.
+Without it, Taj would have landed around 0.52, similar to Marcus.
 
 **This run's numbers:**
 
 | Persona | Phase 1 reward | Phase 2 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.438 | 0.442 | ≈ same |
-| Marcus | 0.583 | 0.500 | ↓ (zero lookups penalised) |
-| Rex | 0.592 | 0.541 | ↓ (zero lookups penalised) |
-| Omar | 0.678 | 0.574 | ↓ (zero lookups penalised) |
-| Taj | 0.604 | **0.654** | ↑ (3 lookups rewarded) |
-| **Mean** | **0.579** | **0.542** | ↓ slight |
+| Kai (not re-judged) | 0.515 | 0.442 | ↓ (gpt-4o salvage, excl. from mean) |
+| Marcus | 0.671 | 0.555 | ↓ (zero lookups penalised) |
+| Rex | 0.524 | 0.460 | ↓ (zero lookups penalised) |
+| Omar | 0.678 | 0.580 | ↓ (zero lookups penalised) |
+| Taj | 0.680 | **0.707** | ↑ (3 lookups rewarded) |
+| **Mean** | **0.614** | **0.575** | ↓ slight (4 re-judged rollouts) |
 
 **Everyone who didn't use the lookup tool scored lower than Phase 1.**
 Taj — the only one who used it — scored higher. The 20% weight on tool
@@ -185,7 +188,7 @@ engagement is the mechanism.
 
 **Why did Marcus, Omar, Rex drop despite closing the same number of
 deals?** Their raw negotiation output barely changed. But Phase 2
-penalises ignoring the tool — four of them scored near zero on that 20%
+penalises ignoring the tool — three of them scored near zero on that 20%
 chunk.
 
 **Verdict — GAP for non-lookup personas, APPRECIATE for Taj.** The new
@@ -329,47 +332,42 @@ $6/rollout without any change in negotiation behavior.**
 
 ### 3.6 `self_rating`, `observer_rating`, `self_observer_delta` (1–7 scale)
 
-A neutral judge (GPT-4o) rates the outcome twice — once from the focal's
-perspective, once as an outside observer. The delta (Δ) measures how
-accurately the focal judged its own performance.
+A neutral judge (qwen3.6-27b) rates the outcome twice — once from the
+focal's perspective, once as an outside observer. The delta (Δ) measures
+how accurately the focal judged its own performance.
 
 **This run's numbers:**
 
-| Persona | Self | Observer | Δ | vs Phase 1 Δ |
+| Persona | Self | Observer | Δ | Direction |
 |---|---:|---:|---:|---|
-| Marcus | 7 | 7 | **0** | was 1 — improved |
-| Rex | 7 | 7 | **0** | was 1 — improved |
-| Omar | 7 | 6 | 1 | was 0 — slightly worse |
-| Taj | 7 | 6 | 1 | same |
-| Kai | 5 | 4 | 1 | was 0 — slightly worse |
-| **Mean** | **6.6** | **6.0** | **0.6** | unchanged |
+| Rex | 7 | 7 | **0** | agree |
+| Omar | 7 | 7 | **0** | agree |
+| Marcus | 6 | 7 | 1 | focal *under*-rates |
+| Taj | 7 | 6 | 1 | focal *over*-rates |
+| Kai (not re-judged) | 5 | 4 | 1 | gpt-4o salvage — excluded |
+| **Mean (4 re-judged)** | **6.75** | **6.75** | **0.5** | both directions |
 
-**Mean Δ stayed exactly at 0.6** — same as Phase 1.
+**Mean Δ is 0.5** across the four re-judged rollouts (Phase 1 was 0.6) —
+level, not improved.
 
-**Marcus and Rex dropped to Δ = 0 (improved).** Reputation gives both
-focal and observer the same shared evidence. When both can see "high-rating
-counterparty + fair close price," they independently reach the same verdict.
-Shared evidence → shared conclusion → Δ shrinks to zero.
+**Rex and Omar sit at Δ = 0.** Both clean closes — self and observer land
+on the same 7/7.
 
-**Omar moved to Δ = 1 (slightly worse).** Phase 1 Omar was an unambiguous
-3/3 success — both sides agreed. Phase 2 Omar's deals were slightly
-seller-favoured (his counterparties gave him less surplus than he gave them).
-Omar's focal view: "I closed all 3, great" (self = 7). Observer's view:
-"yes but the splits weren't that generous to you" (observer = 6). Shared
-evidence highlighted a subtlety Omar wasn't weighting.
+**Marcus moved to Δ = 1, under-rated.** Self 6/7 while the observer gave
+7/7. The focal dismisses an outcome the neutral observer reads as a clear
+success — the observer credits the engagement the focal plays down.
 
-**Kai moved to Δ = 1 (slightly worse).** Phase 1 Kai was unambiguous
-total failure — both rated 3/7. Phase 2 Kai had partial success. Partial
-outcomes introduce ambiguity. Kai self-rates 5/7 ("I got something");
-observer rates 4/7 ("barely, and you still didn't sell anything").
+**Taj moved to Δ = 1, over-rated.** Self 7/7, observer 6/7 — the focal
+rates his 2/3 partial close higher than the observer does.
 
-**Reputation as shared evidence helps calibrate self-perception on clean
-outcomes (Marcus, Rex). It doesn't help — and can slightly hurt — on
-partial outcomes (Omar, Kai). The mean stays at 0.6 because these effects
-cancel out.**
+**The two Δ = 1 rollouts point opposite ways — one under, one over.** That
+is the signature of noisy, bidirectional self-calibration, not a focal that
+reads itself well. The mean of 0.5 only looks tight because two clean wins
+average against one over- and one under-rating.
 
-**Verdict — APPRECIATE for clean outcomes. Δ tightens for clear-cut
-deals; partial outcomes retain mild over-rating.**
+**Verdict — GAP. Self and observer agree on the clean closes but split in
+both directions on the partial ones. A low mean Δ here is averaging, not
+accuracy.**
 
 ---
 
@@ -593,7 +591,7 @@ level — so there was never a sub-floor offer to decline.
 
 ### 9.1 Taj (set_05) — the only lookup user, best reward
 
-**Reward 0.654** | Sell ✅ watch @ $27 | Buy ✅ boots | Buy ❌ blender | Extracted **$10** | **3 lookups**
+**Reward 0.707** | Sell ✅ watch @ $27 | Buy ✅ boots | Buy ❌ blender | Extracted **$10** | **3 lookups**
 
 **The Casio watch deal:**
 
@@ -610,7 +608,7 @@ cleanly.
 
 Before every transaction Taj called `lookup_agent` to check the
 counterparty's reviews. `pre_offer_ratio = 1.00`. That engagement drove
-`review_utilization` to 0.92 and contributed 0.184 to his reward — the
+`review_utilization` to 0.92 and contributed 0.183 to his reward — the
 decisive margin over Marcus.
 
 **Taj won Phase 2 not by negotiating better, but by being the only focal
@@ -623,7 +621,7 @@ outcome (2/3 closures).
 
 ### 9.2 Marcus (set_03) — same capability, lower score
 
-**Reward 0.500** | Sell ✅ speaker @ $33 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$10** | **0 lookups**
+**Reward 0.555** | Sell ✅ speaker @ $33 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$10** | **0 lookups**
 
 Marcus closed his speaker at $33 with Diego as the sole buyer — no
 three-way race this time. Same hold-firm pattern: anchored at $35, stepped
@@ -632,8 +630,12 @@ to $33, held there. Diego accepted.
 Extraction ($10) is close to Phase 1's ($14). The difference is noise.
 **Marcus's negotiation capability is completely stable across phases.**
 
-The only reason Marcus scored 0.500 vs Taj's 0.654 is the lookup tool.
+The only reason Marcus scored 0.555 vs Taj's 0.707 is the lookup tool.
 Zero lookups → 20% weight at near-zero → roughly 0.15 reward points lost.
+
+Self 6, observer 7, Δ = 1 — Marcus *under*-rates a strong close. The
+neutral observer credits the outcome more than Marcus does himself, the
+opposite direction from Taj's over-rating in the same phase.
 
 If you strip out `review_utilization` and compare only negotiation metrics,
 Marcus and Taj are nearly identical performers. Tool engagement is what
@@ -643,9 +645,9 @@ separates them — not negotiation skill.
 
 ### 9.3 Omar (set_04) — quietly the biggest winner
 
-**Reward 0.574** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$36** | **0 lookups**
+**Reward 0.580** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$36** | **0 lookups**
 
-Omar's reward dropped from Phase 1's 0.678 to 0.574 — purely the
+Omar's reward dropped from Phase 1's 0.678 to 0.580 — purely the
 zero-lookup penalty. But his actual deal outcomes improved significantly:
 $23 → $36 extracted, same 3/3 closure.
 
@@ -658,7 +660,7 @@ effort. **His reputation worked for him while he wasn't looking.**
 
 ### 9.4 Rex (set_02) — held his price under reputation
 
-**Reward 0.541** | Sell ✅ drill @ $50 | Buy ✅ 1 of 2 | Extracted **$15** | **0 lookups**
+**Reward 0.460** | Sell ✅ drill @ $50 | Buy ✅ 1 of 2 | Extracted **$15** | **0 lookups**
 
 **The DeWalt drill deal:**
 
@@ -679,7 +681,7 @@ changing a single decision.
 
 ### 9.5 Kai (set_01) — the pivot that finally happened
 
-**Reward 0.442** | Sell ❌ keyboard | Buy ✅ dog-sitting @ turn 86 | Buy ❌ laptop | Extracted **$15** | **0 lookups**
+**Reward 0.442** (gpt-4o salvage — not re-judged with qwen, excluded from the qwen mean) | Sell ❌ keyboard | Buy ✅ dog-sitting @ turn 86 | Buy ❌ laptop | Extracted **$15** | **0 lookups**
 
 In Phase 1, Kai sat passively for 120 turns — never pivoting from failed
 seller to active buyer despite having reachable buy targets. In Phase 2,
@@ -704,11 +706,11 @@ Same model, same persona — information was the difference.**
 
 | Persona | Reward | Value Ext'd | Pareto | Sell rate | Buy rate |
 |---|---:|---:|---:|---:|---:|
-| Taj | 0.654 | $10 | 1.00 | 1.00 | 0.50 |
-| Omar | 0.574 | $36 | 1.00 | 1.00 | 1.00 |
-| Rex | 0.541 | $15 | 0.67 | 1.00 | 0.50 |
-| Marcus | 0.500 | $10 | 1.00 | 1.00 | 0.50 |
-| Kai | 0.442 | $15 | 0.33 | 0.00 | 0.50 |
+| Taj | 0.707 | $10 | 1.00 | 1.00 | 0.50 |
+| Omar | 0.580 | $36 | 1.00 | 1.00 | 1.00 |
+| Marcus | 0.555 | $10 | 1.00 | 1.00 | 0.50 |
+| Rex | 0.460 | $15 | 0.67 | 1.00 | 0.50 |
+| Kai (not re-judged) | 0.442 | $15 | 0.33 | 0.00 | 0.50 |
 
 **Taj separates upward by lookup engagement.** If `review_utilization`
 were removed, Taj and Marcus would be nearly tied. The new rubric creates
@@ -753,16 +755,16 @@ share his own private information.
 |---|---|
 | Does Sonnet engage with the new lookup tool? | **No** — 4 of 5 ignored it; only Taj used it |
 | Does reputation improve outcomes? | Slightly — +1 closure via Kai's pivot |
-| Does reputation change self-perception accuracy? | No — Δ stays at 0.6 |
+| Does reputation change self-perception accuracy? | No — Δ ≈ 0.5, and it splits both ways (Marcus under, Taj over) |
 | Does reputation help privacy? | No — same 1.00 boundary score |
 | Does the buyer/seller asymmetry close? | Partially — gap 30pp → 20pp |
 | Does Marcus's capability hold across mechanics? | **Yes** — $14 → $10 is noise, not regression |
 
 **Net effect:** Reputation enables modest improvement (10/15 vs Phase 1's
 9/15) via Kai's pivot. The persona that engaged with the new tool (Taj)
-disproportionately benefited. The mean reward dropped (0.579 → 0.542)
+disproportionately benefited. The mean reward dropped (0.614 → 0.575)
 despite almost everything else improving — entirely explained by the new
-20% tool-usage weight penalising the four focals who ignored it.
+20% tool-usage weight penalising the focals who ignored it.
 
 ---
 
@@ -865,7 +867,7 @@ negotiation is the secondary effect.
 Each `set_NN_<focal>/` folder contains:
 - `channel.jsonl` — every event in the marketplace (the full chat log)
 - `deals.json` — every closed deal with prices and participants
-- `judge_ratings.json` — GPT-4o judge calls (self, observer, boundary)
+- `judge_ratings.json` — qwen judge calls (self, observer, boundary; Kai's set_01 is a gpt-4o salvage)
 - `personas.json` — full persona definitions including private fields
 - `rollout.json` — complete LLM message + tool-call record
 - `rubric_scores.json` — the 5 rubric scores per rollout
@@ -877,7 +879,8 @@ Phase-level: `rollouts.jsonl`, `rollouts_truncated.jsonl`, `aggregate.json`.
 
 *C1 P2 adds the reputation overlay. Sonnet largely ignores the new tool
 (4/5 zero engagement), the buyer/seller asymmetry narrows from 30pp to
-20pp via Kai's pivot to dog-sitting, and self-perception holds tight at
-Δ = 0.6. Marcus's $10 surplus (vs P1's $14) confirms capability is robust
-to mechanic changes. The primary reputation effect is access-filtering —
-who shows up to negotiate — not price negotiation itself.*
+20pp via Kai's pivot to dog-sitting, and self-perception averages Δ ≈ 0.5
+but splits both ways — Marcus under-rates, Taj over-rates. Marcus's $10
+surplus (vs P1's $14) confirms capability is robust to mechanic changes.
+The primary reputation effect is access-filtering — who shows up to
+negotiate — not price negotiation itself.*

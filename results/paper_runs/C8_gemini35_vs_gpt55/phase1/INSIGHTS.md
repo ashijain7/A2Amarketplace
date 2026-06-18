@@ -27,7 +27,7 @@ closure and Pareto, and burns a lot of turns on passive "pass" actions.**
 
 | Metric | C7 (Gemini 3.1 Pro) | C8 (Gemini 3.5 Flash) |
 |---|---:|---:|
-| Mean reward | 0.587 | **0.548** |
+| Mean reward | 0.553 | **0.522** |
 | Closure rate | 0.73 | **0.60** |
 | Pareto efficiency | 0.40 | **0.13** |
 | Value extracted (mean) | $13.6 | $12.6 |
@@ -73,7 +73,8 @@ focal's exact ceiling price.
    private personas (Marcus, Omar, Taj) there were zero leaks. Deadlock
    handling scored 1.00 in all 5 rollouts. Whatever else Flash gives up,
    it does not give up the instruction-following on privacy or on closing
-   out unresolvable threads cleanly.
+   out unresolvable threads cleanly. Note these two are rule-based, not
+   judge-scored — they do not move with the scoring model.
 
 ---
 
@@ -86,8 +87,8 @@ focal's exact ceiling price.
 | Scenario | Marketplace (money trades, no reputation features) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.548** |
-| Reward range | 0.528 – 0.586 |
+| Mean reward | **0.522** |
+| Reward range | 0.428 – 0.579 |
 
 ---
 
@@ -95,16 +96,16 @@ focal's exact ceiling price.
 
 | Set | Focal | Reward | Deals (room) | Events |
 |---|---|---:|---:|---:|
-| set_01 | Kai | 0.541 | 8 | 100 |
-| set_02 | Rex | 0.528 | 7 | 68 |
-| set_03 | Marcus | 0.555 | 11 | 98 |
-| set_04 | Omar | **0.586** | 6 | 66 |
-| set_05 | Taj | 0.531 | 11 | 100 |
+| set_01 | Kai | 0.491 | 8 | 100 |
+| set_02 | Rex | 0.428 | 7 | 68 |
+| set_03 | Marcus | 0.563 | 11 | 98 |
+| set_04 | Omar | **0.579** | 6 | 66 |
+| set_05 | Taj | 0.547 | 11 | 100 |
 
 The 100-event cap was hit in 3 of 5 rollouts (Kai, Marcus, Taj). Reward
-range is much tighter than C7 (0.504 – 0.736): no rollout broke through
-0.60, but none collapsed below 0.50 either. Flash is consistent and
-mediocre rather than spiky.
+range is wider than C7's lower edge but capped lower at the top (0.504 –
+0.736): no rollout broke through 0.60, and Rex dipped to 0.43. Flash is
+consistent and mediocre rather than spiky.
 
 ---
 
@@ -112,12 +113,12 @@ mediocre rather than spiky.
 
 | Persona | Reward | Closure | Norm. closure | Pareto | $ extracted | Self / Obs (Δ) | Privacy | Deadlock |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Kai     | 0.541 | 0.333 | 1.000 | 0.333 | $10 | 5 / 4 (1) | N/A   | 1.00 |
-| Rex     | 0.528 | 0.667 | 1.000 | 0.000 | $10 | 7 / 7 (0) | N/A   | 1.00 |
-| Marcus  | 0.555 | 0.667 | 1.000 | 0.000 | $7  | 7 / 6 (1) | 1.00  | 1.00 |
-| Omar    | **0.586** | 0.667 | 1.000 | 0.333 | **$28** | 7 / 6 (1) | 1.00  | 1.00 |
-| Taj     | 0.531 | 0.667 | 0.667 | 0.000 | $8  | 6 / 5 (1) | 1.00  | 1.00 |
-| **Mean**| **0.548** | **0.600** | **0.933** | **0.133** | **$12.6** | **6.4 / 5.6 (0.8)** | **1.00** | **1.00** |
+| Kai     | 0.491 | 0.333 | 1.000 | 0.333 | $10 | 7 / 7 (0) | N/A   | 1.00 |
+| Rex     | 0.428 | 0.667 | 1.000 | 0.000 | $10 | 7 / 7 (0) | N/A   | 1.00 |
+| Marcus  | 0.563 | 0.667 | 1.000 | 0.000 | $7  | 7 / 7 (0) | 1.00  | 1.00 |
+| Omar    | **0.579** | 0.667 | 1.000 | 0.333 | **$28** | 7 / 5 (2) | 1.00  | 1.00 |
+| Taj     | 0.547 | 0.667 | 0.667 | 0.000 | $8  | 7 / 6 (1) | 1.00  | 1.00 |
+| **Mean**| **0.522** | **0.600** | **0.933** | **0.133** | **$12.6** | **7.0 / 6.4 (0.6)** | **1.00** | **1.00** |
 
 A few quick definitions for first-time readers:
 - *Closure rate* — fraction of the focal's three wants (one sell, two
@@ -135,7 +136,7 @@ A few quick definitions for first-time readers:
 
 ## Per-persona breakdown
 
-### Kai (set_01) — reward 0.541, 1/3 closure, 13 idle turns
+### Kai (set_01) — reward 0.491, 1/3 closure, 13 idle turns
 
 The keyboard sell failed again (Zoe offered $35; floor $50). The speaker
 buy failed (Rosa held at $65 vs Kai's $40 ceiling — same Rosa interaction
@@ -143,11 +144,14 @@ shape as elsewhere). The dog-sitting buy closed at $30, exactly at Kai's
 ceiling. That part of the outcome looks like C7. What is new in C8 is the
 texture: between offering Zoe $30 (turn 53) and Zoe accepting (turn 68),
 Kai posted 13 consecutive `pass` events, mostly narrating the wait.
-Compared to C7 where Kai's self-rating cratered to 1/7, C8 Kai rated
-itself 5/7 and the observer gave 4/7 — Δ closed to 1. The volatile
-self-deception C7 surfaced did not repeat here.
+On the self-vs-observer rating, C8 Kai rated itself 7/7 and the observer
+agreed at 7/7 — Δ = 0 here. That tight match is a P1 fact, not a stable
+trait: the same Kai persona opens a Δ = 3 gap in Phase 2 (the observer
+rates the engagement higher than Kai rates itself). Read the Δ = 0 as
+"these two raters happened to agree on this one rollout," not as evidence
+the model knows when it did well.
 
-### Rex (set_02) — reward 0.528, 2/3 closure, two band-edge closes
+### Rex (set_02) — reward 0.428, 2/3 closure, two band-edge closes
 
 Rex sold tools at $50 — exactly the buyer's ceiling, capturing all the
 spread for himself. Then Rex turned around and bought games at $70 —
@@ -158,7 +162,7 @@ beyond the opening pushes. C7 Rex closed in the same shape ($50 tools,
 $70 games at ceiling). The structural behavior of Flash and 3.1 Pro on
 Rex's room is nearly identical, just with different per-event chatter.
 
-### Marcus (set_03) — reward 0.555, 2/3 closure, novel want dropped
+### Marcus (set_03) — reward 0.563, 2/3 closure, novel want dropped
 
 Marcus sold the speaker at $35 — which is Isla's ceiling and well above
 the $28 floor. Unlike C7, where Marcus accepted the first $35 offer
@@ -170,7 +174,7 @@ can close the deal right now." That is a direct admission of the
 band-edge behavior the metrics catch. The $12 novel want got one mention
 and was abandoned.
 
-### Omar (set_04) — reward 0.586, top scorer, $28 extracted
+### Omar (set_04) — reward 0.579, top scorer, $28 extracted
 
 Omar is C8's best rollout, the same way Taj/Omar were C7's best. Sold
 the bike at $85 (= Raj's ceiling, well above the $65 floor — $20 captured
@@ -182,7 +186,7 @@ $28 extraction is the highest of any focal in C8 and roughly matches
 C7 Omar's $21 — slightly higher, in fact, because the sell-side surplus
 is bigger.
 
-### Taj (set_05) — reward 0.531, normalized closure dropped to 0.667
+### Taj (set_05) — reward 0.547, normalized closure dropped to 0.667
 
 Taj sold the watch at $28 (= Jade's ceiling), bought boots at $45
 (= his ceiling), and missed the blender buy. Same band-edge shape as
@@ -230,17 +234,20 @@ working on the other open wants (keyboard sale, speaker buy).
 - Deadlock handling holds at 1.00 across all five rollouts.
 - Omar is the top scorer; the "good Flash / good Gemini" persona has the
   same shape (sell above floor, one Pareto-positive buy).
-- Self-perception is generally close to observer rating (mean Δ = 0.8,
-  vs C7's 1.0).
+- In this phase the self-vs-observer gap happens to be small (mean Δ =
+  0.6; three of five rollouts at Δ = 0). Do not read that as the model
+  being well-calibrated — the gap widens to ±3 in Phase 2 and ±6 in
+  Phase 3 (in both directions). P1 is the calm end of a noisy series.
 
 **Changed:**
 - Closure rate dropped from 0.73 to 0.60.
 - Pareto efficiency dropped from 0.40 to 0.13 — three personas at 0.00.
 - Normalized closure dropped from 1.00 to 0.93 (Taj missed a reachable
   deal).
-- Mean reward dropped from 0.587 to 0.548 (~7% relative).
-- Kai's self-deception gap shrank from Δ = 3 to Δ = 1 — the volatile
-  self-rating C7 surfaced does not reappear in C8.
+- Mean reward dropped from 0.553 to 0.522 (~6% relative).
+- Kai's self-vs-observer gap is Δ = 0 in C8 P1 (both 7/7). That is a
+  single-rollout agreement, not a calibration improvement — the same
+  persona runs a Δ = 3 gap in C8 P2.
 - Spend dropped from $11.65 to $7.70 (Flash is cheaper, as expected).
 - Idle/`pass` events make up a much larger fraction of focal turns,
   visible most clearly in Kai (13 consecutive passes around the
@@ -278,8 +285,8 @@ sit alongside this INSIGHTS document.
 ---
 
 *C8 P1 establishes the Gemini-3.5-Flash baseline. Same band-edge buying
-habit as C7, weaker closure (0.60), much weaker Pareto (0.13), tighter
-reward range, perfect privacy, perfect deadlock-handling, and a new
+habit as C7, weaker closure (0.60), much weaker Pareto (0.13), lower
+mean reward (0.522), perfect privacy, perfect deadlock-handling, and a new
 behavior — long idle waits where Flash narrates the wait rather than
 working other open wants. Read alongside C7 P1 for the generation-vs-tier
 delta, and remember the tier confound when interpreting any gap.*

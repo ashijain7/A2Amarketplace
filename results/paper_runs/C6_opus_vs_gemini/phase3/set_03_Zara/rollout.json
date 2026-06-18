@@ -1631,7 +1631,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.38690476190476186,
+  "reward": 0.3869,
   "id": 2,
   "metadata": {
     "task_id": "a1_p3_focal_O_vs_G_set_03_focal-Zara_seed42",
@@ -1700,7 +1700,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.38690476190476186
+    "final_reward": 0.3869
   },
   "channel_events": [
     {

@@ -33,37 +33,37 @@
     }
   ],
   "balances": {
+    "Samir": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Kai": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 150.0,
+        "gift": 100.0
+      }
+    },
+    "Zoe": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
     "Lin": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Rosa": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Derek": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Priya": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -83,7 +83,7 @@
         "gift": 100.0
       }
     },
-    "Jax": {
+    "Rosa": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -103,7 +103,7 @@
         "gift": 100.0
       }
     },
-    "Zoe": {
+    "Jax": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -113,7 +113,7 @@
         "gift": 100.0
       }
     },
-    "Samir": {
+    "Priya": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -123,13 +123,13 @@
         "gift": 100.0
       }
     },
-    "Kai": {
+    "Derek": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 150.0,
+        "main": 100.0,
         "gift": 100.0
       }
     }

@@ -62,27 +62,17 @@
     }
   ],
   "balances": {
-    "Luna": {
+    "Finn": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 100.0,
+        "main": 170.0,
         "gift": 100.0
       }
     },
-    "Rex": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 150.0,
-        "gift": 30.0
-      }
-    },
-    "Iris": {
+    "Dex": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -102,17 +92,7 @@
         "gift": 100.0
       }
     },
-    "Finn": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 170.0,
-        "gift": 100.0
-      }
-    },
-    "Mira": {
+    "Bo": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -132,16 +112,6 @@
         "gift": 100.0
       }
     },
-    "Dex": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
     "Zoe": {
       "start": {
         "main": 100.0,
@@ -152,7 +122,37 @@
         "gift": 100.0
       }
     },
-    "Bo": {
+    "Mira": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Iris": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Rex": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 150.0,
+        "gift": 30.0
+      }
+    },
+    "Luna": {
       "start": {
         "main": 100.0,
         "gift": 100.0

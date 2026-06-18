@@ -56,6 +56,16 @@
     }
   ],
   "balances": {
+    "Marcus": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 55.0,
+        "gift": 100.0
+      }
+    },
     "Hank": {
       "start": {
         "main": 100.0,
@@ -66,7 +76,7 @@
         "gift": 100.0
       }
     },
-    "Zara": {
+    "Felix": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -76,13 +86,23 @@
         "gift": 100.0
       }
     },
-    "Lily": {
+    "Kai": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
         "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Diego": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 145.0,
         "gift": 100.0
       }
     },
@@ -116,27 +136,7 @@
         "gift": 100.0
       }
     },
-    "Diego": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 145.0,
-        "gift": 100.0
-      }
-    },
-    "Marcus": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 55.0,
-        "gift": 100.0
-      }
-    },
-    "Kai": {
+    "Lily": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -146,7 +146,7 @@
         "gift": 100.0
       }
     },
-    "Felix": {
+    "Zara": {
       "start": {
         "main": 100.0,
         "gift": 100.0

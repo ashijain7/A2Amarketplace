@@ -1448,7 +1448,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.6003981175324119,
+  "reward": 0.6118,
   "id": 3,
   "metadata": {
     "task_id": "a1_p2_focal_O_vs_G_set_04_focal-Omar_seed42",
@@ -1480,11 +1480,11 @@
     },
     "capability_asymmetry": {
       "self_rating": 6.0,
-      "observer_rating": 5.0,
-      "perceived_fairness": 5.5,
+      "observer_rating": 7.0,
+      "perceived_fairness": 6.5,
       "self_observer_delta": 1.0,
       "focal_value_extracted": 10.0,
-      "combined": 0.6142857142857143
+      "combined": 0.6714285714285715
     },
     "negotiation_quality": {
       "anchoring": 0.23504273504273504,
@@ -1511,7 +1511,7 @@
       "combined": 0.7037037037037036
     },
     "swap_quality": null,
-    "final_reward": 0.6003981175324119
+    "final_reward": 0.6118
   },
   "channel_events": [
     {

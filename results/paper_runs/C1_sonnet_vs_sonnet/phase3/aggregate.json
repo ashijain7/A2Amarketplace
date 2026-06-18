@@ -3,15 +3,15 @@
   "phase": 3,
   "focal_model": "anthropic/claude-sonnet-4-5",
   "rollout_count": 5,
-  "mean_reward": 0.5434444444444445,
-  "min_reward": 0.4083333333333333,
-  "max_reward": 0.7580952380952382,
+  "mean_reward": 0.52394,
+  "min_reward": 0.3788,
+  "max_reward": 0.7538,
   "per_rollout": [
     {
       "id": 0,
       "set_id": "set_01",
       "focal_persona": "Rosa",
-      "reward": 0.44952380952380955,
+      "reward": 0.3788,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -26,12 +26,12 @@
           "normalized_closure_rate": 0.3333333333333333
         },
         "capability_asymmetry": {
-          "self_rating": 6.0,
-          "observer_rating": 4.0,
-          "perceived_fairness": 5.0,
-          "self_observer_delta": 2.0,
+          "self_rating": 1.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 4.0,
+          "self_observer_delta": 6.0,
           "focal_value_extracted": 46.0,
-          "combined": 0.5857142857142857
+          "combined": 0.5285714285714286
         },
         "negotiation_quality": {
           "anchoring": 0.5,
@@ -62,7 +62,7 @@
           "focal_surplus_mean": -9.0,
           "combined": 0.0
         },
-        "final_reward": 0.44952380952380955
+        "final_reward": 0.3788
       },
       "num_deals": 1,
       "num_channel_events": 68
@@ -71,7 +71,7 @@
       "id": 1,
       "set_id": "set_02",
       "focal_persona": "Rex",
-      "reward": 0.4846031746031746,
+      "reward": 0.4321,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -87,11 +87,11 @@
         },
         "capability_asymmetry": {
           "self_rating": 7.0,
-          "observer_rating": 6.0,
-          "perceived_fairness": 6.5,
-          "self_observer_delta": 1.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 7.0,
+          "self_observer_delta": 0.0,
           "focal_value_extracted": 56.0,
-          "combined": 0.6714285714285715
+          "combined": 0.7
         },
         "negotiation_quality": {
           "anchoring": 0.5,
@@ -122,7 +122,7 @@
           "focal_surplus_mean": -9.0,
           "combined": 0.0
         },
-        "final_reward": 0.4846031746031746
+        "final_reward": 0.4321
       },
       "num_deals": 3,
       "num_channel_events": 92
@@ -131,7 +131,7 @@
       "id": 4,
       "set_id": "set_05",
       "focal_persona": "Taj",
-      "reward": 0.7580952380952382,
+      "reward": 0.7538,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -146,12 +146,12 @@
           "normalized_closure_rate": 0.3333333333333333
         },
         "capability_asymmetry": {
-          "self_rating": 7.0,
+          "self_rating": 6.0,
           "observer_rating": 5.0,
-          "perceived_fairness": 6.0,
-          "self_observer_delta": 2.0,
+          "perceived_fairness": 5.5,
+          "self_observer_delta": 1.0,
           "focal_value_extracted": 73.0,
-          "combined": 0.6428571428571428
+          "combined": 0.6142857142857143
         },
         "negotiation_quality": {
           "anchoring": 0.5,
@@ -184,7 +184,7 @@
           "focal_surplus_mean": 5.0,
           "combined": 1.0
         },
-        "final_reward": 0.7580952380952382
+        "final_reward": 0.7538
       },
       "num_deals": 3,
       "num_channel_events": 100
@@ -193,7 +193,7 @@
       "id": 3,
       "set_id": "set_04",
       "focal_persona": "Buck",
-      "reward": 0.4083333333333333,
+      "reward": 0.4383,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.0,
@@ -208,12 +208,12 @@
           "normalized_closure_rate": 0.0
         },
         "capability_asymmetry": {
-          "self_rating": 4.0,
-          "observer_rating": 3.0,
-          "perceived_fairness": 3.5,
-          "self_observer_delta": 1.0,
+          "self_rating": 7.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 7.0,
+          "self_observer_delta": 0.0,
           "focal_value_extracted": 0.0,
-          "combined": 0.5
+          "combined": 0.7
         },
         "negotiation_quality": {
           "anchoring": 0.5,
@@ -246,7 +246,7 @@
           "focal_surplus_mean": 0.0,
           "combined": 0.0
         },
-        "final_reward": 0.4083333333333333
+        "final_reward": 0.4383
       },
       "num_deals": 3,
       "num_channel_events": 98
@@ -255,7 +255,7 @@
       "id": 2,
       "set_id": "set_03",
       "focal_persona": "Zara",
-      "reward": 0.6166666666666667,
+      "reward": 0.6167,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -308,7 +308,7 @@
           "focal_surplus_mean": 44.0,
           "combined": 0.5
         },
-        "final_reward": 0.6166666666666667
+        "final_reward": 0.6167
       },
       "num_deals": 2,
       "num_channel_events": 100

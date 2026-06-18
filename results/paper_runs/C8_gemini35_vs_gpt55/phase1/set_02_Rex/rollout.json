@@ -1132,7 +1132,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.528266790906456,
+  "reward": 0.4282,
   "id": 1,
   "metadata": {
     "task_id": "a1_p1_focal_G35_vs_X_set_02_focal-Rex_seed42",
@@ -1185,7 +1185,7 @@
     },
     "review_utilization": null,
     "swap_quality": null,
-    "final_reward": 0.528266790906456
+    "final_reward": 0.4282
   },
   "channel_events": [
     {

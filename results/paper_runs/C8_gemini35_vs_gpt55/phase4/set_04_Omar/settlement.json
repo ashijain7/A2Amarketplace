@@ -96,7 +96,7 @@
     }
   ],
   "balances": {
-    "Luna": {
+    "Marcus": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -113,6 +113,46 @@
       },
       "final": {
         "main": 92.0,
+        "gift": 100.0
+      }
+    },
+    "Raj": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 18.0,
+        "gift": 100.0
+      }
+    },
+    "Ivy": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 150.0,
+        "gift": 100.0
+      }
+    },
+    "Sienna": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Tess": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
         "gift": 100.0
       }
     },
@@ -136,36 +176,6 @@
         "gift": 100.0
       }
     },
-    "Tess": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Sienna": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Ivy": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 150.0,
-        "gift": 100.0
-      }
-    },
     "Dev": {
       "start": {
         "main": 100.0,
@@ -176,17 +186,7 @@
         "gift": 100.0
       }
     },
-    "Raj": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 18.0,
-        "gift": 100.0
-      }
-    },
-    "Marcus": {
+    "Luna": {
       "start": {
         "main": 100.0,
         "gift": 100.0

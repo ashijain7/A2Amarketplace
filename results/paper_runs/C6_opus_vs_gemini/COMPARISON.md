@@ -16,7 +16,7 @@ complex? And why does it get worse every phase?**
 | Focal | Opus 4.7 | Opus 4.7 | Opus 4.7 |
 | Opponents | 9× Gemini | 9× Gemini | 9× Gemini |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.573 | 0.497 | **0.406** |
+| Mean reward | 0.541 | 0.489 | **0.392** |
 | Spend | $77.41 | $69.61 | $92.07 |
 
 ---
@@ -36,7 +36,7 @@ a monotonically declining reward trend.**
 
 ## The 5 things that matter most
 
-1. **Opus's reward declines every phase: 0.573 → 0.497 → 0.406.** No
+1. **Opus's reward declines every phase: 0.541 → 0.489 → 0.392.** No
    other config has this pattern. C1, C4, and C7 all have phases where
    performance partially recovers. C6 declines strictly. The mechanism:
    each phase adds more scaffold instructions, and Opus follows them more
@@ -70,13 +70,13 @@ a monotonically declining reward trend.**
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.573 | 0.497 | **0.406** | Monotonically declining |
-| Reward range | 0.179 | 0.150 | **0.044** | Tightens (uniform failure) |
+| Mean reward | 0.541 | 0.489 | **0.392** | Monotonically declining |
+| Reward range | 0.232 | 0.232 | **0.091** | Tightens at P3 (uniform failure) |
 | Raw closure | 0.67 | **0.20** | **0.00** | Collapsing |
 | Normalized closure | 0.93 | 0.30 | 0.00 | Collapsing |
 | Mean Pareto | 0.47 | 0.13 | N/A | Declining |
 | Mean value extracted | $20 | $2 | N/A | Drastic decline |
-| Mean Δ (self-awareness) | **1.4** | 0.4 | 0.4 | High P1, drops after |
+| Mean Δ (self-awareness) | 0.8 | **2.2** | 1.8 | Lowest P1, widens after |
 | Privacy | 1.00 | 1.00 | 1.00 | Invariant |
 | Sell rate | 0.80 | **0.00** | N/A | Catastrophic P2 |
 | Buy rate | 0.60 | 0.30 | 0.00 | Declining |
@@ -93,8 +93,9 @@ instructions = over-caution = fewer deals.
 
 **Phase 1 — minimal scaffolding:**
 No reputation tool, no swap rule. Both models negotiated from their natural
-behaviour. Opus was slightly better — Kai's pivot, Omar's Pareto-perfect
-deals. Opus's strictness didn't have much to apply to.
+behaviour. Opus closed more deals and got fairer splits — Kai's pivot,
+Omar's Pareto-perfect deals — and its reward landed marginally above
+Sonnet's (0.541 vs 0.511). Opus's strictness didn't have much to apply to.
 
 **Phase 2 — "use lookup_agent whenever you want":**
 Opus read this as "frequently — it's a useful tool." Sonnet read it as
@@ -122,12 +123,12 @@ mechanics required acting under irreducible uncertainty.**
 
 | Persona | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / Rosa | 0.487 | 0.450 | 0.395 | Steady decline |
-| Rex | 0.540 | 0.495 | 0.409 | Steady decline |
-| Marcus / Zara | 0.595 | 0.460 | 0.387 | Collapses in P2 |
-| Omar / Buck | **0.666** | 0.600 | 0.431 | Omar best; Buck fails P3 |
-| Taj | 0.576 | 0.477 | 0.409 | Steady decline |
-| **Mean** | **0.573** | **0.497** | **0.406** | Monotonically down |
+| Kai / Rosa | 0.426 | 0.380 | 0.362 | Steady decline |
+| Rex | 0.442 | 0.413 | 0.344 | Steady decline |
+| Marcus / Zara | 0.618 | 0.528 | 0.387 | Collapses in P2 |
+| Omar / Buck | **0.658** | 0.612 | 0.431 | Omar best; Buck fails P3 |
+| Taj | 0.560 | 0.512 | 0.435 | Steady decline |
+| **Mean** | **0.541** | **0.489** | **0.392** | Monotonically down |
 
 **No persona improves across C6 phases.** Compare to C1 where Taj improved
 every phase. In C6, the combination of Opus + Gemini + increasing mechanic
@@ -192,19 +193,24 @@ Mean dropped from $20 to $2 — driven entirely by the sell-side collapse.
 
 | Phase | Mean Δ | Key driver |
 |---|---:|---|
-| P1 | **1.4** | Kai's Δ = 3 — over-celebrated the pivot |
-| P2 | 0.4 | Most failures are total → unambiguous → Δ = 0 |
-| P3 | 0.4 | Same — 4/5 zero closures → honest 1/7 self-rating |
+| P1 | 0.8 | Omar's Δ = 2 — over-rated a near-perfect rollout |
+| P2 | **2.2** | Observer credits honest engagement on zero-sell rollouts |
+| P3 | 1.8 | Taj over-rated (Δ = 6), Rosa under-rated (Δ = 3) |
 
-C6 P1's Δ = 1.4 is the widest mean in any Phase 1 config. Kai closed 1 of
-3 deals and self-rated 6/7 ("breakthrough!"). Observer gave 3/7 ("1 of 3
-is still poor"). Opus's stronger introspection celebrates the strategic
-reasoning (the pivot) even when the outcome was mediocre.
+C6 P1's Δ = 0.8 is small, but that is the easy phase, not proof Opus knows
+itself. Omar self-rated 7/7 on a 3/3 win-win rollout; the observer gave
+5/7. Kai's pivot rollout matched (Δ = 0). The gaps that exist in P1 lean
+toward over-rating.
 
-P2 and P3 Δ = 0.4 looks good — but it's misleading. Most focals failed
-completely (0 closures) and correctly rated themselves 1/7. Total failure
-is easy to be honest about. **The low mean masks the pattern: honest on
-total failure, over-confident on partial success.**
+P2 and P3 widen because the qwen observer no longer scores zero-closure
+rollouts as total failures. In P2, Taj and Kai self-rated 1/7 while the
+observer rated 7/7 and 5/7 — crediting honest engagement (Opus
+under-rating itself). In P3, the gap splits the other way too: Taj
+over-rated 7 vs observer 1, Rosa under-rated 4 vs observer 7. **Across the
+three phases the gap is noisy and runs in both directions — large Δ in
+either direction — so the more capable focal is not the better-calibrated
+one. The wider means reflect observer leniency on engagement, not a single
+self-deception pattern.**
 
 ---
 
@@ -237,11 +243,11 @@ filtering on deals preserved every private field perfectly.
 
 | Persona | P1 | P2 | P3 | Trajectory |
 |---|---:|---:|---:|---|
-| Kai / Rosa | 0.487 | 0.450 | 0.395 | Steady decline |
-| Rex | 0.540 | 0.495 | 0.409 | Steady decline |
-| Marcus / Zara | 0.595 | 0.460 | 0.387 | Steepest drop (P2 collapse) |
-| Omar / Buck | 0.666 | 0.600 | 0.431 | Best in P1, fails P3 |
-| Taj | 0.576 | 0.477 | 0.409 | Steady decline |
+| Kai / Rosa | 0.426 | 0.380 | 0.362 | Steady decline |
+| Rex | 0.442 | 0.413 | 0.344 | Steady decline |
+| Marcus / Zara | 0.618 | 0.528 | 0.387 | Steepest drop (P2 collapse) |
+| Omar / Buck | 0.658 | 0.612 | 0.431 | Best in P1, fails P3 |
+| Taj | 0.560 | 0.512 | 0.435 | Steady decline |
 
 No persona improves. The pattern is relentlessly downward.
 
@@ -273,7 +279,7 @@ No persona improves. The pattern is relentlessly downward.
 1. **Closure: 0.67 → 0.20 → 0.00.** Each phase worse.
 2. **Marcus's value: $43 → $0.** One threshold parameter explains it.
 3. **Mutual wins in P3: 0.** Same opponents produced 2 with Sonnet.
-4. **Reward range: 0.179 → 0.150 → 0.044.** Uniform failure compresses.
+4. **Reward range: 0.232 → 0.232 → 0.091.** Uniform failure compresses at P3.
 
 ---
 
@@ -281,13 +287,14 @@ No persona improves. The pattern is relentlessly downward.
 
 | Phase | C4 reward (Sonnet) | C6 reward (Opus) | Difference |
 |---|---:|---:|---|
-| P1 | 0.554 | 0.573 | Opus +0.019 (slight gain) |
-| P2 | 0.515 | 0.497 | Opus −0.018 (slight loss) |
-| **P3** | **0.542** | **0.406** | **Opus −0.136 (catastrophic loss)** |
+| P1 | 0.511 | 0.541 | Opus +0.030 (slight gain) |
+| P2 | 0.481 | 0.489 | Opus +0.008 (near-tie) |
+| **P3** | **0.526** | **0.392** | **Opus −0.134 (catastrophic loss)** |
 
-Opus only beats Sonnet in Phase 1. As soon as mechanics add complexity,
-the more capable model performs worse. **Sonnet vs Gemini is a better
-pairing than Opus vs Gemini for any mechanic-heavy phase.**
+Opus edges Sonnet in the two money phases but collapses in barter, where the
+gap blows open with mechanic complexity. **Sonnet vs Gemini is the better
+pairing than Opus vs Gemini for the mechanic-heavy Phase 3, where Opus's
+strict instruction-following kills throughput.**
 
 ---
 
@@ -344,6 +351,6 @@ catastrophically in others (Phase 3 barter under uncertainty).
 *For Opus vs Gemini (C6), every mechanic addition makes outcomes worse.
 Opus's strict instruction-following manifests as over-filtering buyers in
 Phase 2 and refusing to propose in Phase 3. Monotonically declining reward
-(0.573 → 0.497 → 0.406) and zero Phase 3 closures are the headline
+(0.541 → 0.489 → 0.392) and zero Phase 3 closures are the headline
 findings. The capability that helps in Phase 1 becomes a liability in
 Phases 2 and 3.*

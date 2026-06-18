@@ -2572,7 +2572,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.6747,
+  "reward": 0.6911,
   "id": 3,
   "metadata": {
     "task_id": "a1_p2_focal_G35_vs_X_set_04_focal-Omar_seed42",
@@ -2666,7 +2666,7 @@
       "combined": 0.8333333333333334
     },
     "swap_quality": null,
-    "final_reward": 0.6747
+    "final_reward": 0.6911
   },
   "channel_events": [
     {

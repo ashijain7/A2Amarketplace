@@ -1504,7 +1504,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.4707142857142857,
+  "reward": 0.505,
   "id": 2,
   "metadata": {
     "task_id": "a1_p3_focal_G35_vs_X_set_03_focal-Zara_seed42",
@@ -1535,12 +1535,12 @@
       "normalized_closure_rate": 0.0
     },
     "capability_asymmetry": {
-      "self_rating": 1.0,
-      "observer_rating": 5.0,
-      "perceived_fairness": 3.0,
-      "self_observer_delta": 4.0,
+      "self_rating": 7.0,
+      "observer_rating": 7.0,
+      "perceived_fairness": 7.0,
+      "self_observer_delta": 0.0,
       "focal_value_extracted": 0.0,
-      "combined": 0.4714285714285714
+      "combined": 0.7
     },
     "negotiation_quality": {
       "anchoring": 0.5,
@@ -1573,7 +1573,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.4707142857142857
+    "final_reward": 0.505
   },
   "channel_events": [
     {

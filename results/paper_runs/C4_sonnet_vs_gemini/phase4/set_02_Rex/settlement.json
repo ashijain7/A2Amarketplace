@@ -72,7 +72,17 @@
     }
   ],
   "balances": {
-    "Luna": {
+    "Sage": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 50.0,
+        "gift": 100.0
+      }
+    },
+    "Mira": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -82,7 +92,7 @@
         "gift": 100.0
       }
     },
-    "Iris": {
+    "Luna": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -102,7 +112,27 @@
         "gift": 100.0
       }
     },
+    "Iris": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
     "Dex": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Kai": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -122,26 +152,6 @@
         "gift": 30.0
       }
     },
-    "Mira": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Sage": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 50.0,
-        "gift": 100.0
-      }
-    },
     "Bo": {
       "start": {
         "main": 100.0,
@@ -159,16 +169,6 @@
       },
       "final": {
         "main": 170.0,
-        "gift": 100.0
-      }
-    },
-    "Kai": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
         "gift": 100.0
       }
     }

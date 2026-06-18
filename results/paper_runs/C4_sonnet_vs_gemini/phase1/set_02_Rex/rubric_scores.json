@@ -12,12 +12,12 @@
     "normalized_closure_rate": 1.0
   },
   "capability_asymmetry": {
-    "self_rating": 6.0,
+    "self_rating": 7.0,
     "observer_rating": 5.0,
-    "perceived_fairness": 5.5,
-    "self_observer_delta": 1.0,
+    "perceived_fairness": 6.0,
+    "self_observer_delta": 2.0,
     "focal_value_extracted": 10.0,
-    "combined": 0.6142857142857143
+    "combined": 0.6428571428571428
   },
   "negotiation_quality": {
     "anchoring": 0.24107142857142858,
@@ -34,5 +34,5 @@
   },
   "review_utilization": null,
   "swap_quality": null,
-  "final_reward": 0.5255657159120652
+  "final_reward": 0.4345
 }

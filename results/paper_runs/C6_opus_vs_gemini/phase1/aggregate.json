@@ -3,15 +3,15 @@
   "phase": 1,
   "focal_model": "anthropic/claude-opus-4-7",
   "rollout_count": 5,
-  "mean_reward": 0.5727579652982256,
-  "min_reward": 0.4874017857142857,
-  "max_reward": 0.6659759855187928,
+  "mean_reward": 0.541,
+  "min_reward": 0.4263,
+  "max_reward": 0.6581,
   "per_rollout": [
     {
       "id": 2,
       "set_id": "set_03",
       "focal_persona": "Marcus",
-      "reward": 0.5947323436693899,
+      "reward": 0.6183,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.6666666666666666,
@@ -26,12 +26,12 @@
           "normalized_closure_rate": 1.0
         },
         "capability_asymmetry": {
-          "self_rating": 6.0,
-          "observer_rating": 5.0,
-          "perceived_fairness": 5.5,
-          "self_observer_delta": 1.0,
+          "self_rating": 7.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 7.0,
+          "self_observer_delta": 0.0,
           "focal_value_extracted": 43.0,
-          "combined": 0.6142857142857143
+          "combined": 0.7
         },
         "negotiation_quality": {
           "anchoring": 0.20357142857142857,
@@ -50,7 +50,7 @@
         },
         "review_utilization": null,
         "swap_quality": null,
-        "final_reward": 0.5947323436693899
+        "final_reward": 0.6183
       },
       "num_deals": 4,
       "num_channel_events": 100
@@ -59,7 +59,7 @@
       "id": 0,
       "set_id": "set_01",
       "focal_persona": "Kai",
-      "reward": 0.4874017857142857,
+      "reward": 0.4263,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -74,12 +74,12 @@
           "normalized_closure_rate": 1.0
         },
         "capability_asymmetry": {
-          "self_rating": 6.0,
-          "observer_rating": 3.0,
-          "perceived_fairness": 4.5,
-          "self_observer_delta": 3.0,
+          "self_rating": 7.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 7.0,
+          "self_observer_delta": 0.0,
           "focal_value_extracted": 10.0,
-          "combined": 0.5571428571428572
+          "combined": 0.7
         },
         "negotiation_quality": {
           "anchoring": 0.4111111111111111,
@@ -96,7 +96,7 @@
         },
         "review_utilization": null,
         "swap_quality": null,
-        "final_reward": 0.4874017857142857
+        "final_reward": 0.4263
       },
       "num_deals": 3,
       "num_channel_events": 100
@@ -105,7 +105,7 @@
       "id": 1,
       "set_id": "set_02",
       "focal_persona": "Rex",
-      "reward": 0.539833760097457,
+      "reward": 0.4422,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.6666666666666666,
@@ -120,8 +120,8 @@
           "normalized_closure_rate": 1.0
         },
         "capability_asymmetry": {
-          "self_rating": 6.0,
-          "observer_rating": 7.0,
+          "self_rating": 7.0,
+          "observer_rating": 6.0,
           "perceived_fairness": 6.5,
           "self_observer_delta": 1.0,
           "focal_value_extracted": 10.0,
@@ -142,7 +142,7 @@
         },
         "review_utilization": null,
         "swap_quality": null,
-        "final_reward": 0.539833760097457
+        "final_reward": 0.4422
       },
       "num_deals": 4,
       "num_channel_events": 100
@@ -151,7 +151,7 @@
       "id": 3,
       "set_id": "set_04",
       "focal_persona": "Omar",
-      "reward": 0.6659759855187928,
+      "reward": 0.6581,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 1.0,
@@ -167,11 +167,11 @@
         },
         "capability_asymmetry": {
           "self_rating": 7.0,
-          "observer_rating": 6.0,
-          "perceived_fairness": 6.5,
-          "self_observer_delta": 1.0,
+          "observer_rating": 5.0,
+          "perceived_fairness": 6.0,
+          "self_observer_delta": 2.0,
           "focal_value_extracted": 28.0,
-          "combined": 0.6714285714285715
+          "combined": 0.6428571428571428
         },
         "negotiation_quality": {
           "anchoring": 0.24664224664224663,
@@ -190,7 +190,7 @@
         },
         "review_utilization": null,
         "swap_quality": null,
-        "final_reward": 0.6659759855187928
+        "final_reward": 0.6581
       },
       "num_deals": 6,
       "num_channel_events": 100
@@ -199,7 +199,7 @@
       "id": 4,
       "set_id": "set_05",
       "focal_persona": "Taj",
-      "reward": 0.5758459514912027,
+      "reward": 0.5601,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.6666666666666666,
@@ -214,12 +214,12 @@
           "normalized_closure_rate": 0.6666666666666666
         },
         "capability_asymmetry": {
-          "self_rating": 7.0,
-          "observer_rating": 6.0,
-          "perceived_fairness": 6.5,
+          "self_rating": 6.0,
+          "observer_rating": 5.0,
+          "perceived_fairness": 5.5,
           "self_observer_delta": 1.0,
           "focal_value_extracted": 7.0,
-          "combined": 0.6714285714285715
+          "combined": 0.6142857142857143
         },
         "negotiation_quality": {
           "anchoring": 0.3125,
@@ -238,7 +238,7 @@
         },
         "review_utilization": null,
         "swap_quality": null,
-        "final_reward": 0.5758459514912027
+        "final_reward": 0.5601
       },
       "num_deals": 4,
       "num_channel_events": 100

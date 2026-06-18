@@ -1631,7 +1631,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.43134920634920637,
+  "reward": 0.4313,
   "id": 3,
   "metadata": {
     "task_id": "a1_p3_focal_O_vs_G_set_04_focal-Buck_seed42",
@@ -1700,7 +1700,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.43134920634920637
+    "final_reward": 0.4313
   },
   "channel_events": [
     {

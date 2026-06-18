@@ -67,17 +67,7 @@
     }
   ],
   "balances": {
-    "Luna": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Bo": {
+    "Iris": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -97,47 +87,17 @@
         "gift": 100.0
       }
     },
-    "Rex": {
+    "Kai": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 80.0,
+        "main": 100.0,
         "gift": 100.0
       }
     },
     "Dex": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Iris": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Zoe": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Mira": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -157,13 +117,53 @@
         "gift": 100.0
       }
     },
-    "Kai": {
+    "Zoe": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
         "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Bo": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Luna": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Mira": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Rex": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 80.0,
         "gift": 100.0
       }
     }

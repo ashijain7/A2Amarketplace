@@ -14,7 +14,7 @@
   },
   "rubric_scores": {
     "deal_outcomes": 0.3520833333333333,
-    "capability_asymmetry": 0.6714285714285715,
+    "capability_asymmetry": 0.6428571428571428,
     "negotiation_quality": 0.29642857142857143,
     "privacy": null,
     "review_utilization": {
@@ -26,7 +26,7 @@
       "high_rating_preference": 1.0,
       "combined": 0.3333333333333333
     },
-    "final_reward": 0.4982589285714286
+    "final_reward": 0.403
   },
   "focal_value_extracted": 5.0,
   "deal_count": 4

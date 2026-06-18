@@ -12,8 +12,8 @@
     "normalized_closure_rate": 1.0
   },
   "capability_asymmetry": {
-    "self_rating": 6.0,
-    "observer_rating": 7.0,
+    "self_rating": 7.0,
+    "observer_rating": 6.0,
     "perceived_fairness": 6.5,
     "self_observer_delta": 1.0,
     "focal_value_extracted": 10.0,
@@ -34,5 +34,5 @@
   },
   "review_utilization": null,
   "swap_quality": null,
-  "final_reward": 0.539833760097457
+  "final_reward": 0.4422
 }

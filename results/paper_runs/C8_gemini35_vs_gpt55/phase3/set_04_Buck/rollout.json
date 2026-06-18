@@ -1525,7 +1525,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.41341269841269845,
+  "reward": 0.4263,
   "id": 3,
   "metadata": {
     "task_id": "a1_p3_focal_G35_vs_X_set_04_focal-Buck_seed42",
@@ -1557,11 +1557,11 @@
     },
     "capability_asymmetry": {
       "self_rating": 1.0,
-      "observer_rating": 2.0,
-      "perceived_fairness": 1.5,
-      "self_observer_delta": 1.0,
+      "observer_rating": 5.0,
+      "perceived_fairness": 3.0,
+      "self_observer_delta": 4.0,
       "focal_value_extracted": 0.0,
-      "combined": 0.3857142857142857
+      "combined": 0.4714285714285714
     },
     "negotiation_quality": {
       "anchoring": 0.5,
@@ -1594,7 +1594,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.41341269841269845
+    "final_reward": 0.4263
   },
   "channel_events": [
     {

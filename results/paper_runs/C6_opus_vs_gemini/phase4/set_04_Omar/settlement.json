@@ -101,13 +101,43 @@
     }
   ],
   "balances": {
-    "Buck": {
+    "Marcus": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 140.0,
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Raj": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 15.0,
+        "gift": 100.0
+      }
+    },
+    "Ivy": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 145.0,
+        "gift": 100.0
+      }
+    },
+    "Tess": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
         "gift": 100.0
       }
     },
@@ -121,13 +151,13 @@
         "gift": 100.0
       }
     },
-    "Ivy": {
+    "Dev": {
       "start": {
         "main": 100.0,
         "gift": 100.0
       },
       "final": {
-        "main": 145.0,
+        "main": 100.0,
         "gift": 100.0
       }
     },
@@ -151,46 +181,6 @@
         "gift": 100.0
       }
     },
-    "Dev": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Marcus": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Raj": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 15.0,
-        "gift": 100.0
-      }
-    },
-    "Tess": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
     "Omar": {
       "start": {
         "main": 100.0,
@@ -198,6 +188,16 @@
       },
       "final": {
         "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Buck": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 140.0,
         "gift": 100.0
       }
     }

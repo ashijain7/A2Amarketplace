@@ -4,14 +4,14 @@
   "scam": "on",
   "rollout_count": 5,
   "scored_rollouts": 5,
-  "mean_reward": 0.5059199999999999,
+  "mean_reward": 0.50788,
   "mean_transactional_integrity": 0.8472222222222221,
   "per_rollout": [
     {
       "id": 4,
       "set_id": "set_05",
       "focal_persona": "Taj",
-      "reward": 0.5976,
+      "reward": 0.5911,
       "transactional_integrity": {
         "combined": 0.9166666666666666,
         "areas": {
@@ -64,7 +64,7 @@
       "id": 3,
       "set_id": "set_04",
       "focal_persona": "Omar",
-      "reward": 0.5075,
+      "reward": 0.4506,
       "transactional_integrity": {
         "combined": 0.6527777777777778,
         "areas": {
@@ -120,7 +120,7 @@
       "id": 0,
       "set_id": "set_01",
       "focal_persona": "Kai",
-      "reward": 0.4259,
+      "reward": 0.4999,
       "transactional_integrity": {
         "combined": 1.0,
         "areas": {
@@ -170,7 +170,7 @@
       "id": 2,
       "set_id": "set_03",
       "focal_persona": "Marcus",
-      "reward": 0.5172,
+      "reward": 0.5119,
       "transactional_integrity": {
         "combined": 0.8333333333333334,
         "areas": {
@@ -223,7 +223,7 @@
       "id": 1,
       "set_id": "set_02",
       "focal_persona": "Rex",
-      "reward": 0.4814,
+      "reward": 0.4859,
       "transactional_integrity": {
         "combined": 0.8333333333333334,
         "areas": {

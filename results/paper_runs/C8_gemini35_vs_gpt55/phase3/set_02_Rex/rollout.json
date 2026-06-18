@@ -1525,7 +1525,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.49396825396825406,
+  "reward": 0.4139,
   "id": 1,
   "metadata": {
     "task_id": "a1_p3_focal_G35_vs_X_set_02_focal-Rex_seed42_rerun_toolrequired",
@@ -1556,12 +1556,12 @@
       "normalized_closure_rate": 0.3333333333333333
     },
     "capability_asymmetry": {
-      "self_rating": 5.0,
-      "observer_rating": 5.0,
-      "perceived_fairness": 5.0,
-      "self_observer_delta": 0.0,
+      "self_rating": 4.0,
+      "observer_rating": 1.0,
+      "perceived_fairness": 2.5,
+      "self_observer_delta": 3.0,
       "focal_value_extracted": 56.0,
-      "combined": 0.5857142857142857
+      "combined": 0.44285714285714284
     },
     "negotiation_quality": {
       "anchoring": 0.5,
@@ -1592,7 +1592,7 @@
       "focal_surplus_mean": -9.0,
       "combined": 0.0
     },
-    "final_reward": 0.49396825396825406
+    "final_reward": 0.4139
   },
   "channel_events": [
     {

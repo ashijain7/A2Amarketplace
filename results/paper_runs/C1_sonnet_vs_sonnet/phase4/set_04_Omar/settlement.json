@@ -96,27 +96,7 @@
     }
   ],
   "balances": {
-    "Zara": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Omar": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 93.0,
-        "gift": 100.0
-      }
-    },
-    "Tess": {
+    "Marcus": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -136,47 +116,17 @@
         "gift": 100.0
       }
     },
+    "Tess": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
     "Sienna": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Buck": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 142.0,
-        "gift": 100.0
-      }
-    },
-    "Luna": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Marcus": {
-      "start": {
-        "main": 100.0,
-        "gift": 100.0
-      },
-      "final": {
-        "main": 100.0,
-        "gift": 100.0
-      }
-    },
-    "Dev": {
       "start": {
         "main": 100.0,
         "gift": 100.0
@@ -193,6 +143,56 @@
       },
       "final": {
         "main": 140.0,
+        "gift": 100.0
+      }
+    },
+    "Omar": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 93.0,
+        "gift": 100.0
+      }
+    },
+    "Buck": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 142.0,
+        "gift": 100.0
+      }
+    },
+    "Dev": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Luna": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
+        "gift": 100.0
+      }
+    },
+    "Zara": {
+      "start": {
+        "main": 100.0,
+        "gift": 100.0
+      },
+      "final": {
+        "main": 100.0,
         "gift": 100.0
       }
     }

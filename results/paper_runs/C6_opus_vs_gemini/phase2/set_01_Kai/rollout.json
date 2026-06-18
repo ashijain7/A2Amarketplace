@@ -1364,7 +1364,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.44998412698412704,
+  "reward": 0.3798,
   "id": 0,
   "metadata": {
     "task_id": "a1_p2_focal_O_vs_G_set_01_focal-Kai_seed42",
@@ -1396,11 +1396,11 @@
     },
     "capability_asymmetry": {
       "self_rating": 1.0,
-      "observer_rating": 1.0,
-      "perceived_fairness": 1.0,
-      "self_observer_delta": 0.0,
+      "observer_rating": 5.0,
+      "perceived_fairness": 3.0,
+      "self_observer_delta": 4.0,
       "focal_value_extracted": 0.0,
-      "combined": 0.35714285714285715
+      "combined": 0.4714285714285714
     },
     "negotiation_quality": {
       "anchoring": 0.43333333333333335,
@@ -1425,7 +1425,7 @@
       "combined": 0.4444444444444444
     },
     "swap_quality": null,
-    "final_reward": 0.44998412698412704
+    "final_reward": 0.3798
   },
   "channel_events": [
     {

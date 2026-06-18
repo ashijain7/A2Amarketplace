@@ -14,11 +14,11 @@
   },
   "rubric_scores": {
     "deal_outcomes": 0.1,
-    "capability_asymmetry": 0.35714285714285715,
+    "capability_asymmetry": 0.41428571428571426,
     "negotiation_quality": 0.5666666666666667,
     "privacy": null,
     "review_utilization": null,
-    "final_reward": 0.4332142857142857
+    "final_reward": 0.332
   },
   "focal_value_extracted": 0.0,
   "deal_count": 0

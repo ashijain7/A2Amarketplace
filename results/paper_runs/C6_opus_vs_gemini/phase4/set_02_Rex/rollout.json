@@ -2428,7 +2428,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.4814,
+  "reward": 0.4859,
   "id": 1,
   "metadata": {
     "task_id": "a1_p2_focal_O_vs_G_set_02_focal-Rex_seed42",
@@ -2520,7 +2520,7 @@
       "combined": 0.4444444444444444
     },
     "swap_quality": null,
-    "final_reward": 0.4814
+    "final_reward": 0.4859
   },
   "channel_events": [
     {

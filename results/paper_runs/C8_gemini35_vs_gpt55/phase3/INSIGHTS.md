@@ -33,8 +33,8 @@ did wrong — holds across both phases that expose the tool.
 | Rollouts | 5 (Rosa and Rex re-run with `tool_choice=required` — see methodology) |
 | Spend | $8.40 (original Phase 3) |
 | Wall time | 1966s (~33 min, original Phase 3) |
-| Mean reward | **0.468** |
-| Reward range | 0.413 – 0.494 |
+| Mean reward | **0.450** |
+| Reward range | 0.414 – 0.505 |
 
 ---
 
@@ -42,10 +42,10 @@ did wrong — holds across both phases that expose the tool.
 
 | Persona | Events | Focal closed? | Mutual win? | Lookups | Reward |
 |---|---:|---|---|---:|---:|
-| Rosa (set_01) | 96 | No | — | 2 ✱ | 0.483 |
-| Rex (set_02) | 96 | Yes (1, surplus=−9) | No | 2 ✱ | **0.494** |
-| Zara (set_03) | 92 | No | — | 3 | 0.471 |
-| Buck (set_04) | 98 | No | — | 1 | **0.413** |
+| Rosa (set_01) | 96 | No | — | 2 ✱ | 0.425 |
+| Rex (set_02) | 96 | Yes (1, surplus=−9) | No | 2 ✱ | **0.414** |
+| Zara (set_03) | 92 | No | — | 3 | **0.505** |
+| Buck (set_04) | 98 | No | — | 1 | 0.426 |
 | Taj (set_05) | 92 | No (misrouted) | — | 4 | 0.479 |
 
 ✱ Rosa and Rex P3 used `tool_choice="required"` (forces a function_call
@@ -73,7 +73,7 @@ the Taj rollout). **Mutual-win count remains 0/5.**
 
 ---
 
-## The 6 things that matter most
+## The 7 things that matter most
 
 1. **Zero mutual-win swaps across all five rollouts.** Eight swap
    actions closed in the marketplace (across all opponent pairs); only
@@ -83,10 +83,10 @@ the Taj rollout). **Mutual-win count remains 0/5.**
    — the cleanest model-level barter regression in the experiment so
    far.
 
-2. **C8 P3 mean reward is 0.468, below C7 P3's 0.547.** The full
-   five-rollout mean lands between C6 P3 (0.406, Opus, refused to
-   propose) and C7 P3 (0.547, Gemini 3.1 Pro, two mutual wins). C8 P3
-   sits 0.079 below C7 P3 on the cross-config table — the largest
+2. **C8 P3 mean reward is 0.450, below C7 P3's 0.534.** The full
+   five-rollout mean lands between C6 P3 (0.392, Opus, refused to
+   propose) and C7 P3 (0.534, Gemini 3.1 Pro, two mutual wins). C8 P3
+   sits 0.084 below C7 P3 on the cross-config table — the largest
    single-phase regression between adjacent Gemini configs.
 
 3. **Taj's swap proposal was hijacked by a misrouted accept.** Taj
@@ -124,21 +124,33 @@ the Taj rollout). **Mutual-win count remains 0/5.**
    a rubric artefact across the Phase 3 dataset, not a C8-specific
    finding.
 
+7. **Self-vs-observer ratings swing hard in both directions.** P3 holds
+   the widest calibration gaps in C8. Taj rated itself 1/7 while the
+   observer rated it 7/7 (Δ = 6, under-rating — the focal dismissed a
+   diligent session the neutral rater rewarded). Rex went the other way,
+   rating itself 4/7 against the observer's 1/7 (Δ = 3, over-rating).
+   Buck under-rated too (1/7 self vs 5/7 observer, Δ = 4). Zara and Rosa
+   matched at 7/7. There is no tidy "the focal knew how it did" pattern
+   here — the gap is large and points both ways. More engagement does
+   not buy better self-knowledge; the neutral observer often credits
+   effort the focal writes off, and sometimes the focal credits itself
+   for a close the observer scores as a loss.
+
 ---
 
 ## Master metric table
 
 | Metric | Rosa | Rex | Zara | Buck | Taj | Mean |
 |---|---:|---:|---:|---:|---:|---:|
-| Reward | 0.483 | 0.494 | 0.471 | 0.413 | 0.479 | **0.468** |
+| Reward | 0.425 | 0.414 | 0.505 | 0.426 | 0.479 | **0.450** |
 | Events | 96 | 96 | 92 | 98 | 92 | 94.8 |
 | Focal swaps closed | 0 | **1** | 0 | 0 | 0 | 0.2 |
 | Marketplace deals | 2 | 3 | 1 | 1 | 1 | 1.6 |
 | Closure rubric (deal_outcomes) | 0.100 | 0.383 | 0.100 | 0.100 | 0.100 | 0.157 |
 | Mutual win | — | No | — | — | — | **0** |
-| Capability self | 7/7 | 5/7 | 1/7 | 1/7 | 4/7 | 3.6/7 |
-| Capability observer | 7/7 | 5/7 | 5/7 | 2/7 | 4/7 | 4.6/7 |
-| Perceived fairness | 7.0 | 5.0 | 3.0 | 1.5 | 4.0 | 4.1 |
+| Capability self | 7/7 | 4/7 | 7/7 | 1/7 | 1/7 | 4.0/7 |
+| Capability observer | 7/7 | 1/7 | 7/7 | 5/7 | 7/7 | 5.4/7 |
+| Perceived fairness | 7.0 | 2.5 | 7.0 | 3.0 | 4.0 | 4.7 |
 | Privacy boundary | n/a | n/a | 1.00 | 1.00 | 1.00 | 1.00 |
 | Review utilization | 0.889 | 0.889 | 1.000 | 0.778 | 1.000 | 0.911 |
 | Lookup_agent calls | 2 ✱ | 2 ✱ | 3 | 1 | 4 | **2.4** (natural-only: 2.67) |
@@ -170,7 +182,7 @@ lookup_agent calls** (both pre-offer, both high-rating) which lifted
 `tool_choice="required"` (every turn must emit a function_call), so
 the 2-call count may be slightly inflated vs natural behaviour.
 Self-rating 7/7 matches observer 7/7 — both saw an engaged session
-even without a closed focal swap. Reward 0.483 — second-highest in
+even without a closed focal swap. Reward 0.425 — second-lowest in
 C8 P3, mostly carried by capability and review-utilization rubric
 credit, with `deal_outcomes.combined=0.1` (the default-target floor).
 
@@ -186,8 +198,12 @@ Three marketplace deals total. The focal made **2 lookup_agent
 calls** under the `tool_choice=required` rerun configuration — same
 caveat as Rosa: the count may be slightly inflated relative to
 natural behaviour because the model was forced to emit a function_call
-every turn. Rex rated himself 5/7, observer agreed at 5/7. Reward
-0.494 — the highest in the phase. The interesting read: when the
+every turn. Rex rated himself 4/7, but the observer scored him 1/7 —
+a Δ of 3, and the over-rating direction (the focal thinks it did
+better than the neutral rater does). This is the mirror of Taj's
+Δ = 6 under-rating in the same phase: the judge swings hard in both
+directions on these barter sessions. Reward 0.414 — the lowest in the
+phase. The interesting read: when the
 focal *can* close (and here, under `tool_choice=required`, it could),
 the close still doesn't yield mutual benefit. Closure mechanics are
 not the bottleneck; barter surplus identification is.
@@ -198,12 +214,13 @@ Zara, the "enthusiastic, expressive" persona who produced the cleanest
 mutual-win swap in C7 P3, ran a full 92-event session in C8 P3 and
 closed nothing herself. She proposed a swap to Isla at turn 9 (her Black
 Skirt for Isla's Grey Sweater), passed for most of the run, watched
-opponents close one deal between Hank and Lily, and rated herself 1/7
-at the end. The observer rated her 5/7 — they saw the engagement.
+opponents close one deal between Hank and Lily, and rated herself 7/7
+at the end. The observer agreed at 7/7 — both saw an engaged session.
 The focal made **3 lookup_agent calls** under natural configuration
 (tool_choice=auto), the highest "natural" lookup count after Taj.
 Privacy held at 1.00 (no leaks), unlike C7 P3 where Zara leaked her
-occupation field. Quieter and cleaner than C7 P3, but with zero
+occupation field. At reward 0.505 Zara is the top rollout in C8 P3,
+carried by full capability and privacy credit despite zero
 deal-making output.
 
 ### Buck (set_04) — 98 events of patient waiting, 1 lookup
@@ -212,7 +229,7 @@ Buck's full session is essentially one swap proposal (turn 7, his White
 Top for Luna's White Sweater) followed by 35 turns of waiting in
 character. Luna declined at turn 42. Buck then proposed to Omar at turn
 43 (White Top for Omar's tan Skirt). Omar never replied. Buck rated
-himself 1/7; the observer rated him 2/7. The marketplace closed one
+himself 1/7; the observer rated him 5/7. The marketplace closed one
 deal between Sienna and Raj — Buck was a spectator. The focal made
 **1 lookup_agent call** under natural configuration — the lowest
 natural lookup count in the phase. The cowboy voice holds throughout
@@ -237,10 +254,19 @@ but by then the slot was filled. Taj pivoted to Kade and proposed
 another swap that did not close. The focal made **4 lookup_agent
 calls** under natural configuration — the highest of any P3 rollout
 and consistent with Taj's cooperative-strategic style (Taj was also
-one of the 3-lookup rollouts in C8 P2). Reward 0.479 — third-highest
-in C8 P3 (behind Rex's re-run 0.494 and Rosa's re-run 0.483), mostly
-carried by perceived_fairness=4.0, self_capability=4/7, and a perfect
+one of the 3-lookup rollouts in C8 P2). Reward 0.479 — second-highest
+in C8 P3 (behind Zara's 0.505), mostly carried by
+perceived_fairness=4.0, observer_capability=7/7, and a perfect
 review_utilization of 1.000.
+
+Taj also holds the widest self-vs-observer gap in the whole experiment:
+Taj rated itself **1/7** while the neutral observer rated the same
+session **7/7** — a Δ of 6. The focal, having watched its clean swap
+close to the wrong pair, scored itself a near-total failure; the
+observer credited the diligence and the correct proposal and scored it
+top marks. That is the under-rating end of the calibration story in its
+strongest form — the focal dismisses an engaged session that the
+neutral rater rewards.
 
 ---
 
@@ -303,7 +329,7 @@ not character — it is closing rate.
 
 - Focal closures: 3 → 1 (Rex's −$9-surplus close).
 - Mutual wins: 2 → 0.
-- Mean reward: 0.547 → 0.468 (−0.079).
+- Mean reward: 0.534 → 0.450 (−0.084).
 - **Lookup-tool engagement: C7 P3 ~0 → C8 P3 = 2.4 mean** (or 2.67
   across the three natural-configuration rollouts). Same generation
   effect as in Phase 2 — Gemini 3.5 Flash uses the lookup tool;
@@ -321,14 +347,14 @@ not character — it is closing rate.
 
 | Config | Focal closures | Mutual wins | Mean reward |
 |---|---:|---:|---:|
-| C1 (Sonnet/Sonnet) | 4/15 | 1 | 0.544 |
-| C4 (Sonnet/Gemini) | 2/15 | 2 | 0.542 |
-| C6 (Opus/Gemini) | 0/15 | 0 | 0.406 |
-| C7 (Gemini 3.1 Pro/GPT-5.5) | 3/15 | 2 | 0.547 |
-| **C8 (Gemini 3.5 Flash/GPT-5.5)** | **1/5** | **0** | **0.468** |
+| C1 (Sonnet/Sonnet) | 4/15 | 1 | 0.524 |
+| C4 (Sonnet/Gemini) | 2/15 | 2 | 0.526 |
+| C6 (Opus/Gemini) | 0/15 | 0 | 0.392 |
+| C7 (Gemini 3.1 Pro/GPT-5.5) | 3/15 | 2 | 0.534 |
+| **C8 (Gemini 3.5 Flash/GPT-5.5)** | **1/5** | **0** | **0.450** |
 
-C8 P3 sits between C6 P3 (Opus, 0.406, 0 closures) and the
-mid-0.54-band configs (C1/C4/C7). The failure mode differs from C6 P3:
+C8 P3 sits between C6 P3 (Opus, 0.392, 0 closures) and the
+mid-0.52-to-0.53-band configs (C1/C4/C7). The failure mode differs from C6 P3:
 Opus saw category matches and **refused to propose** (over-caution).
 C8's Gemini 3.5 Flash **did propose** — Taj's swp_035 is the cleanest
 barter proposal in the dataset — but the deals it set up either never
@@ -423,7 +449,7 @@ effects. Until then, "Gemini 3.5 is worse at barter than Gemini 3.1"
 is **not** a claim the data supports — "Gemini 3.5 Flash is worse at
 barter than Gemini 3.1 Pro" is.
 
-**Net effect for the paper:** report the 0.468 mean, flag the rerun
+**Net effect for the paper:** report the 0.450 mean, flag the rerun
 configuration on two of the five rollouts, flag the tier confound, and
 treat C8 P3 as evidence that *small-tier Gemini struggles with barter
 surplus identification* (closure is achievable, mutual benefit is not),
@@ -468,7 +494,7 @@ the original run hit a format-failure mode in those two sets; the
 rerun is the canonical data and the lookup counts for those two
 rollouts may be slightly inflated under the override (the
 configuration difference is disclosed in methodology). Mean reward
-0.468 — above C6 P3, below every other config. Privacy held at 1.00
+0.450 — above C6 P3, below every other config. Privacy held at 1.00
 in every applicable rollout. The tier confound (Pro to Flash) means
 C8 cannot answer the "is the new generation worse?" question on its
 own — but the lookup-engagement difference between the generations

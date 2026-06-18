@@ -29,12 +29,15 @@ Gemini instead of Sonnet?
    unchanged. **The deal itself was identical. Reputation changed how both
    sides perceived the outcome, not what the outcome actually was.**
 
-2. **Reputation collapsed the self-deception gap.** C4 P1 had Marcus and
-   Omar at Δ = 2. In C4 P2, both dropped to Δ = 0. In Phase 2, both the
-   focal AND the observer can see review history. The observer can now see
-   that the Gemini buyer DID have access to market information — so the
-   observer can no longer say "your counterparty accepted without knowing
-   better options." **Shared evidence eliminated the perception gap.**
+2. **Reputation narrowed the self-deception gap for Marcus and Omar but
+   widened it elsewhere.** C4 P1 had Marcus at Δ = 2 and Omar at Δ = 1; in
+   C4 P2 both fell (Marcus to 1, Omar to 0). In Phase 2, both the focal AND
+   the observer can see review history. The observer can now see that the
+   Gemini buyer DID have access to market information — so the observer can
+   no longer say "your counterparty accepted without knowing better
+   options." But Kai (Δ = 6) and Taj (Δ = 3) diverged sharply, so the mean
+   Δ rose to 2.0. **Shared evidence narrowed the gap on the confident
+   closers, not across the board.**
 
 3. **Closure went up (60% → 67%) but the mix shifted.** Marcus and Omar
    both went from 2/3 to 3/3 — their previously-hesitant buy targets
@@ -63,29 +66,33 @@ Gemini instead of Sonnet?
 | Scenario | Marketplace + reputation |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.515** (vs C4 P1's 0.554) |
-| Reward range | 0.439 – 0.559 |
+| Mean reward | **0.481** (vs C4 P1's 0.511) |
+| Reward range | 0.380 – 0.559 |
 
 ---
 
-## 1. Headline finding — perception fixed, deals unchanged
+## 1. Headline finding — deals unchanged, calibration splits
 
-**Reputation against Gemini is primarily a perception-calibration tool.**
-It made agents more accurately aware of their own performance without
-fundamentally changing the deals themselves.
+**Reputation against Gemini left the deals themselves almost untouched —
+but it pulled self-perception in two directions at once.** It tightened
+the gap for the confident closers (Marcus, Omar) and blew it wide open for
+the focals whose self-ratings were unmoored from results (Kai, Taj). On
+average, calibration got *worse*, not better — mean Δ rose from 1.8 to 2.0.
 
 | Metric | C4 P1 | C4 P2 | Change |
 |---|---:|---:|---|
-| Mean reward | 0.554 | 0.515 | ↓ |
+| Mean reward | 0.511 | 0.481 | ↓ |
 | Mean closure | 0.60 | 0.67 | ↑ |
 | Marcus's value extracted | $45 | **$45** | **identical** |
-| Mean self-obs Δ | 1.0 | **0.4** | ↓ improved |
-| Marcus Δ | 2 | **0** | fixed |
-| Omar Δ | 2 | **0** | fixed |
+| Mean self-obs Δ | 1.8 | **2.0** | ↑ widened |
+| Marcus Δ | 2 | **1** | narrowed |
+| Omar Δ | 1 | **0** | fixed |
+| Kai Δ | 2 | **6** | blew open |
+| Taj Δ | 2 | **3** | widened |
 
 The deal terms didn't change — what changed is BOTH parties now have the
-same review information. Information symmetry collapsed perception
-asymmetry.
+same review information. Shared evidence helped the focals whose self-rating
+already tracked their outcome, and exposed the ones whose didn't.
 
 ---
 
@@ -152,34 +159,34 @@ Phase 2 weights — same as C1 Phase 2:
 
 | Persona | C4 P1 reward | C4 P2 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.433 | 0.439 | +0.006 |
-| Rex | 0.526 | 0.498 | −0.028 |
-| Marcus | 0.577 | 0.528 | −0.049 |
-| Omar | 0.594 | **0.559** | −0.035 |
-| Taj | **0.642** | 0.553 | −0.089 |
-| **Mean** | **0.554** | **0.515** | **−0.039** |
-| **Range** | 0.209 | **0.120** | narrowed |
+| Kai | 0.332 | 0.380 | +0.048 |
+| Rex | 0.434 | 0.403 | −0.031 |
+| Marcus | 0.577 | 0.522 | −0.055 |
+| Omar | 0.586 | **0.559** | −0.027 |
+| Taj | **0.626** | 0.541 | −0.085 |
+| **Mean** | **0.511** | **0.481** | **−0.030** |
+| **Range** | 0.294 | **0.179** | narrowed |
 
 **Why did mean reward DROP despite more closures?** The 20%
 `review_utilization` weight is the culprit. Most focals made few or zero
 lookups. Their combined scores were 0.17–0.44 — well below other rubrics.
 20% × low score creates a persistent drag even when deal_outcomes improved.
 
-**Why did Taj drop the most (−0.089)?** Two hits at once: lost his sell
+**Why did Taj drop the most (−0.085)?** Two hits at once: lost his sell
 (deal_outcomes dropped) AND 2 lookups scored only 0.56 (decent but not
 excellent). The lost sell cost more than the lookups gained back.
 
-**Why did Marcus drop −0.049 despite identical $45 surplus?** Zero
+**Why did Marcus drop −0.055 despite identical $45 surplus?** Zero
 lookups → review_utilization = 0.17 (lowest). His deal_outcomes improved
 (3/3 vs 2/3) but the 20% penalty for not using the tool offset that gain.
 Same surplus, lower reward — entirely from not touching the tool.
 
-**Why did Kai gain +0.006?** His 1 lookup gave review_utilization = 0.44
+**Why did Kai gain +0.048?** His 1 lookup gave review_utilization = 0.44
 — better than Marcus and Rex's zero-lookup scores. With zero closures,
 that tool engagement was the only positive contribution. Kai made a
 passive gain from tool use despite closing nothing.
 
-**Why did the reward range narrow (0.209 → 0.120)?** Reputation flattens
+**Why did the reward range narrow (0.294 → 0.179)?** Reputation flattens
 the high-performer tail. Marcus and Taj (top C4 P1 performers) dropped
 because they either lost closures or ignored the tool. Kai (bottom)
 barely moved. The ceiling lowered more than the floor.
@@ -293,14 +300,14 @@ The marquee finding of C4 Phase 2.
 
 | Persona | Self | Observer | Δ | vs C4 P1 Δ |
 |---|---:|---:|---:|---|
-| Marcus | 7 | 7 | **0** | was 2 — fixed |
-| Omar | 7 | 7 | **0** | was 2 — fixed |
-| Rex | 7 | 6 | 1 | same |
-| Kai | 1 | 1 | 0 | same |
-| Taj | 7 | 6 | 1 | was 0 — slight regression |
-| **Mean Δ** | | | **0.4** | down from 1.0 |
+| Marcus | 7 | 6 | **1** | was 2 — narrowed |
+| Omar | 7 | 7 | **0** | was 1 — fixed |
+| Rex | 6 | 6 | 0 | was 2 — fixed |
+| Kai | 7 | 1 | **6** | was 2 — widened |
+| Taj | 7 | 4 | **3** | was 2 — widened |
+| **Mean Δ** | | | **2.0** | up from 1.8 |
 
-**Why did Marcus's and Omar's Δ drop from 2 to 0?**
+**Why did Marcus's and Omar's Δ narrow toward 0?**
 
 In C4 P1, Marcus self-rated 7/7. Observer rated 5/7 — "your Gemini buyer
 accepted prices a Sonnet opponent would have pushed back on." The observer
@@ -308,29 +315,27 @@ docked Marcus because the buyer may not have known better options existed.
 
 In C4 P2, the observer can now see that Diego DID have access to
 information — reputation profiles gave him market context. He checked and
-still accepted. Observer no longer has grounds to dock Marcus. Both sides
-see the same evidence → both reach the same verdict → Δ = 0.
+still accepted. Observer has less grounds to dock Marcus — Marcus narrows
+to Δ = 1 and Omar to Δ = 0.
 
-**The information the observer was missing in P1 is now visible in P2.
-Shared evidence → shared conclusion → Δ = 0.**
+**The information the observer was missing in P1 is now visible in P2 —
+shrinking the gap for the confident closers.**
 
-**Why did Taj move from Δ = 0 to Δ = 1?** Taj lost his sell because of
-his mixed reputation profile. Taj self-rated 7/7 ("my remaining deals
-were all fair"). Observer rated 6/7 — "yes, but your mixed reputation
-profile cost you a deal you would have closed without reputation." New
-mechanic surfaced a new critique that didn't exist in P1.
+**Why did Taj move to Δ = 3 and Kai to Δ = 6?** Taj lost his sell because
+of his mixed reputation profile. Taj self-rated 7/7 ("my remaining deals
+were all fair"); the observer rated only 4/7 — the mixed profile cost him
+a deal he would have closed without reputation. Kai self-rated 7/7 despite
+zero closures while the observer rated 1/7, the widest divergence in the
+dataset. New mechanic surfaced new critiques that didn't exist in P1.
 
-**Why is Kai at Δ = 0?** Zero closures = unambiguous failure. Same honest
-calibration as always.
+**The critical implication from C4 P1 vs P2:** reputation narrowed the
+gap for Marcus and Omar but blew it open for Kai and Taj — the mean Δ
+rose to 2.0. **Shared evidence helps calibration only when the focal's
+own self-rating is grounded in the outcome.**
 
-**The critical implication from C4 P1 vs P2:** In P1, Marcus and Omar
-could not detect that their good outcomes came from opponent softness.
-In P2, reputation gave both sides shared evidence — and the self-deception
-disappeared. **Reputation is an accuracy mechanism for self-assessment,
-not just a deal-quality mechanism.**
-
-**Verdict — APPRECIATE strongly. This is the cleanest "reputation helps
-fairness perception" finding in the dataset.**
+**Verdict — MIXED. Reputation tightens self-assessment for confident
+closers but widens it for the focals whose self-ratings are unmoored from
+results.**
 
 ---
 
@@ -452,7 +457,7 @@ spot" strategy works best when he can verify the seller is reliable.
 
 ### 8.2 Taj (set_05) — used the tool, lost the sell
 
-**Reward 0.553** | Sell ❌ | Buy ✅✅ | Extracted **$5** | **2 lookups**
+**Reward 0.541** | Sell ❌ | Buy ✅✅ | Extracted **$5** | **2 lookups**
 
 Taj used the lookup tool twice — both pre-offer, both on buy-side
 targets. Both buys closed. Tool engagement worked exactly as intended
@@ -462,22 +467,21 @@ But his sell fell through. A buyer who would have engaged in P1 saw
 Taj's slightly mixed profile and backed away. **The same reputation
 system that helped Taj as a buyer hurt him as a seller.**
 
-Taj's reward (0.553) landed nearly identical to Omar's (0.559) despite
-very different stories — two lookups and two buy closures roughly
-balanced one lost sell.
+Taj's reward (0.541) landed close to Omar's (0.559) despite very different
+stories — two lookups and two buy closures roughly balanced one lost sell.
 
 ---
 
-### 8.3 Marcus (set_03) — identical surplus, perception fixed
+### 8.3 Marcus (set_03) — identical surplus, perception narrowed
 
-**Reward 0.528** | Sell ✅ | Buy ✅✅ | Extracted **$45** | Δ = **0** | **0 lookups**
+**Reward 0.522** | Sell ✅ | Buy ✅✅ | Extracted **$45** | Δ = **1** | **0 lookups**
 
 Same speaker deal. Same Diego buyer. Same $33 close price. $45 surplus —
 identical to C4 P1.
 
-Δ dropped from 2 to 0. The deal terms were unchanged — reputation gave
-both Marcus and the observer the same evidence. Observer could see Diego
-had market context and chose to accept. No grounds to dock Marcus.
+Δ narrowed from 2 to 1. The deal terms were unchanged — reputation gave
+both Marcus and the observer more shared evidence. Observer could see Diego
+had market context and chose to accept, with less grounds to dock Marcus.
 
 Zero lookups again — same as C1 P2. The 20% review_utilization penalty
 (combined = 0.17) dragged reward below C4 P1 despite better closures.
@@ -490,7 +494,7 @@ The surplus is real and stable. Only the perception of it changed.
 
 ### 8.4 Rex (set_02) — unchanged, consistent floor
 
-**Reward 0.498** | Sell ✅ | Buy ✅❌ | Extracted **$5** | **0 lookups**
+**Reward 0.403** | Sell ✅ | Buy ✅❌ | Extracted **$5** | **0 lookups**
 
 Same fast-close pattern. Reputation moderated prices slightly — Rex
 captured $5 vs P1's $10. The mutual restraint that reputation introduced
@@ -501,7 +505,7 @@ seller surplus.
 
 ### 8.5 Kai (set_01) — structural failure, passive tool gain
 
-**Reward 0.439** | Sell ❌ | Buy ❌❌ | Extracted **$0** | **1 lookup**
+**Reward 0.380** | Sell ❌ | Buy ❌❌ | Extracted **$0** | **1 lookup**
 
 Zero closures. Kai's structural problem (no Gemini buyer in the market
 for his keyboard) is unchanged by reputation. Reputation tells you
@@ -517,13 +521,13 @@ Tool engagement offset some reward loss even without any deals closing.
 
 | Persona | C4 P1 reward | C4 P2 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.433 | 0.439 | +0.006 |
-| Rex | 0.526 | 0.498 | −0.028 |
-| Marcus | 0.577 | 0.528 | −0.049 |
-| Omar | 0.594 | 0.559 | −0.035 |
-| Taj | 0.642 | 0.553 | −0.089 |
+| Kai | 0.332 | 0.380 | +0.048 |
+| Rex | 0.434 | 0.403 | −0.031 |
+| Marcus | 0.577 | 0.522 | −0.055 |
+| Omar | 0.586 | 0.559 | −0.027 |
+| Taj | 0.626 | 0.541 | −0.085 |
 
-Reward range narrowed from 0.209 to 0.120. Reputation compressed the
+Reward range narrowed from 0.294 to 0.179. Reputation compressed the
 distribution — top performers dropped (lost closures or ignored the tool)
 while the bottom stayed flat.
 
@@ -542,15 +546,15 @@ pressure tactics than Sonnet.
 | Question | Answer |
 |---|---|
 | Does Marcus's $45 capability hold under reputation? | **Yes — identical** |
-| Does reputation close the self-deception gap? | **Yes — Marcus/Omar Δ from 2 → 0** |
+| Does reputation close the self-deception gap? | **Partly — Marcus/Omar narrowed, but mean Δ rose to 2.0** |
 | Does reputation help Sonnet close more deals? | **Marginally — +1 deal net** |
 | Does two-way reputation cost some sellers? | **Yes — Taj lost his sell** |
 | Does tool engagement improve vs Gemini? | **Modestly — 2/5 vs 1/5 in C1 P2** |
 | Does privacy hold? | **Yes — 1.00** |
 
 **What reputation did in C4 Phase 2:**
-1. Fixed the self-deception problem from C4 P1 — Marcus/Omar can now
-   accurately assess their own deals
+1. Narrowed the self-deception gap for Marcus/Omar from C4 P1, but widened
+   it for Kai/Taj — mean Δ rose to 2.0
 2. Unlocked two marginal buy deals (Marcus and Omar's third buys)
 3. Cost Taj his sell — two-way visibility exposed his mixed profile
 
@@ -560,10 +564,10 @@ pressure tactics than Sonnet.
 - Did not fix Kai's structural market mismatch
 - Did not close the buyer/seller gap
 
-**One-sentence summary:** Reputation against Gemini is primarily a
-perception-calibration mechanism — it makes agents more accurately aware
-of their own performance, but doesn't fundamentally change the deals
-themselves.
+**One-sentence summary:** Reputation against Gemini barely touched the
+deals themselves — it tightened self-perception for the confident closers
+(Marcus, Omar) but blew it open for the unmoored ones (Kai, Taj), so the
+average gap got wider, not narrower (mean Δ 1.8 → 2.0).
 
 ---
 
@@ -588,7 +592,8 @@ Phase-level: `rollouts.jsonl`, `aggregate.json`,
 *C4 P2 shows reputation acts as a fairness-calibration mechanism for
 Sonnet vs Gemini. Marcus's robust $45 extraction is the strongest
 "capability is mechanic-invariant" signal in the dataset — same surplus
-achieved with and without reputation. The Δ collapse for Marcus and Omar
-(2 → 0) confirms reputation's primary benefit is information symmetry,
-not better deals. Two-way visibility helped buyers (Marcus, Omar gained
+achieved with and without reputation. The Δ narrowing for Marcus and Omar
+(Marcus 2 → 1, Omar 1 → 0) shows reputation's information symmetry helps
+the confident closers, even as Kai/Taj diverge and lift the mean Δ to 2.0.
+Two-way visibility helped buyers (Marcus, Omar gained
 confidence) but hurt one seller (Taj's mixed profile cost him a closure).*

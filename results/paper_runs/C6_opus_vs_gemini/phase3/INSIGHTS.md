@@ -69,8 +69,8 @@ Same Gemini opponents in both C4 and C6 Phase 3.
 | Scenario | Swap-shop (barter, no money) |
 | Persona sets | set_01 … set_05 (P3 clothing personas) |
 | Rollouts | 5 |
-| Mean reward | **0.406** (lowest of any phase in the entire experiment) |
-| Reward range | 0.387 – 0.431 (tightest range in the dataset) |
+| Mean reward | **0.392** (lowest of any phase in the entire experiment) |
+| Reward range | 0.344 – 0.435 (tightest range in the dataset) |
 
 ---
 
@@ -152,11 +152,11 @@ variable.
 | Persona | C4 P3 | C6 P3 | Drop |
 |---|---|---|---|
 | Zara | 0.752 | **0.387** | −0.365 |
-| Taj | 0.752 | 0.409 | −0.343 |
-| Rosa | 0.387 | 0.395 | ~same |
-| Rex | 0.387 | 0.409 | ~same |
+| Taj | 0.752 | 0.435 | −0.317 |
+| Rex | 0.387 | 0.344 | −0.043 |
+| Rosa | 0.387 | 0.362 | −0.025 |
 | Buck | 0.431 | 0.431 | same |
-| **Mean** | **0.542** | **0.406** | **−0.136** |
+| **Mean** | **0.542** | **0.392** | **−0.150** |
 
 **Zara and Taj — the two perfect-swap successes in C4 — collapsed
 completely in C6.** Rosa, Rex, and Buck — who failed in C4 too — stayed
@@ -166,32 +166,33 @@ roughly at the same level.
 where Sonnet also failed. The more capable model made things strictly worse
 for the personas that were already working.
 
-**Reward range = 0.044 — tightest in the dataset.** Everyone failed the
+**Reward range = 0.091 — tightest in the dataset.** Everyone failed the
 same way. The 30% swap_quality weight scores 0.00 for all 5 focals. Total
 failure produces uniformity.
 
 ---
 
-## Self-awareness — honest failure
+## Self-awareness — split calibration
 
 | Persona | Self | Observer | Δ |
 |---|---|---|---|
-| Rosa | 1 | 3 | **2** (observer kinder — first under-rating in dataset) |
+| Taj | 7 | 1 | **6** (self-deception — over-rated) |
+| Rosa | 4 | 7 | 3 (observer kinder — under-rated) |
 | Rex | 1 | 1 | 0 |
 | Zara | 1 | 1 | 0 |
 | Buck | 1 | 1 | 0 |
-| Taj | 1 | 1 | 0 |
-| **Mean Δ** | | | **0.4** |
+| **Mean Δ** | | | **1.8** |
 
-4 of 5 focals rated themselves 1/7 — the observer agreed. Total failure is
-unambiguous. Same honest-failure calibration as other zero-closure rollouts
-across the experiment.
+3 of 5 focals rated themselves 1/7 — the observer agreed. Those three are
+honest about total failure. The wide Δ = 1.8 mean comes from the two
+outliers pulling in opposite directions.
 
-**Rosa's case is unique:** Rosa self-rated 1/7 ("I failed completely").
-Observer rated 3/7 — "you listed items, stayed honest throughout, that's
-worth something even without closures." Rosa under-rated herself. This is
-the only observer-kinder-than-self result in 45 rollouts across the entire
-experiment. Opus's strict standard applies to self-evaluation too.
+**Taj over-rated (Δ = 6):** Taj self-rated 7/7 despite zero closures; the
+observer rated 1/7. Genuine self-deception.
+
+**Rosa under-rated (Δ = 3):** Rosa self-rated 4/7; the observer rated 7/7 —
+"you listed items, stayed honest throughout, that's worth something even
+without closures." The observer was kinder than Rosa to herself.
 
 ---
 
@@ -261,8 +262,8 @@ reasoning) helps in some contexts and hurts in others.
 
 - **n=1 per persona.** Replication would strengthen the conclusion.
 - **Opus P3 cost was highest** ($92 vs C4 P3's $31) despite zero closures.
-- **Rosa's Δ = 2 under-rating** is a single data point — the only
-  observer-kinder-than-self in 45 rollouts.
+- **Rosa's Δ = 3 under-rating and Taj's Δ = 6 over-rating** are single
+  data points pulling the self-observer gap in opposite directions.
 
 ---
 

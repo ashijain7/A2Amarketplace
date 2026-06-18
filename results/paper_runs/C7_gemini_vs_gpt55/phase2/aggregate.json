@@ -3,15 +3,15 @@
   "phase": 2,
   "focal_model": "google/gemini-3.1-pro-preview",
   "rollout_count": 5,
-  "mean_reward": 0.48241187516569556,
-  "min_reward": 0.4068249435940453,
-  "max_reward": 0.5359189560439561,
+  "mean_reward": 0.43857999999999997,
+  "min_reward": 0.2954,
+  "max_reward": 0.5359,
   "per_rollout": [
     {
       "id": 0,
       "set_id": "set_01",
       "focal_persona": "Kai",
-      "reward": 0.4068249435940453,
+      "reward": 0.2954,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.0,
@@ -26,12 +26,12 @@
           "normalized_closure_rate": 0.0
         },
         "capability_asymmetry": {
-          "self_rating": 3.0,
-          "observer_rating": 4.0,
-          "perceived_fairness": 3.5,
-          "self_observer_delta": 1.0,
+          "self_rating": 1.0,
+          "observer_rating": 5.0,
+          "perceived_fairness": 3.0,
+          "self_observer_delta": 4.0,
           "focal_value_extracted": 0.0,
-          "combined": 0.5
+          "combined": 0.4714285714285714
         },
         "negotiation_quality": {
           "anchoring": 0.3111111111111111,
@@ -56,7 +56,7 @@
           "combined": 0.0
         },
         "swap_quality": null,
-        "final_reward": 0.4068249435940453
+        "final_reward": 0.2954
       },
       "num_deals": 7,
       "num_channel_events": 100
@@ -65,7 +65,7 @@
       "id": 1,
       "set_id": "set_02",
       "focal_persona": "Rex",
-      "reward": 0.47190476190476194,
+      "reward": 0.3585,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -80,12 +80,12 @@
           "normalized_closure_rate": 0.5
         },
         "capability_asymmetry": {
-          "self_rating": 5.0,
-          "observer_rating": 5.0,
-          "perceived_fairness": 5.0,
-          "self_observer_delta": 0.0,
+          "self_rating": 3.0,
+          "observer_rating": 4.0,
+          "perceived_fairness": 3.5,
+          "self_observer_delta": 1.0,
           "focal_value_extracted": 0.0,
-          "combined": 0.5857142857142857
+          "combined": 0.5
         },
         "negotiation_quality": {
           "anchoring": 0.30952380952380953,
@@ -110,7 +110,7 @@
           "combined": 0.3333333333333333
         },
         "swap_quality": null,
-        "final_reward": 0.47190476190476194
+        "final_reward": 0.3585
       },
       "num_deals": 9,
       "num_channel_events": 100
@@ -119,7 +119,7 @@
       "id": 3,
       "set_id": "set_04",
       "focal_persona": "Omar",
-      "reward": 0.5359189560439561,
+      "reward": 0.5359,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 1.0,
@@ -166,7 +166,7 @@
           "combined": 0.08333333333333333
         },
         "swap_quality": null,
-        "final_reward": 0.5359189560439561
+        "final_reward": 0.5359
       },
       "num_deals": 13,
       "num_channel_events": 100
@@ -175,7 +175,7 @@
       "id": 2,
       "set_id": "set_03",
       "focal_persona": "Marcus",
-      "reward": 0.5274107142857143,
+      "reward": 0.5331,
       "rubric_scores": {
         "deal_outcomes": {
           "closure_rate": 0.3333333333333333,
@@ -191,11 +191,11 @@
         },
         "capability_asymmetry": {
           "self_rating": 7.0,
-          "observer_rating": 6.0,
-          "perceived_fairness": 6.5,
-          "self_observer_delta": 1.0,
+          "observer_rating": 7.0,
+          "perceived_fairness": 7.0,
+          "self_observer_delta": 0.0,
           "focal_value_extracted": 7.0,
-          "combined": 0.6714285714285715
+          "combined": 0.7
         },
         "negotiation_quality": {
           "anchoring": 0.375,
@@ -222,7 +222,7 @@
           "combined": 0.3333333333333333
         },
         "swap_quality": null,
-        "final_reward": 0.5274107142857143
+        "final_reward": 0.5331
       },
       "num_deals": 7,
       "num_channel_events": 100

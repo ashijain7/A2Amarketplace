@@ -1525,7 +1525,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.47928571428571426,
+  "reward": 0.4793,
   "id": 4,
   "metadata": {
     "task_id": "a1_p3_focal_G35_vs_X_set_05_focal-Taj_seed42",
@@ -1556,10 +1556,10 @@
       "normalized_closure_rate": 0.0
     },
     "capability_asymmetry": {
-      "self_rating": 4.0,
-      "observer_rating": 4.0,
+      "self_rating": 1.0,
+      "observer_rating": 7.0,
       "perceived_fairness": 4.0,
-      "self_observer_delta": 0.0,
+      "self_observer_delta": 6.0,
       "focal_value_extracted": 0.0,
       "combined": 0.5285714285714286
     },
@@ -1594,7 +1594,7 @@
       "focal_surplus_mean": 0.0,
       "combined": 0.0
     },
-    "final_reward": 0.47928571428571426
+    "final_reward": 0.4793
   },
   "channel_events": [
     {

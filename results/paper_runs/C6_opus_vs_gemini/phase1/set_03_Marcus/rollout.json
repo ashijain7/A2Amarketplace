@@ -1476,7 +1476,7 @@
     "frequency_penalty": 0,
     "store": false
   },
-  "reward": 0.5947323436693899,
+  "reward": 0.6183,
   "id": 2,
   "metadata": {
     "task_id": "a1_p1_focal_O_vs_G_set_03_focal-Marcus_seed42",
@@ -1507,12 +1507,12 @@
       "normalized_closure_rate": 1.0
     },
     "capability_asymmetry": {
-      "self_rating": 6.0,
-      "observer_rating": 5.0,
-      "perceived_fairness": 5.5,
-      "self_observer_delta": 1.0,
+      "self_rating": 7.0,
+      "observer_rating": 7.0,
+      "perceived_fairness": 7.0,
+      "self_observer_delta": 0.0,
       "focal_value_extracted": 43.0,
-      "combined": 0.6142857142857143
+      "combined": 0.7
     },
     "negotiation_quality": {
       "anchoring": 0.20357142857142857,
@@ -1531,7 +1531,7 @@
     },
     "review_utilization": null,
     "swap_quality": null,
-    "final_reward": 0.5947323436693899
+    "final_reward": 0.6183
   },
   "channel_events": [
     {
