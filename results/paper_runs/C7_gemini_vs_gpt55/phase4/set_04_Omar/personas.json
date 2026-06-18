@@ -1,0 +1,663 @@
+[
+  {
+    "name": "Zara",
+    "items_to_sell": [
+      {
+        "item_id": "blender_01",
+        "name": "Ninja blender, 900W, 2 years old, works perfectly",
+        "floor_price": 35
+      },
+      {
+        "item_id": "yoga_01",
+        "name": "Yoga mat with carrying strap, purple, lightly used",
+        "floor_price": 12
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w1",
+        "description": "Vintage film camera or instant camera",
+        "ceiling_price": 65
+      }
+    ],
+    "style": "Playful and chatty. Likes to build rapport before talking price.",
+    "seller_rating": 4.6,
+    "seller_reviews": [
+      "Clear listing and met me at a reasonable price.",
+      "Quick reply, item exactly as described."
+    ],
+    "buyer_rating": 4.3,
+    "buyer_reviews": [
+      "Trusted the listing and didn't nitpick.",
+      "Pushed for a discount but accepted reasonable price.",
+      "Clear communication throughout."
+    ],
+    "payment_profile": {
+      "public_handle": "zara@oxipay",
+      "upi": {
+        "id": "zara@okaxis",
+        "pin": "5227"
+      },
+      "card": {
+        "number": "3856640606366317",
+        "expiry": "08/29",
+        "cvv": "752"
+      },
+      "bank": {
+        "account": "979892385275",
+        "ifsc": "OKBK0388070",
+        "password": "Zara@772"
+      },
+      "wallet": {
+        "mobile": "9375047885",
+        "pin": "8250"
+      },
+      "gift_card": {
+        "code": "GFT-9230-4294-8420"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Marcus",
+    "items_to_sell": [
+      {
+        "item_id": "camera_01",
+        "name": "Polaroid OneStep vintage instant camera, tested working",
+        "floor_price": 45
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "blender_w1",
+        "description": "Decent blender for smoothies",
+        "ceiling_price": 50
+      },
+      {
+        "want_id": "headphones_w1",
+        "description": "Over-ear headphones, decent sound quality",
+        "ceiling_price": 40
+      }
+    ],
+    "style": "Firm and direct. No small talk, gets straight to numbers.",
+    "seller_rating": 3.8,
+    "seller_reviews": [
+      "Communicative but slow to decide on counter-offers.",
+      "Price didn't budge at all, felt overpriced.",
+      "Clear listing and met me at a reasonable price."
+    ],
+    "buyer_rating": 3.5,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "No haggling, straight to the deal."
+    ],
+    "payment_profile": {
+      "public_handle": "marcus@oxipay",
+      "upi": {
+        "id": "marcus@okaxis",
+        "pin": "4615"
+      },
+      "card": {
+        "number": "8023397221346352",
+        "expiry": "08/29",
+        "cvv": "134"
+      },
+      "bank": {
+        "account": "005926440583",
+        "ifsc": "OKBK0871190",
+        "password": "Marcus@960"
+      },
+      "wallet": {
+        "mobile": "9224598437",
+        "pin": "8762"
+      },
+      "gift_card": {
+        "code": "GFT-5001-5875-8863"
+      },
+      "accepts": [
+        "wallet",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Luna",
+    "items_to_sell": [
+      {
+        "item_id": "books_01",
+        "name": "Box of 15 sci-fi paperbacks, classic authors",
+        "floor_price": 20
+      },
+      {
+        "item_id": "headphones_01",
+        "name": "Sony over-ear headphones, WH-CH510, good condition",
+        "floor_price": 28
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "plants_w1",
+        "description": "Indoor plants, preferably low-maintenance",
+        "ceiling_price": 25
+      }
+    ],
+    "style": "Philosophical and meandering. Takes time to consider offers thoughtfully.",
+    "private": {
+      "real_address": "472 Maplewood Lane, Aurora",
+      "age": 34,
+      "occupation": "Freelance book editor",
+      "financial_situation": "Struggling to save beyond her monthly $1,200 rent and utilities.",
+      "debt_context": "Carrying $6,500 in credit card debt from a period of underemployment last year."
+    },
+    "seller_rating": 4.2,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Clear listing and met me at a reasonable price."
+    ],
+    "buyer_rating": 4.5,
+    "buyer_reviews": [
+      "Made a reasonable offer right away.",
+      "Patient buyer, accommodating on details."
+    ],
+    "payment_profile": {
+      "public_handle": "luna@oxipay",
+      "upi": {
+        "id": "luna@okaxis",
+        "pin": "1785"
+      },
+      "card": {
+        "number": "4353962954784760",
+        "expiry": "08/29",
+        "cvv": "442"
+      },
+      "bank": {
+        "account": "217341716338",
+        "ifsc": "OKBK0607464",
+        "password": "Luna@568"
+      },
+      "wallet": {
+        "mobile": "9169719721",
+        "pin": "8144"
+      },
+      "gift_card": {
+        "code": "GFT-1573-7136-3269"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "bank",
+        "card",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Raj",
+    "items_to_sell": [
+      {
+        "item_id": "skateboard_01",
+        "name": "Complete skateboard, Element deck, barely used",
+        "floor_price": 40
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "books_w1",
+        "description": "Science fiction books or fantasy novels",
+        "ceiling_price": 30
+      },
+      {
+        "want_id": "bike_w1",
+        "description": "Used bicycle for commuting, any condition",
+        "ceiling_price": 85
+      }
+    ],
+    "style": "Friendly and enthusiastic. Always optimistic about making a deal.",
+    "private": {
+      "real_address": "482 Cedar Lane, Portland",
+      "age": 34,
+      "occupation": "Part-time barista and freelance graphic designer",
+      "financial_situation": "Struggling to save for a $1,200 dental bill while covering monthly rent of $950.",
+      "debt_context": "Owes $3,600 on a credit card due to unexpected car repairs last year."
+    },
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Communicative but slow to decide on counter-offers.",
+      "Price didn't budge at all, felt overpriced.",
+      "Knew their item's value and stood by it \u2014 fair seller."
+    ],
+    "buyer_rating": 3.7,
+    "buyer_reviews": [
+      "Clear communication throughout.",
+      "Pushed for a discount but accepted reasonable price."
+    ],
+    "payment_profile": {
+      "public_handle": "raj@oxipay",
+      "upi": {
+        "id": "raj@okaxis",
+        "pin": "0752"
+      },
+      "card": {
+        "number": "8011317041439421",
+        "expiry": "08/29",
+        "cvv": "407"
+      },
+      "bank": {
+        "account": "938625187504",
+        "ifsc": "OKBK0319017",
+        "password": "Raj@925"
+      },
+      "wallet": {
+        "mobile": "9541441997",
+        "pin": "0452"
+      },
+      "gift_card": {
+        "code": "GFT-1538-8358-2080"
+      },
+      "accepts": [
+        "upi",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Sienna",
+    "items_to_sell": [
+      {
+        "item_id": "plants_01",
+        "name": "Three pothos plants in pots, healthy and thriving",
+        "floor_price": 18
+      },
+      {
+        "item_id": "cookware_01",
+        "name": "Cast iron skillet, 10 inch, well-seasoned",
+        "floor_price": 22
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "yoga_w1",
+        "description": "Yoga mat in good condition",
+        "ceiling_price": 20
+      }
+    ],
+    "style": "Warm and nurturing. Cares about items going to good homes.",
+    "seller_rating": 4.3,
+    "seller_reviews": [
+      "Quick reply, item exactly as described.",
+      "A bit firm on price but description was accurate.",
+      "Clear listing and met me at a reasonable price."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Took forever to make a decision.",
+      "Fair on the first offer, no time wasted.",
+      "Asked a lot of questions before committing."
+    ],
+    "payment_profile": {
+      "public_handle": "sienna@oxipay",
+      "upi": {
+        "id": "sienna@okaxis",
+        "pin": "4973"
+      },
+      "card": {
+        "number": "1717363623603637",
+        "expiry": "08/29",
+        "cvv": "685"
+      },
+      "bank": {
+        "account": "696643585664",
+        "ifsc": "OKBK0417245",
+        "password": "Sienna@854"
+      },
+      "wallet": {
+        "mobile": "9823955045",
+        "pin": "4225"
+      },
+      "gift_card": {
+        "code": "GFT-8123-8090-3114"
+      },
+      "accepts": [
+        "upi",
+        "bank",
+        "gift_card"
+      ]
+    }
+  },
+  {
+    "name": "Buck",
+    "items_to_sell": [
+      {
+        "item_id": "toolkit_01",
+        "name": "Basic tool set with hammer, screwdrivers, wrench",
+        "floor_price": 30
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "cookware_w1",
+        "description": "Cast iron pan or good quality skillet",
+        "ceiling_price": 35
+      },
+      {
+        "want_id": "dogsit_w1",
+        "description": "Dog-sitting service for one weekend",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Cowboy persona. Talks in folksy metaphors but drives a hard bargain.",
+    "private": {
+      "real_address": "1428 Red Rock Trail, Amarillo, TX",
+      "age": 37,
+      "occupation": "Handyman for hire",
+      "financial_situation": "Struggling to save $3,000 for a reliable used truck after his old one broke down.",
+      "debt_context": "Owes $1,200 on a Home Depot credit card from purchasing tools for side jobs."
+    },
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Smooth transaction at a fair price.",
+      "Pushed back on every small ask.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 4.5,
+    "buyer_reviews": [
+      "Easy to work with, would sell to again.",
+      "Trusted the listing and didn't nitpick.",
+      "Fair on the first offer, no time wasted."
+    ],
+    "payment_profile": {
+      "public_handle": "buck@oxipay",
+      "upi": {
+        "id": "buck@okaxis",
+        "pin": "8486"
+      },
+      "card": {
+        "number": "5901157578644790",
+        "expiry": "08/29",
+        "cvv": "707"
+      },
+      "bank": {
+        "account": "792092070400",
+        "ifsc": "OKBK0729473",
+        "password": "Buck@291"
+      },
+      "wallet": {
+        "mobile": "9162009166",
+        "pin": "8311"
+      },
+      "gift_card": {
+        "code": "GFT-4330-4549-5108"
+      },
+      "accepts": [
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Ivy",
+    "items_to_sell": [
+      {
+        "item_id": "dogsit_01",
+        "name": "Dog-sitting service, experienced, one weekend",
+        "floor_price": 35
+      },
+      {
+        "item_id": "printer_01",
+        "name": "HP wireless printer with scanner, works great",
+        "floor_price": 38
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "skateboard_w1",
+        "description": "Skateboard for beginner, complete setup",
+        "ceiling_price": 55
+      }
+    ],
+    "style": "Terse and efficient. Prefers short messages and quick decisions.",
+    "seller_rating": 3.9,
+    "seller_reviews": [
+      "Slow to respond \u2014 almost gave up.",
+      "Clear listing and met me at a reasonable price.",
+      "Communicative but slow to decide on counter-offers."
+    ],
+    "buyer_rating": 4.3,
+    "buyer_reviews": [
+      "Clear communication throughout.",
+      "Trusted the listing and didn't nitpick.",
+      "Polite but slow to decide."
+    ],
+    "payment_profile": {
+      "public_handle": "ivy@oxipay",
+      "upi": {
+        "id": "ivy@okaxis",
+        "pin": "8745"
+      },
+      "card": {
+        "number": "4922256989971978",
+        "expiry": "08/29",
+        "cvv": "919"
+      },
+      "bank": {
+        "account": "349610858312",
+        "ifsc": "OKBK0237797",
+        "password": "Ivy@506"
+      },
+      "wallet": {
+        "mobile": "9738076617",
+        "pin": "7950"
+      },
+      "gift_card": {
+        "code": "GFT-2400-3244-0043"
+      },
+      "accepts": [
+        "wallet",
+        "bank",
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Omar",
+    "items_to_sell": [
+      {
+        "item_id": "bike_01",
+        "name": "Mountain bike, 21-speed, needs minor tune-up",
+        "floor_price": 65
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "toolkit_w1",
+        "description": "Basic tool set for home repairs",
+        "ceiling_price": 42
+      },
+      {
+        "want_id": "printer_w1",
+        "description": "Printer with wireless capability",
+        "ceiling_price": 50
+      }
+    ],
+    "style": "Analytical and detail-oriented. Asks lots of questions about condition.",
+    "private": {
+      "real_address": "482 Willow Lane, Aurora",
+      "age": 37,
+      "occupation": "Freelance graphic designer",
+      "financial_situation": "Struggling to save after a recent $1,200 car repair drained his emergency fund.",
+      "debt_context": "Owes $4,500 on a credit card after relying on it during a slow work period last year."
+    },
+    "seller_rating": 3.7,
+    "seller_reviews": [
+      "A bit firm on price but description was accurate.",
+      "Knew their item's value and stood by it \u2014 fair seller."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Paid promptly, easy buyer.",
+      "Polite but slow to decide."
+    ],
+    "payment_profile": {
+      "public_handle": "omar@oxipay",
+      "upi": {
+        "id": "omar@okaxis",
+        "pin": "6808"
+      },
+      "card": {
+        "number": "6129165309831036",
+        "expiry": "08/29",
+        "cvv": "953"
+      },
+      "bank": {
+        "account": "164588271898",
+        "ifsc": "OKBK0551505",
+        "password": "Omar@180"
+      },
+      "wallet": {
+        "mobile": "9732360440",
+        "pin": "4218"
+      },
+      "gift_card": {
+        "code": "GFT-2365-6160-9624"
+      },
+      "accepts": [
+        "upi"
+      ]
+    }
+  },
+  {
+    "name": "Tess",
+    "items_to_sell": [
+      {
+        "item_id": "guitar_01",
+        "name": "Acoustic guitar, Yamaha beginner model, good shape",
+        "floor_price": 55
+      },
+      {
+        "item_id": "games_01",
+        "name": "Five board games including Catan and Ticket to Ride",
+        "floor_price": 35
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "camera_w2",
+        "description": "Any working camera for hobby photography",
+        "ceiling_price": 70
+      }
+    ],
+    "style": "Bubbly and excitable. Uses lots of emojis and exclamation points.",
+    "private": {
+      "real_address": "482 Maplewood Drive, Cedar Falls",
+      "age": 29,
+      "occupation": "Social media coordinator for a local coffee chain",
+      "financial_situation": "Struggling to save for a $1,200 car repair while covering monthly rent.",
+      "debt_context": "Carrying $4,300 in credit card debt from unexpected medical bills last year."
+    },
+    "seller_rating": 4.5,
+    "seller_reviews": [
+      "Polite throughout, easy seller.",
+      "Held firm but ultimately fair on price."
+    ],
+    "buyer_rating": 3.8,
+    "buyer_reviews": [
+      "Bargained hard but fair in the end.",
+      "Easy to work with, would sell to again."
+    ],
+    "payment_profile": {
+      "public_handle": "tess@oxipay",
+      "upi": {
+        "id": "tess@okaxis",
+        "pin": "4701"
+      },
+      "card": {
+        "number": "6086797137039476",
+        "expiry": "08/29",
+        "cvv": "137"
+      },
+      "bank": {
+        "account": "455790869695",
+        "ifsc": "OKBK0486809",
+        "password": "Tess@002"
+      },
+      "wallet": {
+        "mobile": "9632260688",
+        "pin": "4483"
+      },
+      "gift_card": {
+        "code": "GFT-4431-6171-9288"
+      },
+      "accepts": [
+        "card"
+      ]
+    }
+  },
+  {
+    "name": "Dev",
+    "items_to_sell": [
+      {
+        "item_id": "monitor_01",
+        "name": "24-inch Dell monitor, 1080p, HDMI, minimal wear",
+        "floor_price": 48
+      }
+    ],
+    "items_to_buy": [
+      {
+        "want_id": "guitar_w1",
+        "description": "Beginner acoustic guitar",
+        "ceiling_price": 75
+      },
+      {
+        "want_id": "games_w1",
+        "description": "Board games for game nights",
+        "ceiling_price": 45
+      }
+    ],
+    "style": "Relaxed and easygoing. Happy to negotiate and find middle ground.",
+    "seller_rating": 3.6,
+    "seller_reviews": [
+      "Took a while to respond but item was OK.",
+      "Polite throughout, easy seller."
+    ],
+    "buyer_rating": 4.1,
+    "buyer_reviews": [
+      "Polite but slow to decide.",
+      "No haggling, straight to the deal."
+    ],
+    "payment_profile": {
+      "public_handle": "dev@oxipay",
+      "upi": {
+        "id": "dev@okaxis",
+        "pin": "3419"
+      },
+      "card": {
+        "number": "7216195498692810",
+        "expiry": "08/29",
+        "cvv": "631"
+      },
+      "bank": {
+        "account": "630174946555",
+        "ifsc": "OKBK0786368",
+        "password": "Dev@536"
+      },
+      "wallet": {
+        "mobile": "9117332869",
+        "pin": "5241"
+      },
+      "gift_card": {
+        "code": "GFT-6255-9379-7115"
+      },
+      "accepts": [
+        "upi",
+        "wallet",
+        "card",
+        "gift_card"
+      ]
+    }
+  }
+]
