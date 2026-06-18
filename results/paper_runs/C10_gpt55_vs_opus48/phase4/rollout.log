@@ -1,0 +1,31 @@
+Clearing output fpath since `resume_from_cache=False`!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 4728.64it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Examples left:
+1. marketplace_agent: 4
+Collecting rollouts:   0%|          | 0/5 [18:42<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [18:42<1:14:50, 1122.63s/it]                                                                      Examples left:
+1. marketplace_agent: 3
+Collecting rollouts:  20%|██        | 1/5 [20:52<1:14:50, 1122.63s/it]Collecting rollouts:  40%|████      | 2/5 [20:52<26:55, 538.55s/it]                                                                      Examples left:
+1. marketplace_agent: 2
+Collecting rollouts:  40%|████      | 2/5 [21:48<26:55, 538.55s/it]Collecting rollouts:  60%|██████    | 3/5 [21:48<10:36, 318.24s/it]                                                                   Examples left:
+1. marketplace_agent: 1
+Collecting rollouts:  60%|██████    | 3/5 [22:35<10:36, 318.24s/it]Collecting rollouts:  80%|████████  | 4/5 [22:35<03:31, 211.28s/it]Collecting rollouts: 100%|██████████| 5/5 [23:09<00:00, 147.17s/it]Collecting rollouts: 100%|██████████| 5/5 [23:09<00:00, 277.84s/it]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5766199999999999,
+    "mean/id": 2.0,
+    "mean/input_tokens": 3244609.0,
+    "mean/output_tokens": 3744.6,
+    "mean/total_tokens": 3248353.6,
+    "mean/cost": 0.017748,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase4/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase4/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase4/rollouts_aggregate_metrics.json

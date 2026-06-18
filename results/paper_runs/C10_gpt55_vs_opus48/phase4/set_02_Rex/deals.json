@@ -1,0 +1,105 @@
+{
+  "focal": "Rex",
+  "set_id": "set_02",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 30,
+      "seller": "Finn",
+      "buyer": "Rex",
+      "item_id": "games_01",
+      "price": 70.0,
+      "seller_floor": 55.0,
+      "buyer_ceiling": 70.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 32,
+      "seller": "Rex",
+      "buyer": "Sage",
+      "item_id": "tools_01",
+      "price": 45.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 38,
+      "seller": "Mira",
+      "buyer": "Kai",
+      "item_id": "cam_01",
+      "price": 64.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 65.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 42,
+      "seller": "Iris",
+      "buyer": "Bo",
+      "item_id": "headphones_01",
+      "price": 32.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 66,
+      "seller": "Iris",
+      "buyer": "Luna",
+      "item_id": "yoga_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 68,
+      "seller": "Sage",
+      "buyer": "Dex",
+      "item_id": "teapot_01",
+      "price": 34.0,
+      "seller_floor": 25.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 84,
+      "seller": "Luna",
+      "buyer": "Kai",
+      "item_id": "watch_01",
+      "price": 30.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 65.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 94,
+      "seller": "Mira",
+      "buyer": "Zoe",
+      "item_id": "plants_01",
+      "price": 18.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 18.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_009",
+      "turn": 96,
+      "seller": "Bo",
+      "buyer": "Iris",
+      "item_id": "speaker_01",
+      "price": 35.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 40.0,
+      "payment_status": "n/a"
+    }
+  ]
+}
