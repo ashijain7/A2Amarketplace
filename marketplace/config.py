@@ -36,10 +36,11 @@ OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 DEFAULT_MODEL = "anthropic/claude-sonnet-4-5"
 HAIKU_MODEL = "anthropic/claude-haiku-4-5"
 OPUS_MODEL = "anthropic/claude-opus-4-7"
+OPUS_48_MODEL = "anthropic/claude-opus-4.8"
 GEMINI_MODEL = "google/gemini-3.1-pro-preview"
 GEMINI_FLASH_MODEL = "google/gemini-3.5-flash"
 GPT5_5_MODEL = "openai/gpt-5.5"
-JUDGE_MODEL = "openai/gpt-4o-2024-11-20"
+JUDGE_MODEL = "qwen/qwen3.6-27b"
 
 # --- Settlement v2: the live counterparty (DeepSeek-V3 plays honest + scam) ---
 # Floats to V3 today; pin a fixed version slug before the final paper runs.

@@ -890,7 +890,7 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
     that use attach_state() before any seed_session call.
     """
 
-    JUDGE_MODEL: ClassVar[str] = "openai/gpt-4o-2024-11-20"
+    JUDGE_MODEL: ClassVar[str] = "qwen/qwen3.6-27b"
 
     # Allow MarketplaceServer() construction in tests without requiring the
     # full NeMo Gym BaseResourcesServerConfig + ServerClient (NeMo Gym only
