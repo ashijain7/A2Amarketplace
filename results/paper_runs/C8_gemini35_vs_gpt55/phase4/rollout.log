@@ -1,0 +1,31 @@
+Clearing output fpath since `resume_from_cache=False`!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 2523.27it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [25:32<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [25:32<1:42:08, 1532.04s/it]                                                                      Collecting rollouts:  20%|██        | 1/5 [29:16<1:42:08, 1532.04s/it]Collecting rollouts:  40%|████      | 2/5 [29:16<38:08, 762.79s/it]                                                                      Collecting rollouts:  40%|████      | 2/5 [34:49<38:08, 762.79s/it]Collecting rollouts:  60%|██████    | 3/5 [34:49<18:52, 566.41s/it]                                                                   Collecting rollouts:  60%|██████    | 3/5 [45:26<18:52, 566.41s/it]Collecting rollouts:  80%|████████  | 4/5 [45:26<09:54, 594.55s/it]Collecting rollouts: 100%|██████████| 5/5 [47:23<00:00, 422.26s/it]Collecting rollouts: 100%|██████████| 5/5 [47:23<00:00, 568.71s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.59324,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2977325.2,
+    "mean/output_tokens": 5082.0,
+    "mean/total_tokens": 2982407.2,
+    "mean/cost": 0.0072603,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C8_gemini35_vs_gpt55/phase4/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C8_gemini35_vs_gpt55/phase4/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C8_gemini35_vs_gpt55/phase4/rollouts_aggregate_metrics.json

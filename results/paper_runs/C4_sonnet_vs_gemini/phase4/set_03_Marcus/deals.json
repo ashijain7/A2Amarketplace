@@ -1,0 +1,116 @@
+{
+  "focal": "Marcus",
+  "set_id": "set_03",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 22,
+      "seller": "Felix",
+      "buyer": "Mira",
+      "item_id": "camera_01",
+      "price": 50.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 60.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 30,
+      "seller": "Diego",
+      "buyer": "Marcus",
+      "item_id": "skateboard_01",
+      "price": 50.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 35,
+      "seller": "Isla",
+      "buyer": "Kai",
+      "item_id": "teapot_01",
+      "price": 30.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 30.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 43,
+      "seller": "Priya",
+      "buyer": "Hank",
+      "item_id": "bike_01",
+      "price": 75.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 80.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 49,
+      "seller": "Zara",
+      "buyer": "Lily",
+      "item_id": "headphones_01",
+      "price": 40.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 40.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 55,
+      "seller": "Mira",
+      "buyer": "Zara",
+      "item_id": "yoga_mat_01",
+      "price": 20.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 61,
+      "seller": "Hank",
+      "buyer": "Diego",
+      "item_id": "toolset_01",
+      "price": 25.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 75,
+      "seller": "Mira",
+      "buyer": "Felix",
+      "item_id": "blender_01",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_009",
+      "turn": 81,
+      "seller": "Priya",
+      "buyer": "Lily",
+      "item_id": "scarf_01",
+      "price": 16.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 40.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_010",
+      "turn": 89,
+      "seller": "Zara",
+      "buyer": "Kai",
+      "item_id": "cookbook_01",
+      "price": 22.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 30.0,
+      "payment_status": "n/a"
+    }
+  ]
+}

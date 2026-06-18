@@ -1,0 +1,31 @@
+Clearing output fpath since `resume_from_cache=False`!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 1826.59it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [49:20<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [49:20<3:17:20, 2960.03s/it]                                                                      Collecting rollouts:  20%|██        | 1/5 [55:26<3:17:20, 2960.03s/it]Collecting rollouts:  40%|████      | 2/5 [55:26<1:11:43, 1434.61s/it]                                                                      Collecting rollouts:  40%|████      | 2/5 [1:04:35<1:11:43, 1434.61s/it]Collecting rollouts:  60%|██████    | 3/5 [1:04:35<34:20, 1030.02s/it]                                                                        Collecting rollouts:  60%|██████    | 3/5 [1:08:34<34:20, 1030.02s/it]Collecting rollouts:  80%|████████  | 4/5 [1:08:34<11:57, 717.88s/it] Collecting rollouts: 100%|██████████| 5/5 [1:09:48<00:00, 485.74s/it]Collecting rollouts: 100%|██████████| 5/5 [1:09:48<00:00, 837.78s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5059199999999999,
+    "mean/id": 2.0,
+    "mean/input_tokens": 4370180.6,
+    "mean/output_tokens": 7101.0,
+    "mean/total_tokens": 4377281.6,
+    "mean/cost": 0.033957,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C6_opus_vs_gemini/phase4/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C6_opus_vs_gemini/phase4/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C6_opus_vs_gemini/phase4/rollouts_aggregate_metrics.json

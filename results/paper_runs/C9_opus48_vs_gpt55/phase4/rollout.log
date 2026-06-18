@@ -1,0 +1,16 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 2274.26it/s]
+Querying with 5 concurrent requests
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Resumed from cache. Found:
+- 5 original input rows
+- 0 rows that have already been run
+- 5 rows that still need to be run
+Querying with 5 concurrent requests
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

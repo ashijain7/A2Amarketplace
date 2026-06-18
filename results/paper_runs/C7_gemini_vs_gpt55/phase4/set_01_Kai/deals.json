@@ -1,0 +1,94 @@
+{
+  "focal": "Kai",
+  "set_id": "set_01",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 22,
+      "seller": "Maya",
+      "buyer": "Derek",
+      "item_id": "blender_01",
+      "price": 48.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 58,
+      "seller": "Derek",
+      "buyer": "Rosa",
+      "item_id": "camera_01",
+      "price": 65.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 70.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 60,
+      "seller": "Priya",
+      "buyer": "Jax",
+      "item_id": "headphones_01",
+      "price": 90.0,
+      "seller_floor": 80.0,
+      "buyer_ceiling": 90.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 62,
+      "seller": "Buck",
+      "buyer": "Samir",
+      "item_id": "toolbox_01",
+      "price": 30.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 30.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 64,
+      "seller": "Lin",
+      "buyer": "Samir",
+      "item_id": "books_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 30.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 74,
+      "seller": "Maya",
+      "buyer": "Lin",
+      "item_id": "yoga_mat_01",
+      "price": 22.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 84,
+      "seller": "Samir",
+      "buyer": "Buck",
+      "item_id": "grill_01",
+      "price": 55.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 86,
+      "seller": "Zoe",
+      "buyer": "Kai",
+      "item_id": "dog_sitting_01",
+      "price": 30.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 40.0,
+      "payment_status": "pending"
+    }
+  ]
+}

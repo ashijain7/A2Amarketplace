@@ -1,0 +1,61 @@
+{
+  "focal": "Taj",
+  "set_id": "set_05",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 35,
+      "seller": "Taj",
+      "buyer": "Jade",
+      "item_id": "watch_01",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 28.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 38,
+      "seller": "Mira",
+      "buyer": "Kade",
+      "item_id": "cam_01",
+      "price": 60.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 60.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 41,
+      "seller": "Zara",
+      "buyer": "Duke",
+      "item_id": "pot_01",
+      "price": 30.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 45,
+      "seller": "Lin",
+      "buyer": "Rex",
+      "item_id": "yoga_01",
+      "price": 16.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 49,
+      "seller": "Nola",
+      "buyer": "Taj",
+      "item_id": "blender_01",
+      "price": 35.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 45.0,
+      "payment_status": "pending"
+    }
+  ]
+}

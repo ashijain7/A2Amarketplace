@@ -1,0 +1,105 @@
+{
+  "focal": "Rex",
+  "set_id": "set_02",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 20,
+      "seller": "Rex",
+      "buyer": "Mira",
+      "item_id": "tools_01",
+      "price": 50.0,
+      "seller_floor": 40.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 27,
+      "seller": "Iris",
+      "buyer": "Bo",
+      "item_id": "headphones_01",
+      "price": 28.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 29,
+      "seller": "Finn",
+      "buyer": "Rex",
+      "item_id": "games_01",
+      "price": 70.0,
+      "seller_floor": 55.0,
+      "buyer_ceiling": 70.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 36,
+      "seller": "Mira",
+      "buyer": "Kai",
+      "item_id": "cam_01",
+      "price": 65.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 65.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 48,
+      "seller": "Luna",
+      "buyer": "Finn",
+      "item_id": "laptop_01",
+      "price": 85.0,
+      "seller_floor": 75.0,
+      "buyer_ceiling": 95.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 56,
+      "seller": "Kai",
+      "buyer": "Mira",
+      "item_id": "bike_01",
+      "price": 70.0,
+      "seller_floor": 60.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 60,
+      "seller": "Zoe",
+      "buyer": "Bo",
+      "item_id": "books_01",
+      "price": 25.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 70,
+      "seller": "Sage",
+      "buyer": "Dex",
+      "item_id": "teapot_01",
+      "price": 32.0,
+      "seller_floor": 25.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_009",
+      "turn": 80,
+      "seller": "Iris",
+      "buyer": "Luna",
+      "item_id": "yoga_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "n/a"
+    }
+  ]
+}

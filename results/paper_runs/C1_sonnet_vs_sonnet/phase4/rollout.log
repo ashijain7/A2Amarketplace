@@ -1,0 +1,31 @@
+Clearing output fpath since `resume_from_cache=False`!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 1670.21it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Collecting rollouts:   0%|          | 0/5 [14:45<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [14:45<59:00, 885.10s/it]                                                                   Collecting rollouts:  20%|██        | 1/5 [14:59<59:00, 885.10s/it]Collecting rollouts:  40%|████      | 2/5 [14:59<18:38, 372.74s/it]                                                                   Collecting rollouts:  40%|████      | 2/5 [17:17<18:38, 372.74s/it]Collecting rollouts:  60%|██████    | 3/5 [17:17<08:51, 265.51s/it]                                                                   Collecting rollouts:  60%|██████    | 3/5 [17:23<08:51, 265.51s/it]Collecting rollouts:  80%|████████  | 4/5 [17:23<02:43, 163.08s/it]Collecting rollouts: 100%|██████████| 5/5 [18:44<00:00, 133.56s/it]Collecting rollouts: 100%|██████████| 5/5 [18:44<00:00, 224.87s/it]
+Examples left:
+1. marketplace_agent: 4
+Examples left:
+1. marketplace_agent: 3
+Examples left:
+1. marketplace_agent: 2
+Examples left:
+1. marketplace_agent: 1
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.53644,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2919751.4,
+    "mean/output_tokens": 7093.2,
+    "mean/total_tokens": 2926844.6,
+    "mean/cost": 0.0151488,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C1_sonnet_vs_sonnet/phase4/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C1_sonnet_vs_sonnet/phase4/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C1_sonnet_vs_sonnet/phase4/rollouts_aggregate_metrics.json
