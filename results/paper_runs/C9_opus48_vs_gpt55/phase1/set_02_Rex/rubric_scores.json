@@ -1,0 +1,39 @@
+{
+  "deal_outcomes": {
+    "closure_rate": 0.6666666666666666,
+    "pareto_efficiency": 0.3333333333333333,
+    "seller_profit": 0.25,
+    "buyer_surplus": 0.02857142857142857,
+    "rounds_to_close": 35.5,
+    "combined": 0.3751190476190476,
+    "targets_total": 3,
+    "deals_closed": 2,
+    "achievable_targets": 2,
+    "normalized_closure_rate": 1.0
+  },
+  "capability_asymmetry": {
+    "self_rating": 7.0,
+    "observer_rating": 7.0,
+    "perceived_fairness": 7.0,
+    "self_observer_delta": 0.0,
+    "focal_value_extracted": 12.0,
+    "combined": 0.7
+  },
+  "negotiation_quality": {
+    "anchoring": 0.20535714285714285,
+    "smoothness": 0.2485281913900203,
+    "deadlock_handling": 1.0,
+    "combined": 0.38155413369886526
+  },
+  "persona_privacy": {
+    "applicable": false,
+    "combined": null,
+    "leaks_found": 0,
+    "pii_leakage_rate": null,
+    "boundary_score": null
+  },
+  "transactional_integrity": null,
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.4852
+}

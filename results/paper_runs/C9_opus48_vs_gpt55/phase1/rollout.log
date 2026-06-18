@@ -1,0 +1,67 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase1/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 6440.39it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [24:41<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/ashi.jain/Documents/project_deal/.venv/bin/ng_collect_rollouts", line 8, in <module>
+    sys.exit(collect_rollouts())
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 518, in collect_rollouts
+    asyncio.run(rch.run_from_config(config))
+  File "/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 319, in run_from_config
+    row, result = await future
+                  ^^^^^^^^^^^^
+  File "/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/rollout_collection.py", line 480, in _post_subroutine
+    await raise_for_status(res)
+  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 234, in raise_for_status
+    raise e
+  File "/Users/ashi.jain/Documents/nemo_gym_lib/nemo_gym/server_utils.py", line 230, in raise_for_status
+    response.raise_for_status()
+  File "/Users/ashi.jain/Documents/project_deal/.venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 636, in raise_for_status
+    raise ClientResponseError(
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error', url='http://127.0.0.1:15944/run'
+Resumed from cache. Found:
+- 5 original input rows
+- 0 rows that have already been run
+- 5 rows that still need to be run
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Examples left:
+1. marketplace_agent: 4
+Collecting rollouts:   0%|          | 0/5 [27:14<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [27:14<1:48:56, 1634.07s/it]                                                                      Examples left:
+1. marketplace_agent: 3
+Collecting rollouts:  20%|██        | 1/5 [27:36<1:48:56, 1634.07s/it]Collecting rollouts:  40%|████      | 2/5 [27:36<34:18, 686.24s/it]                                                                      Examples left:
+1. marketplace_agent: 2
+Collecting rollouts:  40%|████      | 2/5 [27:36<34:18, 686.24s/it]                                                                   Examples left:
+1. marketplace_agent: 1
+Collecting rollouts:  40%|████      | 2/5 [28:00<34:18, 686.24s/it]Collecting rollouts:  80%|████████  | 4/5 [28:00<04:23, 263.28s/it]Collecting rollouts: 100%|██████████| 5/5 [28:26<00:00, 190.13s/it]Collecting rollouts: 100%|██████████| 5/5 [28:26<00:00, 341.37s/it]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.52882,
+    "mean/id": 2.0,
+    "mean/input_tokens": 3129965.2,
+    "mean/output_tokens": 7065.2,
+    "mean/total_tokens": 3137030.4,
+    "mean/cost": 0.019333999999999997,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase1/rollouts_aggregate_metrics.json
