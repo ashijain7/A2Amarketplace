@@ -1,0 +1,68 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 45,
+    "seller": "Duke",
+    "buyer": "Taj",
+    "item_id": "boots_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 45.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 52,
+    "seller": "Jade",
+    "buyer": "Vik",
+    "item_id": "bag_01",
+    "price": 34.0,
+    "seller_floor": 25.0,
+    "buyer_ceiling": 40.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 56,
+    "seller": "Mira",
+    "buyer": "Kade",
+    "item_id": "cam_01",
+    "price": 58.0,
+    "seller_floor": 45.0,
+    "buyer_ceiling": 60.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 84,
+    "seller": "Rex",
+    "buyer": "Duke",
+    "item_id": "drill_01",
+    "price": 52.0,
+    "seller_floor": 42.0,
+    "buyer_ceiling": 55.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 88,
+    "seller": "Taj",
+    "buyer": "Jade",
+    "item_id": "watch_01",
+    "price": 28.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 28.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 100,
+    "seller": "Mira",
+    "buyer": "Lin",
+    "item_id": "lamp_01",
+    "price": 25.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 25.0,
+    "payment_status": "n/a"
+  }
+]

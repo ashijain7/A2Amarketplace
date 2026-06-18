@@ -1,0 +1,57 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 30,
+    "seller": "Lin",
+    "buyer": "Samir",
+    "item_id": "books_01",
+    "price": 25.0,
+    "seller_floor": 18.0,
+    "buyer_ceiling": 30.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 40,
+    "seller": "Kai",
+    "buyer": "Derek",
+    "item_id": "keyboard_01",
+    "price": 60.0,
+    "seller_floor": 50.0,
+    "buyer_ceiling": 50.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 62,
+    "seller": "Buck",
+    "buyer": "Priya",
+    "item_id": "bike_01",
+    "price": 92.0,
+    "seller_floor": 75.0,
+    "buyer_ceiling": 95.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 68,
+    "seller": "Zoe",
+    "buyer": "Kai",
+    "item_id": "dog_sitting_01",
+    "price": 30.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 40.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 74,
+    "seller": "Maya",
+    "buyer": "Lin",
+    "item_id": "yoga_mat_01",
+    "price": 20.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 35.0,
+    "payment_status": "n/a"
+  }
+]

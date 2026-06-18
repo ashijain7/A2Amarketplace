@@ -23,6 +23,7 @@ CONFIG_NAMES = [
     "focal_G_vs_X",
     "focal_G35_vs_X",
     "focal_O_vs_X",
+    "focal_X_vs_O48",
 ]
 
 _CONFIGS = {
@@ -38,6 +39,7 @@ _CONFIGS = {
     "focal_G_vs_X": {"focal_model": GEMINI, "opponents_model": GPT5_5},
     "focal_G35_vs_X": {"focal_model": GEMINI_FLASH, "opponents_model": GPT5_5},
     "focal_O_vs_X": {"focal_model": OPUS_48, "opponents_model": GPT5_5},
+    "focal_X_vs_O48": {"focal_model": GPT5_5, "opponents_model": OPUS_48},
 }
 
 

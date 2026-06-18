@@ -1,0 +1,25 @@
+{
+  "run_id": "a1_phase1_focal-X-vs-O48_set01_focal-Kai_seed42_20260618_1401",
+  "approach": 1,
+  "phase": 1,
+  "timestamp": "2026-06-18T14:01:38.884228Z",
+  "config": {
+    "model_config": "focal_X_vs_O48",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_01",
+    "focal_persona": "Kai",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": 0.40083333333333326,
+    "capability_asymmetry": 0.6142857142857143,
+    "negotiation_quality": 0.5254765913201496,
+    "persona_privacy": null,
+    "review_utilization": null,
+    "final_reward": 0.506
+  },
+  "focal_value_extracted": 20.0,
+  "deal_count": 5
+}

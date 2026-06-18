@@ -1,0 +1,32 @@
+Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase1/rollouts.jsonl doesn't exist!
+Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase1/rollouts_materialized_inputs.jsonl doesn't exist!
+Limiting the number of rows to 5
+Using `marketplace_agent` for rows that do not already have an agent ref
+Repeating rows 1 times (in a pattern of abc to aabbcc)!
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 3801.77it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Examples left:
+1. marketplace_agent: 4
+Collecting rollouts:   0%|          | 0/5 [16:35<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [16:35<1:06:23, 995.98s/it]                                                                     Examples left:
+1. marketplace_agent: 3
+Collecting rollouts:  20%|██        | 1/5 [20:17<1:06:23, 995.98s/it]Collecting rollouts:  40%|████      | 2/5 [20:17<27:01, 540.51s/it]                                                                     Examples left:
+1. marketplace_agent: 2
+Collecting rollouts:  40%|████      | 2/5 [20:40<27:01, 540.51s/it]Collecting rollouts:  60%|██████    | 3/5 [20:40<10:08, 304.18s/it]                                                                   Examples left:
+1. marketplace_agent: 1
+Collecting rollouts:  60%|██████    | 3/5 [20:55<10:08, 304.18s/it]Collecting rollouts:  80%|████████  | 4/5 [20:55<03:09, 189.87s/it]Collecting rollouts: 100%|██████████| 5/5 [20:58<00:00, 122.47s/it]Collecting rollouts: 100%|██████████| 5/5 [20:58<00:00, 251.64s/it]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5312000000000001,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2035013.2,
+    "mean/output_tokens": 3043.2,
+    "mean/total_tokens": 2038056.4,
+    "mean/cost": 0.009383,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase1/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase1/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C10_gpt55_vs_opus48/phase1/rollouts_aggregate_metrics.json

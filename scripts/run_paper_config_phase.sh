@@ -43,6 +43,7 @@ case "$CONFIG" in
   focal_G_vs_X) FOCAL_MODEL="google/gemini-3.1-pro-preview"; CONFIG_DIR="C7_gemini_vs_gpt55" ;;
   focal_G35_vs_X) FOCAL_MODEL="google/gemini-3.5-flash"; CONFIG_DIR="C8_gemini35_vs_gpt55" ;;
   focal_O_vs_X) FOCAL_MODEL="anthropic/claude-opus-4.8"; CONFIG_DIR="C9_opus48_vs_gpt55" ;;
+  focal_X_vs_O48) FOCAL_MODEL="openai/gpt-5.5"; CONFIG_DIR="C10_gpt55_vs_opus48" ;;
   *) echo "ERROR: unknown config '$CONFIG'"; exit 1 ;;
 esac
 
