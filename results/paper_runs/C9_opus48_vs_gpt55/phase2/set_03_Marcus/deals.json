@@ -1,0 +1,90 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 22,
+    "seller": "Mira",
+    "buyer": "Felix",
+    "item_id": "blender_01",
+    "price": 45.0,
+    "seller_floor": 35.0,
+    "buyer_ceiling": 50.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 26,
+    "seller": "Hank",
+    "buyer": "Diego",
+    "item_id": "toolset_01",
+    "price": 30.0,
+    "seller_floor": 20.0,
+    "buyer_ceiling": 55.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 35,
+    "seller": "Marcus",
+    "buyer": "Isla",
+    "item_id": "speaker_01",
+    "price": 35.0,
+    "seller_floor": 28.0,
+    "buyer_ceiling": 35.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_004",
+    "turn": 40,
+    "seller": "Zara",
+    "buyer": "Felix",
+    "item_id": "headphones_01",
+    "price": 42.0,
+    "seller_floor": 30.0,
+    "buyer_ceiling": 50.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_005",
+    "turn": 56,
+    "seller": "Mira",
+    "buyer": "Zara",
+    "item_id": "yoga_mat_01",
+    "price": 22.0,
+    "seller_floor": 15.0,
+    "buyer_ceiling": 25.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_006",
+    "turn": 64,
+    "seller": "Priya",
+    "buyer": "Hank",
+    "item_id": "bike_01",
+    "price": 80.0,
+    "seller_floor": 65.0,
+    "buyer_ceiling": 80.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_007",
+    "turn": 66,
+    "seller": "Diego",
+    "buyer": "Marcus",
+    "item_id": "skateboard_01",
+    "price": 48.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 50.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_008",
+    "turn": 82,
+    "seller": "Priya",
+    "buyer": "Lily",
+    "item_id": "scarf_01",
+    "price": 18.0,
+    "seller_floor": 12.0,
+    "buyer_ceiling": 40.0,
+    "payment_status": "n/a"
+  }
+]
