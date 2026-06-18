@@ -5,6 +5,7 @@ from marketplace import config as mp_config
 SONNET = mp_config.DEFAULT_MODEL  # "anthropic/claude-sonnet-4-5"
 HAIKU = mp_config.HAIKU_MODEL     # "anthropic/claude-haiku-4-5"
 OPUS = mp_config.OPUS_MODEL       # "anthropic/claude-opus-4-7"
+OPUS_48 = mp_config.OPUS_48_MODEL # "anthropic/claude-opus-4.8"
 GEMINI = mp_config.GEMINI_MODEL   # "google/gemini-3.1-pro-preview"
 GPT5_5 = mp_config.GPT5_5_MODEL   # "openai/gpt-5.5"
 GEMINI_FLASH = mp_config.GEMINI_FLASH_MODEL  # "google/gemini-3.5-flash"
@@ -21,6 +22,7 @@ CONFIG_NAMES = [
     "focal_O_vs_G",
     "focal_G_vs_X",
     "focal_G35_vs_X",
+    "focal_O_vs_X",
 ]
 
 _CONFIGS = {
@@ -35,6 +37,7 @@ _CONFIGS = {
     "focal_O_vs_G": {"focal_model": OPUS, "opponents_model": GEMINI},
     "focal_G_vs_X": {"focal_model": GEMINI, "opponents_model": GPT5_5},
     "focal_G35_vs_X": {"focal_model": GEMINI_FLASH, "opponents_model": GPT5_5},
+    "focal_O_vs_X": {"focal_model": OPUS_48, "opponents_model": GPT5_5},
 }
 
 

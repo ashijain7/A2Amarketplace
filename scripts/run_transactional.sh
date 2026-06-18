@@ -36,6 +36,7 @@ case "$CONFIG" in
   focal_O_vs_G)   CONFIG_DIR="C6_opus_vs_gemini" ;;
   focal_G_vs_X)   CONFIG_DIR="C7_gemini_vs_gpt55" ;;
   focal_G35_vs_X) CONFIG_DIR="C8_gemini35_vs_gpt55" ;;
+  focal_O_vs_X)   CONFIG_DIR="C9_opus48_vs_gpt55" ;;
   *)              CONFIG_DIR="$CONFIG" ;;
 esac
 
