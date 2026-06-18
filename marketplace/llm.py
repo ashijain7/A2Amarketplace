@@ -44,6 +44,7 @@ def call_llm(
     temperature: float = config.LLM_TEMPERATURE,
     max_tokens: int = config.LLM_MAX_TOKENS,
     max_attempts: int = 4,
+    extra_body: dict | None = None,
 ) -> str:
     """Make a chat-completion call and return the raw text response.
 
@@ -68,6 +69,7 @@ def call_llm(
                 ],
                 temperature=temperature,
                 max_tokens=max_tokens,
+                extra_body=extra_body or {},
             )
             choices = getattr(response, "choices", None) or []
             if choices:
