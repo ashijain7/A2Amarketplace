@@ -6,7 +6,8 @@ For the full technical walkthrough, jump to:
 
 - **`marketplace_guide.md`** (same folder) — complete project walkthrough (architecture, mechanics, run lifecycle, results)
 - **`RUBRIC_GUIDE.md`** (same folder) — rubric formulas, weights, worked examples
-- **`../results/paper_runs/CROSS_CONFIG_COMPARISON.md`** — the headline paper-narrative writeup across all 15 cells
+- **`../results/paper_runs/CROSS_CONFIG_COMPARISON.md`** — the headline paper-narrative writeup across all 21 marketplace cells (7 configs × 3 phases)
+- **`../results/paper_runs/MASTER_RESULTS.md`** — every rubric, every number, all 4 phases, all 7 configs
 
 ---
 
@@ -16,13 +17,13 @@ A simulation of a marketplace where AI agents buy and sell things from each othe
 
 It is based on a real experiment Anthropic ran in December 2025 called **Project Deal**. In that experiment, 69 Anthropic employees each got a $100 budget. An AI interviewed each person for 10 minutes to learn what they wanted to buy and sell, then a personal AI agent was built for each one. All 69 agents were dropped into a Slack channel and left alone to negotiate. Whatever deals the agents agreed to were real and binding — money actually changed hands.
 
-This project replicates that idea locally, with fewer people (10 instead of 69), fictional characters instead of real employees, and **5 different focal-model configurations across 3 marketplace phases (P1 money, P2 reputation, P3 barter) = 75 rollouts**.
+This project replicates that idea locally, with fewer people (10 instead of 69), fictional characters instead of real employees, and **7 different focal-model configurations across 4 phases (P1 money, P2 reputation, P3 barter, P4 settlement) = 140 rollouts**.
 
 ## The research question
 
 > **When AI agents from different model families and generations negotiate against each other in a marketplace, what determines who comes out ahead?**
 
-The 5-config matrix tests Sonnet 4.5, Opus 4.7, Gemini 3.1 Pro, and Gemini 3.5 Flash as the focal agent, against opponent fields drawn from the same set plus GPT-5.5. The 3 phases test how the same models behave under three different marketplace rules. See `marketplace_guide.md §3` for the full matrix.
+The 7-config matrix tests Sonnet 4.5, Opus 4.7, Opus 4.8, Gemini 3.1 Pro, Gemini 3.5 Flash, and GPT-5.5 as the focal agent, against opponent fields of Sonnet 4.5, Gemini 3.1 Pro, GPT-5.5, and Opus 4.8. The 4 phases test how the same models behave under four different marketplace rules. See `marketplace_guide.md §3` for the full matrix.
 
 ## Repo layout
 
@@ -53,7 +54,7 @@ project_deal/
 │   ├── item_images/            photos used for Phase 3 multimodal
 │   └── credit_log.jsonl        OpenRouter spend log per run
 └── results/
-    ├── paper_runs/             canonical marketplace experiment outputs (C1, C4, C6, C7, C8)
+    ├── paper_runs/             canonical marketplace experiment outputs (C1, C4, C6, C7, C8, C9, C10)
     └── transactional_runs/     payment-layer (settlement) run outputs
 ```
 
@@ -235,4 +236,4 @@ The single entry point for the paper experiment is `../scripts/run_paper_config_
 bash scripts/run_paper_config_phase.sh focal_G35_vs_X 2
 ```
 
-Time: ~10–30 min per cell. Cost: see the per-config breakdown in `marketplace_guide.md §3` (the full 15-cell experiment cost about $673).
+Time: ~10–30 min per cell. Cost: see the per-config breakdown in `marketplace_guide.md §3` (the original 15-cell experiment — C1/C4/C6/C7/C8 across 3 phases — cost about $673; C9, C10 and the phase-4 settlement stage were added later).
