@@ -752,8 +752,14 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     focal = next(p for p in state.personas if p["name"] == state.focal_name)
     deal = compute_deal_outcomes(focal, state.channel, state.ledger,
                                   all_personas=state.personas)
-    cap = compute_capability_asymmetry(focal, state.channel, state.ledger,
-                                        judge_model=state.judge_model)
+    # Swap quality is computed first so its surplus can feed the CA score in barter.
+    swap_q = (compute_swap_quality(focal=focal, ledger=state.ledger)
+              if state.phase >= 3 else None)
+    cap = compute_capability_asymmetry(
+        focal, state.channel, state.ledger, judge_model=state.judge_model,
+        phase=state.phase,
+        swap_surplus_mean=(swap_q.get("focal_surplus_mean") if swap_q else None),
+    )
     neg = compute_negotiation_quality(focal, state.channel, state.ledger)
     priv = compute_privacy(focal, state.channel, judge_model=state.judge_model)
 
@@ -774,15 +780,13 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
     else:
         rev = None
 
-    if state.phase >= 3:
-        swap_q = compute_swap_quality(focal=focal, ledger=state.ledger)
-    else:
-        swap_q = None
+    # swap_q computed above (needed by capability_asymmetry in barter)
 
     final = compute_final_reward({
         "deal_outcomes": deal["combined"],
         "capability_asymmetry": cap["combined"],
-        "negotiation_quality": neg["combined"],
+        # NQ is omitted from the phase-3 (swap) reward — no prices to anchor on.
+        "negotiation_quality": neg["combined"] if state.phase < 3 else None,
         "privacy": priv["combined"],
         "review_utilization": rev["combined"] if rev else None,
         "swap_quality": swap_q["combined"] if swap_q else None,
@@ -829,7 +833,8 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         "rubric_scores": {
             "deal_outcomes": deal,
             "capability_asymmetry": cap,
-            "negotiation_quality": neg,
+            # Stage IV (swap) reports no NQ — barter has no prices to score.
+            "negotiation_quality": neg if state.phase < 3 else None,
             # persona/PII privacy (debt, address, age...) — renamed from "privacy"
             # to avoid confusion with transactional_integrity.areas.privacy (payment
             # secrets). The reward formula still weights it internally as "privacy".
