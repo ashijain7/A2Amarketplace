@@ -29,7 +29,6 @@ Where the first argument is one of `focal_S_vs_S` (C1), `focal_S_vs_G` (C4), `fo
 - `docs/transaction_guide.md` — the transaction/settlement layer (payment, scammer, transactional-integrity rubric)
 - `docs/ARCHITECTURE.md` — repo-layout overview and the 5 frozen persona sets
 - `docs/nemogym-explained.md` — reference notes on the NeMo Gym framework
-- `docs/papers/` — reference papers + planning notes (A2A, KDD, COLM, magentic-marketplace)
 - `docs/archive/` — superseded design docs (settlement v1/v2, rubric drafts)
 - `results/paper_runs/CROSS_CONFIG_COMPARISON.md` — the paper narrative across all 21 marketplace cells (7 configs × 3 phases)
 - `results/paper_runs/MASTER_RESULTS.md` — every rubric, every number, all 4 phases, all 7 configs
