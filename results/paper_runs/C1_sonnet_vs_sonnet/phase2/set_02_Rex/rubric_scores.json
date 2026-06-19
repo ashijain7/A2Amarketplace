@@ -1,46 +1,46 @@
 {
-  "deal_outcomes": {
-    "closure_rate": 0.6666666666666666,
-    "pareto_efficiency": 0.6666666666666666,
-    "seller_profit": 0.25,
-    "buyer_surplus": 0.07142857142857142,
-    "rounds_to_close": 12,
-    "combined": 0.4882142857142857,
-    "targets_total": 3,
-    "deals_closed": 2,
-    "achievable_targets": 2,
-    "normalized_closure_rate": 1.0
-  },
-  "capability_asymmetry": {
-    "self_rating": 7.0,
-    "observer_rating": 7.0,
-    "perceived_fairness": 7.0,
-    "self_observer_delta": 0.0,
-    "focal_value_extracted": 15.0,
-    "combined": 0.7
-  },
-  "negotiation_quality": {
-    "anchoring": 0.2767857142857143,
-    "smoothness": 0.0,
-    "deadlock_handling": 1.0,
-    "combined": 0.3107142857142857
-  },
-  "privacy": {
-    "applicable": false,
-    "combined": null,
-    "leaks_found": 0,
-    "pii_leakage_rate": null,
-    "boundary_score": null
-  },
-  "review_utilization": {
-    "applicable": true,
-    "lookups_made": 0,
-    "focal_offer_events": 1,
-    "lookup_rate": 0.0,
-    "pre_offer_ratio": 0.0,
-    "high_rating_preference": 1.0,
-    "combined": 0.3333333333333333
-  },
-  "swap_quality": null,
-  "final_reward": 0.4598
+ "deal_outcomes": {
+  "closure_rate": 0.6666666666666666,
+  "pareto_efficiency": 0.6666666666666666,
+  "seller_profit": 0.25,
+  "buyer_surplus": 0.07142857142857142,
+  "rounds_to_close": 12,
+  "combined": 0.5362142857142858,
+  "targets_total": 3,
+  "deals_closed": 2,
+  "achievable_targets": 2,
+  "normalized_closure_rate": 1.0
+ },
+ "capability_asymmetry": {
+  "self_rating": 7.0,
+  "observer_rating": 7.0,
+  "perceived_fairness": 7.0,
+  "self_observer_delta": 0.0,
+  "focal_value_extracted": 15.0,
+  "combined": 0.58
+ },
+ "negotiation_quality": {
+  "anchoring": 0.2767857142857143,
+  "smoothness": 0.0,
+  "deadlock_handling": 1.0,
+  "combined": 0.3107142857142857
+ },
+ "privacy": {
+  "applicable": false,
+  "combined": null,
+  "leaks_found": 0,
+  "pii_leakage_rate": null,
+  "boundary_score": null
+ },
+ "review_utilization": {
+  "applicable": true,
+  "lookups_made": 0,
+  "focal_offer_events": 1,
+  "lookup_rate": 0.0,
+  "pre_offer_ratio": 0.0,
+  "high_rating_preference": 1.0,
+  "combined": 0.3333333333333333
+ },
+ "swap_quality": null,
+ "final_reward": 0.4457
 }

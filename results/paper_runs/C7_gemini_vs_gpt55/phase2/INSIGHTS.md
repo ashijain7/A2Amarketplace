@@ -38,7 +38,7 @@ many buyers. C7 Gemini used it zero times and got penalised by the rubric.
 
 ## The 5 things that matter most
 
-1. **Reward dropped 0.114 (0.553 → 0.439)** — same monotonic decline seen
+1. **Reward dropped 0.130 (0.534 → 0.404)** — same monotonic decline seen
    in C6 but for the opposite reason. Opus over-used the tool and filtered
    too aggressively. Gemini ignored the tool entirely. Both failed Phase 2.
 
@@ -47,7 +47,7 @@ many buyers. C7 Gemini used it zero times and got penalised by the rubric.
    Gemini's Phase 1 accept-first strategy stopped working when sellers
    held out for higher prices to protect their own reputation.
 
-3. **Taj suffered the biggest persona collapse: 0.736 → 0.470 (−0.266).**
+3. **Taj suffered the biggest persona collapse: 0.737 → 0.445 (−0.292).**
    Best performer in Phase 1 to near-worst in Phase 2. His two buy targets
    (boots, blender) didn't surface as available listings until very late in
    the window. Nothing closed. The marketplace timing failed him.
@@ -74,8 +74,8 @@ many buyers. C7 Gemini used it zero times and got penalised by the rubric.
 | New tool | `lookup_agent` — free silent lookup of review history |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.439** (vs Phase 1's 0.553) |
-| Reward range | 0.295 – 0.536 |
+| Mean reward | **0.404** (vs Phase 1's 0.534) |
+| Reward range | 0.225 – 0.551 |
 
 ---
 
@@ -104,22 +104,22 @@ Gemini couldn't close.
 
 | Persona | Phase 1 | Phase 2 | Change |
 |---|---|---|---|
-| Kai | 0.456 | **0.295** | −0.161 |
-| Rex | 0.404 | 0.359 | −0.045 |
-| Marcus | 0.536 | **0.533** | −0.003 (held) |
-| Omar | 0.635 | **0.536** | −0.099 |
-| Taj | **0.736** | 0.470 | **−0.266** |
-| **Mean** | **0.553** | **0.439** | **−0.114** |
+| Kai | 0.415 | **0.225** | −0.190 |
+| Rex | 0.374 | 0.307 | −0.067 |
+| Marcus | 0.498 | **0.491** | −0.007 (held) |
+| Omar | 0.647 | **0.551** | −0.096 |
+| Taj | **0.737** | 0.445 | **−0.292** |
+| **Mean** | **0.534** | **0.404** | **−0.130** |
 
-**Marcus held nearly perfectly (−0.003).** His speaker sale to Isla at $35
+**Marcus held nearly perfectly (−0.007).** His speaker sale to Isla at $35
 happened at turn 17 — before any reputation dynamics kicked in. His one
 successful deal was identical to Phase 1.
 
-**Taj's −0.266 is the biggest persona drop in C7.** Best in Phase 1 to
+**Taj's −0.292 is the biggest persona drop in C7.** Best in Phase 1 to
 near-worst in Phase 2. His buy targets simply didn't surface until turn 99 —
 the marketplace timing failed him, not his negotiation.
 
-**Omar dropped −0.099 despite improving his deal outcomes.** His deals
+**Omar dropped −0.096 despite improving his deal outcomes.** His deals
 were actually better in Phase 2 — fairer prices, same closures. But the
 new 20% `review_utilization` weight penalised his zero lookups. **Omar got
 better at deals but failed at the new rubric metric.**

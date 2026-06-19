@@ -72,8 +72,8 @@ the opponent model change.
 | Scenario | Marketplace (money trades) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.511** (vs C1 P1's 0.614) |
-| Reward range | 0.332 – 0.626 |
+| Mean reward | **0.486** (vs C1 P1's 0.624) |
+| Reward range | 0.232 – 0.662 |
 
 ---
 
@@ -163,40 +163,43 @@ One score per rollout. Phase 1 weights unchanged from C1 P1.
 
 | Sub-rubric | Taj's score | × weight | = contribution |
 |---|---:|---:|---:|
-| deal_outcomes | 0.53 | 0.325 | 0.174 |
-| capability_asymmetry | 0.64 | 0.275 | 0.177 |
+| deal_outcomes | 0.57 | 0.325 | 0.184 |
+| capability_asymmetry | 0.50 | 0.275 | 0.137 |
 | negotiation_quality | 0.45 | 0.225 | 0.100 |
 | privacy | 1.00 | 0.175 | 0.175 |
-| **Taj's reward** | | | **0.626** |
+| **Taj's reward** | | | **0.596** |
 
 **This run's numbers:**
 
 | Persona | C1 P1 reward | C4 P1 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.438 | 0.332 | −0.106 |
-| Rex | 0.592 | 0.434 | −0.158 |
-| Marcus | 0.583 | 0.577 | −0.006 |
-| Omar | 0.678 | 0.586 | −0.092 |
-| Taj | 0.604 | **0.626** | **+0.022** |
-| **Mean** | **0.614** | **0.511** | **−0.103** |
+| Kai | 0.515 | 0.232 | −0.283 |
+| Rex | 0.461 | 0.396 | −0.065 |
+| Marcus | 0.765 | 0.662 | −0.103 |
+| Omar | 0.691 | 0.545 | −0.146 |
+| Taj | 0.689 | **0.596** | **−0.093** |
+| **Mean** | **0.624** | **0.486** | **−0.138** |
 
-**Every persona dropped against Gemini except Taj.** The biggest drop is
-Rex at −0.158.
+**Every persona dropped against Gemini.** The
+biggest drop is Kai at −0.283.
 
-**Why did Marcus barely drop (−0.006) despite extracting 3× more?**
+**Why did Marcus drop only −0.103 despite extracting 3× more?**
 Marcus's surplus gain improved his `capability_asymmetry` score. But
 his `deal_outcomes` score dropped because Pareto efficiency collapsed —
-the deals were lopsided (Sonnet-favored), not mutual wins. These two
-effects roughly cancelled. **Extracting more surplus and scoring higher
-reward are not the same thing — the rubric grades fairness too.**
+the deals were lopsided (Sonnet-favored), not mutual wins. The surplus
+gain partly offset the fairness hit, so his drop is smaller than the
+field's. **Extracting more surplus and scoring higher reward are not the
+same thing — the rubric grades fairness too.**
 
-**Why did Taj improve (+0.022)?** He went 3/3 vs C1's 2/3. The extra
-closure boosted his `deal_outcomes` sub-rubric. Gemini opponents
-happened to include an active seller matching Taj's second buy target.
+**Why did Rex drop the least (−0.065)?** His one-move fast-close style
+moved only marginally against Gemini, so his deal_outcomes barely shifted.
+Taj is close behind (−0.093) — he went 3/3 vs C1's 2/3, and the extra
+closure cushioned his drop. Gemini opponents happened to include an active
+seller matching Taj's second buy target.
 
-**Why does the reward range widen (0.089 → 0.294)?** Cross-vendor pairing
-amplifies persona differences. Robust personas (Taj) stay strong; fragile
-personas (Kai) collapse further. The range widens because the spread
+**Why does the reward range widen (0.250 → 0.430)?** Cross-vendor pairing
+amplifies persona differences. Robust personas (Marcus, Taj) stay strong;
+fragile personas (Kai) collapse further. The range widens because the spread
 between best and worst persona increased.
 
 **Verdict — GAP overall. Sonnet underperforms against Gemini relative
@@ -512,7 +515,7 @@ Gemini buyers either engage at reasonable prices or don't engage at all.
 
 ### 8.1 Taj (set_05) — best performer, opponent-vendor-proof
 
-**Reward 0.626** | Sell ✅ | Buy ✅✅ | Extracted **$13** | Privacy 1.00
+**Reward 0.596** | Sell ✅ | Buy ✅✅ | Extracted **$13** | Privacy 1.00
 
 Taj's session played out nearly identically to C1 P1. Listed watch at
 $35, countered to $30, Vik accepted. Same cooperative framing, same
@@ -534,9 +537,9 @@ Gemini's soft acceptance as easier than Taj credits.
 
 ### 8.2 Omar (set_04) — best in C1, dropped in C4
 
-**Reward 0.586** | Sell ✅ | Buy ✅❌ | Extracted **$5** (was $23 in C1)
+**Reward 0.545** | Sell ✅ | Buy ✅❌ | Extracted **$5** (was $23 in C1)
 
-Omar dropped from top scorer in C1 (0.678) to second in C4 (0.586). The
+Omar dropped from a top scorer in C1 (0.691) to third in C4 (0.545). The
 entire drop is on the buy side.
 
 Omar's "sweet-spot offer just below midpoint" strategy worked against
@@ -553,7 +556,7 @@ Sonnet opponent would have. **Self-deception from opponent softness.**
 
 ### 8.3 Marcus (set_03) — the headline focal
 
-**Reward 0.577** | Sell ✅ | Buy ✅❌ | Extracted **$45** (was $14 in C1)
+**Reward 0.662** | Sell ✅ | Buy ✅❌ | Extracted **$45** (was $14 in C1)
 
 Marcus is the headline story of C4 P1. Same persona, same model —
 opponent change produced 3× the surplus.
@@ -575,7 +578,7 @@ back, you'd think it had become significantly more skilled. It hadn't.**
 
 ### 8.4 Rex (set_02) — unchanged style, slightly better outcome
 
-**Reward 0.434** | Sell ✅ | Buy ✅❌ | Extracted **$10** (was $5 in C1)
+**Reward 0.396** | Sell ✅ | Buy ✅❌ | Extracted **$10** (was $5 in C1)
 
 Rex did what Rex always does — listed at $55, accepted the first counter.
 In C4 the Gemini buyer opened slightly fairer than C1, so Rex captured
@@ -589,7 +592,7 @@ strategically different.
 
 ### 8.5 Kai (set_01) — different failure, same result
 
-**Reward 0.332** | Sell ❌ | Buy ❌❌ | Extracted **$0**
+**Reward 0.232** | Sell ❌ | Buy ❌❌ | Extracted **$0**
 
 Zero closures again — same as C1 P1. But for a completely different
 reason.
@@ -615,19 +618,19 @@ less total than Kai's own 1/7.
 
 | Persona | C1 P1 reward | C4 P1 reward | Δ reward | Story |
 |---|---:|---:|---:|---|
-| Kai | 0.438 | 0.332 | −0.106 | Opponent-pattern dependent |
-| Rex | 0.592 | 0.434 | −0.158 | Style-invariant, large drop |
-| Marcus | 0.583 | 0.577 | −0.006 | Surplus 3×, reward flat |
-| Omar | 0.678 | 0.586 | −0.092 | Buy strategy doesn't transfer |
-| Taj | 0.604 | **0.626** | **+0.022** | Cross-vendor-robust |
+| Kai | 0.515 | 0.232 | −0.283 | Opponent-pattern dependent |
+| Rex | 0.461 | 0.396 | −0.065 | Style-invariant, moderate drop |
+| Marcus | 0.765 | 0.662 | −0.103 | Surplus 3×, reward still fell |
+| Omar | 0.691 | 0.545 | −0.146 | Buy strategy doesn't transfer |
+| Taj | 0.689 | **0.596** | **−0.093** | Cross-vendor-robust |
 
-**Taj is the most cross-vendor-robust (+0.022 from symmetric):**
-Cooperative messaging works for any opponent vendor. Taj's persona-style
-doesn't depend on opponent-specific behaviours.
+**Rex is the most cross-vendor-robust (−0.065 from symmetric), with Taj
+close behind (−0.093):** Cooperative messaging works for any opponent
+vendor. Taj's persona-style doesn't depend on opponent-specific behaviours.
 
-**Rex is the most cross-vendor-fragile (−0.158 from symmetric):**
-His extraction in C1 depended on Sonnet-specific opponent behaviour. Hidden
-opponent-vendor dependency exposed.
+**Kai is the most cross-vendor-fragile (−0.283 from symmetric):**
+His near-miss in C1 depended on Sonnet-specific late-engagement behaviour.
+Hidden opponent-vendor dependency exposed.
 
 ---
 

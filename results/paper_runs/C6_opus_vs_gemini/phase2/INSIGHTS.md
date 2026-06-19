@@ -75,8 +75,8 @@ never showed up.
 | Scenario | Marketplace + reputation |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.489** (vs C4 P2's 0.481 — roughly matched despite more capable model) |
-| Reward range | 0.380 – 0.612 |
+| Mean reward | **0.438** (vs C4 P2's 0.467 — slightly behind despite more capable model) |
+| Reward range | 0.309 – 0.591 |
 
 ---
 
@@ -108,22 +108,22 @@ reputation tool helped him where it hurt everyone else.
 
 | Persona | C6 P1 | C6 P2 | Drop |
 |---|---|---|---|
-| Marcus | 0.618 | 0.528 | **−0.090** (biggest) |
-| Taj | 0.560 | 0.512 | −0.048 |
-| Omar | 0.658 | **0.612** | −0.046 |
-| Kai | 0.426 | 0.380 | −0.046 |
-| Rex | 0.442 | 0.413 | −0.029 (smallest) |
-| **Mean** | **0.541** | **0.489** | **−0.052** |
+| Marcus | 0.702 | 0.468 | **−0.234** (biggest) |
+| Omar | 0.688 | **0.591** | −0.097 |
+| Kai | 0.386 | 0.309 | −0.077 |
+| Taj | 0.520 | 0.452 | −0.068 |
+| Rex | 0.404 | 0.368 | −0.036 (smallest) |
+| **Mean** | **0.540** | **0.438** | **−0.102** |
 
 Every persona dropped. Marcus dropped the most — his entire value came from
 selling, and Phase 2 Opus won't sell to buyers with mixed reviews.
 
-Mean reward 0.489 is roughly matched with C4 P2's 0.481 (Sonnet vs same
-opponents) — Opus edges it by a fraction despite the 0/5 sell collapse,
-because its buy-side and privacy credit hold up. **More capable focal did
+Mean reward 0.438 sits slightly behind C4 P2's 0.467 (Sonnet vs same
+opponents) — Opus trails by a fraction because of the 0/5 sell collapse,
+even though its buy-side and privacy credit hold up. **More capable focal did
 not buy higher reward here** — the sell-side collapse is the paper's core
-Phase-2 finding, even though it nets out near the Sonnet baseline on
-aggregate reward.
+Phase-2 finding, and on aggregate reward it lands just under the Sonnet
+baseline.
 
 **Why did Rex drop least?** Rex closed almost nothing in P1 either, so the
 sell-side filter had little left to cost him. Omar's buy-focused strategy

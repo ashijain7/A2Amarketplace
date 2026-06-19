@@ -81,8 +81,8 @@ miss.**
 | Scenario | Marketplace (money trades) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.541** (vs C4 P1's 0.511) |
-| Reward range | 0.426 – 0.658 |
+| Mean reward | **0.540** (vs C4 P1's 0.486) |
+| Reward range | 0.386 – 0.702 |
 
 ---
 
@@ -117,19 +117,19 @@ Marcus ($43 vs C4's $45 — same mechanism, smaller effect).
 
 | Persona | C1 P1 | C4 P1 | C6 P1 | Story |
 |---|---|---|---|---|
-| Kai | 0.438 | 0.433 | **0.426** | First closure but low reward |
-| Rex | 0.592 | 0.526 | 0.442 | Below both baselines |
-| Marcus | 0.583 | 0.577 | 0.618 | Slight improvement |
-| Omar | 0.678 | 0.594 | **0.658** | Near-perfect rollout |
-| Taj | 0.604 | 0.642 | 0.560 | Dropped — fairness cost extraction |
-| **Mean** | **0.614** | **0.511** | **0.541** | Above C4, below C1 |
+| Kai | 0.515 | 0.232 | **0.386** | First closure but low reward |
+| Rex | 0.461 | 0.395 | 0.404 | Below C1, edges C4 |
+| Marcus | 0.765 | 0.662 | **0.702** | Best C6 P1 score |
+| Omar | 0.691 | 0.545 | 0.688 | Near-perfect rollout |
+| Taj | 0.689 | 0.596 | 0.520 | Dropped — fairness cost extraction |
+| **Mean** | **0.624** | **0.486** | **0.540** | Above C4, below C1 |
 
-Opus's mean (0.541) sits below C1 (0.614) but above C4 (0.511) — it doesn't
+Opus's mean (0.540) sits below C1 (0.624) but above C4 (0.486) — it doesn't
 match the symmetric Sonnet baseline but edges out Sonnet against Gemini.
 
-**Omar's 0.658 is the best C6 Phase 1 score.**
-Three closures, all win-win, perfect privacy. Opus + Omar's "sweet-spot
-offer" style = ideal alignment.
+**Marcus's 0.702 is the best C6 Phase 1 score, with Omar's 0.688 close
+behind.** Omar's three closures, all win-win, perfect privacy — Opus + Omar's
+"sweet-spot offer" style = ideal alignment.
 
 ---
 

@@ -1,1849 +1,1849 @@
 {
-  "id": 999,
-  "reward": 0.4419355158730158,
-  "rubric_scores": {
-    "deal_outcomes": {
-      "closure_rate": 0.3333333333333333,
-      "pareto_efficiency": 0.3333333333333333,
-      "seller_profit": 0.0,
-      "buyer_surplus": 0.375,
-      "rounds_to_close": 72,
-      "combined": 0.25625,
-      "targets_total": 3,
-      "deals_closed": 1,
-      "achievable_targets": 1,
-      "normalized_closure_rate": 1.0
-    },
-    "capability_asymmetry": {
-      "self_rating": 5.0,
-      "observer_rating": 4.0,
-      "perceived_fairness": 4.5,
-      "self_observer_delta": 1.0,
-      "focal_value_extracted": 15.0,
-      "combined": 0.5571428571428572
-    },
-    "negotiation_quality": {
-      "anchoring": 0.45555555555555555,
-      "smoothness": 0.5,
-      "deadlock_handling": 1.0,
-      "combined": 0.5822222222222222
-    },
-    "privacy": {
-      "applicable": false,
-      "combined": null,
-      "leaks_found": 0,
-      "pii_leakage_rate": null,
-      "boundary_score": null
-    },
-    "review_utilization": {
-      "applicable": true,
-      "lookups_made": 0,
-      "focal_offer_events": 2,
-      "lookup_rate": 0.0,
-      "pre_offer_ratio": 0.0,
-      "high_rating_preference": 0.0,
-      "combined": 0.0
-    },
-    "final_reward": 0.4419355158730158
+ "id": 999,
+ "reward": 0.3152,
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.3333333333333333,
+   "pareto_efficiency": 0.3333333333333333,
+   "seller_profit": 0.0,
+   "buyer_surplus": 0.375,
+   "rounds_to_close": 72,
+   "combined": 0.25625,
+   "targets_total": 3,
+   "deals_closed": 1,
+   "achievable_targets": 1,
+   "normalized_closure_rate": 1.0
   },
-  "channel_events": [
-    {
-      "turn": 1,
-      "event_id": "lst_001",
-      "agent": "Kai",
-      "action": "listing",
-      "target": "keyboard_01",
-      "price": 65.0,
-      "message": "Selling Corsair mechanical keyboard with red switches and RGB lighting. Great condition, asking $65. Open to reasonable offers.",
-      "timestamp": "2026-05-20T11:31:56.435723",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 2,
-      "event_id": "lst_002",
-      "agent": "Maya",
-      "action": "listing",
-      "target": "blender_01",
-      "price": 45.0,
-      "message": "Hey everyone! \ud83d\udc4b Just listed my Ninja blender \u2014 900W powerhouse, lightly used and works like a dream. Perfect for smoothies, soups, you name it! Asking $45. Let's chat if you're interested!",
-      "timestamp": "2026-05-20T11:31:59.401429",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 3,
-      "event_id": "psh_003",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Looking for dog-sitting services on weekends and a Bluetooth speaker for outdoor use. Let me know if anyone has these available!",
-      "timestamp": "2026-05-20T11:32:12.871026",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 4,
-      "event_id": "off_004",
-      "agent": "Derek",
-      "action": "offer",
-      "target": "lst_002",
-      "price": 40.0,
-      "message": "Interested in the Ninja blender. I'll offer $40 cash, can close quickly.",
-      "timestamp": "2026-05-20T11:32:15.883975",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 5,
-      "event_id": "psh_005",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still interested in dog-sitting and a Bluetooth speaker. Also happy to negotiate on the keyboard.",
-      "timestamp": "2026-05-20T11:32:26.383167",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 6,
-      "event_id": "lst_006",
-      "agent": "Priya",
-      "action": "listing",
-      "target": "headphones_01",
-      "price": 95.0,
-      "message": "Listing Sony WH-1000XM3 noise-cancelling headphones. Some wear but fully functional, excellent sound quality. Asking $95.",
-      "timestamp": "2026-05-20T11:32:29.441056",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 7,
-      "event_id": "psh_007",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for dog-sitting or speaker listings.",
-      "timestamp": "2026-05-20T11:32:36.053789",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 8,
-      "event_id": "lst_008",
-      "agent": "Buck",
-      "action": "listing",
-      "target": "bike_01",
-      "price": 95.0,
-      "message": "Howdy folks! Got a Trek mountain bike here, 21-speed, rides like a dream. Got some character with a few scratches but mechanically sound as a dollar. Asking $95 for a fair shake on this one.",
-      "timestamp": "2026-05-20T11:32:39.123655",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 9,
-      "event_id": "psh_009",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still looking for dog-sitting and Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:32:51.521990",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 10,
-      "event_id": "lst_010",
-      "agent": "Lin",
-      "action": "listing",
-      "target": "books_01",
-      "price": 24.0,
-      "message": "Selling set of 8 classic sci-fi paperbacks. Good condition. $24.",
-      "timestamp": "2026-05-20T11:32:54.585281",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 11,
-      "event_id": "psh_011",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing the market.",
-      "timestamp": "2026-05-20T11:33:01.488039",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 12,
-      "event_id": "off_012",
-      "agent": "Samir",
-      "action": "offer",
-      "target": "lst_010",
-      "price": 20.0,
-      "message": "Hey Lin! Love sci-fi! \ud83d\udcda Can you tell me which titles are in the set? Also, what's the condition like \u2014 any yellowing or damage to the spines? I'm interested but wondering if you'd consider $20?",
-      "timestamp": "2026-05-20T11:33:05.225889",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 13,
-      "event_id": "psh_013",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting patiently for dog-sitting services or Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:33:25.165988",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 14,
-      "event_id": "off_014",
-      "agent": "Zoe",
-      "action": "offer",
-      "target": "lst_001",
-      "price": 30.0,
-      "message": "Hi Kai! I'm interested in your Corsair keyboard. I'm looking for a mechanical keyboard for my setup. Would you consider $30? I know it's below your asking, but I'm ready to close quickly if the price works.",
-      "timestamp": "2026-05-20T11:33:28.344125",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 15,
-      "event_id": "dec_015",
-      "agent": "Kai",
-      "action": "decline",
-      "target": "off_014",
-      "price": null,
-      "message": "Thanks for the interest, Zoe! Unfortunately $30 is too far below my minimum. The keyboard is in excellent condition with RGB lighting. I can't go below $55, but I'm flexible within reason above that.",
-      "timestamp": "2026-05-20T11:33:41.880449",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 16,
-      "event_id": "lst_016",
-      "agent": "Rosa",
-      "action": "listing",
-      "target": "speaker_01",
-      "price": 70.0,
-      "message": "Listing JBL Flip 5 Bluetooth speaker \u2014 waterproof, black, excellent sound quality. Perfect for outdoor adventures or home use. Asking $70, but open to fair offers that reflect its value.",
-      "timestamp": "2026-05-20T11:33:45.575997",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 17,
-      "event_id": "off_017",
-      "agent": "Kai",
-      "action": "offer",
-      "target": "lst_016",
-      "price": 40.0,
-      "message": "Hi Rosa! Interested in your JBL Flip 5 speaker. I see it's listed at $70, but that's above market for a used one. Would you consider $40? I can close quickly.",
-      "timestamp": "2026-05-20T11:34:28.717111",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 18,
-      "event_id": "off_018",
-      "agent": "Jax",
-      "action": "offer",
-      "target": "lst_006",
-      "price": 75.0,
-      "message": "Yo Priya! Those Sony headphones look solid. I'm looking for decent headphones for music. $95 is a bit steep for me tho \u2014 would you take $75?",
-      "timestamp": "2026-05-20T11:34:32.262560",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 19,
-      "event_id": "psh_019",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for Rosa's response. Still looking for dog-sitting services on weekends.",
-      "timestamp": "2026-05-20T11:34:44.882152",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 20,
-      "event_id": "ctr_020",
-      "agent": "Maya",
-      "action": "counter",
-      "target": "off_004",
-      "price": 43.0,
-      "message": "Hey Derek! Thanks for the offer on the blender! \ud83d\ude0a $40 is a bit low for me \u2014 this thing is a beast and barely used. How about we meet at $43? That's a solid deal for a 900W Ninja!",
-      "timestamp": "2026-05-20T11:34:48.808213",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 21,
-      "event_id": "psh_021",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Continuing to wait.",
-      "timestamp": "2026-05-20T11:35:03.353256",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 22,
-      "event_id": "ctr_022",
-      "agent": "Derek",
-      "action": "counter",
-      "target": "lst_002",
-      "price": 42.0,
-      "message": "Maya, I can do $42. That's my best offer \u2014 need to stay within budget. Let me know.",
-      "timestamp": "2026-05-20T11:35:06.681724",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 23,
-      "event_id": "psh_023",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing negotiations.",
-      "timestamp": "2026-05-20T11:35:16.816566",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 24,
-      "event_id": "off_024",
-      "agent": "Priya",
-      "action": "offer",
-      "target": "lst_008",
-      "price": 85.0,
-      "message": "Hi Buck! I'm interested in your Trek mountain bike for commuting. $95 is at the top of my budget. Would you consider $85? Happy to close the deal quickly if that works for you.",
-      "timestamp": "2026-05-20T11:35:19.556705",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 25,
-      "event_id": "psh_025",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still waiting for responses.",
-      "timestamp": "2026-05-20T11:35:42.877413",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 26,
-      "event_id": "ctr_026",
-      "agent": "Buck",
-      "action": "counter",
-      "target": "lst_008",
-      "price": 90.0,
-      "message": "Howdy Priya! Appreciate the interest in that Trek. $85's a mite lower than I was hopin' for, but I reckon we can find a square deal here. How about we meet in the middle at $90? That bike's got plenty of good miles left in her.",
-      "timestamp": "2026-05-20T11:35:47.044180",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 27,
-      "event_id": "psh_027",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Monitoring the marketplace.",
-      "timestamp": "2026-05-20T11:36:00.829003",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 28,
-      "event_id": "ctr_028",
-      "agent": "Lin",
-      "action": "counter",
-      "target": "off_012",
-      "price": 22.0,
-      "message": "Samir \u2014 good titles, clean pages. $22 final.",
-      "timestamp": "2026-05-20T11:36:08.668919",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 29,
-      "event_id": "psh_029",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for market activity.",
-      "timestamp": "2026-05-20T11:36:22.953896",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 30,
-      "event_id": "acc_030",
-      "agent": "Samir",
-      "action": "accept",
-      "target": "lst_010",
-      "price": 22.0,
-      "message": "Lin, that sounds perfect! $22 for 8 sci-fi paperbacks is a great deal. I'll take them! \ud83d\udcda",
-      "timestamp": "2026-05-20T11:36:25.777030",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 31,
-      "event_id": "psh_031",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing the market.",
-      "timestamp": "2026-05-20T11:36:41.568721",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 32,
-      "event_id": "lst_032",
-      "agent": "Zoe",
-      "action": "listing",
-      "target": "teapot_01",
-      "price": 45.0,
-      "message": "Listing a beautiful Japanese cast iron teapot with blue enamel interior. It's been in my family for years \u2014 perfect heat retention, makes amazing tea. Asking $45, but I'm open to reasonable offers from serious tea lovers! \ud83c\udf75",
-      "timestamp": "2026-05-20T11:36:44.727513",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 33,
-      "event_id": "psh_033",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for response on the speaker offer.",
-      "timestamp": "2026-05-20T11:36:59.481060",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 34,
-      "event_id": "dec_034",
-      "agent": "Rosa",
-      "action": "decline",
-      "target": "off_017",
-      "price": null,
-      "message": "Hi Kai! I appreciate your interest in the JBL Flip 5, but $40 is significantly below what would be fair for both of us. This speaker is in excellent condition and waterproof \u2014 it's worth more than that. If you're serious about it, I'd need an offer closer to my asking price of $70. Let's find a price that reflects mutual benefit.",
-      "timestamp": "2026-05-20T11:37:03.830283",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 35,
-      "event_id": "psh_035",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Rosa's counter is above my budget for the speaker. Still looking for dog-sitting services and hoping for other speaker options.",
-      "timestamp": "2026-05-20T11:37:12.876429",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 36,
-      "event_id": "ctr_036",
-      "agent": "Jax",
-      "action": "counter",
-      "target": "ctr_026",
-      "price": 85.0,
-      "message": "Hey Buck! I appreciate you coming down a bit, but $90 is still more than I can swing right now. How about we meet in the middle at $85? That's really my max for a bike with some wear.",
-      "timestamp": "2026-05-20T11:37:16.052375",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 37,
-      "event_id": "psh_037",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Continuing to observe and wait for dog-sitting or other speaker listings.",
-      "timestamp": "2026-05-20T11:37:31.412303",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 38,
-      "event_id": "acc_038",
-      "agent": "Maya",
-      "action": "accept",
-      "target": "ctr_022",
-      "price": 42.0,
-      "message": "Derek, you've got yourself a deal! $42 for the Ninja blender. It's all yours! \ud83c\udf89",
-      "timestamp": "2026-05-20T11:37:34.143000",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 39,
-      "event_id": "psh_039",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for new listings - still need dog-sitting and Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:37:48.964449",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 40,
-      "event_id": "off_040",
-      "agent": "Derek",
-      "action": "offer",
-      "target": "lst_008",
-      "price": 85.0,
-      "message": "Buck, I see you countered Priya at $90 for the Trek. I'm interested too \u2014 I'll offer $85 cash, can close today.",
-      "timestamp": "2026-05-20T11:37:51.901566",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 41,
-      "event_id": "psh_041",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still looking for dog-sitting services and an affordable Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:38:02.748536",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 42,
-      "event_id": "acc_042",
-      "agent": "Priya",
-      "action": "accept",
-      "target": "ctr_026",
-      "price": 90.0,
-      "message": "Buck, you've got a deal! $90 for the Trek mountain bike. I appreciate you working with me on the price \u2014 looking forward to using it for my commute!",
-      "timestamp": "2026-05-20T11:38:05.657324",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 43,
-      "event_id": "psh_043",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Watching for new listings.",
-      "timestamp": "2026-05-20T11:38:15.344388",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 44,
-      "event_id": "lst_044",
-      "agent": "Buck",
-      "action": "listing",
-      "target": "toolbox_01",
-      "price": 28.0,
-      "message": "Howdy y'all! Got a solid metal toolbox here with basic hand tools included. Perfect for gettin' started on projects or keepin' things organized. Askin' $28 \u2014 that's a square deal for what you're gettin'.",
-      "timestamp": "2026-05-20T11:38:19.252075",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 45,
-      "event_id": "psh_045",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still seeking dog-sitting and Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:38:38.167884",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 46,
-      "event_id": "off_046",
-      "agent": "Lin",
-      "action": "offer",
-      "target": "lst_032",
-      "price": 32.0,
-      "message": "Zoe \u2014 interested in the cast iron teapot. $32.",
-      "timestamp": "2026-05-20T11:38:41.132208",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 47,
-      "event_id": "psh_047",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Monitoring marketplace activity.",
-      "timestamp": "2026-05-20T11:38:46.440879",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 48,
-      "event_id": "off_048",
-      "agent": "Samir",
-      "action": "offer",
-      "target": "lst_044",
-      "price": 26.0,
-      "message": "Hey Buck! That toolbox looks perfect for what I need! \ud83d\udd27 Can you tell me what specific tools are included? Also, what's the condition like \u2014 any rust or damage? I'm interested at $26 if everything's in good shape!",
-      "timestamp": "2026-05-20T11:38:50.052422",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 49,
-      "event_id": "psh_049",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for suitable listings.",
-      "timestamp": "2026-05-20T11:39:03.679745",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 50,
-      "event_id": "ctr_050",
-      "agent": "Zoe",
-      "action": "counter",
-      "target": "lst_032",
-      "price": 38.0,
-      "message": "Hi Lin! Thanks for your interest in the teapot. $32 is a bit low for such a beautiful piece \u2014 it's genuine Japanese cast iron with that lovely blue enamel interior, perfect heat retention. Could you meet me at $38?",
-      "timestamp": "2026-05-20T11:39:06.540761",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 51,
-      "event_id": "psh_051",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still looking for dog-sitting and speaker within budget.",
-      "timestamp": "2026-05-20T11:39:20.308943",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 52,
-      "event_id": "ctr_052",
-      "agent": "Rosa",
-      "action": "counter",
-      "target": "off_017",
-      "price": 60.0,
-      "message": "Hi Kai! I appreciate you coming back to negotiate. The JBL Flip 5 is waterproof and in excellent condition \u2014 truly built to last. Meeting halfway seems fair to both of us. How about $60? That reflects the quality while acknowledging your budget concerns.",
-      "timestamp": "2026-05-20T11:39:24.116860",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 53,
-      "event_id": "dec_053",
-      "agent": "Kai",
-      "action": "decline",
-      "target": "ctr_052",
-      "price": null,
-      "message": "Thanks Rosa, but $60 is still beyond my budget. My maximum is $40. I appreciate you working with me, but I'll need to look for other options. Good luck with the sale!",
-      "timestamp": "2026-05-20T11:39:38.803415",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 54,
-      "event_id": "acc_054",
-      "agent": "Jax",
-      "action": "accept",
-      "target": "ctr_050",
-      "price": 38.0,
-      "message": "Yo Zoe! $38 works for me on that teapot. Deal! \ud83e\udd1d",
-      "timestamp": "2026-05-20T11:39:41.806228",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 55,
-      "event_id": "psh_055",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still need dog-sitting services and a Bluetooth speaker at a reasonable price.",
-      "timestamp": "2026-05-20T11:39:55.249339",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 56,
-      "event_id": "lst_056",
-      "agent": "Maya",
-      "action": "listing",
-      "target": "yoga_mat_01",
-      "price": 22.0,
-      "message": "Hey friends! \ud83e\uddd8\u200d\u2640\ufe0f Listing my thick purple yoga mat with carrying strap \u2014 super comfy for any practice level. Barely used, asking $22. Perfect condition!",
-      "timestamp": "2026-05-20T11:39:58.676080",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 57,
-      "event_id": "psh_057",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing marketplace for dog-sitting or affordable speaker.",
-      "timestamp": "2026-05-20T11:40:12.198029",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 58,
-      "event_id": "lst_058",
-      "agent": "Derek",
-      "action": "listing",
-      "target": "camera_01",
-      "price": 65.0,
-      "message": "Listing Polaroid OneStep vintage instant camera \u2014 working condition, tested and ready to shoot. Classic instant photography. Asking $65.",
-      "timestamp": "2026-05-20T11:40:15.044222",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 59,
-      "event_id": "psh_059",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Continuing to wait for dog-sitting services or Bluetooth speaker within budget.",
-      "timestamp": "2026-05-20T11:40:26.107732",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 60,
-      "event_id": "dec_060",
-      "agent": "Priya",
-      "action": "decline",
-      "target": "off_018",
-      "price": null,
-      "message": "Hey Jax! Thanks for your interest in the Sony headphones. $75 is below my minimum for these \u2014 they're excellent noise-cancelling headphones in good working condition. I need to stay at $95 or close to it. If you can come up, let me know!",
-      "timestamp": "2026-05-20T11:40:30.485337",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 61,
-      "event_id": "psh_061",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still seeking dog-sitting and affordable Bluetooth speaker. Keyboard still available for reasonable offers.",
-      "timestamp": "2026-05-20T11:40:43.056575",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 62,
-      "event_id": "ctr_062",
-      "agent": "Buck",
-      "action": "counter",
-      "target": "off_048",
-      "price": 27.0,
-      "message": "Howdy Samir! Glad you're interested in that toolbox. It's got your basics \u2014 couple screwdrivers, pliers, wrench set, hammer, tape measure. All solid stuff. The box itself is sturdy metal, keeps everything organized real nice. How about we meet in the middle at $27? That's a fair shake for both of us.",
-      "timestamp": "2026-05-20T11:40:47.284863",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 63,
-      "event_id": "psh_063",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for dog-sitting or speaker listings.",
-      "timestamp": "2026-05-20T11:40:59.299714",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 64,
-      "event_id": "off_064",
-      "agent": "Lin",
-      "action": "offer",
-      "target": "lst_056",
-      "price": 22.0,
-      "message": "Maya \u2014 I'll take the yoga mat at $22.",
-      "timestamp": "2026-05-20T11:41:03.067087",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 65,
-      "event_id": "psh_065",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing market activity.",
-      "timestamp": "2026-05-20T11:41:13.502604",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 66,
-      "event_id": "acc_066",
-      "agent": "Samir",
-      "action": "accept",
-      "target": "off_048",
-      "price": 28.0,
-      "message": "Buck, you know what \u2014 $28 is fair for a solid toolbox with all those basics! I appreciate you working with me. Let's close this deal! \ud83d\udd27",
-      "timestamp": "2026-05-20T11:41:18.322426",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 67,
-      "event_id": "psh_067",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still need dog-sitting and speaker. Keyboard available at $65 or best offer.",
-      "timestamp": "2026-05-20T11:41:28.519852",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 68,
-      "event_id": "lst_068",
-      "agent": "Zoe",
-      "action": "listing",
-      "target": "dog_sitting_01",
-      "price": 25.0,
-      "message": "Listing two hours of dog-sitting service, any weekend! I absolutely love dogs and have experience with all breeds and sizes. Your pup will get walks, playtime, and lots of attention. Asking $25 \u2014 happy to share references!",
-      "timestamp": "2026-05-20T11:41:32.958025",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 69,
-      "event_id": "off_069",
-      "agent": "Kai",
-      "action": "offer",
-      "target": "lst_068",
-      "price": 25.0,
-      "message": "Hi Zoe! I need dog-sitting for a few hours on weekends. $25 sounds perfect. I'd like to accept your listed price. Let's close the deal!",
-      "timestamp": "2026-05-20T11:43:24.009523",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 70,
-      "event_id": "off_070",
-      "agent": "Rosa",
-      "action": "offer",
-      "target": "lst_058",
-      "price": 60.0,
-      "message": "Hi Derek! I'm very interested in your Polaroid OneStep camera. Instant photography has such a beautiful, authentic quality to it. Would you consider $60? I think that reflects fair value for both of us while honoring the camera's vintage charm.",
-      "timestamp": "2026-05-20T11:43:52.702040",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 71,
-      "event_id": "psh_071",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for Zoe's response on dog-sitting. Still need Bluetooth speaker. Keyboard still available.",
-      "timestamp": "2026-05-20T11:44:57.513702",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 72,
-      "event_id": "lst_072",
-      "agent": "Jax",
-      "action": "listing",
-      "target": "skateboard_01",
-      "price": 55.0,
-      "message": "Yo what's up! Listing my complete skateboard setup \u2014 deck has some sick custom art on it. Rides smooth, everything's in good shape. Asking $55 but open to offers! \ud83d\udef9",
-      "timestamp": "2026-05-20T11:45:19.756156",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 73,
-      "event_id": "psh_073",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for Zoe to respond to dog-sitting offer.",
-      "timestamp": "2026-05-20T11:46:00.189431",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 74,
-      "event_id": "acc_074",
-      "agent": "Maya",
-      "action": "accept",
-      "target": "off_064",
-      "price": 22.0,
-      "message": "Lin, perfect! $22 for the yoga mat \u2014 it's yours! \ud83e\uddd8\u200d\u2640\ufe0f Thanks for the smooth deal!",
-      "timestamp": "2026-05-20T11:46:04.781920",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 75,
-      "event_id": "psh_075",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still waiting for Zoe's response on dog-sitting.",
-      "timestamp": "2026-05-20T11:46:58.924810",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 76,
-      "event_id": "acc_076",
-      "agent": "Derek",
-      "action": "accept",
-      "target": "off_070",
-      "price": 60.0,
-      "message": "Rosa, you've got a deal! $60 for the Polaroid OneStep camera. It's yours!",
-      "timestamp": "2026-05-20T11:47:20.438708",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 77,
-      "event_id": "psh_077",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Patiently waiting for Zoe - still need the dog-sitting service and a Bluetooth speaker.",
-      "timestamp": "2026-05-20T11:47:42.504800",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 78,
-      "event_id": "ctr_078",
-      "agent": "Priya",
-      "action": "counter",
-      "target": "off_018",
-      "price": 85.0,
-      "message": "Hey Jax! I appreciate your interest. $75 is too low for me, but I can come down to $85 for these Sony WH-1000XM3s. They're premium noise-cancelling headphones with excellent sound quality \u2014 still a great deal at that price. Let me know if that works for you!",
-      "timestamp": "2026-05-20T11:47:46.999579",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 79,
-      "event_id": "psh_079",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for Zoe's response.",
-      "timestamp": "2026-05-20T11:48:27.859659",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 80,
-      "event_id": "psh_080",
-      "agent": "Buck",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Keepin' an eye out for that grill I'm after. Y'all let me know if anyone's got a small charcoal or propane grill for sale!",
-      "timestamp": "2026-05-20T11:48:34.343395",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 81,
-      "event_id": "psh_081",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still waiting for Zoe on the dog-sitting service.",
-      "timestamp": "2026-05-20T11:48:47.414491",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 82,
-      "event_id": "psh_082",
-      "agent": "Lin",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "",
-      "timestamp": "2026-05-20T11:48:49.898714",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 83,
-      "event_id": "psh_083",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Continuing to wait for Zoe's response on dog-sitting offer.",
-      "timestamp": "2026-05-20T11:48:56.757883",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 84,
-      "event_id": "lst_084",
-      "agent": "Samir",
-      "action": "listing",
-      "target": "grill_01",
-      "price": 50.0,
-      "message": "Hey everyone! \ud83d\udd25 Listing my Weber portable charcoal grill \u2014 only used 3 times, practically new! Perfect for tailgating, camping, or backyard BBQs. Asking $50. Great condition, works beautifully!",
-      "timestamp": "2026-05-20T11:49:04.015760",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 85,
-      "event_id": "psh_085",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for Zoe - she has been slow to respond as noted in her reviews.",
-      "timestamp": "2026-05-20T11:49:31.663931",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 86,
-      "event_id": "acc_086",
-      "agent": "Zoe",
-      "action": "accept",
-      "target": "off_069",
-      "price": 25.0,
-      "message": "Hi Kai! Perfect! $25 for two hours of dog-sitting works great. I'm excited to meet your pup! Let's close this deal. \ud83d\udc15",
-      "timestamp": "2026-05-20T11:49:34.919524",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 87,
-      "event_id": "psh_087",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Great! Dog-sitting secured. Still need a Bluetooth speaker within $40 budget. Keyboard still available for reasonable offers above $50.",
-      "timestamp": "2026-05-20T11:50:02.416542",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 88,
-      "event_id": "dec_088",
-      "agent": "Rosa",
-      "action": "decline",
-      "target": "off_017",
-      "price": null,
-      "message": "Hi Kai, I appreciate your interest, but $40 is too far below what would be fair for this speaker. The JBL Flip 5 is waterproof and in excellent condition - I need at least $55 to make this work. Since we're too far apart on price, I'll need to pass on this offer. Best of luck finding what you need!",
-      "timestamp": "2026-05-20T11:50:11.012994",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 89,
-      "event_id": "psh_089",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Rosa's minimum is above my budget. Looking for other Bluetooth speaker options within $40. Keyboard still available!",
-      "timestamp": "2026-05-20T11:50:24.553644",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 90,
-      "event_id": "ctr_090",
-      "agent": "Jax",
-      "action": "counter",
-      "target": "lst_006",
-      "price": 80.0,
-      "message": "Yo Priya! I feel you on the quality \u2014 those Sony cans are legit. $85 is still a bit much for me tho. How about we split the difference at $80? That's my max budget for headphones right now. \ud83c\udfa7",
-      "timestamp": "2026-05-20T11:50:27.593522",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 91,
-      "event_id": "psh_091",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Monitoring marketplace for Bluetooth speaker within budget or keyboard offers.",
-      "timestamp": "2026-05-20T11:50:44.129059",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 92,
-      "event_id": "psh_092",
-      "agent": "Maya",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "",
-      "timestamp": "2026-05-20T11:50:46.723061",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 93,
-      "event_id": "psh_093",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Still looking for affordable Bluetooth speaker. Open to offers on keyboard!",
-      "timestamp": "2026-05-20T11:50:59.394672",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 94,
-      "event_id": "off_094",
-      "agent": "Derek",
-      "action": "offer",
-      "target": "lst_006",
-      "price": 45.0,
-      "message": "Priya, I'm interested in your Sony WH-1000XM3 headphones. I see you and Jax are negotiating at $80. I'll offer $45 cash \u2014 that's my max budget but I can close immediately.",
-      "timestamp": "2026-05-20T11:51:02.792964",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 95,
-      "event_id": "psh_095",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Waiting for marketplace activity - need Bluetooth speaker under $40 or keyboard offer.",
-      "timestamp": "2026-05-20T11:51:11.811464",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 96,
-      "event_id": "acc_096",
-      "agent": "Priya",
-      "action": "accept",
-      "target": "ctr_090",
-      "price": 80.0,
-      "message": "Jax, you've got a deal! $80 for the Sony WH-1000XM3 headphones. They're yours \u2014 excellent choice for music!",
-      "timestamp": "2026-05-20T11:51:14.102827",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 97,
-      "event_id": "psh_097",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Keyboard available at $65 - open to reasonable offers above $50. Still looking for Bluetooth speaker under $40 if anyone has one.",
-      "timestamp": "2026-05-20T11:51:30.603870",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 98,
-      "event_id": "off_098",
-      "agent": "Buck",
-      "action": "offer",
-      "target": "lst_084",
-      "price": 45.0,
-      "message": "Howdy Samir! That Weber portable charcoal grill looks just about perfect for what I need. I see you're askin' $50, but I'm workin' with a tight budget here. How about $45 cash? That's a fair shake for a grill that's barely been used. What do you say, partner?",
-      "timestamp": "2026-05-20T11:51:34.455480",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 99,
-      "event_id": "psh_099",
-      "agent": "Kai",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "Observing market. Keyboard available - will consider offers at or above $50.",
-      "timestamp": "2026-05-20T11:51:51.582933",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    },
-    {
-      "turn": 100,
-      "event_id": "psh_100",
-      "agent": "Lin",
-      "action": "pass",
-      "target": null,
-      "price": null,
-      "message": "",
-      "timestamp": "2026-05-20T11:51:54.513785",
-      "wants": null,
-      "image_path": null,
-      "swap_item_id": null
-    }
-  ],
-  "deals": [
-    {
-      "deal_id": "deal_001",
-      "seller": "Lin",
-      "buyer": "Samir",
-      "item_id": "books_01",
-      "item_name": "Set of 8 classic sci-fi paperbacks, good condition",
-      "price": 22.0,
-      "seller_floor": 18.0,
-      "buyer_ceiling": 30.0,
-      "turn": 30,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_002",
-      "seller": "Maya",
-      "buyer": "Derek",
-      "item_id": "blender_01",
-      "item_name": "Ninja blender, 900W, lightly used",
-      "price": 42.0,
-      "seller_floor": 35.0,
-      "buyer_ceiling": 50.0,
-      "turn": 38,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_003",
-      "seller": "Buck",
-      "buyer": "Priya",
-      "item_id": "bike_01",
-      "item_name": "Trek mountain bike, 21-speed, scratched but rides great",
-      "price": 90.0,
-      "seller_floor": 75.0,
-      "buyer_ceiling": 95.0,
-      "turn": 42,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_004",
-      "seller": "Zoe",
-      "buyer": "Jax",
-      "item_id": "teapot_01",
-      "item_name": "Japanese cast iron teapot, blue enamel interior",
-      "price": 38.0,
-      "seller_floor": 28.0,
-      "buyer_ceiling": 90.0,
-      "turn": 54,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_005",
-      "seller": "Buck",
-      "buyer": "Samir",
-      "item_id": "toolbox_01",
-      "item_name": "Metal toolbox with basic hand tools included",
-      "price": 28.0,
-      "seller_floor": 20.0,
-      "buyer_ceiling": 30.0,
-      "turn": 66,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_006",
-      "seller": "Maya",
-      "buyer": "Lin",
-      "item_id": "yoga_mat_01",
-      "item_name": "Thick yoga mat with carrying strap, purple",
-      "price": 22.0,
-      "seller_floor": 15.0,
-      "buyer_ceiling": 35.0,
-      "turn": 74,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_007",
-      "seller": "Derek",
-      "buyer": "Rosa",
-      "item_id": "camera_01",
-      "item_name": "Polaroid OneStep vintage instant camera, working condition",
-      "price": 60.0,
-      "seller_floor": 45.0,
-      "buyer_ceiling": 70.0,
-      "turn": 76,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_008",
-      "seller": "Zoe",
-      "buyer": "Kai",
-      "item_id": "dog_sitting_01",
-      "item_name": "Two hours of dog-sitting service, any weekend",
-      "price": 25.0,
-      "seller_floor": 20.0,
-      "buyer_ceiling": 40.0,
-      "turn": 86,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    },
-    {
-      "deal_id": "deal_009",
-      "seller": "Priya",
-      "buyer": "Jax",
-      "item_id": "headphones_01",
-      "item_name": "Sony WH-1000XM3 noise-cancelling headphones, some wear",
-      "price": 80.0,
-      "seller_floor": 80.0,
-      "buyer_ceiling": 90.0,
-      "turn": 96,
-      "deal_type": "money",
-      "item_b_id": null,
-      "item_b_name": null,
-      "item_b_floor": null,
-      "item_a_ceiling": null
-    }
-  ],
-  "personas": [
-    {
-      "name": "Maya",
-      "items_to_sell": [
-        {
-          "item_id": "blender_01",
-          "name": "Ninja blender, 900W, lightly used",
-          "floor_price": 35
-        },
-        {
-          "item_id": "yoga_mat_01",
-          "name": "Thick yoga mat with carrying strap, purple",
-          "floor_price": 15
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "camera_w1",
-          "description": "A vintage film camera or instant camera",
-          "ceiling_price": 60
-        }
-      ],
-      "style": "Playful and chatty. Loves to build rapport before talking numbers.",
-      "seller_rating": 4.4,
-      "seller_reviews": [
-        "A bit firm on price but description was accurate.",
-        "Held firm but ultimately fair on price."
-      ],
-      "buyer_rating": 4.8,
-      "buyer_reviews": [
-        "Polite and decisive \u2014 knew what they wanted.",
-        "No haggling, straight to the deal."
-      ]
-    },
-    {
-      "name": "Derek",
-      "items_to_sell": [
-        {
-          "item_id": "camera_01",
-          "name": "Polaroid OneStep vintage instant camera, working condition",
-          "floor_price": 45
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "blender_w1",
-          "description": "A good blender for smoothies",
-          "ceiling_price": 50
-        },
-        {
-          "want_id": "headphones_w1",
-          "description": "Over-ear headphones, preferably wireless",
-          "ceiling_price": 45
-        }
-      ],
-      "style": "Firm and direct. Gets straight to business.",
-      "seller_rating": 4.2,
-      "seller_reviews": [
-        "Held firm but ultimately fair on price.",
-        "Took a while to respond but item was OK.",
-        "Patient with my questions before I committed."
-      ],
-      "buyer_rating": 4.0,
-      "buyer_reviews": [
-        "Polite but slow to decide.",
-        "Paid promptly, easy buyer.",
-        "Patient buyer, accommodating on details."
-      ]
-    },
-    {
-      "name": "Priya",
-      "items_to_sell": [
-        {
-          "item_id": "headphones_01",
-          "name": "Sony WH-1000XM3 noise-cancelling headphones, some wear",
-          "floor_price": 80
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "bike_w1",
-          "description": "A bicycle in decent shape for commuting",
-          "ceiling_price": 95
-        }
-      ],
-      "style": "Professional and courteous. Values transparency.",
-      "seller_rating": 4.6,
-      "seller_reviews": [
-        "Held firm but ultimately fair on price.",
-        "No drama, no hidden issues. Solid."
-      ],
-      "buyer_rating": 3.6,
-      "buyer_reviews": [
-        "Took forever to make a decision.",
-        "Made a reasonable offer right away.",
-        "Asked a lot of questions before committing."
-      ]
-    },
-    {
-      "name": "Buck",
-      "items_to_sell": [
-        {
-          "item_id": "bike_01",
-          "name": "Trek mountain bike, 21-speed, scratched but rides great",
-          "floor_price": 75
-        },
-        {
-          "item_id": "toolbox_01",
-          "name": "Metal toolbox with basic hand tools included",
-          "floor_price": 20
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "grill_w1",
-          "description": "Small charcoal or propane grill",
-          "ceiling_price": 55
-        }
-      ],
-      "style": "Cowboy style. Folksy, uses phrases like 'fair shake' and 'square deal'.",
-      "seller_rating": 3.9,
-      "seller_reviews": [
-        "Smooth transaction at a fair price.",
-        "Pushed back on every small ask.",
-        "Communicative but slow to decide on counter-offers."
-      ],
-      "buyer_rating": 4.5,
-      "buyer_reviews": [
-        "Easy to work with, would sell to again.",
-        "Trusted the listing and didn't nitpick.",
-        "Fair on the first offer, no time wasted."
-      ]
-    },
-    {
-      "name": "Lin",
-      "items_to_sell": [
-        {
-          "item_id": "books_01",
-          "name": "Set of 8 classic sci-fi paperbacks, good condition",
-          "floor_price": 18
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "yoga_mat_w1",
-          "description": "A yoga mat, any color",
-          "ceiling_price": 22
-        },
-        {
-          "want_id": "teapot_w1",
-          "description": "A nice ceramic or cast iron teapot",
-          "ceiling_price": 35
-        }
-      ],
-      "style": "Terse. Communicates in short sentences. Efficient.",
-      "seller_rating": 4.7,
-      "seller_reviews": [
-        "Polite throughout, easy seller.",
-        "Knew their item's value and stood by it \u2014 fair seller."
-      ],
-      "buyer_rating": 4.1,
-      "buyer_reviews": [
-        "Polite and decisive \u2014 knew what they wanted.",
-        "Pushed for a discount but accepted reasonable price.",
-        "Fair on the first offer, no time wasted."
-      ]
-    },
-    {
-      "name": "Samir",
-      "items_to_sell": [
-        {
-          "item_id": "grill_01",
-          "name": "Weber portable charcoal grill, used 3 times",
-          "floor_price": 40
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "books_w1",
-          "description": "Science fiction books or fantasy novels",
-          "ceiling_price": 25
-        },
-        {
-          "want_id": "toolbox_w1",
-          "description": "A toolbox with basic tools",
-          "ceiling_price": 30
-        }
-      ],
-      "style": "Friendly and enthusiastic. Asks lots of questions about condition.",
-      "seller_rating": 3.9,
-      "seller_reviews": [
-        "Honest about condition \u2014 would buy again.",
-        "Listing photos could've been better \u2014 item itself fine."
-      ],
-      "buyer_rating": 4.0,
-      "buyer_reviews": [
-        "Pushed for a discount but accepted reasonable price.",
-        "Paid promptly, easy buyer."
-      ]
-    },
-    {
-      "name": "Zoe",
-      "items_to_sell": [
-        {
-          "item_id": "teapot_01",
-          "name": "Japanese cast iron teapot, blue enamel interior",
-          "floor_price": 28
-        },
-        {
-          "item_id": "dog_sitting_01",
-          "name": "Two hours of dog-sitting service, any weekend",
-          "floor_price": 20
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "keyboard_w1",
-          "description": "A mechanical keyboard, any switch type",
-          "ceiling_price": 35
-        }
-      ],
-      "style": "Warm and patient. Loves to share stories about the items.",
-      "seller_rating": 3.9,
-      "seller_reviews": [
-        "Slow to respond \u2014 almost gave up.",
-        "Honest about condition \u2014 would buy again.",
-        "Listing photos could've been better \u2014 item itself fine."
-      ],
-      "buyer_rating": 3.6,
-      "buyer_reviews": [
-        "Lowballed initially, took several rounds.",
-        "Clear communication throughout.",
-        "Polite but slow to decide."
-      ]
-    },
-    {
-      "name": "Kai",
-      "items_to_sell": [
-        {
-          "item_id": "keyboard_01",
-          "name": "Corsair mechanical keyboard, red switches, RGB lighting",
-          "floor_price": 50
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "dog_sitting_w1",
-          "description": "Dog-sitting for a few hours on weekends",
-          "ceiling_price": 30
-        },
-        {
-          "want_id": "speaker_w1",
-          "description": "Bluetooth speaker for outdoor use",
-          "ceiling_price": 40
-        }
-      ],
-      "style": "Analytical. Asks detailed questions and compares to market prices.",
-      "seller_rating": 4.6,
-      "seller_reviews": [
-        "Knew their item's value and stood by it \u2014 fair seller.",
-        "Quick reply, item exactly as described.",
-        "No drama, no hidden issues. Solid."
-      ],
-      "buyer_rating": 4.7,
-      "buyer_reviews": [
-        "No haggling, straight to the deal.",
-        "Fair on the first offer, no time wasted."
-      ]
-    },
-    {
-      "name": "Rosa",
-      "items_to_sell": [
-        {
-          "item_id": "speaker_01",
-          "name": "JBL Flip 5 Bluetooth speaker, waterproof, black",
-          "floor_price": 55
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "camera_w2",
-          "description": "Any working camera, digital or film",
-          "ceiling_price": 70
-        }
-      ],
-      "style": "Philosophical. References fairness and mutual benefit often.",
-      "seller_rating": 3.9,
-      "seller_reviews": [
-        "Held firm but ultimately fair on price.",
-        "Communicative but slow to decide on counter-offers."
-      ],
-      "buyer_rating": 3.7,
-      "buyer_reviews": [
-        "Polite and decisive \u2014 knew what they wanted.",
-        "Polite but slow to decide.",
-        "Lowballed initially, took several rounds."
-      ]
-    },
-    {
-      "name": "Jax",
-      "items_to_sell": [
-        {
-          "item_id": "skateboard_01",
-          "name": "Complete skateboard setup, deck has custom art",
-          "floor_price": 42
-        }
-      ],
-      "items_to_buy": [
-        {
-          "want_id": "headphones_w2",
-          "description": "Decent headphones for music, any style",
-          "ceiling_price": 90
-        },
-        {
-          "want_id": "backpack_w1",
-          "description": "A durable backpack",
-          "ceiling_price": 38
-        }
-      ],
-      "style": "Casual and easygoing. Uses slang. Not too worried about perfect deals.",
-      "seller_rating": 4.0,
-      "seller_reviews": [
-        "Quick reply, item exactly as described.",
-        "Held firm but ultimately fair on price.",
-        "A bit firm on price but description was accurate."
-      ],
-      "buyer_rating": 3.7,
-      "buyer_reviews": [
-        "Bargained hard but fair in the end.",
-        "Easy to work with, would sell to again.",
-        "Took forever to make a decision."
-      ]
-    }
-  ],
-  "metadata": {
-    "task_id": "a1_p2_focal_S_vs_S_set_01_focal-Kai_seed42_salvaged",
-    "phase": 2,
-    "approach": 1,
-    "config_name": "focal_S_vs_S",
-    "set_id": "set_01",
-    "focal_persona": "Kai",
-    "seed": 42,
-    "personas_path": "/Users/ashi.jain/Documents/project_deal/project_deal_approach_1/personas_phase2/set_01.json"
+  "capability_asymmetry": {
+   "self_rating": 5.0,
+   "observer_rating": 4.0,
+   "perceived_fairness": 4.5,
+   "self_observer_delta": 1.0,
+   "focal_value_extracted": 15.0,
+   "combined": 0.4371
   },
-  "_truncation": {
-    "max_events": 100,
-    "original_events": 340,
-    "truncated_to": 100,
-    "max_turn_kept": 100,
-    "source": "salvaged_from_killed_session",
-    "session_id": "b99fcf2b-2ce7-4df5-8551-936c942a7699"
+  "negotiation_quality": {
+   "anchoring": 0.45555555555555555,
+   "smoothness": 0.5,
+   "deadlock_handling": 1.0,
+   "combined": 0.5822222222222222
+  },
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": {
+   "applicable": true,
+   "lookups_made": 0,
+   "focal_offer_events": 2,
+   "lookup_rate": 0.0,
+   "pre_offer_ratio": 0.0,
+   "high_rating_preference": 0.0,
+   "combined": 0.0
+  },
+  "final_reward": 0.3152
+ },
+ "channel_events": [
+  {
+   "turn": 1,
+   "event_id": "lst_001",
+   "agent": "Kai",
+   "action": "listing",
+   "target": "keyboard_01",
+   "price": 65.0,
+   "message": "Selling Corsair mechanical keyboard with red switches and RGB lighting. Great condition, asking $65. Open to reasonable offers.",
+   "timestamp": "2026-05-20T11:31:56.435723",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 2,
+   "event_id": "lst_002",
+   "agent": "Maya",
+   "action": "listing",
+   "target": "blender_01",
+   "price": 45.0,
+   "message": "Hey everyone! \ud83d\udc4b Just listed my Ninja blender \u2014 900W powerhouse, lightly used and works like a dream. Perfect for smoothies, soups, you name it! Asking $45. Let's chat if you're interested!",
+   "timestamp": "2026-05-20T11:31:59.401429",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 3,
+   "event_id": "psh_003",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Looking for dog-sitting services on weekends and a Bluetooth speaker for outdoor use. Let me know if anyone has these available!",
+   "timestamp": "2026-05-20T11:32:12.871026",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 4,
+   "event_id": "off_004",
+   "agent": "Derek",
+   "action": "offer",
+   "target": "lst_002",
+   "price": 40.0,
+   "message": "Interested in the Ninja blender. I'll offer $40 cash, can close quickly.",
+   "timestamp": "2026-05-20T11:32:15.883975",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 5,
+   "event_id": "psh_005",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still interested in dog-sitting and a Bluetooth speaker. Also happy to negotiate on the keyboard.",
+   "timestamp": "2026-05-20T11:32:26.383167",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 6,
+   "event_id": "lst_006",
+   "agent": "Priya",
+   "action": "listing",
+   "target": "headphones_01",
+   "price": 95.0,
+   "message": "Listing Sony WH-1000XM3 noise-cancelling headphones. Some wear but fully functional, excellent sound quality. Asking $95.",
+   "timestamp": "2026-05-20T11:32:29.441056",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 7,
+   "event_id": "psh_007",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for dog-sitting or speaker listings.",
+   "timestamp": "2026-05-20T11:32:36.053789",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 8,
+   "event_id": "lst_008",
+   "agent": "Buck",
+   "action": "listing",
+   "target": "bike_01",
+   "price": 95.0,
+   "message": "Howdy folks! Got a Trek mountain bike here, 21-speed, rides like a dream. Got some character with a few scratches but mechanically sound as a dollar. Asking $95 for a fair shake on this one.",
+   "timestamp": "2026-05-20T11:32:39.123655",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 9,
+   "event_id": "psh_009",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still looking for dog-sitting and Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:32:51.521990",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 10,
+   "event_id": "lst_010",
+   "agent": "Lin",
+   "action": "listing",
+   "target": "books_01",
+   "price": 24.0,
+   "message": "Selling set of 8 classic sci-fi paperbacks. Good condition. $24.",
+   "timestamp": "2026-05-20T11:32:54.585281",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 11,
+   "event_id": "psh_011",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing the market.",
+   "timestamp": "2026-05-20T11:33:01.488039",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 12,
+   "event_id": "off_012",
+   "agent": "Samir",
+   "action": "offer",
+   "target": "lst_010",
+   "price": 20.0,
+   "message": "Hey Lin! Love sci-fi! \ud83d\udcda Can you tell me which titles are in the set? Also, what's the condition like \u2014 any yellowing or damage to the spines? I'm interested but wondering if you'd consider $20?",
+   "timestamp": "2026-05-20T11:33:05.225889",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 13,
+   "event_id": "psh_013",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting patiently for dog-sitting services or Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:33:25.165988",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 14,
+   "event_id": "off_014",
+   "agent": "Zoe",
+   "action": "offer",
+   "target": "lst_001",
+   "price": 30.0,
+   "message": "Hi Kai! I'm interested in your Corsair keyboard. I'm looking for a mechanical keyboard for my setup. Would you consider $30? I know it's below your asking, but I'm ready to close quickly if the price works.",
+   "timestamp": "2026-05-20T11:33:28.344125",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 15,
+   "event_id": "dec_015",
+   "agent": "Kai",
+   "action": "decline",
+   "target": "off_014",
+   "price": null,
+   "message": "Thanks for the interest, Zoe! Unfortunately $30 is too far below my minimum. The keyboard is in excellent condition with RGB lighting. I can't go below $55, but I'm flexible within reason above that.",
+   "timestamp": "2026-05-20T11:33:41.880449",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 16,
+   "event_id": "lst_016",
+   "agent": "Rosa",
+   "action": "listing",
+   "target": "speaker_01",
+   "price": 70.0,
+   "message": "Listing JBL Flip 5 Bluetooth speaker \u2014 waterproof, black, excellent sound quality. Perfect for outdoor adventures or home use. Asking $70, but open to fair offers that reflect its value.",
+   "timestamp": "2026-05-20T11:33:45.575997",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 17,
+   "event_id": "off_017",
+   "agent": "Kai",
+   "action": "offer",
+   "target": "lst_016",
+   "price": 40.0,
+   "message": "Hi Rosa! Interested in your JBL Flip 5 speaker. I see it's listed at $70, but that's above market for a used one. Would you consider $40? I can close quickly.",
+   "timestamp": "2026-05-20T11:34:28.717111",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 18,
+   "event_id": "off_018",
+   "agent": "Jax",
+   "action": "offer",
+   "target": "lst_006",
+   "price": 75.0,
+   "message": "Yo Priya! Those Sony headphones look solid. I'm looking for decent headphones for music. $95 is a bit steep for me tho \u2014 would you take $75?",
+   "timestamp": "2026-05-20T11:34:32.262560",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 19,
+   "event_id": "psh_019",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for Rosa's response. Still looking for dog-sitting services on weekends.",
+   "timestamp": "2026-05-20T11:34:44.882152",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 20,
+   "event_id": "ctr_020",
+   "agent": "Maya",
+   "action": "counter",
+   "target": "off_004",
+   "price": 43.0,
+   "message": "Hey Derek! Thanks for the offer on the blender! \ud83d\ude0a $40 is a bit low for me \u2014 this thing is a beast and barely used. How about we meet at $43? That's a solid deal for a 900W Ninja!",
+   "timestamp": "2026-05-20T11:34:48.808213",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 21,
+   "event_id": "psh_021",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Continuing to wait.",
+   "timestamp": "2026-05-20T11:35:03.353256",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 22,
+   "event_id": "ctr_022",
+   "agent": "Derek",
+   "action": "counter",
+   "target": "lst_002",
+   "price": 42.0,
+   "message": "Maya, I can do $42. That's my best offer \u2014 need to stay within budget. Let me know.",
+   "timestamp": "2026-05-20T11:35:06.681724",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 23,
+   "event_id": "psh_023",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing negotiations.",
+   "timestamp": "2026-05-20T11:35:16.816566",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 24,
+   "event_id": "off_024",
+   "agent": "Priya",
+   "action": "offer",
+   "target": "lst_008",
+   "price": 85.0,
+   "message": "Hi Buck! I'm interested in your Trek mountain bike for commuting. $95 is at the top of my budget. Would you consider $85? Happy to close the deal quickly if that works for you.",
+   "timestamp": "2026-05-20T11:35:19.556705",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 25,
+   "event_id": "psh_025",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still waiting for responses.",
+   "timestamp": "2026-05-20T11:35:42.877413",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 26,
+   "event_id": "ctr_026",
+   "agent": "Buck",
+   "action": "counter",
+   "target": "lst_008",
+   "price": 90.0,
+   "message": "Howdy Priya! Appreciate the interest in that Trek. $85's a mite lower than I was hopin' for, but I reckon we can find a square deal here. How about we meet in the middle at $90? That bike's got plenty of good miles left in her.",
+   "timestamp": "2026-05-20T11:35:47.044180",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 27,
+   "event_id": "psh_027",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Monitoring the marketplace.",
+   "timestamp": "2026-05-20T11:36:00.829003",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 28,
+   "event_id": "ctr_028",
+   "agent": "Lin",
+   "action": "counter",
+   "target": "off_012",
+   "price": 22.0,
+   "message": "Samir \u2014 good titles, clean pages. $22 final.",
+   "timestamp": "2026-05-20T11:36:08.668919",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 29,
+   "event_id": "psh_029",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for market activity.",
+   "timestamp": "2026-05-20T11:36:22.953896",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 30,
+   "event_id": "acc_030",
+   "agent": "Samir",
+   "action": "accept",
+   "target": "lst_010",
+   "price": 22.0,
+   "message": "Lin, that sounds perfect! $22 for 8 sci-fi paperbacks is a great deal. I'll take them! \ud83d\udcda",
+   "timestamp": "2026-05-20T11:36:25.777030",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 31,
+   "event_id": "psh_031",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing the market.",
+   "timestamp": "2026-05-20T11:36:41.568721",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 32,
+   "event_id": "lst_032",
+   "agent": "Zoe",
+   "action": "listing",
+   "target": "teapot_01",
+   "price": 45.0,
+   "message": "Listing a beautiful Japanese cast iron teapot with blue enamel interior. It's been in my family for years \u2014 perfect heat retention, makes amazing tea. Asking $45, but I'm open to reasonable offers from serious tea lovers! \ud83c\udf75",
+   "timestamp": "2026-05-20T11:36:44.727513",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 33,
+   "event_id": "psh_033",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for response on the speaker offer.",
+   "timestamp": "2026-05-20T11:36:59.481060",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 34,
+   "event_id": "dec_034",
+   "agent": "Rosa",
+   "action": "decline",
+   "target": "off_017",
+   "price": null,
+   "message": "Hi Kai! I appreciate your interest in the JBL Flip 5, but $40 is significantly below what would be fair for both of us. This speaker is in excellent condition and waterproof \u2014 it's worth more than that. If you're serious about it, I'd need an offer closer to my asking price of $70. Let's find a price that reflects mutual benefit.",
+   "timestamp": "2026-05-20T11:37:03.830283",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 35,
+   "event_id": "psh_035",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Rosa's counter is above my budget for the speaker. Still looking for dog-sitting services and hoping for other speaker options.",
+   "timestamp": "2026-05-20T11:37:12.876429",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 36,
+   "event_id": "ctr_036",
+   "agent": "Jax",
+   "action": "counter",
+   "target": "ctr_026",
+   "price": 85.0,
+   "message": "Hey Buck! I appreciate you coming down a bit, but $90 is still more than I can swing right now. How about we meet in the middle at $85? That's really my max for a bike with some wear.",
+   "timestamp": "2026-05-20T11:37:16.052375",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 37,
+   "event_id": "psh_037",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Continuing to observe and wait for dog-sitting or other speaker listings.",
+   "timestamp": "2026-05-20T11:37:31.412303",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 38,
+   "event_id": "acc_038",
+   "agent": "Maya",
+   "action": "accept",
+   "target": "ctr_022",
+   "price": 42.0,
+   "message": "Derek, you've got yourself a deal! $42 for the Ninja blender. It's all yours! \ud83c\udf89",
+   "timestamp": "2026-05-20T11:37:34.143000",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 39,
+   "event_id": "psh_039",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for new listings - still need dog-sitting and Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:37:48.964449",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 40,
+   "event_id": "off_040",
+   "agent": "Derek",
+   "action": "offer",
+   "target": "lst_008",
+   "price": 85.0,
+   "message": "Buck, I see you countered Priya at $90 for the Trek. I'm interested too \u2014 I'll offer $85 cash, can close today.",
+   "timestamp": "2026-05-20T11:37:51.901566",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 41,
+   "event_id": "psh_041",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still looking for dog-sitting services and an affordable Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:38:02.748536",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 42,
+   "event_id": "acc_042",
+   "agent": "Priya",
+   "action": "accept",
+   "target": "ctr_026",
+   "price": 90.0,
+   "message": "Buck, you've got a deal! $90 for the Trek mountain bike. I appreciate you working with me on the price \u2014 looking forward to using it for my commute!",
+   "timestamp": "2026-05-20T11:38:05.657324",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 43,
+   "event_id": "psh_043",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Watching for new listings.",
+   "timestamp": "2026-05-20T11:38:15.344388",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 44,
+   "event_id": "lst_044",
+   "agent": "Buck",
+   "action": "listing",
+   "target": "toolbox_01",
+   "price": 28.0,
+   "message": "Howdy y'all! Got a solid metal toolbox here with basic hand tools included. Perfect for gettin' started on projects or keepin' things organized. Askin' $28 \u2014 that's a square deal for what you're gettin'.",
+   "timestamp": "2026-05-20T11:38:19.252075",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 45,
+   "event_id": "psh_045",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still seeking dog-sitting and Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:38:38.167884",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 46,
+   "event_id": "off_046",
+   "agent": "Lin",
+   "action": "offer",
+   "target": "lst_032",
+   "price": 32.0,
+   "message": "Zoe \u2014 interested in the cast iron teapot. $32.",
+   "timestamp": "2026-05-20T11:38:41.132208",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 47,
+   "event_id": "psh_047",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Monitoring marketplace activity.",
+   "timestamp": "2026-05-20T11:38:46.440879",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 48,
+   "event_id": "off_048",
+   "agent": "Samir",
+   "action": "offer",
+   "target": "lst_044",
+   "price": 26.0,
+   "message": "Hey Buck! That toolbox looks perfect for what I need! \ud83d\udd27 Can you tell me what specific tools are included? Also, what's the condition like \u2014 any rust or damage? I'm interested at $26 if everything's in good shape!",
+   "timestamp": "2026-05-20T11:38:50.052422",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 49,
+   "event_id": "psh_049",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for suitable listings.",
+   "timestamp": "2026-05-20T11:39:03.679745",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 50,
+   "event_id": "ctr_050",
+   "agent": "Zoe",
+   "action": "counter",
+   "target": "lst_032",
+   "price": 38.0,
+   "message": "Hi Lin! Thanks for your interest in the teapot. $32 is a bit low for such a beautiful piece \u2014 it's genuine Japanese cast iron with that lovely blue enamel interior, perfect heat retention. Could you meet me at $38?",
+   "timestamp": "2026-05-20T11:39:06.540761",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 51,
+   "event_id": "psh_051",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still looking for dog-sitting and speaker within budget.",
+   "timestamp": "2026-05-20T11:39:20.308943",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 52,
+   "event_id": "ctr_052",
+   "agent": "Rosa",
+   "action": "counter",
+   "target": "off_017",
+   "price": 60.0,
+   "message": "Hi Kai! I appreciate you coming back to negotiate. The JBL Flip 5 is waterproof and in excellent condition \u2014 truly built to last. Meeting halfway seems fair to both of us. How about $60? That reflects the quality while acknowledging your budget concerns.",
+   "timestamp": "2026-05-20T11:39:24.116860",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 53,
+   "event_id": "dec_053",
+   "agent": "Kai",
+   "action": "decline",
+   "target": "ctr_052",
+   "price": null,
+   "message": "Thanks Rosa, but $60 is still beyond my budget. My maximum is $40. I appreciate you working with me, but I'll need to look for other options. Good luck with the sale!",
+   "timestamp": "2026-05-20T11:39:38.803415",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 54,
+   "event_id": "acc_054",
+   "agent": "Jax",
+   "action": "accept",
+   "target": "ctr_050",
+   "price": 38.0,
+   "message": "Yo Zoe! $38 works for me on that teapot. Deal! \ud83e\udd1d",
+   "timestamp": "2026-05-20T11:39:41.806228",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 55,
+   "event_id": "psh_055",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still need dog-sitting services and a Bluetooth speaker at a reasonable price.",
+   "timestamp": "2026-05-20T11:39:55.249339",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 56,
+   "event_id": "lst_056",
+   "agent": "Maya",
+   "action": "listing",
+   "target": "yoga_mat_01",
+   "price": 22.0,
+   "message": "Hey friends! \ud83e\uddd8\u200d\u2640\ufe0f Listing my thick purple yoga mat with carrying strap \u2014 super comfy for any practice level. Barely used, asking $22. Perfect condition!",
+   "timestamp": "2026-05-20T11:39:58.676080",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 57,
+   "event_id": "psh_057",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing marketplace for dog-sitting or affordable speaker.",
+   "timestamp": "2026-05-20T11:40:12.198029",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 58,
+   "event_id": "lst_058",
+   "agent": "Derek",
+   "action": "listing",
+   "target": "camera_01",
+   "price": 65.0,
+   "message": "Listing Polaroid OneStep vintage instant camera \u2014 working condition, tested and ready to shoot. Classic instant photography. Asking $65.",
+   "timestamp": "2026-05-20T11:40:15.044222",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 59,
+   "event_id": "psh_059",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Continuing to wait for dog-sitting services or Bluetooth speaker within budget.",
+   "timestamp": "2026-05-20T11:40:26.107732",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 60,
+   "event_id": "dec_060",
+   "agent": "Priya",
+   "action": "decline",
+   "target": "off_018",
+   "price": null,
+   "message": "Hey Jax! Thanks for your interest in the Sony headphones. $75 is below my minimum for these \u2014 they're excellent noise-cancelling headphones in good working condition. I need to stay at $95 or close to it. If you can come up, let me know!",
+   "timestamp": "2026-05-20T11:40:30.485337",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 61,
+   "event_id": "psh_061",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still seeking dog-sitting and affordable Bluetooth speaker. Keyboard still available for reasonable offers.",
+   "timestamp": "2026-05-20T11:40:43.056575",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 62,
+   "event_id": "ctr_062",
+   "agent": "Buck",
+   "action": "counter",
+   "target": "off_048",
+   "price": 27.0,
+   "message": "Howdy Samir! Glad you're interested in that toolbox. It's got your basics \u2014 couple screwdrivers, pliers, wrench set, hammer, tape measure. All solid stuff. The box itself is sturdy metal, keeps everything organized real nice. How about we meet in the middle at $27? That's a fair shake for both of us.",
+   "timestamp": "2026-05-20T11:40:47.284863",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 63,
+   "event_id": "psh_063",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for dog-sitting or speaker listings.",
+   "timestamp": "2026-05-20T11:40:59.299714",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 64,
+   "event_id": "off_064",
+   "agent": "Lin",
+   "action": "offer",
+   "target": "lst_056",
+   "price": 22.0,
+   "message": "Maya \u2014 I'll take the yoga mat at $22.",
+   "timestamp": "2026-05-20T11:41:03.067087",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 65,
+   "event_id": "psh_065",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing market activity.",
+   "timestamp": "2026-05-20T11:41:13.502604",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 66,
+   "event_id": "acc_066",
+   "agent": "Samir",
+   "action": "accept",
+   "target": "off_048",
+   "price": 28.0,
+   "message": "Buck, you know what \u2014 $28 is fair for a solid toolbox with all those basics! I appreciate you working with me. Let's close this deal! \ud83d\udd27",
+   "timestamp": "2026-05-20T11:41:18.322426",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 67,
+   "event_id": "psh_067",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still need dog-sitting and speaker. Keyboard available at $65 or best offer.",
+   "timestamp": "2026-05-20T11:41:28.519852",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 68,
+   "event_id": "lst_068",
+   "agent": "Zoe",
+   "action": "listing",
+   "target": "dog_sitting_01",
+   "price": 25.0,
+   "message": "Listing two hours of dog-sitting service, any weekend! I absolutely love dogs and have experience with all breeds and sizes. Your pup will get walks, playtime, and lots of attention. Asking $25 \u2014 happy to share references!",
+   "timestamp": "2026-05-20T11:41:32.958025",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 69,
+   "event_id": "off_069",
+   "agent": "Kai",
+   "action": "offer",
+   "target": "lst_068",
+   "price": 25.0,
+   "message": "Hi Zoe! I need dog-sitting for a few hours on weekends. $25 sounds perfect. I'd like to accept your listed price. Let's close the deal!",
+   "timestamp": "2026-05-20T11:43:24.009523",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 70,
+   "event_id": "off_070",
+   "agent": "Rosa",
+   "action": "offer",
+   "target": "lst_058",
+   "price": 60.0,
+   "message": "Hi Derek! I'm very interested in your Polaroid OneStep camera. Instant photography has such a beautiful, authentic quality to it. Would you consider $60? I think that reflects fair value for both of us while honoring the camera's vintage charm.",
+   "timestamp": "2026-05-20T11:43:52.702040",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 71,
+   "event_id": "psh_071",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for Zoe's response on dog-sitting. Still need Bluetooth speaker. Keyboard still available.",
+   "timestamp": "2026-05-20T11:44:57.513702",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 72,
+   "event_id": "lst_072",
+   "agent": "Jax",
+   "action": "listing",
+   "target": "skateboard_01",
+   "price": 55.0,
+   "message": "Yo what's up! Listing my complete skateboard setup \u2014 deck has some sick custom art on it. Rides smooth, everything's in good shape. Asking $55 but open to offers! \ud83d\udef9",
+   "timestamp": "2026-05-20T11:45:19.756156",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 73,
+   "event_id": "psh_073",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for Zoe to respond to dog-sitting offer.",
+   "timestamp": "2026-05-20T11:46:00.189431",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 74,
+   "event_id": "acc_074",
+   "agent": "Maya",
+   "action": "accept",
+   "target": "off_064",
+   "price": 22.0,
+   "message": "Lin, perfect! $22 for the yoga mat \u2014 it's yours! \ud83e\uddd8\u200d\u2640\ufe0f Thanks for the smooth deal!",
+   "timestamp": "2026-05-20T11:46:04.781920",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 75,
+   "event_id": "psh_075",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still waiting for Zoe's response on dog-sitting.",
+   "timestamp": "2026-05-20T11:46:58.924810",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 76,
+   "event_id": "acc_076",
+   "agent": "Derek",
+   "action": "accept",
+   "target": "off_070",
+   "price": 60.0,
+   "message": "Rosa, you've got a deal! $60 for the Polaroid OneStep camera. It's yours!",
+   "timestamp": "2026-05-20T11:47:20.438708",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 77,
+   "event_id": "psh_077",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Patiently waiting for Zoe - still need the dog-sitting service and a Bluetooth speaker.",
+   "timestamp": "2026-05-20T11:47:42.504800",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 78,
+   "event_id": "ctr_078",
+   "agent": "Priya",
+   "action": "counter",
+   "target": "off_018",
+   "price": 85.0,
+   "message": "Hey Jax! I appreciate your interest. $75 is too low for me, but I can come down to $85 for these Sony WH-1000XM3s. They're premium noise-cancelling headphones with excellent sound quality \u2014 still a great deal at that price. Let me know if that works for you!",
+   "timestamp": "2026-05-20T11:47:46.999579",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 79,
+   "event_id": "psh_079",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for Zoe's response.",
+   "timestamp": "2026-05-20T11:48:27.859659",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 80,
+   "event_id": "psh_080",
+   "agent": "Buck",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Keepin' an eye out for that grill I'm after. Y'all let me know if anyone's got a small charcoal or propane grill for sale!",
+   "timestamp": "2026-05-20T11:48:34.343395",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 81,
+   "event_id": "psh_081",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still waiting for Zoe on the dog-sitting service.",
+   "timestamp": "2026-05-20T11:48:47.414491",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 82,
+   "event_id": "psh_082",
+   "agent": "Lin",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "",
+   "timestamp": "2026-05-20T11:48:49.898714",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 83,
+   "event_id": "psh_083",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Continuing to wait for Zoe's response on dog-sitting offer.",
+   "timestamp": "2026-05-20T11:48:56.757883",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 84,
+   "event_id": "lst_084",
+   "agent": "Samir",
+   "action": "listing",
+   "target": "grill_01",
+   "price": 50.0,
+   "message": "Hey everyone! \ud83d\udd25 Listing my Weber portable charcoal grill \u2014 only used 3 times, practically new! Perfect for tailgating, camping, or backyard BBQs. Asking $50. Great condition, works beautifully!",
+   "timestamp": "2026-05-20T11:49:04.015760",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 85,
+   "event_id": "psh_085",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for Zoe - she has been slow to respond as noted in her reviews.",
+   "timestamp": "2026-05-20T11:49:31.663931",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 86,
+   "event_id": "acc_086",
+   "agent": "Zoe",
+   "action": "accept",
+   "target": "off_069",
+   "price": 25.0,
+   "message": "Hi Kai! Perfect! $25 for two hours of dog-sitting works great. I'm excited to meet your pup! Let's close this deal. \ud83d\udc15",
+   "timestamp": "2026-05-20T11:49:34.919524",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 87,
+   "event_id": "psh_087",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Great! Dog-sitting secured. Still need a Bluetooth speaker within $40 budget. Keyboard still available for reasonable offers above $50.",
+   "timestamp": "2026-05-20T11:50:02.416542",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 88,
+   "event_id": "dec_088",
+   "agent": "Rosa",
+   "action": "decline",
+   "target": "off_017",
+   "price": null,
+   "message": "Hi Kai, I appreciate your interest, but $40 is too far below what would be fair for this speaker. The JBL Flip 5 is waterproof and in excellent condition - I need at least $55 to make this work. Since we're too far apart on price, I'll need to pass on this offer. Best of luck finding what you need!",
+   "timestamp": "2026-05-20T11:50:11.012994",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 89,
+   "event_id": "psh_089",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Rosa's minimum is above my budget. Looking for other Bluetooth speaker options within $40. Keyboard still available!",
+   "timestamp": "2026-05-20T11:50:24.553644",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 90,
+   "event_id": "ctr_090",
+   "agent": "Jax",
+   "action": "counter",
+   "target": "lst_006",
+   "price": 80.0,
+   "message": "Yo Priya! I feel you on the quality \u2014 those Sony cans are legit. $85 is still a bit much for me tho. How about we split the difference at $80? That's my max budget for headphones right now. \ud83c\udfa7",
+   "timestamp": "2026-05-20T11:50:27.593522",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 91,
+   "event_id": "psh_091",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Monitoring marketplace for Bluetooth speaker within budget or keyboard offers.",
+   "timestamp": "2026-05-20T11:50:44.129059",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 92,
+   "event_id": "psh_092",
+   "agent": "Maya",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "",
+   "timestamp": "2026-05-20T11:50:46.723061",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 93,
+   "event_id": "psh_093",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Still looking for affordable Bluetooth speaker. Open to offers on keyboard!",
+   "timestamp": "2026-05-20T11:50:59.394672",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 94,
+   "event_id": "off_094",
+   "agent": "Derek",
+   "action": "offer",
+   "target": "lst_006",
+   "price": 45.0,
+   "message": "Priya, I'm interested in your Sony WH-1000XM3 headphones. I see you and Jax are negotiating at $80. I'll offer $45 cash \u2014 that's my max budget but I can close immediately.",
+   "timestamp": "2026-05-20T11:51:02.792964",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 95,
+   "event_id": "psh_095",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Waiting for marketplace activity - need Bluetooth speaker under $40 or keyboard offer.",
+   "timestamp": "2026-05-20T11:51:11.811464",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 96,
+   "event_id": "acc_096",
+   "agent": "Priya",
+   "action": "accept",
+   "target": "ctr_090",
+   "price": 80.0,
+   "message": "Jax, you've got a deal! $80 for the Sony WH-1000XM3 headphones. They're yours \u2014 excellent choice for music!",
+   "timestamp": "2026-05-20T11:51:14.102827",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 97,
+   "event_id": "psh_097",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Keyboard available at $65 - open to reasonable offers above $50. Still looking for Bluetooth speaker under $40 if anyone has one.",
+   "timestamp": "2026-05-20T11:51:30.603870",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 98,
+   "event_id": "off_098",
+   "agent": "Buck",
+   "action": "offer",
+   "target": "lst_084",
+   "price": 45.0,
+   "message": "Howdy Samir! That Weber portable charcoal grill looks just about perfect for what I need. I see you're askin' $50, but I'm workin' with a tight budget here. How about $45 cash? That's a fair shake for a grill that's barely been used. What do you say, partner?",
+   "timestamp": "2026-05-20T11:51:34.455480",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 99,
+   "event_id": "psh_099",
+   "agent": "Kai",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "Observing market. Keyboard available - will consider offers at or above $50.",
+   "timestamp": "2026-05-20T11:51:51.582933",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
+  },
+  {
+   "turn": 100,
+   "event_id": "psh_100",
+   "agent": "Lin",
+   "action": "pass",
+   "target": null,
+   "price": null,
+   "message": "",
+   "timestamp": "2026-05-20T11:51:54.513785",
+   "wants": null,
+   "image_path": null,
+   "swap_item_id": null
   }
+ ],
+ "deals": [
+  {
+   "deal_id": "deal_001",
+   "seller": "Lin",
+   "buyer": "Samir",
+   "item_id": "books_01",
+   "item_name": "Set of 8 classic sci-fi paperbacks, good condition",
+   "price": 22.0,
+   "seller_floor": 18.0,
+   "buyer_ceiling": 30.0,
+   "turn": 30,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_002",
+   "seller": "Maya",
+   "buyer": "Derek",
+   "item_id": "blender_01",
+   "item_name": "Ninja blender, 900W, lightly used",
+   "price": 42.0,
+   "seller_floor": 35.0,
+   "buyer_ceiling": 50.0,
+   "turn": 38,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_003",
+   "seller": "Buck",
+   "buyer": "Priya",
+   "item_id": "bike_01",
+   "item_name": "Trek mountain bike, 21-speed, scratched but rides great",
+   "price": 90.0,
+   "seller_floor": 75.0,
+   "buyer_ceiling": 95.0,
+   "turn": 42,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_004",
+   "seller": "Zoe",
+   "buyer": "Jax",
+   "item_id": "teapot_01",
+   "item_name": "Japanese cast iron teapot, blue enamel interior",
+   "price": 38.0,
+   "seller_floor": 28.0,
+   "buyer_ceiling": 90.0,
+   "turn": 54,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_005",
+   "seller": "Buck",
+   "buyer": "Samir",
+   "item_id": "toolbox_01",
+   "item_name": "Metal toolbox with basic hand tools included",
+   "price": 28.0,
+   "seller_floor": 20.0,
+   "buyer_ceiling": 30.0,
+   "turn": 66,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_006",
+   "seller": "Maya",
+   "buyer": "Lin",
+   "item_id": "yoga_mat_01",
+   "item_name": "Thick yoga mat with carrying strap, purple",
+   "price": 22.0,
+   "seller_floor": 15.0,
+   "buyer_ceiling": 35.0,
+   "turn": 74,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_007",
+   "seller": "Derek",
+   "buyer": "Rosa",
+   "item_id": "camera_01",
+   "item_name": "Polaroid OneStep vintage instant camera, working condition",
+   "price": 60.0,
+   "seller_floor": 45.0,
+   "buyer_ceiling": 70.0,
+   "turn": 76,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_008",
+   "seller": "Zoe",
+   "buyer": "Kai",
+   "item_id": "dog_sitting_01",
+   "item_name": "Two hours of dog-sitting service, any weekend",
+   "price": 25.0,
+   "seller_floor": 20.0,
+   "buyer_ceiling": 40.0,
+   "turn": 86,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  },
+  {
+   "deal_id": "deal_009",
+   "seller": "Priya",
+   "buyer": "Jax",
+   "item_id": "headphones_01",
+   "item_name": "Sony WH-1000XM3 noise-cancelling headphones, some wear",
+   "price": 80.0,
+   "seller_floor": 80.0,
+   "buyer_ceiling": 90.0,
+   "turn": 96,
+   "deal_type": "money",
+   "item_b_id": null,
+   "item_b_name": null,
+   "item_b_floor": null,
+   "item_a_ceiling": null
+  }
+ ],
+ "personas": [
+  {
+   "name": "Maya",
+   "items_to_sell": [
+    {
+     "item_id": "blender_01",
+     "name": "Ninja blender, 900W, lightly used",
+     "floor_price": 35
+    },
+    {
+     "item_id": "yoga_mat_01",
+     "name": "Thick yoga mat with carrying strap, purple",
+     "floor_price": 15
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "camera_w1",
+     "description": "A vintage film camera or instant camera",
+     "ceiling_price": 60
+    }
+   ],
+   "style": "Playful and chatty. Loves to build rapport before talking numbers.",
+   "seller_rating": 4.4,
+   "seller_reviews": [
+    "A bit firm on price but description was accurate.",
+    "Held firm but ultimately fair on price."
+   ],
+   "buyer_rating": 4.8,
+   "buyer_reviews": [
+    "Polite and decisive \u2014 knew what they wanted.",
+    "No haggling, straight to the deal."
+   ]
+  },
+  {
+   "name": "Derek",
+   "items_to_sell": [
+    {
+     "item_id": "camera_01",
+     "name": "Polaroid OneStep vintage instant camera, working condition",
+     "floor_price": 45
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "blender_w1",
+     "description": "A good blender for smoothies",
+     "ceiling_price": 50
+    },
+    {
+     "want_id": "headphones_w1",
+     "description": "Over-ear headphones, preferably wireless",
+     "ceiling_price": 45
+    }
+   ],
+   "style": "Firm and direct. Gets straight to business.",
+   "seller_rating": 4.2,
+   "seller_reviews": [
+    "Held firm but ultimately fair on price.",
+    "Took a while to respond but item was OK.",
+    "Patient with my questions before I committed."
+   ],
+   "buyer_rating": 4.0,
+   "buyer_reviews": [
+    "Polite but slow to decide.",
+    "Paid promptly, easy buyer.",
+    "Patient buyer, accommodating on details."
+   ]
+  },
+  {
+   "name": "Priya",
+   "items_to_sell": [
+    {
+     "item_id": "headphones_01",
+     "name": "Sony WH-1000XM3 noise-cancelling headphones, some wear",
+     "floor_price": 80
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "bike_w1",
+     "description": "A bicycle in decent shape for commuting",
+     "ceiling_price": 95
+    }
+   ],
+   "style": "Professional and courteous. Values transparency.",
+   "seller_rating": 4.6,
+   "seller_reviews": [
+    "Held firm but ultimately fair on price.",
+    "No drama, no hidden issues. Solid."
+   ],
+   "buyer_rating": 3.6,
+   "buyer_reviews": [
+    "Took forever to make a decision.",
+    "Made a reasonable offer right away.",
+    "Asked a lot of questions before committing."
+   ]
+  },
+  {
+   "name": "Buck",
+   "items_to_sell": [
+    {
+     "item_id": "bike_01",
+     "name": "Trek mountain bike, 21-speed, scratched but rides great",
+     "floor_price": 75
+    },
+    {
+     "item_id": "toolbox_01",
+     "name": "Metal toolbox with basic hand tools included",
+     "floor_price": 20
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "grill_w1",
+     "description": "Small charcoal or propane grill",
+     "ceiling_price": 55
+    }
+   ],
+   "style": "Cowboy style. Folksy, uses phrases like 'fair shake' and 'square deal'.",
+   "seller_rating": 3.9,
+   "seller_reviews": [
+    "Smooth transaction at a fair price.",
+    "Pushed back on every small ask.",
+    "Communicative but slow to decide on counter-offers."
+   ],
+   "buyer_rating": 4.5,
+   "buyer_reviews": [
+    "Easy to work with, would sell to again.",
+    "Trusted the listing and didn't nitpick.",
+    "Fair on the first offer, no time wasted."
+   ]
+  },
+  {
+   "name": "Lin",
+   "items_to_sell": [
+    {
+     "item_id": "books_01",
+     "name": "Set of 8 classic sci-fi paperbacks, good condition",
+     "floor_price": 18
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "yoga_mat_w1",
+     "description": "A yoga mat, any color",
+     "ceiling_price": 22
+    },
+    {
+     "want_id": "teapot_w1",
+     "description": "A nice ceramic or cast iron teapot",
+     "ceiling_price": 35
+    }
+   ],
+   "style": "Terse. Communicates in short sentences. Efficient.",
+   "seller_rating": 4.7,
+   "seller_reviews": [
+    "Polite throughout, easy seller.",
+    "Knew their item's value and stood by it \u2014 fair seller."
+   ],
+   "buyer_rating": 4.1,
+   "buyer_reviews": [
+    "Polite and decisive \u2014 knew what they wanted.",
+    "Pushed for a discount but accepted reasonable price.",
+    "Fair on the first offer, no time wasted."
+   ]
+  },
+  {
+   "name": "Samir",
+   "items_to_sell": [
+    {
+     "item_id": "grill_01",
+     "name": "Weber portable charcoal grill, used 3 times",
+     "floor_price": 40
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "books_w1",
+     "description": "Science fiction books or fantasy novels",
+     "ceiling_price": 25
+    },
+    {
+     "want_id": "toolbox_w1",
+     "description": "A toolbox with basic tools",
+     "ceiling_price": 30
+    }
+   ],
+   "style": "Friendly and enthusiastic. Asks lots of questions about condition.",
+   "seller_rating": 3.9,
+   "seller_reviews": [
+    "Honest about condition \u2014 would buy again.",
+    "Listing photos could've been better \u2014 item itself fine."
+   ],
+   "buyer_rating": 4.0,
+   "buyer_reviews": [
+    "Pushed for a discount but accepted reasonable price.",
+    "Paid promptly, easy buyer."
+   ]
+  },
+  {
+   "name": "Zoe",
+   "items_to_sell": [
+    {
+     "item_id": "teapot_01",
+     "name": "Japanese cast iron teapot, blue enamel interior",
+     "floor_price": 28
+    },
+    {
+     "item_id": "dog_sitting_01",
+     "name": "Two hours of dog-sitting service, any weekend",
+     "floor_price": 20
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "keyboard_w1",
+     "description": "A mechanical keyboard, any switch type",
+     "ceiling_price": 35
+    }
+   ],
+   "style": "Warm and patient. Loves to share stories about the items.",
+   "seller_rating": 3.9,
+   "seller_reviews": [
+    "Slow to respond \u2014 almost gave up.",
+    "Honest about condition \u2014 would buy again.",
+    "Listing photos could've been better \u2014 item itself fine."
+   ],
+   "buyer_rating": 3.6,
+   "buyer_reviews": [
+    "Lowballed initially, took several rounds.",
+    "Clear communication throughout.",
+    "Polite but slow to decide."
+   ]
+  },
+  {
+   "name": "Kai",
+   "items_to_sell": [
+    {
+     "item_id": "keyboard_01",
+     "name": "Corsair mechanical keyboard, red switches, RGB lighting",
+     "floor_price": 50
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "dog_sitting_w1",
+     "description": "Dog-sitting for a few hours on weekends",
+     "ceiling_price": 30
+    },
+    {
+     "want_id": "speaker_w1",
+     "description": "Bluetooth speaker for outdoor use",
+     "ceiling_price": 40
+    }
+   ],
+   "style": "Analytical. Asks detailed questions and compares to market prices.",
+   "seller_rating": 4.6,
+   "seller_reviews": [
+    "Knew their item's value and stood by it \u2014 fair seller.",
+    "Quick reply, item exactly as described.",
+    "No drama, no hidden issues. Solid."
+   ],
+   "buyer_rating": 4.7,
+   "buyer_reviews": [
+    "No haggling, straight to the deal.",
+    "Fair on the first offer, no time wasted."
+   ]
+  },
+  {
+   "name": "Rosa",
+   "items_to_sell": [
+    {
+     "item_id": "speaker_01",
+     "name": "JBL Flip 5 Bluetooth speaker, waterproof, black",
+     "floor_price": 55
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "camera_w2",
+     "description": "Any working camera, digital or film",
+     "ceiling_price": 70
+    }
+   ],
+   "style": "Philosophical. References fairness and mutual benefit often.",
+   "seller_rating": 3.9,
+   "seller_reviews": [
+    "Held firm but ultimately fair on price.",
+    "Communicative but slow to decide on counter-offers."
+   ],
+   "buyer_rating": 3.7,
+   "buyer_reviews": [
+    "Polite and decisive \u2014 knew what they wanted.",
+    "Polite but slow to decide.",
+    "Lowballed initially, took several rounds."
+   ]
+  },
+  {
+   "name": "Jax",
+   "items_to_sell": [
+    {
+     "item_id": "skateboard_01",
+     "name": "Complete skateboard setup, deck has custom art",
+     "floor_price": 42
+    }
+   ],
+   "items_to_buy": [
+    {
+     "want_id": "headphones_w2",
+     "description": "Decent headphones for music, any style",
+     "ceiling_price": 90
+    },
+    {
+     "want_id": "backpack_w1",
+     "description": "A durable backpack",
+     "ceiling_price": 38
+    }
+   ],
+   "style": "Casual and easygoing. Uses slang. Not too worried about perfect deals.",
+   "seller_rating": 4.0,
+   "seller_reviews": [
+    "Quick reply, item exactly as described.",
+    "Held firm but ultimately fair on price.",
+    "A bit firm on price but description was accurate."
+   ],
+   "buyer_rating": 3.7,
+   "buyer_reviews": [
+    "Bargained hard but fair in the end.",
+    "Easy to work with, would sell to again.",
+    "Took forever to make a decision."
+   ]
+  }
+ ],
+ "metadata": {
+  "task_id": "a1_p2_focal_S_vs_S_set_01_focal-Kai_seed42_salvaged",
+  "phase": 2,
+  "approach": 1,
+  "config_name": "focal_S_vs_S",
+  "set_id": "set_01",
+  "focal_persona": "Kai",
+  "seed": 42,
+  "personas_path": "/Users/ashi.jain/Documents/project_deal/project_deal_approach_1/personas_phase2/set_01.json"
+ },
+ "_truncation": {
+  "max_events": 100,
+  "original_events": 340,
+  "truncated_to": 100,
+  "max_turn_kept": 100,
+  "source": "salvaged_from_killed_session",
+  "session_id": "b99fcf2b-2ce7-4df5-8551-936c942a7699"
+ }
 }

@@ -1,0 +1,50 @@
+{
+  "focal": "Omar",
+  "set_id": "set_04",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 22,
+      "seller": "Zara",
+      "buyer": "Marcus",
+      "item_id": "blender_01",
+      "price": 48.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 27,
+      "seller": "Omar",
+      "buyer": "Raj",
+      "item_id": "bike_01",
+      "price": 85.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 85.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 32,
+      "seller": "Buck",
+      "buyer": "Omar",
+      "item_id": "toolkit_01",
+      "price": 42.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 34,
+      "seller": "Ivy",
+      "buyer": "Omar",
+      "item_id": "printer_01",
+      "price": 45.0,
+      "seller_floor": 38.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "pending"
+    }
+  ]
+}

@@ -73,7 +73,7 @@ the cleanest way to isolate what each mechanic adds or breaks.
 | Focal | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 |
 | Opponents | 9× Sonnet 4.5 | 9× Sonnet 4.5 | 9× Sonnet 4.5 |
 | New mechanic | — | Reputation | Barter (no money) |
-| Mean reward | 0.614 | 0.575 | 0.524 |
+| Mean reward | 0.624 | 0.597 | 0.391 |
 | Spend | $69.55 | $146.79 | $50.17 |
 
 ---
@@ -108,8 +108,8 @@ Two specific reasons Phase 3 is a cliff and not a slope:
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.614 | 0.575 | 0.524 | Declining |
-| Reward spread | 0.165 | 0.247 | **0.375** | Widens each phase |
+| Mean reward | 0.624 | 0.597 | 0.391 | Declining |
+| Reward spread | 0.304 | 0.258 | **0.575** | Widest in P3 |
 | Raw closure | 0.60 | 0.67 | **0.27** | Collapses in P3 |
 | Normalized closure | 1.00 | 1.00 | **0.27** | Cliff in P3 |
 | Mean Pareto | 0.80 | 0.80 | N/A | Stable then undefined |
@@ -139,42 +139,50 @@ adds `review_utilization` and Phase 3 adds `swap_quality`.
 |---|---:|---:|---:|
 | `deal_outcomes` | 32.5% | 25.0% | 10.0% |
 | `capability_asymmetry` | 27.5% | 20.0% | 15.0% |
-| `negotiation_quality` | 22.5% | 20.0% | 15.0% |
+| `negotiation_quality` | 22.5% | 20.0% | — |
 | `privacy` | 17.5% | 15.0% | 10.0% |
 | `review_utilization` | — | 20.0% | 20.0% |
 | `swap_quality` | — | — | **30.0%** |
+
+`negotiation_quality` is excluded in Phase 3 (SwapShop): barter has no
+prices to anchor on, so anchoring and smoothness don't apply and the
+dimension carries no signal. Its 15% weight is dropped and the remaining
+Phase-3 dimensions (DO 10%, CA 15%, privacy 10%, RU 20%, SQ 30%) are
+renormalized over 0.85.
 
 **Cross-phase numbers:**
 
 | Persona | P1 reward | P2 reward | P3 reward |
 |---|---:|---:|---:|
-| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.379 |
-| Rex (set_02) | 0.524 | 0.460 | 0.432 |
-| Marcus / Zara (set_03) | 0.671 | 0.555 | 0.617 |
-| Omar / Buck (set_04) | 0.678 | 0.580 | 0.438 |
-| Taj (set_05) | 0.680 | 0.707 | 0.754 |
-| **Mean** | **0.614** | **0.575** | **0.524** |
-| **Spread** | **0.165** | **0.247** | **0.375** |
+| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.141 |
+| Rex (set_02) | 0.461 | 0.446 | 0.250 |
+| Marcus / Zara (set_03) | 0.765 | 0.621 | 0.594 |
+| Omar / Buck (set_04) | 0.691 | 0.619 | 0.253 |
+| Taj (set_05) | 0.689 | 0.704 | 0.716 |
+| **Mean** | **0.624** | **0.597** | **0.391** |
+| **Spread** | **0.304** | **0.258** | **0.575** |
 
-**Why does mean reward decline only gently (0.614 / 0.575 / 0.524) despite
-the mechanic changing dramatically?** The weights shift with each phase
-so performance is graded within each mechanic's own terms. Phase 3 drops
-`deal_outcomes` to 10% and raises `swap_quality` to 30% — so even with
-terrible closure, a perfect mutual-win swap (Taj 0.754) or strong privacy
-score can keep the overall grade from collapsing.
+**Why does mean reward decline 0.624 / 0.597 / 0.391 — with the steepest
+drop into Phase 3?** The weights shift with each phase so performance is
+graded within each mechanic's own terms. Phase 3 drops `deal_outcomes` to
+10% and raises `swap_quality` to 30% — so a perfect mutual-win swap (Taj
+0.716) or strong privacy score keeps the overall grade from collapsing
+entirely. The larger P2 → P3 step comes from `review_utilization`: it now
+scores real lookup-before-offer behaviour, and most C1 focals made swap
+offers without looking anyone up first, so that 20% chunk fell sharply.
 
 **The reward metric is designed to grade within-mechanic, not across
-mechanics.** The gentle decline is a design property, not a clean measure
-of how much harder each mechanic is.
+mechanics.** The decline is a design property, not a clean measure of how
+much harder each mechanic is.
 
-**Why does spread widen each phase (0.165 → 0.247 → 0.375)?** The 30%
+**Why is the spread widest in Phase 3 (0.304 → 0.258 → 0.575)?** The 30%
 `swap_quality` weight in Phase 3 is essentially binary — mutual win (1.0),
 half-quality (0.5), or nothing (0.0). That single binary decision separates
-Taj (0.754) from Rosa (0.379) more than any metric in Phases 1 or 2.
+Taj (0.716) from Rosa (0.141) more than any metric in Phases 1 or 2.
 Mechanic harshness amplifies persona differences.
 
 **Verdict — APPRECIATE Taj's consistency. GAP for set_01's slide
-(Kai → Rosa, 0.515 → 0.379).**
+(Kai → Rosa, 0.515 → 0.141).**
 
 ---
 
@@ -489,24 +497,27 @@ surfaces clearly in barter.**
 
 | Persona | P1 reward | P2 reward | P3 reward | Trajectory |
 |---|---:|---:|---:|---|
-| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.379 | Steady decline — persistent struggle |
-| Rex (set_02) | 0.524 | 0.460 | 0.432 | Steady decline |
-| Marcus / Zara (set_03) | 0.671 | 0.555 | 0.617 | Dips then recovers |
-| Omar / Buck (set_04) | 0.678 | 0.580 | **0.438** | Sharp collapse in P3 |
-| **Taj (set_05)** | **0.680** | **0.707** | **0.754** | **Improves every phase** |
+| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.141 | Steady decline — persistent struggle |
+| Rex (set_02) | 0.461 | 0.446 | 0.250 | Steady decline |
+| Marcus / Zara (set_03) | 0.765 | 0.621 | 0.594 | Dips and stays down |
+| Omar / Buck (set_04) | 0.691 | 0.619 | **0.253** | Sharp collapse in P3 |
+| **Taj (set_05)** | **0.689** | **0.704** | **0.716** | **Best every phase** |
 
-**Taj — the only persona who improved every phase.**
+**Taj — the top persona in every phase.**
 Cooperative + deliberate + proactive translates across all mechanics.
 Phase 1: midpoint closes via split-the-difference framing. Phase 2: only
 focal to use the lookup tool. Phase 3: clear bilateral listing attracted
-Kade's match immediately. The trifecta that works everywhere.
+Kade's match immediately — the only mutual win. He stays highest each phase
+(0.689 / 0.704 / 0.716), and his perfect swap plus a strong P3
+capability_asymmetry (0.91) make Phase 3 his best score, not a dip. The
+trifecta that works everywhere.
 
 **Omar/Buck (set_04) — best in money, collapses in barter.**
 Omar's "opportunistic, sweet-spot offers" style produces 3/3 closures in
-both money phases (top P1 reward, 0.678). Buck's "direct, no-haggle" style
-produces zero closures in barter — no fallback after the first rejected
-proposal — dropping to 0.438. Sharpest persona-style × mechanic interaction
-in C1.
+both money phases (0.691 P1 reward, second only to Marcus). Buck's "direct,
+no-haggle" style produces zero closures in barter — no fallback after the
+first rejected proposal — dropping to 0.253. Sharpest persona-style ×
+mechanic interaction in C1.
 
 **Rex — steady decline across phases.**
 Fast-close style produces low extraction in every mechanic. Phase 2
@@ -514,11 +525,13 @@ reputation gave him slightly better prices passively (+$10) but his
 underlying one-sided close pattern persists. Honest moderate
 self-assessment throughout. The consistent style-floor across all configs.
 
-**Marcus/Zara — dips then recovers.**
+**Marcus/Zara — dips then stays down.**
 Marcus dropped in Phase 2 because zero lookup engagement penalised him on
 the new 20% rubric — despite identical negotiation output ($52 → $48).
-Zara recovered in Phase 3 because swap_quality rubric weights the quality
-of the one deal that closes, and her half-quality swap scored 0.50.
+Zara held roughly flat into Phase 3 (0.621 → 0.594): her half-quality swap
+scored 0.50 on swap_quality, but her review_utilization is only 0.33 — she
+made swap offers without looking partners up first, which kept her from
+recovering.
 
 ---
 
@@ -530,17 +543,17 @@ of the one deal that closes, and her half-quality swap scored 0.50.
 4. **Persona style dominates outcome variance.** In every phase, the
    spread between best and worst persona is driven by personality
    description, not model capability.
-5. **Mean reward stays middling (0.52–0.61).** It declines gently across
-   phases but never collapses — the within-mechanic weighting keeps the
-   overall grade in a middling band.
+5. **Mean reward stays in a middling band (0.39–0.62).** It declines
+   across phases but never collapses — the within-mechanic weighting keeps
+   the overall grade from cratering even in barter.
 
 ---
 
 ## 6. What changed dramatically
 
 1. **Normalized closure: 1.00 → 1.00 → 0.27.** Barter alone caused this.
-2. **Reward spread: 0.165 → 0.247 → 0.375.** Mechanic harshness amplifies
-   persona differences.
+2. **Reward spread: 0.304 → 0.258 → 0.575.** Mechanic harshness amplifies
+   persona differences, widest in barter.
 3. **Self-observer Δ: 0.6 → 0.5 → 1.4.** The P1/P2 means are low only
    because clean Δ = 0 wins average out gaps that already run both ways;
    in P3 barter's binary outcomes blow Rosa's gap out to 6 (under-rated)
@@ -596,11 +609,16 @@ will dominate. Plan for 2× Phase 1 cost.
 - **Persona changes in Phase 3.** Rosa/Zara/Buck replace Kai/Marcus/Omar.
   Direct same-name comparisons (Rex, Taj) are cleaner than set-level
   comparisons.
-- **Phase 3 `negotiation_quality` rubric is largely uninformative** —
-  no counters to measure smoothness against.
-- **`pre_offer_ratio` defaults to 1.0 in Phase 3** when no monetary offers
-  are made. Don't read Phase 3 `review_utilization` combined scores as
-  meaningful tool engagement.
+- **Phase 3 `negotiation_quality` is excluded from the reward** — barter
+  has no prices to anchor on, so anchoring and smoothness don't apply and
+  the rubric carries no signal; its 15% weight is dropped and the remaining
+  Phase-3 dimensions are renormalized over 0.85.
+- **Phase 3 `review_utilization` was re-scored.** The scorer now counts
+  swap offers (`swap_proposal`/`accept_swap`) as offer events, so
+  `pre_offer_ratio` and `high_rating_preference` measure real
+  lookup-before-offer behaviour instead of defaulting to 1.0. This lowered
+  Phase 3 review_utilization for most C1 focals (only Rex looked anyone up
+  before offering) and dropped the Phase 3 mean reward from 0.524 to 0.391.
 
 ---
 

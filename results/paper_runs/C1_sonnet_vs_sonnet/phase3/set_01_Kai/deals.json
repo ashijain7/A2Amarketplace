@@ -1,0 +1,12 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 58,
+    "seller": "Derek",
+    "buyer": "Kai",
+    "item_id": "set_01_derek_bottoms_01",
+    "price": -1.0,
+    "seller_floor": 40.0,
+    "buyer_ceiling": 45.0
+  }
+]

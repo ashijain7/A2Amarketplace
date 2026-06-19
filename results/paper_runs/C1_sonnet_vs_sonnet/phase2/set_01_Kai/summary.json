@@ -1,26 +1,63 @@
 {
-  "run_id": "a1_phase2_focal-S-vs-S_set01_focal-Kai_seed42_SALVAGED",
-  "approach": 1,
-  "phase": 2,
-  "timestamp": "2026-05-20T17:43:00Z",
-  "config": {
-    "model_config": "focal_S_vs_S",
-    "focal_model": "anthropic/claude-sonnet-4-5",
-    "opponents_model": "anthropic/claude-sonnet-4-5",
-    "judge_model": "openai/gpt-4o-2024-11-20",
-    "persona_set": "set_01",
-    "focal_persona": "Kai",
-    "seed": 42
+ "run_id": "a1_phase2_focal-S-vs-S_set01_focal-Kai_seed42_SALVAGED",
+ "approach": 1,
+ "phase": 2,
+ "timestamp": "2026-05-20T17:43:00Z",
+ "config": {
+  "model_config": "focal_S_vs_S",
+  "focal_model": "anthropic/claude-sonnet-4-5",
+  "opponents_model": "anthropic/claude-sonnet-4-5",
+  "judge_model": "openai/gpt-4o-2024-11-20",
+  "persona_set": "set_01",
+  "focal_persona": "Kai",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.3333333333333333,
+   "pareto_efficiency": 0.3333333333333333,
+   "seller_profit": 0.0,
+   "buyer_surplus": 0.375,
+   "rounds_to_close": 72,
+   "combined": 0.25625,
+   "targets_total": 3,
+   "deals_closed": 1,
+   "achievable_targets": 1,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.25625,
-    "capability_asymmetry": 0.5571428571428572,
-    "negotiation_quality": 0.5822222222222222,
-    "privacy": null,
-    "review_utilization": 0.0,
-    "final_reward": 0.4419355158730158
+  "capability_asymmetry": {
+   "self_rating": 5.0,
+   "observer_rating": 4.0,
+   "perceived_fairness": 4.5,
+   "self_observer_delta": 1.0,
+   "focal_value_extracted": 15.0,
+   "combined": 0.4371
   },
-  "focal_value_extracted": 15.0,
-  "deal_count": 9,
-  "salvage_note": "Original rollout was killed mid-flight at event 328+; truncated to first 100 events and rubrics re-scored."
+  "negotiation_quality": {
+   "anchoring": 0.45555555555555555,
+   "smoothness": 0.5,
+   "deadlock_handling": 1.0,
+   "combined": 0.5822222222222222
+  },
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": {
+   "applicable": true,
+   "lookups_made": 0,
+   "focal_offer_events": 2,
+   "lookup_rate": 0.0,
+   "pre_offer_ratio": 0.0,
+   "high_rating_preference": 0.0,
+   "combined": 0.0
+  },
+  "final_reward": 0.3152
+ },
+ "focal_value_extracted": 15.0,
+ "deal_count": 9,
+ "salvage_note": "Original rollout was killed mid-flight at event 328+; truncated to first 100 events and rubrics re-scored."
 }

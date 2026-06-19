@@ -1,16 +1,31 @@
-Skipping resume_from_cache because output_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts.jsonl doesn't exist!
-Skipping resume_from_cache because materialized_jsonl_fpath /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts_materialized_inputs.jsonl doesn't exist!
+Clearing output fpath since `resume_from_cache=False`!
 Limiting the number of rows to 5
 Using `marketplace_agent` for rows that do not already have an agent ref
 Repeating rows 1 times (in a pattern of abc to aabbcc)!
-Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 2274.26it/s]
-Querying with 5 concurrent requests
-Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-Resumed from cache. Found:
-- 5 original input rows
-- 0 rows that have already been run
-- 5 rows that still need to be run
-Querying with 5 concurrent requests
-Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]/Users/ashi.jain/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
+Reading rows: 0it [00:00, ?it/s]Reading rows: 4it [00:00, 4357.72it/s]
+Collecting rollouts:   0%|          | 0/5 [00:00<?, ?it/s]Collecting rollouts:   0%|          | 0/5 [01:00<?, ?it/s]                                                          Examples left:
+1. marketplace_agent: 4
+Collecting rollouts:   0%|          | 0/5 [23:52<?, ?it/s]Collecting rollouts:  20%|██        | 1/5 [23:52<1:35:29, 1432.50s/it]                                                                      Examples left:
+1. marketplace_agent: 3
+Collecting rollouts:  20%|██        | 1/5 [26:20<1:35:29, 1432.50s/it]Collecting rollouts:  40%|████      | 2/5 [26:20<33:50, 676.81s/it]                                                                      Examples left:
+1. marketplace_agent: 2
+Collecting rollouts:  40%|████      | 2/5 [29:36<33:50, 676.81s/it]Collecting rollouts:  60%|██████    | 3/5 [29:36<15:15, 457.55s/it]                                                                   Examples left:
+1. marketplace_agent: 1
+Collecting rollouts:  60%|██████    | 3/5 [32:10<15:15, 457.55s/it]Collecting rollouts:  80%|████████  | 4/5 [32:10<05:37, 337.60s/it]Collecting rollouts: 100%|██████████| 5/5 [43:02<00:00, 450.90s/it]Collecting rollouts: 100%|██████████| 5/5 [43:02<00:00, 516.49s/it]
+Sorting results to ensure consistent ordering
+Computing aggregate metrics
+
+Key metrics for marketplace_agent:
+{
+    "mean/reward": 0.5469799999999999,
+    "mean/id": 2.0,
+    "mean/input_tokens": 2380384.6,
+    "mean/output_tokens": 7166.2,
+    "mean/total_tokens": 2387550.8,
+    "mean/cost": 0.033452,
+    "mean/is_byok": 0.0
+}
+Finished rollout collection! View results at:
+Fully materialized inputs: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts_materialized_inputs.jsonl
+Rollouts: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts.jsonl
+Aggregate metrics: /Users/ashi.jain/Documents/project_deal/results/paper_runs/C9_opus48_vs_gpt55/phase4/rollouts_aggregate_metrics.json

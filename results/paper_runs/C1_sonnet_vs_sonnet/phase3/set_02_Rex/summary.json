@@ -1,33 +1,64 @@
 {
-  "run_id": "a1_phase3_focal-S-vs-S_set02_focal-Rex_seed42_20260520_1252",
-  "approach": 1,
-  "phase": 3,
-  "timestamp": "2026-05-20T12:52:59.662683Z",
-  "config": {
-    "model_config": "focal_S_vs_S",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_02",
-    "focal_persona": "Rex",
-    "seed": 42
+ "run_id": "a1_phase3_focal-S-vs-S_set02_focal-Rex_seed42_20260520_1252",
+ "approach": 1,
+ "phase": 3,
+ "timestamp": "2026-05-20T12:52:59.662683Z",
+ "config": {
+  "model_config": "focal_S_vs_S",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_02",
+  "focal_persona": "Rex",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.3333333333333333,
+   "pareto_efficiency": 0.0,
+   "seller_profit": 0.0,
+   "buyer_surplus": 1.0,
+   "rounds_to_close": 0.0,
+   "combined": 0.3833333333333333,
+   "targets_total": 3,
+   "deals_closed": 1,
+   "achievable_targets": 3,
+   "normalized_closure_rate": 0.3333333333333333
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.3833333333333333,
-    "capability_asymmetry": 0.7,
-    "negotiation_quality": 0.6000000000000001,
-    "privacy": null,
-    "review_utilization": {
-      "applicable": true,
-      "lookups_made": 1,
-      "focal_offer_events": 0,
-      "lookup_rate": 0.3333333333333333,
-      "pre_offer_ratio": 1.0,
-      "high_rating_preference": 1.0,
-      "combined": 0.7777777777777777
-    },
-    "final_reward": 0.4321
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 7.0,
+   "perceived_fairness": 7.0,
+   "self_observer_delta": 0.0,
+   "focal_value_extracted": 56.0,
+   "combined": 0.4
   },
-  "focal_value_extracted": 56.0,
-  "deal_count": 3
+  "negotiation_quality": null,
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": {
+   "applicable": true,
+   "lookups_made": 1,
+   "focal_offer_events": 1,
+   "lookup_rate": 0.3333333333333333,
+   "pre_offer_ratio": 1.0,
+   "high_rating_preference": 0.0,
+   "combined": 0.4444444444444444
+  },
+  "swap_quality": {
+   "applicable": true,
+   "swaps_closed": 1,
+   "mutual_win_rate": 0.0,
+   "focal_surplus_mean": -9.0,
+   "combined": 0.0
+  },
+  "final_reward": 0.2496
+ },
+ "focal_value_extracted": 56.0,
+ "deal_count": 3
 }

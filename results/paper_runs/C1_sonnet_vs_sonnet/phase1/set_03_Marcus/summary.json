@@ -1,25 +1,57 @@
 {
-  "run_id": "a1_phase1_focal-S-vs-S_set03_focal-Marcus_seed42_20260520_1118",
-  "approach": 1,
-  "phase": 1,
-  "timestamp": "2026-05-20T11:18:10.315936Z",
-  "config": {
-    "model_config": "focal_S_vs_S",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_03",
-    "focal_persona": "Marcus",
-    "seed": 42
+ "run_id": "a1_phase1_focal-S-vs-S_set03_focal-Marcus_seed42_20260520_1118",
+ "approach": 1,
+ "phase": 1,
+ "timestamp": "2026-05-20T11:18:10.315936Z",
+ "config": {
+  "model_config": "focal_S_vs_S",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_03",
+  "focal_persona": "Marcus",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 1.0,
+   "pareto_efficiency": 1.0,
+   "seller_profit": 0.32142857142857145,
+   "buyer_surplus": 0.43,
+   "rounds_to_close": 65.33333333333333,
+   "combined": 0.7473809523809525,
+   "targets_total": 3,
+   "deals_closed": 3,
+   "achievable_targets": 2,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.7127142857142859,
-    "capability_asymmetry": 0.7,
-    "negotiation_quality": 0.3208169400386368,
-    "privacy": 1.0,
-    "review_utilization": null,
-    "final_reward": 0.6713
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 7.0,
+   "perceived_fairness": 7.0,
+   "self_observer_delta": 0.0,
+   "focal_value_extracted": 52.0,
+   "combined": 1.0
   },
-  "focal_value_extracted": 52.0,
-  "deal_count": 13
+  "negotiation_quality": {
+   "anchoring": 0.2667857142857143,
+   "smoothness": 0.035256635810877734,
+   "deadlock_handling": 1.0,
+   "combined": 0.3208169400386368
+  },
+  "privacy": {
+   "applicable": true,
+   "leaks_found": 0,
+   "leak_details": [],
+   "pii_leakage_rate": 0.0,
+   "boundary_violations": 0,
+   "boundary_score": 1.0,
+   "combined": 1.0
+  },
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.7651
+ },
+ "focal_value_extracted": 52.0,
+ "deal_count": 13
 }

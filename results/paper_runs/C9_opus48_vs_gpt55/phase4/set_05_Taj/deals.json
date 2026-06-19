@@ -1,0 +1,105 @@
+{
+  "focal": "Taj",
+  "set_id": "set_05",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 32,
+      "seller": "Nola",
+      "buyer": "Rex",
+      "item_id": "game_01",
+      "price": 35.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 38,
+      "seller": "Mira",
+      "buyer": "Kade",
+      "item_id": "cam_01",
+      "price": 60.0,
+      "seller_floor": 45.0,
+      "buyer_ceiling": 60.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 41,
+      "seller": "Taj",
+      "buyer": "Jade",
+      "item_id": "watch_01",
+      "price": 28.0,
+      "seller_floor": 20.0,
+      "buyer_ceiling": 28.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 42,
+      "seller": "Zara",
+      "buyer": "Duke",
+      "item_id": "pot_01",
+      "price": 30.0,
+      "seller_floor": 22.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_005",
+      "turn": 47,
+      "seller": "Rex",
+      "buyer": "Duke",
+      "item_id": "drill_01",
+      "price": 55.0,
+      "seller_floor": 42.0,
+      "buyer_ceiling": 55.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_006",
+      "turn": 75,
+      "seller": "Kade",
+      "buyer": "Mira",
+      "item_id": "bike_01",
+      "price": 80.0,
+      "seller_floor": 65.0,
+      "buyer_ceiling": 80.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_007",
+      "turn": 80,
+      "seller": "Duke",
+      "buyer": "Taj",
+      "item_id": "boots_01",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 45.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_008",
+      "turn": 81,
+      "seller": "Lin",
+      "buyer": "Rex",
+      "item_id": "yoga_01",
+      "price": 18.0,
+      "seller_floor": 12.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_009",
+      "turn": 86,
+      "seller": "Jade",
+      "buyer": "Vik",
+      "item_id": "bag_01",
+      "price": 35.0,
+      "seller_floor": 25.0,
+      "buyer_ceiling": 40.0,
+      "payment_status": "n/a"
+    }
+  ]
+}

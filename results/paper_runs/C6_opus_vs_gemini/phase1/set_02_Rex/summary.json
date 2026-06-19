@@ -1,25 +1,55 @@
 {
-  "run_id": "a1_phase1_focal-O-vs-G_set02_focal-Rex_seed42_20260520_1711",
-  "approach": 1,
-  "phase": 1,
-  "timestamp": "2026-05-20T17:11:26.019807Z",
-  "config": {
-    "model_config": "focal_O_vs_G",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_02",
-    "focal_persona": "Rex",
-    "seed": 42
+ "run_id": "a1_phase1_focal-O-vs-G_set02_focal-Rex_seed42_20260520_1711",
+ "approach": 1,
+ "phase": 1,
+ "timestamp": "2026-05-20T17:11:26.019807Z",
+ "config": {
+  "model_config": "focal_O_vs_G",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_02",
+  "focal_persona": "Rex",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.6666666666666666,
+   "pareto_efficiency": 0.0,
+   "seller_profit": 0.25,
+   "buyer_surplus": 0.0,
+   "rounds_to_close": 46,
+   "combined": 0.35816666666666663,
+   "targets_total": 3,
+   "deals_closed": 2,
+   "achievable_targets": 2,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.30416666666666664,
-    "capability_asymmetry": 0.6714285714285715,
-    "negotiation_quality": 0.3614966057241477,
-    "privacy": null,
-    "review_utilization": null,
-    "final_reward": 0.4422
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 6.0,
+   "perceived_fairness": 6.5,
+   "self_observer_delta": 1.0,
+   "focal_value_extracted": 10.0,
+   "combined": 0.4914
   },
-  "focal_value_extracted": 10.0,
-  "deal_count": 4
+  "negotiation_quality": {
+   "anchoring": 0.22023809523809523,
+   "smoothness": 0.18350341907227397,
+   "deadlock_handling": 1.0,
+   "combined": 0.3614966057241477
+  },
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.4035
+ },
+ "focal_value_extracted": 10.0,
+ "deal_count": 4
 }

@@ -1,0 +1,24 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 32,
+    "seller": "Sienna",
+    "buyer": "Raj",
+    "item_id": "set_04_sienna_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 63.0,
+    "buyer_ceiling": 91.0,
+    "payment_status": "n/a"
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 47,
+    "seller": "Omar",
+    "buyer": "Buck",
+    "item_id": "set_04_buck_tops_01",
+    "price": -1.0,
+    "seller_floor": 21.0,
+    "buyer_ceiling": 38.0,
+    "payment_status": "n/a"
+  }
+]

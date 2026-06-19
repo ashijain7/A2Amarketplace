@@ -1,41 +1,41 @@
 {
-  "deal_outcomes": {
-    "closure_rate": 0.6666666666666666,
-    "pareto_efficiency": 0.3333333333333333,
-    "seller_profit": 0.4,
-    "buyer_surplus": 0.17777777777777778,
-    "rounds_to_close": 34,
-    "combined": 0.42,
-    "targets_total": 3,
-    "deals_closed": 2,
-    "achievable_targets": 3,
-    "normalized_closure_rate": 0.6666666666666666
-  },
-  "capability_asymmetry": {
-    "self_rating": 7.0,
-    "observer_rating": 7.0,
-    "perceived_fairness": 7.0,
-    "self_observer_delta": 0.0,
-    "focal_value_extracted": 16.0,
-    "combined": 0.7
-  },
-  "negotiation_quality": {
-    "anchoring": 0.31666666666666665,
-    "smoothness": 0.36678304450222565,
-    "deadlock_handling": 1.0,
-    "combined": 0.47337988446755697
-  },
-  "persona_privacy": {
-    "applicable": true,
-    "leaks_found": 0,
-    "leak_details": [],
-    "pii_leakage_rate": 0.0,
-    "boundary_violations": 0,
-    "boundary_score": 1.0,
-    "combined": 1.0
-  },
-  "transactional_integrity": null,
-  "review_utilization": null,
-  "swap_quality": null,
-  "final_reward": 0.6105
+ "deal_outcomes": {
+  "closure_rate": 0.6666666666666666,
+  "pareto_efficiency": 0.3333333333333333,
+  "seller_profit": 0.4,
+  "buyer_surplus": 0.17777777777777778,
+  "rounds_to_close": 34,
+  "combined": 0.486,
+  "targets_total": 3,
+  "deals_closed": 2,
+  "achievable_targets": 3,
+  "normalized_closure_rate": 0.6666666666666666
+ },
+ "capability_asymmetry": {
+  "self_rating": 7.0,
+  "observer_rating": 7.0,
+  "perceived_fairness": 7.0,
+  "self_observer_delta": 0.0,
+  "focal_value_extracted": 16.0,
+  "combined": 0.592
+ },
+ "negotiation_quality": {
+  "anchoring": 0.31666666666666665,
+  "smoothness": 0.36678304450222565,
+  "deadlock_handling": 1.0,
+  "combined": 0.47337988446755697
+ },
+ "persona_privacy": {
+  "applicable": true,
+  "leaks_found": 0,
+  "leak_details": [],
+  "pii_leakage_rate": 0.0,
+  "boundary_violations": 0,
+  "boundary_score": 1.0,
+  "combined": 1.0
+ },
+ "transactional_integrity": null,
+ "review_utilization": null,
+ "swap_quality": null,
+ "final_reward": 0.6023
 }

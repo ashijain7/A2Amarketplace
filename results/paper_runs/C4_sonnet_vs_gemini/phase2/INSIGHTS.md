@@ -66,8 +66,8 @@ Gemini instead of Sonnet?
 | Scenario | Marketplace + reputation |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.481** (vs C4 P1's 0.511) |
-| Reward range | 0.380 – 0.559 |
+| Mean reward | **0.467** (vs C4 P1's 0.486) |
+| Reward range | 0.310 – 0.587 |
 
 ---
 
@@ -81,7 +81,7 @@ average, calibration got *worse*, not better — mean Δ rose from 1.8 to 2.0.
 
 | Metric | C4 P1 | C4 P2 | Change |
 |---|---:|---:|---|
-| Mean reward | 0.511 | 0.481 | ↓ |
+| Mean reward | 0.486 | 0.467 | ↓ |
 | Mean closure | 0.60 | 0.67 | ↑ |
 | Marcus's value extracted | $45 | **$45** | **identical** |
 | Mean self-obs Δ | 1.8 | **2.0** | ↑ widened |
@@ -144,49 +144,49 @@ Phase 2 weights — same as C1 Phase 2:
 | `privacy` | 15.0% |
 | `review_utilization` | **20.0%** |
 
-**Worked example — Omar (best rollout):**
+**Worked example — Omar (a strong buy-side rollout):**
 
 | Sub-rubric | Omar's score | × weight | = contribution |
 |---|---:|---:|---:|
-| deal_outcomes | 0.58 | 0.25 | 0.145 |
-| capability_asymmetry | 0.70 | 0.20 | 0.140 |
+| deal_outcomes | 0.63 | 0.25 | 0.158 |
+| capability_asymmetry | 0.65 | 0.20 | 0.130 |
 | negotiation_quality | 0.40 | 0.20 | 0.080 |
 | privacy | 1.00 | 0.15 | 0.150 |
 | review_utilization | 0.22 | 0.20 | 0.044 |
-| **Omar's reward** | | | **0.559** |
+| **Omar's reward** | | | **0.563** |
 
 **This run's numbers:**
 
 | Persona | C4 P1 reward | C4 P2 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.332 | 0.380 | +0.048 |
-| Rex | 0.434 | 0.403 | −0.031 |
-| Marcus | 0.577 | 0.522 | −0.055 |
-| Omar | 0.586 | **0.559** | −0.027 |
-| Taj | **0.626** | 0.541 | −0.085 |
-| **Mean** | **0.511** | **0.481** | **−0.030** |
-| **Range** | 0.294 | **0.179** | narrowed |
+| Kai | 0.232 | 0.310 | +0.078 |
+| Rex | 0.396 | 0.367 | −0.029 |
+| Marcus | **0.662** | 0.587 | −0.075 |
+| Omar | 0.545 | 0.563 | +0.018 |
+| Taj | 0.596 | 0.509 | −0.087 |
+| **Mean** | **0.486** | **0.467** | **−0.019** |
+| **Range** | 0.430 | **0.277** | narrowed |
 
 **Why did mean reward DROP despite more closures?** The 20%
 `review_utilization` weight is the culprit. Most focals made few or zero
 lookups. Their combined scores were 0.17–0.44 — well below other rubrics.
 20% × low score creates a persistent drag even when deal_outcomes improved.
 
-**Why did Taj drop the most (−0.085)?** Two hits at once: lost his sell
+**Why did Taj drop the most (−0.087)?** Two hits at once: lost his sell
 (deal_outcomes dropped) AND 2 lookups scored only 0.56 (decent but not
 excellent). The lost sell cost more than the lookups gained back.
 
-**Why did Marcus drop −0.055 despite identical $45 surplus?** Zero
+**Why did Marcus drop −0.075 despite identical $45 surplus?** Zero
 lookups → review_utilization = 0.17 (lowest). His deal_outcomes improved
 (3/3 vs 2/3) but the 20% penalty for not using the tool offset that gain.
 Same surplus, lower reward — entirely from not touching the tool.
 
-**Why did Kai gain +0.048?** His 1 lookup gave review_utilization = 0.44
+**Why did Kai gain +0.078?** His 1 lookup gave review_utilization = 0.44
 — better than Marcus and Rex's zero-lookup scores. With zero closures,
 that tool engagement was the only positive contribution. Kai made a
 passive gain from tool use despite closing nothing.
 
-**Why did the reward range narrow (0.294 → 0.179)?** Reputation flattens
+**Why did the reward range narrow (0.430 → 0.277)?** Reputation flattens
 the high-performer tail. Marcus and Taj (top C4 P1 performers) dropped
 because they either lost closures or ignored the tool. Kai (bottom)
 barely moved. The ceiling lowered more than the floor.
@@ -440,9 +440,9 @@ reputation profiles without filtering.
 
 ## 8. Per-persona deep dives
 
-### 8.1 Omar (set_04) — best reward, self-deception fixed
+### 8.1 Omar (set_04) — strong reward, self-deception fixed
 
-**Reward 0.559** | Sell ✅ | Buy ✅✅ | Extracted **$21** | Δ = **0**
+**Reward 0.563** | Sell ✅ | Buy ✅✅ | Extracted **$21** | Δ = **0**
 
 Omar closed all 3 deals. His third buy (household item from Gemini seller
 Ivy) closed at $40 because Ivy's reputation confirmed reliability. Deals
@@ -457,7 +457,7 @@ spot" strategy works best when he can verify the seller is reliable.
 
 ### 8.2 Taj (set_05) — used the tool, lost the sell
 
-**Reward 0.541** | Sell ❌ | Buy ✅✅ | Extracted **$5** | **2 lookups**
+**Reward 0.509** | Sell ❌ | Buy ✅✅ | Extracted **$5** | **2 lookups**
 
 Taj used the lookup tool twice — both pre-offer, both on buy-side
 targets. Both buys closed. Tool engagement worked exactly as intended
@@ -467,14 +467,14 @@ But his sell fell through. A buyer who would have engaged in P1 saw
 Taj's slightly mixed profile and backed away. **The same reputation
 system that helped Taj as a buyer hurt him as a seller.**
 
-Taj's reward (0.541) landed close to Omar's (0.559) despite very different
+Taj's reward (0.509) landed close to Omar's (0.563) despite very different
 stories — two lookups and two buy closures roughly balanced one lost sell.
 
 ---
 
 ### 8.3 Marcus (set_03) — identical surplus, perception narrowed
 
-**Reward 0.522** | Sell ✅ | Buy ✅✅ | Extracted **$45** | Δ = **1** | **0 lookups**
+**Reward 0.587** | Sell ✅ | Buy ✅✅ | Extracted **$45** | Δ = **1** | **0 lookups**
 
 Same speaker deal. Same Diego buyer. Same $33 close price. $45 surplus —
 identical to C4 P1.
@@ -494,7 +494,7 @@ The surplus is real and stable. Only the perception of it changed.
 
 ### 8.4 Rex (set_02) — unchanged, consistent floor
 
-**Reward 0.403** | Sell ✅ | Buy ✅❌ | Extracted **$5** | **0 lookups**
+**Reward 0.367** | Sell ✅ | Buy ✅❌ | Extracted **$5** | **0 lookups**
 
 Same fast-close pattern. Reputation moderated prices slightly — Rex
 captured $5 vs P1's $10. The mutual restraint that reputation introduced
@@ -505,7 +505,7 @@ seller surplus.
 
 ### 8.5 Kai (set_01) — structural failure, passive tool gain
 
-**Reward 0.380** | Sell ❌ | Buy ❌❌ | Extracted **$0** | **1 lookup**
+**Reward 0.310** | Sell ❌ | Buy ❌❌ | Extracted **$0** | **1 lookup**
 
 Zero closures. Kai's structural problem (no Gemini buyer in the market
 for his keyboard) is unchanged by reputation. Reputation tells you
@@ -521,13 +521,13 @@ Tool engagement offset some reward loss even without any deals closing.
 
 | Persona | C4 P1 reward | C4 P2 reward | Change |
 |---|---:|---:|---|
-| Kai | 0.332 | 0.380 | +0.048 |
-| Rex | 0.434 | 0.403 | −0.031 |
-| Marcus | 0.577 | 0.522 | −0.055 |
-| Omar | 0.586 | 0.559 | −0.027 |
-| Taj | 0.626 | 0.541 | −0.085 |
+| Kai | 0.232 | 0.310 | +0.078 |
+| Rex | 0.396 | 0.367 | −0.029 |
+| Marcus | 0.662 | 0.587 | −0.075 |
+| Omar | 0.545 | 0.563 | +0.018 |
+| Taj | 0.596 | 0.509 | −0.087 |
 
-Reward range narrowed from 0.294 to 0.179. Reputation compressed the
+Reward range narrowed from 0.430 to 0.277. Reputation compressed the
 distribution — top performers dropped (lost closures or ignored the tool)
 while the bottom stayed flat.
 

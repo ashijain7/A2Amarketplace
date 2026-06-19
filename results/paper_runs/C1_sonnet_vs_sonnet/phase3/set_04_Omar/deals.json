@@ -1,0 +1,32 @@
+[
+  {
+    "deal_id": "deal_001",
+    "turn": 40,
+    "seller": "Ivy",
+    "buyer": "Zara",
+    "item_id": "set_04_ivy_dresses_01",
+    "price": -1.0,
+    "seller_floor": 53.0,
+    "buyer_ceiling": 57.0
+  },
+  {
+    "deal_id": "deal_002",
+    "turn": 48,
+    "seller": "Raj",
+    "buyer": "Sienna",
+    "item_id": "set_04_raj_dresses_01",
+    "price": -1.0,
+    "seller_floor": 44.0,
+    "buyer_ceiling": 74.0
+  },
+  {
+    "deal_id": "deal_003",
+    "turn": 60,
+    "seller": "Luna",
+    "buyer": "Buck",
+    "item_id": "set_04_luna_outerwear_01",
+    "price": -1.0,
+    "seller_floor": 69.0,
+    "buyer_ceiling": 76.0
+  }
+]

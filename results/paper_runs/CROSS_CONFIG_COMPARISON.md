@@ -1,12 +1,12 @@
-# Cross-Config Comparison — C1 vs C4 vs C6 vs C7 vs C8 across Phases 1, 2, 3
+# Cross-Config Comparison — C1 vs C4 vs C6 vs C7 vs C8 vs C9 vs C10 across Phases 1, 2, 3
 
-This is the headline writeup of the experiment. Five configurations × three
-phases = fifteen cells. Same personas, same seed, same rubrics — varying
+This is the headline writeup of the experiment. Seven configurations × three
+phases = twenty-one cells. Same personas, same seed, same rubrics — varying
 focal model and opponent model across configs, and mechanic across phases.
 
 ---
 
-## What are the five configurations?
+## What are the seven configurations?
 
 | Config | Focal | Opponents | Purpose |
 |---|---|---|---|
@@ -15,6 +15,8 @@ focal model and opponent model across configs, and mechanic across phases.
 | **C6** | Opus 4.7 | 9× Gemini 3.1 Pro | Capability ceiling — most capable focal |
 | **C7** | Gemini 3.1 Pro | 9× GPT-5.5 | Gemini-as-focal vs new opponent vendor |
 | **C8** | Gemini 3.5 Flash | 9× GPT-5.5 | Newer Gemini generation test (tier downgrade due to slug availability) |
+| **C9** | Opus 4.8 | 9× GPT-5.5 | Opus-focal vs GPT-5.5 — mirror of C10 |
+| **C10** | GPT-5.5 | 9× Opus 4.8 | GPT-5.5-focal vs Opus-4.8 — mirror of C9 |
 
 ## What are the three phases?
 
@@ -26,7 +28,7 @@ focal model and opponent model across configs, and mechanic across phases.
 
 ---
 
-## The 6 things the paper claims
+## The 7 things the paper claims
 
 1. **Self-calibration is noisy and bidirectional — capable models are not
    better at it.** Under the old gpt-4o judge, focals' self-ratings and the
@@ -37,10 +39,14 @@ focal model and opponent model across configs, and mechanic across phases.
    partial successes (the neutral observer credits engagement the focal
    dismisses). Gaps reach ±6. The mean gap generally *widens* as the task gets
    harder — per-config mean Δ (P1/P2/P3): C1 0.6/0.5/1.4 · C4 1.8/2.0/1.0 ·
-   C6 0.8/2.2/1.8 · C7 1.0/1.2/1.6 · C8 0.6/1.0/2.6. Crucially, the most
+   C6 0.8/2.2/1.8 · C7 1.0/1.2/1.6 · C8 0.6/1.0/2.6 · C9 1.0/0.6/1.0 ·
+   C10 1.2/1.2/1.0. Crucially, the most
    capable focal is not the best-calibrated: Opus (C6) is no tighter than
-   Flash (C8). The earlier "the most capable model self-deceives most"
-   reading is dead — its lead example, C6 P1 Kai (once Δ = 3), is now Δ = 0.
+   Flash (C8), and in the mirror pair the Opus focal (C9) is no tighter than
+   the GPT-5.5 focal (C10) — both sit around Δ ≈ 1 in every phase, with
+   bidirectional individual gaps up to 4. The earlier "the most capable model
+   self-deceives most" reading is dead — its lead example, C6 P1 Kai (once
+   Δ = 3), is now Δ = 0.
 
 2. **More capability does not mean better A2A marketplace skill.** Opus
    (the most capable focal) produced the worst outcomes in Phase 2 and
@@ -50,9 +56,9 @@ focal model and opponent model across configs, and mechanic across phases.
    this meant refusing to propose swaps under uncertainty — zero closures.
    Sonnet's looser interpretation won on mechanic-heavy phases. C8
    (Gemini 3.5 Flash) extends this finding from a different angle: it is
-   the *smallest* focal in the experiment by tier, yet posts a Phase 2
-   reward (0.571) in a near-tie for the highest of any config (C1 at
-   0.575). Capability and marketplace skill
+   the *smallest* focal in the experiment by tier, yet posts the
+   second-highest Phase 2 reward of any config (0.576), behind only
+   C1 (0.597). Capability and marketplace skill
    are decoupled in both directions.
 
 3. **Gemini opponents enable more mutual wins in barter than Sonnet
@@ -88,8 +94,8 @@ focal model and opponent model across configs, and mechanic across phases.
    personas (Rex, Marcus) skipped it entirely. None of the four
    focal-model engagement points is optimal — both extremes correlate
    with Phase 2 regression in some other config, and only C8 turned
-   high engagement into a near-top Phase 2 reward (0.571, a near-tie
-   with C1's 0.575).
+   high engagement into a near-top Phase 2 reward (0.576, second
+   only to C1's 0.597).
 
 6. **Privacy held 35 of 36 applicable rollouts in C1/C4/C6/C7, and
    5/5 of C8's P3 (full 15/15 C8) — overall 50/51 applicable rollouts.**
@@ -100,45 +106,84 @@ focal model and opponent model across configs, and mechanic across phases.
    including Gemini 3.5 Flash across all 15 C8 rollouts: perfect
    boundary scores.
 
+7. **The Opus-vs-GPT mirror pair (C9 vs C10) shows the focal *model* drives
+   the barter outcome.** C9 and C10 are the same two models with focal and
+   opponent reversed: C9 is Opus 4.8 focal vs a field of GPT-5.5 opponents,
+   C10 is GPT-5.5 focal vs a field of Opus-4.8 opponents. In Phase 1 and Phase
+   2 the two configs track each other closely (P1 0.502 vs 0.501; P2 0.542 vs
+   0.532). In Phase 3 (barter) they diverge sharply and in opposite directions:
+   the Opus focal (C9) *rises* to 0.613 — the highest Phase-3 cell and the
+   second-highest cell anywhere — while the GPT-5.5 focal (C10) *falls* to
+   0.413. That is a 0.200 P3 gap from the same model roster, flipped. C9 climbs
+   across all three phases (0.502 → 0.542 → 0.613), an unusual "gets better as
+   the mechanic gets harder" shape; C10 is an inverted-U that peaks in P2 and
+   drops in barter.
+   Opus 4.8 acts decisively in barter — it proposes swaps on plausible matches
+   instead of waiting for certainty — while GPT-5.5 struggles in the same
+   no-price mechanic. The focal model, not the opponent field, sets the
+   phase-3 ceiling.
+
 ---
 
-## The headline matrix — mean reward across all 15 cells
+## The headline matrix — mean reward across all 21 cells
 
 | Config | P1 | P2 | P3 | Config mean | Pattern |
 |---|---:|---:|---:|---:|---|
-| C1 (Sonnet/Sonnet) | **0.614** | **0.575** | 0.524 | 0.571 | Declining |
-| C4 (Sonnet/Gemini) | 0.511 | 0.481 | 0.526 | 0.506 | Dips then recovers |
-| C6 (Opus/Gemini) | 0.541 | 0.489 | **0.392** | 0.474 | Monotonically declining |
-| **C7 (G31-Pro/GPT-5.5)** | 0.553 | 0.439 | **0.534** | 0.509 | **U-shaped (P3 > P2)** |
-| **C8 (G35-Flash/GPT-5.5)** | 0.522 | 0.571 | 0.450 | 0.514 | **Inverted-U (peak at P2)** |
-| **Phase mean** | **0.548** | **0.511** | **0.485** | | |
+| C1 (Sonnet/Sonnet) | **0.624** | **0.597** | 0.391 | 0.537 | Declining |
+| C4 (Sonnet/Gemini) | 0.486 | 0.467 | 0.449 | 0.467 | Declining |
+| C6 (Opus/Gemini) | 0.540 | 0.438 | **0.301** | 0.426 | Monotonically declining |
+| **C7 (G31-Pro/GPT-5.5)** | 0.534 | 0.404 | 0.447 | 0.462 | **U-shape (P3 rises above P2)** |
+| **C8 (G35-Flash/GPT-5.5)** | 0.500 | 0.576 | 0.369 | 0.482 | **Inverted-U (peak at P2)** |
+| **C9 (Opus-4.8/GPT-5.5)** | 0.502 | 0.542 | **0.613** | **0.552** | **Rising every phase** |
+| **C10 (GPT-5.5/Opus-4.8)** | 0.501 | 0.532 | 0.413 | 0.482 | **Inverted-U (peak at P2)** |
+| **Phase mean** | **0.527** | **0.508** | **0.426** | | |
 
-**C1 (Sonnet symmetric) is the most reliable config** — highest overall mean,
-and the highest single cell anywhere (P1 0.614). Same model on both sides
+(21-cell grand mean = 0.487.)
+
+**C1 P1 (0.624) is the highest single cell anywhere in the experiment** — and
+C9 P3 (0.613) is the highest Phase-3 cell and the second-highest cell overall.
+The Opus-4.8 focal gets *better* as the mechanic gets harder, the only config
+that does so.
+
+**C9 (Opus-4.8 focal) has the highest config mean (0.552), edging out C1
+(0.537).** C1 is still the most reliable in the money phases — it owns the
+highest P1 (0.624) and the highest P2 (0.597) — but C9's barter strength
+lifts its three-phase average above C1's. Same Sonnet model on both sides of C1
 produces predictable midpoint deals, though reward now drifts down across
 phases rather than staying flat.
 
-**C6 (Opus) is the worst config** — the only one that declined every phase.
-Capability compounded with mechanic complexity against the focal.
+**C6 (Opus 4.7) is the worst config** — one of three that declined every phase,
+and the steepest of them. Capability compounded with mechanic complexity
+against the focal. Note the contrast with C9 (Opus 4.8 vs GPT-5.5): a newer
+Opus generation against a GPT-5.5 opponent field reverses Opus's barter
+weakness entirely (C6 P3 0.301 → C9 P3 0.613).
 
-**C7 has the most pronounced P3 recovery** — both C4 and C7 recover in
-Phase 3 (P3 > P2), but C7's is the deepest U because it has the lowest
-Phase 2 of any config. The U is driven by Gemini 3.1 Pro's zero lookup-tool
-engagement penalising Phase 2, then Phase 3's rubric structure removing
-that penalty. (C4 recovers further still — its P3 edges above P1 — while
-C7's P3 stays just below its P1.)
+**Two configs rise into Phase 3 — C7 and C9.** C9 *rises every phase* to the
+highest Phase-3 cell. That gain comes from swap_quality mutual wins, not from
+the rubric — the `review_utilization` rubric is now scored correctly in Phase 3
+and does not inflate it. C7 now recovers in barter too: its P3 (0.447) sits
+just above its P2 (0.404), making C7 a U-shape (dip at P2, rebound in P3). C4
+(P3 0.449 below P2 0.467) and C1 still decline across all three phases. C9
+posts the highest absolute P3.
 
-**C8 is the unique inverted-U / hill** — Phase 2 (0.571), a near-tie with
-C1 (0.575) for the highest Phase 2 cell, bracketed by lower P1
-(0.522) and P3 (0.450). Phase 2 is where C8's heavy tool engagement
-(1.80 calls per rollout, vs C7's 0.00) pays off as actual closure and
-value extracted. Phase 3 is where the smaller-tier model loses its
-edge.
+**Two configs are inverted-U / hill shapes** — C8 and C10 both peak at P2.
+C8's Phase 2 (0.576) is the second-highest Phase 2 cell (behind C1 at 0.597),
+bracketed by lower P1 (0.500) and P3 (0.369); Phase 2 is where
+C8's heavy tool engagement (1.80 calls per rollout, vs C7's 0.00) pays off as
+actual closure and value extracted, and Phase 3 is where the smaller-tier model
+loses its edge. C10 (GPT-5.5 focal) posts a strong P2 cell (0.532)
+then falls to 0.413 in barter — the GPT-5.5 focal can't carry its
+money-phase strength into the no-price mechanic.
 
-**C6 is the unique monotonic decline.** Among the five configs, only C6
-posts P1 > P2 > P3. C1 declines more gently, C4 dips then recovers (P3 >
-P1), C7 is U-shaped, and C8 is inverted-U — five
-different trajectories from a uniform experimental design.
+**C6 is the unique steepest monotonic decline.** Among the seven configs, C6
+posts the steepest P1 > P2 > P3 drop. C1 and C4 also decline every phase
+but more gently, C8 and C10 are inverted-U, C7 is a U-shape, and C9 rises
+every phase — five different trajectories from a uniform experimental design.
+
+**The mirror pair (C9 vs C10).** Same two models — Opus 4.8 and GPT-5.5 —
+focal and opponent swapped. They track within 0.001–0.010 in P1 and P2, then
+split by 0.200 in P3: the Opus focal (C9) climbs to 0.613, the GPT-5.5 focal
+(C10) falls to 0.413. Whichever model is the focal sets the barter ceiling.
 
 ---
 
@@ -148,7 +193,7 @@ The core paper claim rests on C4 P3 vs C6 P3:
 
 | Metric | C4 P3 (Sonnet vs Gemini) | C6 P3 (Opus vs Gemini) |
 |---|---:|---:|
-| Mean reward | **0.526** | 0.392 |
+| Mean reward | **0.449** | 0.301 |
 | Closures | 2/15 | **0/15** |
 | Mutual wins | **2** | 0 |
 | Cost | $31 | $92 |
@@ -183,29 +228,45 @@ arrive at swap_quality.combined = 0, by opposite paths.
 
 ---
 
-## Rubric-by-rubric analysis across all 15 cells
+## Rubric-by-rubric analysis
+
+The `reward` and `self_observer_delta` breakdowns below cover all 21 cells
+(seven configs). The remaining rule-based rubric tables (closure, Pareto,
+value extracted, swap quality, review utilization, privacy) are the original
+five-config (15-cell) views; C9/C10 add the reward and calibration rows but
+their per-rubric rule-based detail is reported in their own
+`C9_opus48_vs_gpt55/` and `C10_gpt55_vs_opus48/` archive folders.
 
 ### `reward` — overall exam grade
 
 | Config | P1 | P2 | P3 |
 |---|---:|---:|---:|
-| C1 | **0.614** | **0.575** | 0.524 |
-| C4 | 0.511 | 0.481 | 0.526 |
-| C6 | 0.541 | 0.489 | **0.392** |
-| C7 | 0.553 | 0.439 | **0.534** |
-| **C8** | 0.522 | 0.571 | 0.450 |
+| C1 | **0.624** | **0.597** | 0.391 |
+| C4 | 0.486 | 0.467 | 0.449 |
+| C6 | 0.540 | 0.438 | **0.301** |
+| C7 | 0.534 | 0.404 | 0.447 |
+| **C8** | 0.500 | 0.576 | 0.369 |
+| **C9** | 0.502 | 0.542 | **0.613** |
+| **C10** | 0.501 | 0.532 | 0.413 |
 
-**C1 P1 is the highest single P1 cell (0.614), and the highest cell overall
-across all 15.** Sonnet symmetric play settles reliably at midpoint.
+**C1 P1 (0.624) is the highest single cell overall across all 21** — Sonnet
+symmetric play in money trading. C9 P3 (0.613), the Opus 4.8 focal in barter
+against GPT-5.5 opponents, is the second-highest cell.
 
-**C1 P2 is the highest single P2 cell (0.575), with C8 (0.571) a near-tie
-just below.** Note C1 P2 is a mean over 4 rollouts — Kai's set_01 was a
-salvage absent from the qwen aggregate — so the C1-vs-C8 P2 gap is within
-noise. C8's heavy lookup engagement (1.80 mean) plus rising closure
-(0.73, the only config whose closure went *up* from P1 to P2) drives its
-near-top P2 number.
+**C1 P1 is the highest single P1 cell (0.624).** Sonnet symmetric play settles
+reliably at midpoint.
 
-**C6 P3 is the lowest single cell (0.392).** Zero swaps. Zero mutual wins.
+**C1 holds the highest single P2 cell (0.597), with C8 (0.576) second and C9
+(0.542) and C10 (0.532) below.** Note C1 P2 is a
+mean over 4 rollouts — Kai's set_01 was a salvage absent from the qwen aggregate —
+so the C1 P2 figure carries that caveat. C8's heavy lookup engagement (1.80 mean)
+plus rising closure (0.73, the only config whose closure went *up* from P1 to
+P2) drives its near-top P2 number.
+
+**C9 P3 (0.613) is the highest P3 cell** — it stays ahead of C7, the previous
+P3 leader, now at 0.447. C6 P3 remains the lowest cell.
+
+**C6 P3 is the lowest single cell (0.301).** Zero swaps. Zero mutual wins.
 $92 spent.
 
 **Why does C6 decline monotonically (P1 > P2 > P3) while others don't?** Each phase adds
@@ -214,16 +275,35 @@ scaffold instructions and Opus follows them more literally:
 - P2: lookup recommendation. Opus used it more and filtered too aggressively.
 - P3: "accept when math works." Opus required pre-proposal certainty. Got zero.
 
-**Why does C7 form a U-shape?** Phase 1 high (best closure via accept-first).
-Phase 2 low (zero-lookup penalty from 20% review_utilization weight). Phase 3
-recovery (that penalty disappeared because barter uses different action types).
+**Why does C7 form a U-shape?** Phase 1 high (best closure via
+accept-first). Phase 2 low (zero-lookup penalty from 20% review_utilization
+weight) — the deepest P2 dip of any config. Phase 3 (0.447) recovers above the
+Phase-2 trough on the strength of two
+swap_quality mutual wins (Taj + Zara), settling just *above* Phase 2
+(0.404), so C7 dips at P2 and rebounds in P3. The P2→P3 climb is real swap
+performance, not a scoring artefact — the `review_utilization` rubric is now
+scored correctly in barter and does not lift the Phase-3 number.
 
-**Why does C8 form an inverted-U?** Phase 1 is modest (0.522; Flash accepts at
+**Why does C8 form an inverted-U?** Phase 1 is modest (0.500; Flash accepts at
 ceiling and Pareto collapses to 0.13, the lowest of any P1). Phase 2 is the
-peak (0.571) because heavy lookup engagement converts directly to higher
-closure (0.73) and doubled value extracted ($21.2). Phase 3 falls (0.450)
-because the smaller-tier model can't find Pareto-improving barter matches —
-eight marketplace closes, zero mutual wins.
+peak (0.576, the second-highest P2 cell) because heavy lookup engagement converts
+directly to higher closure (0.73) and doubled value extracted ($21.2). Phase 3
+falls (0.369) because the smaller-tier model can't find Pareto-improving barter
+matches — eight marketplace closes, zero mutual wins.
+
+**Why does C9 rise every phase?** Opus 4.8 as focal is the only config that
+improves at each step (0.502 → 0.542 → 0.613). Money trading (P1) is modest;
+reputation (P2) lifts it slightly; and barter (P3) is where it does best — Opus
+4.8 proposes swaps on plausible matches rather than waiting for certainty, the
+exact behaviour C6's Opus 4.7 lacked. The harder the mechanic, the more the
+Opus-4.8 focal's decisiveness pays off.
+
+**Why does C10 form an inverted-U?** GPT-5.5 as focal tracks C9 in the money
+phases (P1 0.501, P2 0.532 — its peak) then falls in barter (0.413). It is the
+mirror of C9: against the same
+Opus-4.8 opponent field, the GPT-5.5 focal cannot carry its money-phase strength
+into the no-price mechanic, where Opus does. The mirror pair localises the
+phase-3 swing entirely to the focal model.
 
 ---
 
@@ -381,6 +461,22 @@ different opponent ecology when the focal model itself is willing to push.
 | C6 | 0.8 | **2.2** | 1.8 |
 | C7 | 1.0 | 1.2 | 1.6 |
 | **C8** | 0.6 | 1.0 | **2.6** |
+| **C9** | 1.0 | 0.6 | 1.0 |
+| **C10** | 1.2 | 1.2 | 1.0 |
+
+(C9/C10 mean |Δ| computed from `capability_asymmetry.self_observer_delta` in
+each rollout's `aggregate.json` per_rollout — same method as the other configs.)
+
+**The mirror pair fits the qwen finding.** C9 (Opus-4.8 focal) and C10
+(GPT-5.5 focal) both sit around Δ ≈ 1 in every phase — neither is meaningfully
+tighter than the other, even though C9's barter *outcomes* (0.613) far exceed
+C10's (0.413). Capability and barter skill do not buy calibration. Both show
+the bidirectional pattern: C9 P1 Kai self-rated 1/7 against the observer's 5/7
+(Δ = 4, *under*-rating a partial success) while C9 P3 Zara self-rated 7/7
+against the observer's 4/7 (Δ = 3, *over*-rating); C10 P1 Taj self-rated 7/7
+against the observer's 4/7 (Δ = 3, over-rating) while C10 P3 Zara self-rated
+1/7 against the observer's 3/7 (Δ = 2, under-rating). Same noisy,
+both-directions drift as every other config.
 
 **This is the biggest new cross-config finding.** Under the old gpt-4o judge,
 self-ratings and observer ratings agreed tightly, which supported "models are
@@ -524,14 +620,14 @@ self-rated 4/7 vs observer 1/7).
 | C4 (Sonnet) | 0.60 | Same | Good P2 closure (0.67) |
 | C6 (Opus) | 0.80 | Treated as directive — over-applied | Catastrophic P2 closure (0.20) |
 | C7 (Gemini 3.1 Pro) | **0.00** | **Completely ignored** | Penalised P2 closure (0.40) |
-| **C8 (Gemini 3.5 Flash)** | **1.80** | **Heavy use, persona-gated** | **Near-top P2 reward (0.571); rising P2 closure (0.73)** |
+| **C8 (Gemini 3.5 Flash)** | **1.80** | **Heavy use, persona-gated** | **Second-highest P2 reward (0.576); rising P2 closure (0.73)** |
 
 **The 5-config picture: model VERSION matters as much as model FAMILY.**
 - Sonnet: moderate use (0.60–0.75) — closest to "optimal" by closure
 - Opus: over-use (0.80) + strict filter = catastrophic sell-side collapse
 - Gemini 3.1 Pro: zero use (0.00) = rubric penalty regardless of deal quality
 - Gemini 3.5 Flash: heavy use (1.80) = highest engagement in the experiment,
-  near-top P2 reward (0.571, near-tie with C1's 0.575), rising closure
+  second-highest P2 reward (0.576, behind C1's 0.597), rising closure
 
 **The C8 per-rollout split tells the persona story.** Counts were
 [Kai=3, Rex=0, Marcus=0, Omar=3, Taj=3], mean 1.80. The
@@ -549,7 +645,7 @@ generation effect within the Gemini family, not a family-wide pattern.
 **No engagement level was a free win.** Sonnet's moderate use produced the
 best closure but not the highest reward. Opus's high use collapsed closure.
 Gemini 3.1 Pro's zero use was rubric-penalised. Gemini 3.5 Flash's heavy use
-produced a near-top P2 reward but came with the lowest P1 Pareto (0.13) —
+produced the second-highest P2 reward but came with the lowest P1 Pareto (0.13) —
 the same accept-fast behaviour that fuelled C8's P2 also stripped value out
 of P1. Tool engagement is one lever among many; no setting dominates.
 
@@ -559,21 +655,21 @@ of P1. Tool engagement is one lever among many; no setting dominates.
 
 | Persona | C1 P1 | C1 P2 | C1 P3 | C4 P1 | C4 P2 | C4 P3 | C6 P1 | C6 P2 | C6 P3 | C7 P1 | C7 P2 | C7 P3 | C8 P1 | C8 P2 | C8 P3 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Kai/Rosa | 0.515 | 0.442 | 0.379 | 0.332 | 0.380 | 0.333 | 0.426 | 0.380 | 0.362 | 0.456 | 0.295 | 0.376 | 0.491 | 0.544 | 0.425 |
-| Rex | 0.524 | 0.460 | 0.432 | 0.434 | 0.403 | 0.376 | 0.442 | 0.413 | 0.344 | 0.404 | 0.358 | 0.398 | 0.428 | 0.424 | 0.414 |
-| Marcus/Zara | 0.671 | 0.555 | 0.617 | 0.577 | 0.522 | **0.752** | 0.618 | 0.528 | 0.387 | 0.536 | 0.533 | **0.732** | 0.563 | 0.576 | 0.505 |
-| Omar/Buck | 0.678 | 0.580 | 0.438 | 0.586 | 0.559 | 0.431 | **0.658** | 0.612 | 0.431 | 0.634 | 0.536 | 0.413 | 0.579 | **0.663** | 0.426 |
-| Taj | 0.680 | 0.707 | **0.754** | 0.626 | 0.541 | **0.737** | 0.560 | 0.512 | 0.435 | **0.736** | 0.470 | **0.752** | 0.547 | 0.648 | 0.479 |
+| Kai/Rosa | 0.515 | 0.442 | 0.141 | 0.232 | 0.310 | 0.280 | 0.386 | 0.309 | 0.225 | 0.415 | 0.225 | 0.331 | 0.449 | **0.516** | 0.390 |
+| Rex | **0.461** | 0.446 | 0.250 | 0.396 | 0.367 | 0.153 | 0.404 | 0.368 | 0.203 | 0.374 | 0.307 | 0.120 | 0.400 | 0.404 | 0.228 |
+| Marcus/Zara | **0.765** | 0.621 | 0.594 | 0.662 | 0.587 | 0.753 | 0.702 | 0.468 | 0.271 | 0.498 | 0.491 | 0.729 | 0.527 | 0.651 | 0.488 |
+| Omar/Buck | **0.691** | 0.619 | 0.253 | 0.545 | 0.563 | 0.323 | 0.688 | 0.591 | 0.402 | 0.647 | 0.551 | 0.301 | 0.611 | 0.690 | 0.317 |
+| Taj | 0.689 | 0.704 | 0.716 | 0.596 | 0.509 | 0.736 | 0.520 | 0.452 | 0.406 | 0.737 | 0.445 | **0.753** | 0.513 | 0.621 | 0.419 |
 
-**Taj is the most robust persona across all 15 cells.** Never below 0.435.
+**Taj is the most robust persona across all 15 cells.** Never below 0.406.
 Cooperative messaging, conservative anchoring, and proactive proposal
 behaviour translate across every opponent vendor and mechanic. Taj closed
 mutual-win swaps in C1 P3, C4 P3, and C7 P3 — three different configs. In
-C8 P3 Taj didn't reach a mutual win (0.479 came from rubric-engagement
+C8 P3 Taj didn't reach a mutual win (0.419 came from rubric-engagement
 credit, not a closed swap).
 
 **Kai/Rosa is the weakest persona family overall** — but C8 P2 breaks
-that pattern. Kai in C8 P2 hit 0.544, the highest Kai/Rosa cell in the
+that pattern. Kai in C8 P2 hit 0.516, the highest Kai/Rosa cell in the
 table. The three lookup-tool calls Kai made (matching Omar and Taj) lifted
 this row above its baseline.
 
@@ -585,14 +681,14 @@ persona, five very different outcomes — persona-style works only when
 opponent behaviour and focal concession discipline align.
 
 **Omar/Buck contrast.** Omar is the best buy-focused performer in money phases
-(C6 P1 Omar = 0.658, C8 P2 Omar = 0.663). Buck (same set, Phase 3) closed
-nothing in C6 and C7, and only 0.426 in C8. "List and wait" works in money
+(C6 P1 Omar = 0.688, C8 P2 Omar = 0.690). Buck (same set, Phase 3) closed
+nothing in C6 and C7, and only 0.317 in C8. "List and wait" works in money
 trading; barter punishes passivity across all configs.
 
 **Rex is the only persona that stayed mid-range across every config and
-phase** — never above 0.524, never below 0.344. Stable but never a winner.
-C8 P3 Rex (0.414) came from the `tool_choice=required` rerun (see
-methodology); Zara (0.505) is the highest C8 P3 score.
+phase** — never above 0.461, never below 0.120. Stable but never a winner.
+C8 P3 Rex (0.228) came from the `tool_choice=required` rerun (see
+methodology); Zara (0.488) is the highest C8 P3 score.
 
 ---
 
@@ -664,14 +760,20 @@ cost under $40.
 > but trips the rubric's tool-usage penalties. And no model — capable or
 > cheap — reliably grades its own work: self-ratings drift off the neutral
 > observer in both directions, by gaps up to ±6, and the drift widens as
-> the mechanic gets harder.
+> the mechanic gets harder. And the **focal model, not the opponent field,
+> sets the barter ceiling**: in the Opus-vs-GPT mirror pair (C9 vs C10), the
+> same two models with focal and opponent reversed track within 0.01 in the
+> money phases but split by 0.200 in barter — the Opus-4.8 focal (C9) reaches
+> the experiment's top Phase-3 cell (0.613) by proposing on plausible matches,
+> while the GPT-5.5 focal (C10) falls to 0.413.
 >
 > The right model for a given marketplace depends on:
 > 1. **Mechanic complexity.** Simple money trading tolerates any capable
 >    model. Reputation rewards moderate-to-heavy tool engagement (C8 P2
 >    won here). Barter favours looser instruction interpretation *and*
 >    enough scale to find Pareto matches (Gemini 3.5 Flash had the former
->    but not the latter).
+>    but not the latter); Opus 4.8 (C9) had both and posted the top barter
+>    cell, while GPT-5.5 (C10), the same opponent roster reversed, did not.
 > 2. **Tool-discovery propensity — by version, not family.** Sonnet
 >    (0.60–0.75) moderate, Opus (0.80) over-uses with strict filtering,
 >    Gemini 3.1 Pro (0.00) ignores, Gemini 3.5 Flash (1.80) engages
@@ -740,10 +842,12 @@ truncated by harnesses that gate on tool-call presence.
 
 1. **Deadlock handling = 1.00 in every cell.** Sonnet, Opus, Gemini 3.1 Pro,
    Gemini 3.5 Flash — all four versions handle stalled negotiations without
-   looping. Baseline capability.
+   looping. Baseline capability. The mirror pair confirms it extends: Opus 4.8
+   (C9) and GPT-5.5 (C10) also score deadlock 1.00 in all 15 of their cells.
 2. **Privacy = 1.00 in 50 of 51 applicable rollouts.** The one exception
    (C7 P3 Zara) is persona-style-driven, not model-driven, and did not
-   replicate when C8 ran the same Zara slot.
+   replicate when C8 ran the same Zara slot. C9 and C10 hold the line too —
+   1.00 on every privacy-applicable rollout, no new leaks.
 3. **Anchoring ~0.32–0.40 in all money cells.** No model anchors aggressively.
    Conservative opening prices are a shared baseline across all four versions.
 4. **Closure rate declines P1 → P2 → P3 in C1/C4/C6/C7.** C8 broke this:
@@ -779,7 +883,7 @@ truncated by harnesses that gate on tool-call presence.
   three P3 rollouts (Zara/Buck/Taj) and ALL P1/P2 rollouts ran with the
   default `tool_choice=auto` and the original prompt. **Two of five C8 P3
   rollouts therefore use a slightly different configuration than the rest
-  of the experiment.** Headline numbers (0.450 mean, 0 mutual wins, 0.07
+  of the experiment.** Headline numbers (0.369 mean, 0 mutual wins, 0.07
   closure) hold across the full five-rollout set, but the natural-config
   P3 lookup estimate (2.67) is better drawn from the Zara/Buck/Taj
   rollouts; the full-five mean of 2.4 is reported with this caveat.
@@ -789,11 +893,17 @@ truncated by harnesses that gate on tool-call presence.
   rollouts when the model intermittently switches output formats.
 - **Reward formula weights shift across phases.** Cross-phase reward comparison
   is approximate — the rubric was designed for within-phase comparison.
-- **Phase 3 `review_utilization` defaults to 0.67 for everyone** — a rubric
-  artefact from zero offer events in barter. Don't read P3 review_utilization
-  combined scores as meaningful engagement. Roughly half of C7's Phase 3
-  rebound is this artefact. (C8's P3 lookup counts are real and non-zero,
-  so the artefact does not mask Flash's tool engagement.)
+- **Phase 3 `review_utilization` re-scored.** The rubric was fixed to count
+  swap offers correctly in barter; the earlier version defaulted to 0.67 for
+  everyone and inflated every Phase-3 reward. Under the corrected scoring all
+  seven Phase-3 cells dropped relative to the inflated baseline (the RU fix
+  alone took C9 0.652 → 0.605, C7 0.534 → 0.438, C6 0.392 → 0.301). A later
+  capability-asymmetry re-score then nudged the Phase-3 cells again (C9 0.605
+  → 0.613, C7 0.438 → 0.447, C6 unchanged at 0.301), leaving the Phase-3 column
+  mean at 0.426. After both re-scores C7's
+  Phase 3 (0.447) sits just *above* its Phase 2 (0.404) — so C7 is a U-shape
+  that dips at P2 and rebounds in P3; its two swap_quality mutual wins lift P3
+  back above the Phase-2 trough.
 - **GPT-5.5 via OpenRouter returned `choices=None` intermittently in C7 P2**
   (~1.8 per rollout). `marketplace/llm.py` was patched mid-experiment with a
   retry + graceful fallback. C8 ran on the patched code from the start.
@@ -812,23 +922,36 @@ results/paper_runs/
 ├── C6_opus_vs_gemini/ (same structure)
 ├── C7_gemini_vs_gpt55/ (same structure)
 ├── C8_gemini35_vs_gpt55/ (same structure)
+├── C9_opus48_vs_gpt55/ (same structure)
+├── C10_gpt55_vs_opus48/ (same structure)
 └── CROSS_CONFIG_COMPARISON.md (this document)
 ```
 
 ---
 
-*Across 5 configs and 3 phases: Sonnet symmetric play (C1) is the most reliable
-and posts the highest single cell anywhere (P1 0.614);
+*Across 7 configs and 3 phases: the highest single cell anywhere is C1 P1
+(Sonnet vs Sonnet, 0.624), and the highest Phase-3 cell is C9 P3 (Opus 4.8 vs
+GPT-5.5, 0.613) — the Opus-4.8 focal rises every phase, the only config that
+improves as the mechanic hardens; Sonnet symmetric play (C1) is the most
+reliable in the money phases and posts the highest P1 (0.624) plus the highest
+P2 (0.597, ahead of C8 at 0.576);
+the Opus-vs-GPT mirror pair (C9 vs C10) is the new headline — same two models,
+focal and opponent reversed, tracking within 0.01 in P1/P2 then splitting by
+0.200 in P3 (Opus focal 0.613 vs GPT focal 0.413), localising the barter
+outcome to the focal model;
 Gemini 3.5 Flash vs GPT-5.5 (C8) is by far the cheapest at $25 total and posts
-a Phase 2 reward (0.571) in a near-tie with C1 (0.575) for the highest of any
-config, on the strength of heavy
+the second-highest Phase 2 reward of any config (0.576, behind C1 at
+0.597), on the strength of heavy
 lookup-tool engagement (1.80 calls per rollout, the highest in the experiment);
 Sonnet vs Gemini (C4) and Gemini 3.1 Pro vs GPT-5.5 (C7) tie for best
 mutual-win recognition in barter (2 each); Opus vs Gemini (C6) is the worst
 in mechanic-heavy phases because Opus interprets scaffolded instructions too
-strictly, producing zero Phase 3 closures; C4 and C7 both recover in Phase 3
-(P3 > P2), with C7's the most pronounced — it has the deepest Phase-2 dip of
-any config; C8 alone has an inverted-U (peak at P2). The qwen judge surfaces
+strictly, producing zero Phase 3 closures; two configs now rise in Phase 3
+(P3 > P2) — C9 climbs every phase to the top Phase-3 cell, and C7
+rebounds in barter (its P3 0.447 sits just above its P2 0.404, the
+deepest Phase-2 dip of any config) into a U-shape; C4 still declines every phase
+(P3 0.449 below P2 0.467); C8 and C10 are inverted-U
+(peak at P2). The qwen judge surfaces
 the new headline finding: self-calibration is noisy and bidirectional in every
 config — focals over-rate failures and under-rate partial successes by gaps up
 to ±6 — and a more capable model is not better calibrated (Opus is no tighter
@@ -839,7 +962,7 @@ Opus over-engaged (0.80), Gemini 3.1 Pro ignored (0.00), Gemini 3.5 Flash
 heaviest (1.80) — four interpretations of the same prompt suggestion, and
 the within-Gemini generation gap walks back the earlier "Gemini family
 ignores tools" framing. C8 adds the most distinctive new shape in the
-experiment: the only inverted-U trajectory, the cheapest end-to-end run,
-a near-top Phase 2 cell (0.571, a near-tie with C1), and a Phase 3 collapse to zero mutual wins that
+experiment: an inverted-U trajectory, the cheapest end-to-end run,
+the second-highest Phase 2 cell (0.576, behind C1's 0.597), and a Phase 3 collapse to zero mutual wins that
 replicates the C7-Rex bad-swap calibration failure across a second model
 generation.*

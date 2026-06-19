@@ -80,8 +80,8 @@ It closes every deal — but never saves any money.**
 | Scenario | Marketplace (money trades) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.553** |
-| Reward range | 0.404 – 0.736 |
+| Mean reward | **0.534** |
+| Reward range | 0.374 – 0.737 |
 
 ---
 
@@ -107,12 +107,12 @@ aggressiveness — but so does the zero-surplus problem.
 
 | Persona | Reward | Key driver |
 |---|---|---|
-| Taj | **0.736** | 3/3 closure + Pareto 1.00 + perfect privacy |
-| Omar | 0.635 | 3/3 closure + $21 extraction |
-| Marcus | 0.536 | 2/3 closure, skateboard at ceiling |
-| Kai | 0.456 | 1/3 closure, dog-sitting at ceiling |
-| Rex | **0.404** | 2/3 closure at ceiling + Δ = 3 self-deception |
-| **Mean** | **0.553** | |
+| Taj | **0.737** | 3/3 closure + Pareto 1.00 + perfect privacy |
+| Omar | 0.647 | 3/3 closure + $21 extraction |
+| Marcus | 0.498 | 2/3 closure, skateboard at ceiling |
+| Kai | 0.415 | 1/3 closure, dog-sitting at ceiling |
+| Rex | **0.374** | 2/3 closure at ceiling + Δ = 3 self-deception |
+| **Mean** | **0.534** | |
 
 **Taj is the top scorer** — the only persona with both 3/3 closure AND
 Pareto 1.00. All three of his deals (watch sell at $25, boots buy at $45,

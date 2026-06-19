@@ -16,7 +16,7 @@ how does that compare to C1, C4, C6, and C7?**
 | Focal | Gemini 3.5 Flash | Gemini 3.5 Flash | Gemini 3.5 Flash |
 | Opponents | 9× GPT-5.5 | 9× GPT-5.5 | 9× GPT-5.5 |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.522 | **0.571** | 0.450 |
+| Mean reward | 0.500 | **0.576** | 0.369 |
 | Closure rate | 0.60 | 0.73 | 0.07 |
 | Spend | $7.70 | $8.91 | $8.40 |
 
@@ -30,13 +30,13 @@ is not part of this paper budget — see methodology.)
 ## The C8 story in three phases
 
 **Phase 1:** Solid money trading. Gemini 3.5 Flash closed 0.60 of deals
-and produced a mean reward of 0.522. Volume was high (Marcus and Taj
+and produced a mean reward of 0.500. Volume was high (Marcus and Taj
 each booked 11 deals) but Pareto was thin at 0.13 — many closes were
 single-sided wins. Mean value extracted was $12.6. The pattern matches
 C7 directionally but at a lower per-deal margin.
 
-**Phase 2:** The peak. Mean reward climbed to 0.571 — **in a near-tie
-with C1 (0.575) for the highest Phase 2 of any config.** Closure rose
+**Phase 2:** The peak. Mean reward climbed to 0.576 — **the second-highest
+Phase 2 of any config, just behind C1 (0.597) and ahead of C9 (0.542) and C10 (0.532).** Closure rose
 to 0.73, value extracted nearly doubled to $21.2, and Pareto more than
 doubled to 0.27. Marcus extracted $50 in one rollout. And — unlike C7 — **Gemini 3.5 Flash used the lookup
 tool 1.80 times mean across the five rollouts — the highest engagement
@@ -47,25 +47,25 @@ brusque-execution personas did not. The link between tool use and
 reward is now loose, though: the two top rollouts (Omar, Taj) used the
 tool, but Marcus ranks third on zero lookups, ahead of Kai's three.
 
-**Phase 3:** Descent. Mean reward fell to 0.450, mutual wins to 0.
+**Phase 3:** Descent. Mean reward fell to 0.369, mutual wins to 0.
 Eight marketplace deals closed across the five rollouts, but only one
 involved the focal as a counterparty (Rex closed a swap at
 focal_surplus=−$9). **No closure scored `swap_quality.combined > 0`**.
 C8 is P1 < P2 > P3 — a peak-at-P2 inverted-U shape not seen in any
-other config; the P3 leg of that shape is now milder (−0.121 from P2)
-than the original run suggested.
+other config in the C1/C4/C6/C7 set (the later C9/C10 configs also
+peak at P2); the P3 leg of that shape is −0.207 from P2.
 
 ---
 
 ## The 5 things that matter most
 
-1. **C8 is the only config with the inverted-U shape (P1 < P2 > P3).**
-   Reward goes 0.522 → 0.571 → 0.450. C1 and C6 decline monotonically.
-   C4 and C7 both have P3 > P2 (a U — down then up). C8 alone peaks at P2.
-   The Phase 2 win is real (value extracted nearly doubled, closure rose
-   to 0.73), and the Phase 3 dip lands the focal modestly below its
-   Phase 1 level — the descent is real but milder than the original run
-   suggested.
+1. **C8 peaks at P2 (inverted-U: P1 < P2 > P3) — the only config in
+   the C1/C4/C6/C7 comparison set to do so.** Reward goes
+   0.500 → 0.576 → 0.369. C1, C4, C6, and C7 all decline from P1
+   through P2 to P3 (none of those four has P2 above its own P1; the
+   later C9/C10 configs also peak at P2). The Phase 2 win is real
+   (value extracted nearly doubled, closure rose to 0.73), and the
+   Phase 3 dip lands the focal clearly below its Phase 1 level.
 
 2. **Generation effect in the Gemini family — Flash 3.5 fixed what
    3.1 Pro did wrong.** Across five Phase 2 rollouts, Gemini 3.5 Flash
@@ -80,9 +80,9 @@ than the original run suggested.
    pattern (2.4 mean overall; 2.67 across the three natural-config
    rollouts).
 
-3. **C8 Phase 2 reward (0.571) is in a near-tie with C1 for the highest
-   of any config.** C1's Phase 2 is 0.575 — a fraction above. C8 beat
-   C7's Phase 2 (0.439) by 0.132 — a large swing on this metric. The lift
+3. **C8 Phase 2 reward (0.576) is the second-highest of any config.**
+   C1's Phase 2 is 0.597 — just ahead; C9 (0.542) and C10 (0.532) trail.
+   C8 beat C7's Phase 2 (0.404) by 0.172 — a large swing on this metric. The lift
    tracks stronger closure (0.73) and value extracted ($21.2). The lookup
    tool also got used for the first time (1.80 mean, vs C7's 0.00), but
    under the scoring judge that engagement does not line up with reward —
@@ -108,7 +108,7 @@ than the original run suggested.
    with `tool_choice=required` + a stricter focal prompt; the rerun
    transcripts are now canonical. The other three Phase 3 rollouts
    (Zara/Buck/Taj) ran on the original configuration. This is a
-   methodology subtlety — the headline numbers (0.450 mean, 0 mutual
+   methodology subtlety — the headline numbers (0.369 mean, 0 mutual
    wins) hold but the two-rollout config delta must be disclosed.
 
 ---
@@ -117,7 +117,7 @@ than the original run suggested.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.522 | **0.571** | 0.450 | Peak at P2 |
+| Mean reward | 0.500 | **0.576** | 0.369 | Peak at P2 |
 | Closure rate | 0.60 | 0.73 | 0.07 | Inverted-U |
 | Normalized closure | 0.82 | 1.00 | 0.07 | Same shape |
 | Mean Pareto | 0.13 | **0.27** | N/A | Doubles at P2 |
@@ -131,7 +131,7 @@ than the original run suggested.
 
 ## Why phase transitions happened
 
-### P1 → P2: the rise (+0.049 reward)
+### P1 → P2: the rise (+0.076 reward)
 
 **Closure went up, not down.** That's unusual — every other config saw
 Phase 2 make closing harder (rating-aware opponents hold firmer). In
@@ -151,11 +151,11 @@ the lookup count: Marcus closed at zero lookups and outscored Kai's
 three. The tool use is a real behavioural change; it is not the lever
 on reward.
 
-**Per-rollout, Omar hit 0.663 with closure=1.00 and $28 value. Taj hit
-0.648. Marcus hit 0.576.** Two of five focals cleared 0.60 — none did in
-Phase 1.
+**Per-rollout, Omar hit 0.690 with closure=1.00 and $28 value. Marcus hit
+0.651. Taj hit 0.621.** Three of five focals cleared 0.60 — only Omar
+(0.611) did in Phase 1.
 
-### P2 → P3: the fall (−0.121 reward)
+### P2 → P3: the fall (−0.207 reward)
 
 **Closure_rate drops near zero.** Across five rollouts, eight
 marketplace deals closed but only one (Rex) had the focal as a
@@ -205,42 +205,47 @@ Rosa, Marcus → Zara, Omar → Buck.
 
 | Persona slot | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / — / Rosa | 0.491 | 0.545 | 0.425 | Climbs then dips; Rosa rerun closes nothing but engages fully |
-| Rex | 0.428 | 0.424 | 0.414 | Lowest C8 P3 score; one focal close at −$9 surplus |
-| Marcus / — / Zara | 0.563 | 0.576 | **0.505** | $50 value in P2; Zara is the top P3 rollout yet closes nothing of her own |
-| Omar / — / Buck | **0.579** | **0.663** | 0.426 | P1 best, P2 best, P3 falls |
-| Taj | 0.547 | 0.648 | 0.479 | P2 strong, P3 the misrouted swap |
+| Kai / — / Rosa | 0.449 | 0.517 | 0.390 | Climbs then dips; Rosa rerun closes nothing but engages fully |
+| Rex | 0.400 | 0.404 | 0.228 | Lowest C8 P3 score; one focal close at −$9 surplus |
+| Marcus / — / Zara | 0.528 | 0.651 | **0.488** | $50 value in P2; Zara is the top P3 rollout yet closes nothing of her own |
+| Omar / — / Buck | **0.611** | **0.690** | 0.317 | P1 best, P2 best, P3 falls |
+| Taj | 0.513 | 0.621 | 0.419 | P2 strong, P3 the misrouted swap |
 
-**Omar is C8's anchor in money phases.** Best Phase 1 (0.579) and best
-Phase 2 (0.663, closure=1.00, $28 value). Same set position, different
-persona in Phase 3 (Buck), and the score falls to 0.426 — the structure
+**Omar is C8's anchor in money phases.** Best Phase 1 (0.611) and best
+Phase 2 (0.690, closure=1.00, $28 value). Same set position, different
+persona in Phase 3 (Buck), and the score falls to 0.317 — the structure
 of cooperative information-sharing didn't translate to barter for this
-set either.
+set either, and the review_utilization fix (Buck looked up before only
+one of his two offers) takes another step off the score.
 
-**Rex is C8 P3's lowest score — via the rerun.** 0.414 came from the
+**Rex is C8 P3's lowest score — via the rerun.** 0.228 came from the
 `tool_choice=required` rerun. Rex closed exactly one swap with
 focal_surplus=−$9; he got partial rubric credit because the
 counterparty was satisfied (`buyer_surplus=1.0`), even though
 `swap_quality.combined=0`. Under the new judge the observer rated Rex
-1/7 against his own 4/7 — the widest self-observer gap in the phase —
-which is what pulls the rollout to the bottom.
+1/7 against his own 4/7 — the widest self-observer gap in the phase.
+The review_utilization fix also lands here: Rex looked up before his one
+offer but offered to a partner not rated ≥ 4.0, so his review score
+falls to 0.556 — together these pull the rollout to the bottom.
 
-**Rex's phase trajectory is monotonically declining.** Rex goes
-0.428 → 0.424 → 0.414 — a small step-down each phase, with P3 the
-lowest of the three for this persona.
+**Rex's phase trajectory dips into P3.** Rex goes
+0.400 → 0.404 → 0.228 — essentially flat across the money phases, then
+a sharp drop to P3, the lowest of the three for this persona.
 
-**Zara is the barter winner — and a non-rerun rollout.** 0.505 is the
+**Zara is the barter winner — and a non-rerun rollout.** 0.488 is the
 highest Phase 3 score in C8, and it came from an original-configuration
 rollout. Zara closed nothing of her own, but full capability (7/7
-self and observer), perfect privacy, and perfect review_utilization
-carried the reward. Taj (0.479) is the next highest, from the
+self and observer), perfect privacy, and a genuine review_utilization
+of 1.000 (she looked up before her offer and offered to a high-rated
+partner) carried the reward. Taj (0.419) is the next highest, from the
 misrouted-accept story (see phase3/INSIGHTS).
 
 **Rosa's P3 row is now informative.** The rerun shows Rosa running a
 full 96-event session with no focal closure but with two pre-offer
-lookups and matched 7/7 self/observer capability ratings. The 0.425
-reward reflects the rubric defaults plus engagement credit, not a
-mutual-win signal.
+lookups and matched 7/7 self/observer capability ratings. The 0.390
+reward reflects capability credit plus a genuine review_utilization of
+0.889 (she looked up before offering and offered to a high-rated
+partner), not a mutual-win signal.
 
 ---
 
@@ -282,19 +287,19 @@ mutual-win signal.
 
 | Metric | C1 (S/S) | C4 (S/G) | C6 (O/G) | C7 (G31/X) | C8 (G35/X) |
 |---|---:|---:|---:|---:|---:|
-| P1 mean reward | **0.614** | 0.511 | 0.541 | 0.553 | 0.522 |
+| P1 mean reward | **0.624** | 0.486 | 0.540 | 0.534 | 0.500 |
 | P1 closure | 0.60 | 0.60 | 0.67 | **0.73** | 0.60 |
 | P1 Pareto | 0.53 | 0.20 | 0.47 | 0.40 | 0.13 |
-| P2 mean reward | **0.575** | 0.481 | 0.489 | 0.439 | 0.571 |
+| P2 mean reward | **0.597** | 0.467 | 0.438 | 0.404 | 0.576 |
 | P2 closure | — | — | — | 0.40 | **0.73** |
 | P2 lookup calls (mean) | 0.75 | 0.60 | 0.80 | **0.00** | **1.80** |
-| P3 mean reward | 0.524 | 0.526 | 0.392 | **0.534** | 0.450 |
+| P3 mean reward | 0.391 | **0.449** | 0.301 | 0.447 | 0.369 |
 | P3 mutual wins | 1 | 2 | 0 | **2** | **0** |
 | Privacy (all phases) | 1.00 | 1.00 | 1.00 | 0.997 | 1.00 |
 | Total cost | ~$266 | ~$99 | ~$239 | ~$43 | **~$25** |
 
-**C8 is the cheapest config, has a near-top Phase 2 reward (0.571, in a
-near-tie with C1's 0.575 for the highest of any config), has the highest
+**C8 is the cheapest config, has the second-highest Phase 2 reward (0.576,
+just behind C1's 0.597), has the highest
 Phase 2 lookup-tool engagement of any config, and has the second-worst
 Phase 3 (after C6).** C8 also walks back the
 earlier "Gemini family ignores the lookup tool" framing: 3.5 Flash
@@ -377,7 +382,7 @@ is where these gaps are widest.
   **two of the five Phase 3 rollouts (Rosa, Rex) ran under a
   different configuration** than the other three (Zara, Buck, Taj —
   tool_choice=auto + original prompt) and than every other
-  phase/config in the experiment. The headline numbers (0.450 mean,
+  phase/config in the experiment. The headline numbers (0.369 mean,
   0 mutual wins, 0.07 closure_rate) hold across the full five-rollout
   set; the configuration delta is the methodology caveat. The
   rerun's API spend was a separate exploratory cost and is **not**
@@ -407,11 +412,12 @@ is where these gaps are widest.
 ---
 
 *C8 (Gemini 3.5 Flash vs GPT-5.5) is the cheapest config in the
-experiment and the only one with an inverted-U reward trajectory
-(P1 < P2 > P3 = 0.522 → 0.571 → 0.450). Phase 2 is the headline: 0.571
-mean reward, 0.73 closure, $21.2 mean value extracted — in a near-tie
-with C1 (0.575) for the highest Phase 2 of any config — and achieved
-alongside 1.80 mean lookup_agent
+experiment and, within the C1/C4/C6/C7 comparison set, the only one
+with an inverted-U reward trajectory
+(P1 < P2 > P3 = 0.500 → 0.576 → 0.369). Phase 2 is the headline: 0.576
+mean reward, 0.73 closure, $21.2 mean value extracted — the second-highest
+Phase 2 of any config, just behind C1 (0.597)
+— and achieved alongside 1.80 mean lookup_agent
 calls per rollout, the highest tool-engagement rate of any config in
 the experiment. Per-rollout P2 lookup counts are [3, 0, 0, 3, 3] for
 Kai/Rex/Marcus/Omar/Taj, splitting cleanly on persona style
@@ -419,7 +425,7 @@ Kai/Rex/Marcus/Omar/Taj, splitting cleanly on persona style
 don't). This walks back the earlier "Gemini family ignores the
 lookup tool" framing — the corrected story is a generation effect:
 Gemini 3.1 Pro ignored the tool (C7), Gemini 3.5 Flash engages it
-more than any other focal we tested. Phase 3 descends to 0.450 with
+more than any other focal we tested. Phase 3 descends to 0.369 with
 zero mutual wins across five rollouts; one focal swap closed (Rex,
 focal_surplus=−$9) and every closure scored `swap_quality=0`. P3
 lookup engagement also continues (2.4 mean overall; 2.67 across the

@@ -1,0 +1,50 @@
+{
+  "focal": "Marcus",
+  "set_id": "set_03",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 35,
+      "seller": "Marcus",
+      "buyer": "Isla",
+      "item_id": "speaker_01",
+      "price": 35.0,
+      "seller_floor": 28.0,
+      "buyer_ceiling": 35.0,
+      "payment_status": "pending"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 39,
+      "seller": "Zara",
+      "buyer": "Felix",
+      "item_id": "headphones_01",
+      "price": 41.0,
+      "seller_floor": 30.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 55,
+      "seller": "Mira",
+      "buyer": "Zara",
+      "item_id": "yoga_mat_01",
+      "price": 22.0,
+      "seller_floor": 15.0,
+      "buyer_ceiling": 25.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_004",
+      "turn": 57,
+      "seller": "Mira",
+      "buyer": "Felix",
+      "item_id": "blender_01",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    }
+  ]
+}

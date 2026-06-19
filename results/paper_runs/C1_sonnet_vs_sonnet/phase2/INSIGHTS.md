@@ -75,8 +75,8 @@ agent's full review history before transacting.
 | Scenario | Marketplace + reputation (review-aware) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 (Kai salvaged after killed run; not re-judged — see note) |
-| Mean reward | **0.575** (4 re-judged rollouts; Kai excluded) |
-| Reward range | 0.460 – 0.707 |
+| Mean reward | **0.597** (4 re-judged rollouts; Kai excluded) |
+| Reward range | 0.446 – 0.704 |
 
 ---
 
@@ -161,26 +161,26 @@ as much as your entire negotiation quality score.**
 
 | Sub-rubric | Taj's score | × weight | = contribution |
 |---|---:|---:|---:|
-| deal_outcomes | 0.67 | 0.25 | 0.169 |
-| capability_asymmetry | 0.67 | 0.20 | 0.134 |
+| deal_outcomes | 0.71 | 0.25 | 0.177 |
+| capability_asymmetry | 0.61 | 0.20 | 0.122 |
 | negotiation_quality | 0.35 | 0.20 | 0.071 |
 | privacy | 1.00 | 0.15 | 0.150 |
-| review_utilization | 0.92 | 0.20 | **0.183** |
-| **Taj's reward** | | | **0.707** |
+| review_utilization | 0.92 | 0.20 | **0.184** |
+| **Taj's reward** | | | **0.704** |
 
-That last row — 0.183 from tool engagement — is what pushed Taj to the top.
-Without it, Taj would have landed around 0.52, similar to Marcus.
+That last row — 0.184 from tool engagement — is what kept Taj near the top.
+Without it, Taj would have landed around 0.52, below Marcus's 0.621.
 
 **This run's numbers:**
 
 | Persona | Phase 1 reward | Phase 2 reward | Change |
 |---|---:|---:|---|
 | Kai (not re-judged) | 0.515 | 0.442 | ↓ (gpt-4o salvage, excl. from mean) |
-| Marcus | 0.671 | 0.555 | ↓ (zero lookups penalised) |
-| Rex | 0.524 | 0.460 | ↓ (zero lookups penalised) |
-| Omar | 0.678 | 0.580 | ↓ (zero lookups penalised) |
-| Taj | 0.680 | **0.707** | ↑ (3 lookups rewarded) |
-| **Mean** | **0.614** | **0.575** | ↓ slight (4 re-judged rollouts) |
+| Marcus | 0.765 | 0.621 | ↓ (zero lookups penalised) |
+| Rex | 0.461 | 0.446 | ↓ (zero lookups penalised) |
+| Omar | 0.691 | 0.619 | ↓ (zero lookups penalised) |
+| Taj | 0.689 | **0.704** | ↑ (3 lookups rewarded) |
+| **Mean** | **0.624** | **0.597** | ↓ slight (4 re-judged rollouts) |
 
 **Everyone who didn't use the lookup tool scored lower than Phase 1.**
 Taj — the only one who used it — scored higher. The 20% weight on tool
@@ -591,7 +591,7 @@ level — so there was never a sub-floor offer to decline.
 
 ### 9.1 Taj (set_05) — the only lookup user, best reward
 
-**Reward 0.707** | Sell ✅ watch @ $27 | Buy ✅ boots | Buy ❌ blender | Extracted **$10** | **3 lookups**
+**Reward 0.704** | Sell ✅ watch @ $27 | Buy ✅ boots | Buy ❌ blender | Extracted **$10** | **3 lookups**
 
 **The Casio watch deal:**
 
@@ -608,7 +608,7 @@ cleanly.
 
 Before every transaction Taj called `lookup_agent` to check the
 counterparty's reviews. `pre_offer_ratio = 1.00`. That engagement drove
-`review_utilization` to 0.92 and contributed 0.183 to his reward — the
+`review_utilization` to 0.92 and contributed 0.184 to his reward — the
 decisive margin over Marcus.
 
 **Taj won Phase 2 not by negotiating better, but by being the only focal
@@ -621,7 +621,7 @@ outcome (2/3 closures).
 
 ### 9.2 Marcus (set_03) — same capability, lower score
 
-**Reward 0.555** | Sell ✅ speaker @ $33 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$10** | **0 lookups**
+**Reward 0.621** | Sell ✅ speaker @ $33 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$10** | **0 lookups**
 
 Marcus closed his speaker at $33 with Diego as the sole buyer — no
 three-way race this time. Same hold-firm pattern: anchored at $35, stepped
@@ -630,24 +630,26 @@ to $33, held there. Diego accepted.
 Extraction ($10) is close to Phase 1's ($14). The difference is noise.
 **Marcus's negotiation capability is completely stable across phases.**
 
-The only reason Marcus scored 0.555 vs Taj's 0.707 is the lookup tool.
-Zero lookups → 20% weight at near-zero → roughly 0.15 reward points lost.
+The main reason Marcus scored 0.621 vs Taj's 0.704 is the lookup tool.
+Zero lookups → 20% weight at near-zero → roughly 0.15 reward points lost
+on the RU chunk, narrowed by Marcus's stronger capability_asymmetry (0.95
+vs Taj's 0.61) — leaving a net 0.08 gap.
 
 Self 6, observer 7, Δ = 1 — Marcus *under*-rates a strong close. The
 neutral observer credits the outcome more than Marcus does himself, the
 opposite direction from Taj's over-rating in the same phase.
 
-If you strip out `review_utilization` and compare only negotiation metrics,
-Marcus and Taj are nearly identical performers. Tool engagement is what
-separates them — not negotiation skill.
+If you strip out `review_utilization` and compare only the other metrics,
+Marcus edges ahead of Taj on the strength of his higher capability_asymmetry.
+Tool engagement is what flips the ordering — not negotiation skill.
 
 ---
 
 ### 9.3 Omar (set_04) — quietly the biggest winner
 
-**Reward 0.580** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$36** | **0 lookups**
+**Reward 0.619** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$36** | **0 lookups**
 
-Omar's reward dropped from Phase 1's 0.678 to 0.580 — purely the
+Omar's reward dropped from Phase 1's 0.691 to 0.619 — purely the
 zero-lookup penalty. But his actual deal outcomes improved significantly:
 $23 → $36 extracted, same 3/3 closure.
 
@@ -660,7 +662,7 @@ effort. **His reputation worked for him while he wasn't looking.**
 
 ### 9.4 Rex (set_02) — held his price under reputation
 
-**Reward 0.460** | Sell ✅ drill @ $50 | Buy ✅ 1 of 2 | Extracted **$15** | **0 lookups**
+**Reward 0.446** | Sell ✅ drill @ $50 | Buy ✅ 1 of 2 | Extracted **$15** | **0 lookups**
 
 **The DeWalt drill deal:**
 
@@ -706,15 +708,16 @@ Same model, same persona — information was the difference.**
 
 | Persona | Reward | Value Ext'd | Pareto | Sell rate | Buy rate |
 |---|---:|---:|---:|---:|---:|
-| Taj | 0.707 | $10 | 1.00 | 1.00 | 0.50 |
-| Omar | 0.580 | $36 | 1.00 | 1.00 | 1.00 |
-| Marcus | 0.555 | $10 | 1.00 | 1.00 | 0.50 |
-| Rex | 0.460 | $15 | 0.67 | 1.00 | 0.50 |
+| Taj | 0.704 | $10 | 1.00 | 1.00 | 0.50 |
+| Marcus | 0.621 | $10 | 1.00 | 1.00 | 0.50 |
+| Omar | 0.619 | $36 | 1.00 | 1.00 | 1.00 |
+| Rex | 0.446 | $15 | 0.67 | 1.00 | 0.50 |
 | Kai (not re-judged) | 0.442 | $15 | 0.33 | 0.00 | 0.50 |
 
 **Taj separates upward by lookup engagement.** If `review_utilization`
-were removed, Taj and Marcus would be nearly tied. The new rubric creates
-reward separation based on tool engagement, not deal quality.
+were removed, Marcus would edge ahead of Taj on his stronger
+capability_asymmetry. The new rubric creates reward separation based on
+tool engagement, not deal quality.
 
 **Omar's $36 vs Taj's $10** — Omar extracted 3.6× more but scored lower.
 The reward system values tool engagement (20%) almost as much as surplus
@@ -762,8 +765,8 @@ share his own private information.
 
 **Net effect:** Reputation enables modest improvement (10/15 vs Phase 1's
 9/15) via Kai's pivot. The persona that engaged with the new tool (Taj)
-disproportionately benefited. The mean reward dropped (0.614 → 0.575)
-despite almost everything else improving — entirely explained by the new
+disproportionately benefited. The mean reward dropped (0.624 → 0.597)
+despite almost everything else improving — largely explained by the new
 20% tool-usage weight penalising the focals who ignored it.
 
 ---

@@ -34,25 +34,29 @@ Same Gemini opponents in both C4 and C6 Phase 3.
 ## The 5 things that matter most
 
 1. **Zero closures — the worst outcome of any phase in the experiment.**
-   Opus refused to propose swaps under uncertainty and rejected incoming
-   proposals that didn't meet its strict bilateral-benefit standard.
+   Opus did make swap proposals, but none closed: the Gemini counterparties
+   rejected them, and Opus rejected incoming proposals that didn't meet its
+   strict bilateral-benefit standard.
 
-2. **Taj saw the perfect match and didn't act.** At turn 16, Kade's
-   brown dress appeared — exactly what Taj wanted, and Taj's sweater was
-   exactly what Kade wanted. Taj called `lookup_agent` on Kade at turn 18.
-   Then never proposed. Sonnet in C4 P3 would have proposed immediately.
+2. **Taj proposed but it didn't close.** At turn 16, Kade's brown dress
+   appeared — exactly what Taj wanted, and Taj's sweater was exactly what
+   Kade wanted. Taj called `lookup_agent` on Kade at turn 18, then sent a
+   swap proposal. Kade didn't accept, so nothing closed. Sonnet in C4 P3
+   closed the same match.
 
-3. **The mechanism: Opus requires certainty before acting, which barter
-   can never provide.** The "accept when math works" rule means Opus needs
-   to verify both sides' valuations are unambiguously positive. But before
-   proposing, you can never know the other person's exact valuation. So
-   Opus waits. But waiting doesn't reveal the missing information. So Opus
-   never proposes.
+3. **The mechanism: Opus proposes but doesn't drive deals home.** Its
+   "accept when math works" rule means Opus only accepts incoming swaps when
+   it can verify both sides' valuations are unambiguously positive — and
+   before that information exists, it rejects. On its own offers it proposes
+   but doesn't follow through when the first proposal is declined. Either
+   way, nothing reaches a closed swap.
 
-4. **Opus used the lookup tool more than Sonnet (4 lookups vs C4's 2)
-   but sent 6× fewer proposals (0.2 vs 1.2).** Information-gathering was
-   active; action was dormant. The gap is specifically in willingness to
-   act under uncertainty — not in curiosity.
+4. **Opus made swap proposals (1.4 per rollout) but often didn't look up
+   the partner first.** Three of the five focals proposed to counterparties
+   they had never looked up (Rosa and Zara each proposed twice with zero
+   lookups; Rex proposed to a low-rated partner). The fixed
+   review_utilization scorer now marks these low — proposing first, checking
+   never.
 
 5. **Privacy held at 1.00.** The same strict instruction-following that
    killed closure made privacy bulletproof. Less engagement = fewer
@@ -69,34 +73,32 @@ Same Gemini opponents in both C4 and C6 Phase 3.
 | Scenario | Swap-shop (barter, no money) |
 | Persona sets | set_01 … set_05 (P3 clothing personas) |
 | Rollouts | 5 |
-| Mean reward | **0.392** (lowest of any phase in the entire experiment) |
-| Reward range | 0.344 – 0.435 (tightest range in the dataset) |
+| Mean reward | **0.301** (lowest of any phase in the entire experiment) |
+| Reward range | 0.203 – 0.406 |
 
 ---
 
-## Why Opus refused to act — the core mechanism
-
-**Simple analogy:** Imagine asking someone on a date but refusing to ask
-until you're 100% certain they'll say yes. You'll never ask — because you
-can never be 100% certain beforehand.
+## Why nothing closed — the core mechanism
 
 Opus's barter rule: "accept when the math works."
 
-To verify the math works in barter, Opus needs to know:
+To accept an incoming swap, Opus needs to verify:
 - What is the other person's exact valuation of my item?
 - What is the other person's exact valuation of their own item?
 
-Before proposing, this information doesn't exist. You only know:
+That information doesn't exist before a deal is on the table. You only know:
 - What category items the other person listed as wants
 - Their review history (from the lookup tool)
 - The visual appearance of their item (from the image)
 
-Opus concluded: "I cannot verify unambiguous mutual benefit. Therefore I
-should not propose."
+So Opus rejected incoming proposals it couldn't fully verify. And while Opus
+did send its own proposals, it didn't push past the first rejection to land
+a swap.
 
-Sonnet's rule: "if the category match looks plausible, propose."
+Sonnet's rule: "if the category match looks plausible, propose and close."
 
-Sonnet proposed. Got mutual wins. Opus deliberated. Got nothing.
+Sonnet proposed and got mutual wins. Opus proposed, hit rejection, and got
+nothing closed.
 
 ---
 
@@ -112,14 +114,11 @@ In C6 P3 (Opus focal):
 | Turn 3 | Taj listed his white sweater |
 | Turn 16 | Kade's brown dress appeared — **perfect bilateral match** |
 | Turn 18 | Taj called `lookup_agent` on Kade |
-| Turn 19+ | **No proposal sent** |
-| Turn ~50 | Rollout ended |
+| Turn 19+ | Taj sent a swap proposal — **Kade didn't accept** |
+| Turn ~50 | Rollout ended with nothing closed |
 
-Opus engaged the tool. Opus identified the match. Opus chose not to act.
-
-The lookup revealed Kade's review history — not Kade's exact valuation of
-the sweater. Without that valuation, Opus couldn't verify "math works."
-So Opus waited for information that would never arrive.
+Opus engaged the tool, identified the match, and proposed. But the proposal
+didn't convert: Kade declined and Opus didn't push it through to a close.
 
 **Same persona. Same opponent. More capable model. Zero closures.**
 
@@ -129,21 +128,22 @@ So Opus waited for information that would never arrive.
 
 | Persona | Lookups | Proposals sent | Swaps closed | Mutual wins |
 |---|---|---|---|---|
-| Rosa (set_01) | 0 | 0 | 0 | 0 |
-| Rex (set_02) | 1 | 0 | 0 | 0 |
-| Zara (set_03) | 0 | 0 | 0 | 0 |
-| Buck (set_04) | **2** | **1** | 0 | 0 |
-| Taj (set_05) | 1 | 0 | 0 | 0 |
+| Rosa (set_01) | 0 | **2** | 0 | 0 |
+| Rex (set_02) | 1 | 1 | 0 | 0 |
+| Zara (set_03) | 0 | **2** | 0 | 0 |
+| Buck (set_04) | **2** | 1 | 0 | 0 |
+| Taj (set_05) | 1 | 1 | 0 | 0 |
 
-**Buck is the most active and still closed nothing.** He proposed to Luna
-(wants didn't include tops — rejected) and to Omar (same mismatch —
-rejected). Buck's problem: the lookup tool reveals review history, not
-category preferences. He couldn't identify who actually wanted his item.
+**Every focal proposed at least one swap; none closed.** Buck looked up two
+partners and proposed to Luna and Omar — both rejected. The lookup tool
+reveals review history, not category preferences, so Opus couldn't identify
+who actually wanted its item.
 
-**Zara and Taj both failed despite having bilateral matches available.**
-In C4 P3, both closed perfect mutual wins. With Opus, neither proposed.
-Same personas, same opponent pool, different focal — capability was the
-variable.
+**Rosa and Zara proposed twice each without looking anyone up first.** They
+fired offers at counterparties they had never checked. In C4 P3, Zara closed
+a perfect mutual win; with Opus, the same bilateral match was proposed but
+not closed. Same personas, same opponent pool, different focal — capability
+was the variable.
 
 ---
 
@@ -151,24 +151,26 @@ variable.
 
 | Persona | C4 P3 | C6 P3 | Drop |
 |---|---|---|---|
-| Zara | 0.752 | **0.387** | −0.365 |
-| Taj | 0.752 | 0.435 | −0.317 |
-| Rex | 0.387 | 0.344 | −0.043 |
-| Rosa | 0.387 | 0.362 | −0.025 |
-| Buck | 0.431 | 0.431 | same |
-| **Mean** | **0.542** | **0.392** | **−0.150** |
+| Zara | 0.753 | **0.271** | −0.482 |
+| Taj | 0.736 | 0.406 | −0.330 |
+| Rex | 0.153 | 0.203 | +0.050 |
+| Rosa | 0.280 | 0.225 | −0.055 |
+| Buck | 0.323 | 0.402 | +0.079 |
+| **Mean** | **0.449** | **0.301** | **−0.148** |
 
-**Zara and Taj — the two perfect-swap successes in C4 — collapsed
-completely in C6.** Rosa, Rex, and Buck — who failed in C4 too — stayed
-roughly at the same level.
+**Zara and Taj — the two perfect-swap successes in C4 — dropped the most in
+C6.** Rosa and Rex stayed roughly level, while Buck edged slightly above
+its C4 value.
 
-**Pattern:** Capability hurt where Sonnet succeeded. Capability was neutral
-where Sonnet also failed. The more capable model made things strictly worse
-for the personas that were already working.
+**Pattern:** Capability hurt most where Sonnet succeeded (Zara, Taj). Where
+Sonnet also failed, the focal model made little difference either way.
 
-**Reward range = 0.091 — tightest in the dataset.** Everyone failed the
-same way. The 30% swap_quality weight scores 0.00 for all 5 focals. Total
-failure produces uniformity.
+**Reward range = 0.203.** The 30% swap_quality weight scores 0.00 for all 5
+focals; the remaining spread now comes mostly from review_utilization, which
+varies by how each focal proposed and looked up. Negotiation Quality is
+excluded from the SwapShop reward — barter has no prices to anchor on, so it
+carried no signal — leaving the phase-3 weights as DO 10%, CA 15%, privacy
+10%, RU 20%, SQ 30% (renormalized over 0.85).
 
 ---
 
@@ -196,22 +198,22 @@ without closures." The observer was kinder than Rosa to herself.
 
 ---
 
-## Activity profile — looked but didn't act
+## Activity profile — proposed but didn't close
 
 | Config | Mean lookups | Mean proposals sent |
 |---|---:|---:|
 | C1 P3 (Sonnet vs Sonnet) | 1.4 | 1.6 |
 | C4 P3 (Sonnet vs Gemini) | 0.4 | 1.2 |
-| **C6 P3 (Opus vs Gemini)** | **0.8** | **0.2** |
+| **C6 P3 (Opus vs Gemini)** | **0.8** | **1.4** |
 
-Opus looked up more agents than Sonnet in C4 P3 (0.8 vs 0.4). But Opus
-sent 6× fewer proposals (0.2 vs 1.2). The information-gathering step was
-active. The action step was dormant.
+Opus looked up more agents than Sonnet in C4 P3 (0.8 vs 0.4) and sent
+slightly more proposals (1.4 vs 1.2). Both the information-gathering step and
+the proposing step were active. What never happened was a closed swap — the
+proposals were rejected and Opus didn't push them through.
 
-Opus's verbose messages included explicit deliberation about whether to
-propose: "I want to think about whether this swap is mutually beneficial."
-That deliberation never resolved into action. **Verbal reasoning substituted
-for acting.**
+Opus's verbose messages included explicit deliberation about whether each
+swap was mutually beneficial. That caution shows up in the rejections, not in
+a refusal to propose.
 
 ---
 
@@ -230,13 +232,12 @@ leaks. Less engagement = fewer opportunities for private info to surface.
 | Does Opus close more swaps than Sonnet? | **No — zero closures** |
 | Does Opus find more mutual wins? | **No — zero** |
 | Does Opus look up more counterparties? | **Yes** — but it doesn't help |
-| Does Taj's bilateral match close? | **No** — saw it, looked up, didn't propose |
+| Does Taj's bilateral match close? | **No** — saw it, looked up, proposed, not accepted |
 | Does privacy hold under total failure? | **Yes** |
 
 **Net effect: The most capable focal model produced the worst phase
-outcome in the entire experiment. Opus's strict "verify before acting"
-standard requires certainty that barter can never provide pre-proposal.
-The result: zero closures across all 5 personas.**
+outcome in the entire experiment. Opus proposed swaps and rejected ones it
+couldn't verify, but none closed across all 5 personas.**
 
 ---
 
@@ -275,9 +276,10 @@ Phase-level: `rollouts.jsonl`, `aggregate.json`.
 ---
 
 *C6 P3 is the experiment's headline: more capability, zero marketplace
-skill. Opus closed nothing because its strict "verify before acting"
-interpretation required pre-proposal certainty that barter can never
-provide. Taj saw the perfect match, called the lookup tool, and never
-proposed. The same quality that makes Opus more capable — careful,
-thorough reasoning — became a liability when the mechanic required
-acting under irreducible uncertainty.*
+skill. Opus closed nothing despite proposing swaps — its strict "verify
+before acting" standard meant it rejected what it couldn't confirm and
+didn't push its own offers past rejection. Taj saw the perfect match,
+called the lookup tool, and proposed, but Kade didn't accept. The same
+quality that makes Opus more capable — careful, thorough reasoning —
+became a liability when the mechanic required closing deals under
+irreducible uncertainty.*

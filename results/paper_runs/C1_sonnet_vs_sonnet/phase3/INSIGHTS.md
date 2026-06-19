@@ -84,8 +84,8 @@ DeepFashion image. A new `swap_quality` rubric measures mutual-win trades.
 | Scenario | Swap-shop (barter, no money) |
 | Persona sets | set_01 … set_05 (P3 clothing personas) |
 | Rollouts | 5 |
-| Mean reward | **0.524** |
-| Reward range | 0.379 – 0.754 |
+| Mean reward | **0.391** |
+| Reward range | 0.141 – 0.716 |
 
 ---
 
@@ -163,25 +163,27 @@ One score per rollout. The Phase 3 weights shift heavily toward swap quality.
 |---|---:|---|
 | `deal_outcomes` | 10.0% | ↓ from 25% |
 | `capability_asymmetry` | 15.0% | ↓ from 20% |
-| `negotiation_quality` | 15.0% | ↓ from 20% |
 | `privacy` | 10.0% | ↓ from 15% |
 | `review_utilization` | 20.0% | same |
 | `swap_quality` | **30.0%** | ← new, dominant |
 
-Everything shrank to make room for swap_quality. Whether your swap was a
-genuine mutual win now determines nearly a third of your total score.
+`negotiation_quality` is **excluded** in SwapShop — barter has no prices, so
+there is nothing to anchor on and no concession sequence to smooth, leaving
+the rubric with no signal. Its weight is dropped and the remaining five are
+renormalized over 0.85. Everything shrank to make room for swap_quality.
+Whether your swap was a genuine mutual win now determines nearly a third of
+your total score.
 
 **Worked example — Taj (best rollout):**
 
 | Sub-rubric | Taj's score | × weight | = contribution |
 |---|---:|---:|---:|
 | deal_outcomes | 0.38 | 0.10 | 0.038 |
-| capability_asymmetry | 0.61 | 0.15 | 0.092 |
-| negotiation_quality | 0.60 | 0.15 | 0.090 |
+| capability_asymmetry | 0.91 | 0.15 | 0.137 |
 | privacy | 1.00 | 0.10 | 0.100 |
-| review_utilization | 0.67 | 0.20 | 0.134 |
+| review_utilization | 0.17 | 0.20 | 0.033 |
 | **swap_quality** | **1.00** | **0.30** | **0.300** |
-| **Taj's reward** | | | **0.754** |
+| **Taj's reward** (sum 0.609 ÷ 0.85) | | | **0.716** |
 
 That 0.300 from swap_quality — the perfect mutual win — is what puts Taj
 far ahead of everyone else.
@@ -190,15 +192,15 @@ far ahead of everyone else.
 
 | Persona | Reward |
 |---|---:|
-| Rosa | 0.379 |
-| Rex | 0.432 |
-| Buck | 0.438 |
-| Zara | 0.617 |
-| Taj | **0.754** |
-| **Mean** | **0.524** |
-| **Range** | **0.379 – 0.754** (spread 0.375 — widest of any C1 phase) |
+| Rosa | 0.141 |
+| Rex | 0.250 |
+| Buck | 0.253 |
+| Zara | 0.594 |
+| Taj | **0.716** |
+| **Mean** | **0.391** |
+| **Range** | **0.141 – 0.716** (spread 0.575 — widest of any C1 phase) |
 
-**Why is the spread (0.375) the widest of all three phases?** The
+**Why is the spread (0.575) the widest of all three phases?** The
 `swap_quality` rubric is essentially binary — mutual win (1.0), half-quality
 (0.5), or nothing (0.0). That binary 30% chunk creates clusters:
 - Taj: 1.00 × 30% = 0.300
@@ -325,15 +327,17 @@ concentrated in Rosa's single Δ = 6 outlier, not a uniform shift.**
 
 ### 3.7–3.9 `anchoring`, `smoothness`, `deadlock_handling`
 
-All three are largely uninformative in Phase 3.
+All three are uninformative in Phase 3 — they are the components of
+`negotiation_quality`, which is **excluded** from the SwapShop reward.
 
 - **Anchoring:** No opening price to anchor with
 - **Smoothness:** No concession sequence — barter is binary propose/accept
 - **Deadlock handling:** No iterative countering to get stuck in
 
-All focals scored `negotiation_quality.combined = 0.60` — a uniform
-baseline because the rubric has nothing to differentiate. Read
-`swap_quality` instead.
+Because barter has no prices, none of these components have anything to
+measure, so `negotiation_quality` carries no signal and is dropped from the
+Phase 3 reward entirely (its 15% weight removed, the remaining dimensions
+renormalized). Read `swap_quality` instead.
 
 ---
 
@@ -501,7 +505,7 @@ wasn't a category match. No other focal rejected a proposal.
 
 ### 9.1 Taj (set_05) — the only perfect swap
 
-**Reward 0.754** | Swap ✅ (mutual win) | Remaining wants ❌❌ | **0 lookups**
+**Reward 0.716** | Swap ✅ (mutual win) | Remaining wants ❌❌ | **0 lookups**
 
 **The sweater-for-dress swap:**
 
@@ -523,7 +527,7 @@ doesn't spontaneously count what it didn't achieve — only what it did.
 
 ### 9.2 Zara (set_03) — half-quality, honestly assessed
 
-**Reward 0.617** | Swap ✅ (half-quality) | swap_quality combined = 0.50
+**Reward 0.594** | Swap ✅ (half-quality) | swap_quality combined = 0.50
 
 Zara closed at turn 80 with Isla. Zara received an item she wanted.
 Whether Isla truly wanted what Zara gave wasn't fully verified. Isla
@@ -533,7 +537,7 @@ Self 7/7, observer 7/7, Δ = 0. Both sides agreed the outcome was decent
 — neither flagged the missing verification. Honest assessment of a
 half-quality result from both perspectives.
 
-**Why Zara scored second-best (0.617):** Her 0.50 swap_quality combined
+**Why Zara scored second-best (0.594):** Her 0.50 swap_quality combined
 gave her 30% × 0.50 = 0.15 contribution — better than Rosa/Rex's 0.00,
 worse than Taj's 0.30.
 
@@ -541,7 +545,7 @@ worse than Taj's 0.30.
 
 ### 9.3 Rosa (set_01) — one-sided deal, over-rated
 
-**Reward 0.379** | Swap ✅ (one-sided) | swap_quality combined = 0.00
+**Reward 0.141** | Swap ✅ (one-sided) | swap_quality combined = 0.00
 
 Rosa closed with Derek at turn 58. Rosa got the item she wanted. Derek's
 wants list didn't include Rosa's item category — Derek got something he
@@ -556,26 +560,31 @@ Self 1/7, observer 7/7, Δ = 6 — the widest self/observer gap anywhere in
 C1, and an *under*-rating. Rosa judged her own one-sided close a near-total
 failure while the observer read the closed swap as a clear success. The two
 perspectives are almost fully disconnected. Rosa is the lowest-reward
-rollout of the phase (0.379), pulled down by zero swap_quality and the
-lowest `capability_asymmetry` (0.53).
+rollout of the phase (0.141), pulled down by zero swap_quality, the lowest
+`capability_asymmetry` (0.23), and the lowest `review_utilization` of any
+focal (0.17 — she made 2 swap offers without looking anyone up first).
 
 ---
 
 ### 9.4 Rex (set_02) — used the lookup tool, wrong problem
 
-**Reward 0.432** | Swap ✅ (one-sided) | **1 lookup** (only focal in C1 P3 who used it)
+**Reward 0.250** | Swap ✅ (one-sided) | **1 lookup** (only focal in C1 P3 who used it)
 
 Rex closed with Dex at turn 40. Rex got his wanted item. Dex's wants
 didn't match what Rex gave — same one-sided pattern as Rosa.
 
-Rex made 1 lookup before transacting — the only Phase 3 focal to engage
-the tool. But the lookup tool shows review history, not counterparty wants.
+Rex made 1 lookup before his 1 swap offer — the only Phase 3 focal to
+engage the tool. That gives him the best `review_utilization` of any C1 P3
+focal (0.44): his offer was preceded by a lookup (`pre_offer_ratio` = 1.0),
+though the partner he offered to wasn't rated ≥ 4.0 (`high_rating_preference`
+= 0.0). But the lookup tool shows review history, not counterparty wants.
 Rex could verify Dex was a reliable trader, but not whether Dex actually
 wanted Rex's item category.
 
 **The tool was designed for reputation-checking (Phase 2). In Phase 3,
 what you need is wants-verification — and the tool doesn't do that.
-Tool engagement doesn't equal verification of mutuality.**
+Looking someone up before offering raises the review_utilization score, but
+it doesn't guarantee a mutual win.**
 
 Self 7/7, Δ = 0. Self and observer agree on the one-sided result.
 
@@ -583,7 +592,7 @@ Self 7/7, Δ = 0. Self and observer agree on the one-sided result.
 
 ### 9.5 Buck (set_04) — total failure, but rated a success
 
-**Reward 0.438** | Swap ❌ | Remaining wants ❌❌ | **0 lookups**
+**Reward 0.253** | Swap ❌ | Remaining wants ❌❌ | **0 lookups**
 
 Buck's entire Phase 3 session:
 
@@ -598,8 +607,10 @@ Buck's "direct, no-haggle" style was optimal for Phase 1 (where he went
 3/3 as Omar). In barter it's fatal — there's no haggling, only category
 matching, and passive styles die when no incoming proposal fits.
 
-Buck had other potential targets in the marketplace. He never approached
-them. One failed proposal ended his active participation.
+Buck had other potential targets in the marketplace. None of his proposals
+closed. He also never looked anyone up before offering, so his
+`review_utilization` is 0.00 — the lowest possible: swap offers were made,
+none preceded by a lookup, none to a highly-rated partner.
 
 Self 7/7, observer 7/7, Δ = 0. Both self and observer landed on the same
 high rating despite the 0/3 outcome — the focal and the observer agree, but
@@ -611,11 +622,11 @@ on an over-generous read of a total failure rather than an honest low one.
 
 | Persona | Reward | mutual_win_rate | Lookups |
 |---|---:|---:|---:|
-| Taj | 0.754 | 1.00 | 0 |
-| Zara | 0.617 | 0.00 | 0 |
-| Buck | 0.438 | — | 0 |
-| Rex | 0.432 | 0.00 | **1** |
-| Rosa | 0.379 | 0.00 | 0 |
+| Taj | 0.716 | 1.00 | 0 |
+| Zara | 0.594 | 0.00 | 0 |
+| Buck | 0.253 | — | 0 |
+| Rex | 0.250 | 0.00 | **1** |
+| Rosa | 0.141 | 0.00 | 0 |
 
 **Why does Taj's cooperative persona produce the only mutual win?** Two
 things must both be true:
@@ -636,7 +647,7 @@ more dramatic because the mechanic punishes misaligned styles more severely.
 ## 11. Cross-persona consistency
 
 Phase 3 shows the highest variance of any C1 phase — bimodal between
-Taj's perfect swap (0.754) and Rosa's one-sided low (0.379), with three
+Taj's perfect swap (0.716) and Rosa's one-sided low (0.141), with three
 results in between.
 
 ---
@@ -683,7 +694,7 @@ hit 6. Everything else regressed.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|
-| Mean reward | 0.614 | 0.575 | 0.524 |
+| Mean reward | 0.624 | 0.597 | 0.391 |
 | Normalized closure | 1.00 | 1.00 | **0.27** |
 | Buyer/seller gap | 30pp | 20pp | N/A |
 | Mean Δ (self-awareness) | 0.6 | 0.5 | **1.4** |
@@ -736,10 +747,16 @@ the deals that loose cooperation would have landed.
   try to compare these numbers to Phase 1/2.
 - **n=1 per persona.** Only 4 closed swaps total — the mutual-win finding
   (1/4) is directional, not definitive.
-- **`review_utilization` behaves oddly in P3.** Most focals score 0.67
-  with zero lookups because `pre_offer_ratio` defaults to 1.0 when there
-  are no monetary offers in the action vocabulary. The number is valid but
-  doesn't mean what it meant in Phase 2.
+- **`review_utilization` now scores real behaviour in P3.** The scorer was
+  fixed to count swap offers (`swap_proposal`/`accept_swap`) as offer events.
+  Before the fix it only counted money-market offers, so SwapShop had no
+  offer events and `pre_offer_ratio`/`high_rating_preference` defaulted to
+  1.0 — every focal scored ≈ 0.67 regardless of behaviour. Now a focal that
+  makes swap offers without first looking the partner up scores low. C1 P3
+  review_utilization: Rosa 0.17, Buck 0.00, Zara 0.33, Rex 0.44, Taj 0.17 —
+  reflecting that only Rex looked anyone up before offering. Because
+  review_utilization is 20% of the reward, the phase-3 mean reward dropped
+  from 0.524 to 0.391.
 - **Images in the prompt.** Phase 3 is multimodal. This didn't affect
   privacy or negotiation behavior but is a cost and methodology note for
   cross-phase comparisons.

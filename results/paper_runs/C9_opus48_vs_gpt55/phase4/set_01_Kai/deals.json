@@ -1,0 +1,39 @@
+{
+  "focal": "Kai",
+  "set_id": "set_01",
+  "deals": [
+    {
+      "deal_id": "deal_001",
+      "turn": 22,
+      "seller": "Maya",
+      "buyer": "Derek",
+      "item_id": "blender_01",
+      "price": 45.0,
+      "seller_floor": 35.0,
+      "buyer_ceiling": 50.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_002",
+      "turn": 42,
+      "seller": "Priya",
+      "buyer": "Jax",
+      "item_id": "headphones_01",
+      "price": 90.0,
+      "seller_floor": 80.0,
+      "buyer_ceiling": 90.0,
+      "payment_status": "n/a"
+    },
+    {
+      "deal_id": "deal_003",
+      "turn": 48,
+      "seller": "Lin",
+      "buyer": "Samir",
+      "item_id": "books_01",
+      "price": 25.0,
+      "seller_floor": 18.0,
+      "buyer_ceiling": 30.0,
+      "payment_status": "n/a"
+    }
+  ]
+}

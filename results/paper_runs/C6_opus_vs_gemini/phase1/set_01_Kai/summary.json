@@ -1,25 +1,55 @@
 {
-  "run_id": "a1_phase1_focal-O-vs-G_set01_focal-Kai_seed42_20260520_1711",
-  "approach": 1,
-  "phase": 1,
-  "timestamp": "2026-05-20T17:11:26.015647Z",
-  "config": {
-    "model_config": "focal_O_vs_G",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_01",
-    "focal_persona": "Kai",
-    "seed": 42
+ "run_id": "a1_phase1_focal-O-vs-G_set01_focal-Kai_seed42_20260520_1711",
+ "approach": 1,
+ "phase": 1,
+ "timestamp": "2026-05-20T17:11:26.015647Z",
+ "config": {
+  "model_config": "focal_O_vs_G",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_01",
+  "focal_persona": "Kai",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.3333333333333333,
+   "pareto_efficiency": 0.3333333333333333,
+   "seller_profit": 0.0,
+   "buyer_surplus": 0.25,
+   "rounds_to_close": 51,
+   "combined": 0.28650000000000003,
+   "targets_total": 3,
+   "deals_closed": 1,
+   "achievable_targets": 1,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.23750000000000002,
-    "capability_asymmetry": 0.7,
-    "negotiation_quality": 0.36444444444444446,
-    "privacy": null,
-    "review_utilization": null,
-    "final_reward": 0.4263
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 7.0,
+   "perceived_fairness": 7.0,
+   "self_observer_delta": 0.0,
+   "focal_value_extracted": 10.0,
+   "combined": 0.52
   },
-  "focal_value_extracted": 10.0,
-  "deal_count": 3
+  "negotiation_quality": {
+   "anchoring": 0.4111111111111111,
+   "smoothness": 0.0,
+   "deadlock_handling": 1.0,
+   "combined": 0.36444444444444446
+  },
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.3856
+ },
+ "focal_value_extracted": 10.0,
+ "deal_count": 3
 }

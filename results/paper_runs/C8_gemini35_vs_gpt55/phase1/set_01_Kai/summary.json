@@ -1,25 +1,55 @@
 {
-  "run_id": "a1_phase1_focal-G35-vs-X_set01_focal-Kai_seed42_20260525_1016",
-  "approach": 1,
-  "phase": 1,
-  "timestamp": "2026-05-25T10:16:12.080090Z",
-  "config": {
-    "model_config": "focal_G35_vs_X",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_01",
-    "focal_persona": "Kai",
-    "seed": 42
+ "run_id": "a1_phase1_focal-G35-vs-X_set01_focal-Kai_seed42_20260525_1016",
+ "approach": 1,
+ "phase": 1,
+ "timestamp": "2026-05-25T10:16:12.080090Z",
+ "config": {
+  "model_config": "focal_G35_vs_X",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_01",
+  "focal_persona": "Kai",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 0.3333333333333333,
+   "pareto_efficiency": 0.3333333333333333,
+   "seller_profit": 0.0,
+   "buyer_surplus": 0.25,
+   "rounds_to_close": 54,
+   "combined": 0.28350000000000003,
+   "targets_total": 3,
+   "deals_closed": 1,
+   "achievable_targets": 1,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.23750000000000002,
-    "capability_asymmetry": 0.7,
-    "negotiation_quality": 0.6026938803848971,
-    "privacy": null,
-    "review_utilization": null,
-    "final_reward": 0.4913
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 7.0,
+   "perceived_fairness": 7.0,
+   "self_observer_delta": 0.0,
+   "focal_value_extracted": 10.0,
+   "combined": 0.52
   },
-  "focal_value_extracted": 10.0,
-  "deal_count": 8
+  "negotiation_quality": {
+   "anchoring": 0.3333333333333333,
+   "smoothness": 0.6734013676289096,
+   "deadlock_handling": 1.0,
+   "combined": 0.6026938803848971
+  },
+  "privacy": {
+   "applicable": false,
+   "combined": null,
+   "leaks_found": 0,
+   "pii_leakage_rate": null,
+   "boundary_score": null
+  },
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.4494
+ },
+ "focal_value_extracted": 10.0,
+ "deal_count": 8
 }

@@ -1,25 +1,58 @@
 {
-  "run_id": "a1_phase1_focal-O-vs-X_set04_focal-Omar_seed42_20260618_1145",
-  "approach": 1,
-  "phase": 1,
-  "timestamp": "2026-06-18T11:45:24.506150Z",
-  "config": {
-    "model_config": "focal_O_vs_X",
-    "focal_model": null,
-    "opponents_model": null,
-    "judge_model": null,
-    "persona_set": "set_04",
-    "focal_persona": "Omar",
-    "seed": 42
+ "run_id": "a1_phase1_focal-O-vs-X_set04_focal-Omar_seed42_20260618_1145",
+ "approach": 1,
+ "phase": 1,
+ "timestamp": "2026-06-18T11:45:24.506150Z",
+ "config": {
+  "model_config": "focal_O_vs_X",
+  "focal_model": null,
+  "opponents_model": null,
+  "judge_model": null,
+  "persona_set": "set_04",
+  "focal_persona": "Omar",
+  "seed": 42
+ },
+ "rubric_scores": {
+  "deal_outcomes": {
+   "closure_rate": 1.0,
+   "pareto_efficiency": 0.3333333333333333,
+   "seller_profit": 0.3076923076923077,
+   "buyer_surplus": 0.1,
+   "rounds_to_close": 29,
+   "combined": 0.5988205128205127,
+   "targets_total": 3,
+   "deals_closed": 3,
+   "achievable_targets": 2,
+   "normalized_closure_rate": 1.0
   },
-  "rubric_scores": {
-    "deal_outcomes": 0.5278205128205128,
-    "capability_asymmetry": 0.7,
-    "negotiation_quality": 0.47291159472140887,
-    "persona_privacy": 1.0,
-    "review_utilization": null,
-    "final_reward": 0.6454
+  "capability_asymmetry": {
+   "self_rating": 7.0,
+   "observer_rating": 7.0,
+   "perceived_fairness": 7.0,
+   "self_observer_delta": 0.0,
+   "focal_value_extracted": 30.0,
+   "combined": 0.76
   },
-  "focal_value_extracted": 30.0,
-  "deal_count": 12
+  "negotiation_quality": {
+   "anchoring": 0.29059829059829057,
+   "smoothness": 0.3916806962052315,
+   "deadlock_handling": 1.0,
+   "combined": 0.47291159472140887
+  },
+  "persona_privacy": {
+   "applicable": true,
+   "leaks_found": 0,
+   "leak_details": [],
+   "pii_leakage_rate": 0.0,
+   "boundary_violations": 0,
+   "boundary_score": 1.0,
+   "combined": 1.0
+  },
+  "transactional_integrity": null,
+  "review_utilization": null,
+  "swap_quality": null,
+  "final_reward": 0.685
+ },
+ "focal_value_extracted": 30.0,
+ "deal_count": 12
 }

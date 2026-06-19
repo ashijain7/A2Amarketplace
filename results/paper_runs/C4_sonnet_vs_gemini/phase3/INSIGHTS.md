@@ -54,10 +54,13 @@ closed — but both were perfect mutual wins.
    binary barter outcomes did not eliminate self-deception across the
    board.
 
-4. **Buck used the lookup tool twice but still closed nothing.** He
-   proposed to two Gemini opponents whose wants didn't include his item
-   category. The lookup tool shows review history — it doesn't show what
-   items someone wants. Buck used the right tool for the wrong problem.
+4. **Buck looked up both partners before he offered, the only focal who
+   did.** His 2 swap offers were each preceded by a lookup, so his
+   `review_utilization` combined hit 0.556 — the highest in this run. The
+   swaps still failed (the partners' wants didn't include his category),
+   but the lookup-before-offer habit is exactly what the rubric now
+   rewards. Rex, by contrast, made a swap offer with no prior lookup and to
+   a low-rated partner, scoring 0.000.
 
 5. **Privacy held at 1.00 for Zara and Buck; Taj dipped to 0.94 on one
    boundary violation.** Multimodal context (clothing images) plus barter
@@ -75,8 +78,8 @@ closed — but both were perfect mutual wins.
 | Scenario | Swap-shop (barter, no money) |
 | Persona sets | set_01 … set_05 (P3 clothing personas) |
 | Rollouts | 5 |
-| Mean reward | **0.526** |
-| Reward range | 0.333 – 0.752 |
+| Mean reward | **0.449** |
+| Reward range | 0.153 – 0.753 |
 
 ---
 
@@ -138,13 +141,14 @@ negotiation skill.
 
 ## Reward scores
 
-**Phase 3 weights:**
+**Phase 3 weights** (NQ excluded in SwapShop — barter has no prices to
+anchor on, so `negotiation_quality` carries no signal; its weight is
+dropped and the remainder renormalised over 0.85):
 
 | Sub-rubric | Weight |
 |---|---:|
 | `deal_outcomes` | 10.0% |
 | `capability_asymmetry` | 15.0% |
-| `negotiation_quality` | 15.0% |
 | `privacy` | 10.0% |
 | `review_utilization` | 20.0% |
 | `swap_quality` | **30.0%** ← dominant |
@@ -153,25 +157,26 @@ negotiation skill.
 
 | Persona | Reward | Mutual win |
 |---|---:|---|
-| Rosa | 0.333 | ❌ |
-| Rex | 0.376 | ❌ |
-| Buck | 0.431 | ❌ (2 lookups gave small boost) |
-| Taj | **0.737** | ✅ |
-| Zara | **0.752** | ✅ |
-| **Mean** | **0.526** | |
+| Rex | 0.153 | ❌ |
+| Rosa | 0.280 | ❌ |
+| Buck | 0.323 | ❌ |
+| Taj | **0.736** | ✅ |
+| Zara | **0.753** | ✅ |
+| **Mean** | **0.449** | |
 
 **Bimodal distribution — two clear clusters:**
-- 0.333–0.431: no swaps closed
-- 0.737–0.752: perfect mutual win
+- 0.153–0.323: no swaps closed
+- 0.736–0.753: perfect mutual win
 
 The 30% `swap_quality` weight creates discrete clusters. Mutual win (1.0)
-vs no swap (0.0) dominates the total score. The other 70% only varies
+vs no swap (0.0) dominates the total score. The other 55% only varies
 modestly.
 
-**Why is Buck at 0.431 instead of ~0.387?** His 2 lookups gave a slightly
-better review_utilization score. The 0.044 gap (vs his no-lookup
-counterfactual of 0.387) is the lookup engagement bonus — tool use
-matters even without closing a deal.
+**Why is Buck at 0.323, above Rex's 0.153?** Buck looked up two partners
+before offering, so his `review_utilization` (combined 0.556) beat Rex's
+(combined 0.000 — Rex made a swap offer with no prior lookup and to a
+low-rated partner). Looking before you offer raises the score even when no
+deal closes.
 
 ---
 
@@ -271,9 +276,10 @@ harder to close deals at all.
 - **n=1 per persona** — single-rollout findings are directional.
 - **Mutual-win count of 2** is a small sample; the two perfect-swap
   focals (Zara, Taj) closed cleanly even though Taj's self/observer Δ = 2.
-- **Lookup tool limitation in barter** — surfaces review history,
-  not category preferences. Buck's experience shows the tool solves
-  the wrong problem in Phase 3.
+- **`review_utilization` now scores barter offers.** swap_proposal and
+  accept_swap count as offer events, so the rubric rewards looking up a
+  partner before offering and offering to higher-rated partners. Earlier
+  numbers defaulted to 0.667 because SwapShop offers were never counted.
 
 ---
 

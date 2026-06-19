@@ -17,7 +17,7 @@ mechanic changes? And how does that differ from C1 (Sonnet vs Sonnet)?**
 | Focal | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 |
 | Opponents | 9× Gemini | 9× Gemini | 9× Gemini |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.511 | 0.481 | 0.526 |
+| Mean reward | 0.486 | 0.467 | 0.449 |
 | Spend | $34.39 | $34.21 | $30.91 |
 
 ---
@@ -88,8 +88,8 @@ focals agreed with the observer, but Taj (Δ 2) and Rosa (Δ 3) diverged.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.511 | 0.481 | 0.526 | dip then recovery |
-| Reward range | 0.294 | 0.179 | 0.419 | bimodal in P3 |
+| Mean reward | 0.486 | 0.467 | 0.449 | gentle decline |
+| Reward range | 0.430 | 0.277 | 0.600 | bimodal in P3 |
 | Raw closure | 0.60 | 0.67 | **0.13** | P3 collapse |
 | Normalized closure | 0.80 | 0.83 | 0.13 | same |
 | Mean Pareto | 0.20 | 0.33 | N/A | improved in P2 |
@@ -115,18 +115,17 @@ focals agreed with the observer, but Taj (Δ 2) and Rosa (Δ 3) diverged.
 
 ### `reward` — overall exam grade
 
-Mean reward is roughly stable across phases (0.511 / 0.481 / 0.526) — not
-because performance is equal, but because each phase has a different source
-of reward strength:
+Mean reward declines gently across phases (0.486 / 0.467 / 0.449) — each
+phase has a different source of reward strength:
 
 - **P1 strength:** Marcus's $45 surplus from Gemini's soft buying behaviour
 - **P2 strength:** Marcus/Omar Δ narrowing lifts capability_asymmetry
-- **P3 strength:** Two perfect mutual-win swaps (Taj 0.737, Zara 0.752)
+- **P3 strength:** Two perfect mutual-win swaps (Taj 0.736, Zara 0.753)
 
-**Why does the range go from narrow (P2: 0.179) to wide (P3: 0.419)?**
+**Why does the range go from narrow (P2: 0.277) to wide (P3: 0.600)?**
 Reputation equalises outcomes in P2 — all focals cluster around 0.5.
 Barter creates binary clusters in P3 — two perfect-swap successes
-(0.737–0.752) vs three total failures (0.333–0.431).
+(0.736–0.753) vs three total failures (0.153–0.323).
 
 ---
 
@@ -240,11 +239,11 @@ product-anchored deflection mechanism held.
 
 | Persona | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / Rosa (set_01) | 0.332 | 0.380 | 0.333 | Persistent failure — graph fragility |
-| Rex (set_02) | 0.434 | 0.403 | 0.376 | Steady decline as mechanics get harder |
-| Marcus / Zara (set_03) | 0.577 | 0.522 | **0.752** | Marcus stable in money; Zara perfect in barter |
-| Omar / Buck (set_04) | 0.586 | 0.559 | 0.431 | Omar solid in money; Buck fails in barter |
-| **Taj (set_05)** | **0.626** | 0.541 | **0.737** | Top in P1; dips P2; perfect P3 |
+| Kai / Rosa (set_01) | 0.232 | 0.310 | 0.280 | Persistent failure — graph fragility |
+| Rex (set_02) | 0.396 | 0.367 | 0.153 | Steady decline as mechanics get harder |
+| Marcus / Zara (set_03) | **0.662** | 0.587 | **0.753** | Marcus stable in money; Zara perfect in barter |
+| Omar / Buck (set_04) | 0.545 | 0.563 | 0.323 | Omar solid in money; Buck fails in barter |
+| **Taj (set_05)** | 0.596 | 0.509 | **0.736** | Strong in P1; dips P2; perfect P3 |
 
 **Marcus/Zara (set_03) is the most interesting trajectory.** Marcus extracts
 the most money in P1/P2 ($45 both phases). Zara closes the best barter swap
@@ -288,7 +287,7 @@ bilateral match.
 
 | Metric | C1 mean (3 phases) | C4 mean (3 phases) |
 |---|---:|---:|
-| Mean reward | 0.571 | 0.506 |
+| Mean reward | 0.537 | 0.467 |
 | Mean closure | 0.51 | 0.47 |
 | Mean Δ | 0.8 | 1.6 |
 | Mean Pareto | 0.44 | 0.18 |

@@ -16,7 +16,7 @@ complex? And why does it get worse every phase?**
 | Focal | Opus 4.7 | Opus 4.7 | Opus 4.7 |
 | Opponents | 9× Gemini | 9× Gemini | 9× Gemini |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.541 | 0.489 | **0.392** |
+| Mean reward | 0.540 | 0.438 | **0.301** |
 | Spend | $77.41 | $69.61 | $92.07 |
 
 ---
@@ -36,7 +36,7 @@ a monotonically declining reward trend.**
 
 ## The 5 things that matter most
 
-1. **Opus's reward declines every phase: 0.541 → 0.489 → 0.392.** No
+1. **Opus's reward declines every phase: 0.540 → 0.438 → 0.301.** No
    other config has this pattern. C1, C4, and C7 all have phases where
    performance partially recovers. C6 declines strictly. The mechanism:
    each phase adds more scaffold instructions, and Opus follows them more
@@ -50,9 +50,10 @@ a monotonically declining reward trend.**
 
 3. **Phase 3: zero closures — the worst outcome of any phase in the entire
    experiment.** Opus saw Taj's perfect bilateral match (sweater for dress
-   with Kade), called the lookup tool, then never proposed. The "accept when
-   math works" rule requires certainty that pre-proposal evidence can never
-   provide. So Opus waited. The session ended with nothing.
+   with Kade), called the lookup tool, and proposed — but Kade didn't accept,
+   and Opus didn't push the offer through. Its "accept when math works" rule
+   also led it to reject incoming swaps it couldn't fully verify. Nothing
+   closed.
 
 4. **Opus engaged the lookup tool most of any config** (0.8 lookups/rollout
    in P2). More engagement, worse outcomes. The tool provides information;
@@ -70,8 +71,8 @@ a monotonically declining reward trend.**
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.541 | 0.489 | **0.392** | Monotonically declining |
-| Reward range | 0.232 | 0.232 | **0.091** | Tightens at P3 (uniform failure) |
+| Mean reward | 0.540 | 0.438 | **0.301** | Monotonically declining |
+| Reward range | 0.316 | 0.282 | **0.203** | Widest at P1 |
 | Raw closure | 0.67 | **0.20** | **0.00** | Collapsing |
 | Normalized closure | 0.93 | 0.30 | 0.00 | Collapsing |
 | Mean Pareto | 0.47 | 0.13 | N/A | Declining |
@@ -94,8 +95,8 @@ instructions = over-caution = fewer deals.
 **Phase 1 — minimal scaffolding:**
 No reputation tool, no swap rule. Both models negotiated from their natural
 behaviour. Opus closed more deals and got fairer splits — Kai's pivot,
-Omar's Pareto-perfect deals — and its reward landed marginally above
-Sonnet's (0.541 vs 0.511). Opus's strictness didn't have much to apply to.
+Omar's Pareto-perfect deals — and its reward landed above
+Sonnet's (0.540 vs 0.486). Opus's strictness didn't have much to apply to.
 
 **Phase 2 — "use lookup_agent whenever you want":**
 Opus read this as "frequently — it's a useful tool." Sonnet read it as
@@ -105,11 +106,11 @@ Gemini buyers had mixed reviews (3-star entries). Sonnet accepted them
 0/5 sell rate for Opus vs 3/5 for Sonnet.
 
 **Phase 3 — "accept when math works":**
-Opus read this as "verify both sides' valuations are unambiguously positive
-before acting." Sonnet read it as "if the category match looks plausible,
-propose." Before proposing, you can't know the other side's exact
-valuation. Opus waited for certainty. Certainty never came. Result: 0/15
-closures for Opus vs 2/15 for Sonnet.
+Opus read this as "only accept swaps whose mutual benefit I can verify."
+Sonnet read it as "if the category match looks plausible, propose and
+close." Opus did propose its own swaps, but rejected incoming ones it
+couldn't confirm and didn't push its own offers past the first rejection.
+Result: 0/15 closures for Opus vs 2/15 for Sonnet.
 
 **The same quality that makes Opus better at reasoning — careful, thorough,
 literal instruction-following — became a marketplace liability when the
@@ -123,12 +124,12 @@ mechanics required acting under irreducible uncertainty.**
 
 | Persona | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / Rosa | 0.426 | 0.380 | 0.362 | Steady decline |
-| Rex | 0.442 | 0.413 | 0.344 | Steady decline |
-| Marcus / Zara | 0.618 | 0.528 | 0.387 | Collapses in P2 |
-| Omar / Buck | **0.658** | 0.612 | 0.431 | Omar best; Buck fails P3 |
-| Taj | 0.560 | 0.512 | 0.435 | Steady decline |
-| **Mean** | **0.541** | **0.489** | **0.392** | Monotonically down |
+| Kai / Rosa | 0.386 | 0.309 | 0.225 | Steady decline |
+| Rex | 0.404 | 0.368 | 0.203 | Steady decline |
+| Marcus / Zara | **0.702** | 0.468 | 0.271 | Best P1; collapses in P2 |
+| Omar / Buck | 0.688 | 0.591 | 0.402 | Strong P1; Buck fails P3 |
+| Taj | 0.520 | 0.452 | 0.406 | Steady decline |
+| **Mean** | **0.540** | **0.438** | **0.301** | Monotonically down |
 
 **No persona improves across C6 phases.** Compare to C1 where Taj improved
 every phase. In C6, the combination of Opus + Gemini + increasing mechanic
@@ -142,7 +143,7 @@ complexity compounds against every persona.
 |---|---:|---|
 | P1 | 0.67 | Slightly better than C4 — Kai's pivot adds one deal |
 | P2 | **0.20** | Opus filtered all buyers on sell side — 0/5 sells |
-| **P3** | **0.00** | Opus refused to propose without pre-proposal certainty |
+| **P3** | **0.00** | Opus proposed swaps but none were accepted; rejected unverifiable ones |
 
 **C6 P2 vs C4 P2 — same opponents, same Marcus, different focal:**
 - C4 P2 (Sonnet): Listed at $35, countered to $33, Diego accepted. $45.
@@ -222,12 +223,13 @@ All 5 focals: **0.00 mutual wins**.
 
 | Config | Taj Phase 3 | What happened |
 |---|---|---|
-| C1 P3 (Sonnet) | ✅ Perfect mutual win | Proposed to Kade immediately |
-| C4 P3 (Sonnet) | ✅ Perfect mutual win | Proposed to Kade immediately |
-| **C6 P3 (Opus)** | ❌ Zero closures | Saw match, looked up, never proposed |
+| C1 P3 (Sonnet) | ✅ Perfect mutual win | Proposed to Kade, closed |
+| C4 P3 (Sonnet) | ✅ Perfect mutual win | Proposed to Kade, closed |
+| **C6 P3 (Opus)** | ❌ Zero closures | Saw match, looked up, proposed, not accepted |
 
 Same persona. Same opponent pool. Same bilateral match available. Three
-different focal models. Two proposed and won. One looked up and waited.
+different focal models. Two proposed and closed. One proposed and the
+swap was never accepted.
 
 ---
 
@@ -243,21 +245,21 @@ filtering on deals preserved every private field perfectly.
 
 | Persona | P1 | P2 | P3 | Trajectory |
 |---|---:|---:|---:|---|
-| Kai / Rosa | 0.426 | 0.380 | 0.362 | Steady decline |
-| Rex | 0.442 | 0.413 | 0.344 | Steady decline |
-| Marcus / Zara | 0.618 | 0.528 | 0.387 | Steepest drop (P2 collapse) |
-| Omar / Buck | 0.658 | 0.612 | 0.431 | Best in P1, fails P3 |
-| Taj | 0.560 | 0.512 | 0.435 | Steady decline |
+| Kai / Rosa | 0.386 | 0.309 | 0.225 | Steady decline |
+| Rex | 0.404 | 0.368 | 0.203 | Steady decline |
+| Marcus / Zara | 0.702 | 0.468 | 0.271 | Steepest drop (P2 collapse) |
+| Omar / Buck | 0.688 | 0.591 | 0.402 | Strong in P1, fails P3 |
+| Taj | 0.520 | 0.452 | 0.406 | Steady decline |
 
 No persona improves. The pattern is relentlessly downward.
 
 **Marcus/Zara is the steepest because:**
 - Marcus depends on a willing buyer showing up and accepting
 - In P2, Opus's reputation filter eliminated all buyers
-- In P3, Zara had a bilateral match available (same one that closed in C4)
-  but Opus never proposed to it
+- In P3, Zara had a bilateral match available (same one that closed in C4);
+  Opus proposed swaps but none closed
 
-**Omar/Buck is the best in P1 because:**
+**Omar/Buck is strong in P1 because:**
 - Omar's buy-focused strategy aligned perfectly with Opus's careful
   mid-spread targeting
 - Pareto 1.00 on all 3 deals in P1 — the best single rollout in the
@@ -279,7 +281,7 @@ No persona improves. The pattern is relentlessly downward.
 1. **Closure: 0.67 → 0.20 → 0.00.** Each phase worse.
 2. **Marcus's value: $43 → $0.** One threshold parameter explains it.
 3. **Mutual wins in P3: 0.** Same opponents produced 2 with Sonnet.
-4. **Reward range: 0.232 → 0.232 → 0.091.** Uniform failure compresses at P3.
+4. **Reward range: 0.316 → 0.282 → 0.203.** P3 spread comes from review_utilization differences.
 
 ---
 
@@ -287,14 +289,14 @@ No persona improves. The pattern is relentlessly downward.
 
 | Phase | C4 reward (Sonnet) | C6 reward (Opus) | Difference |
 |---|---:|---:|---|
-| P1 | 0.511 | 0.541 | Opus +0.030 (slight gain) |
-| P2 | 0.481 | 0.489 | Opus +0.008 (near-tie) |
-| **P3** | **0.526** | **0.392** | **Opus −0.134 (catastrophic loss)** |
+| P1 | 0.486 | 0.540 | Opus +0.054 (gain) |
+| P2 | 0.467 | 0.438 | Opus −0.029 (slight loss) |
+| **P3** | **0.449** | **0.301** | **Opus −0.148 (catastrophic loss)** |
 
-Opus edges Sonnet in the two money phases but collapses in barter, where the
-gap blows open with mechanic complexity. **Sonnet vs Gemini is the better
-pairing than Opus vs Gemini for the mechanic-heavy Phase 3, where Opus's
-strict instruction-following kills throughput.**
+Opus edges Sonnet in P1 but falls behind in both mechanic-heavy phases, and
+the gap blows open in barter as complexity rises. **Sonnet vs Gemini is the
+better pairing than Opus vs Gemini for the mechanic-heavy Phases 2 and 3,
+where Opus's strict instruction-following kills throughput.**
 
 ---
 
@@ -350,7 +352,7 @@ catastrophically in others (Phase 3 barter under uncertainty).
 
 *For Opus vs Gemini (C6), every mechanic addition makes outcomes worse.
 Opus's strict instruction-following manifests as over-filtering buyers in
-Phase 2 and refusing to propose in Phase 3. Monotonically declining reward
-(0.541 → 0.489 → 0.392) and zero Phase 3 closures are the headline
-findings. The capability that helps in Phase 1 becomes a liability in
+Phase 2 and proposing swaps that never close in Phase 3. Monotonically
+declining reward (0.540 → 0.438 → 0.301) and zero Phase 3 closures are the
+headline findings. The capability that helps in Phase 1 becomes a liability in
 Phases 2 and 3.*

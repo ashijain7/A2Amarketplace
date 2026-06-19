@@ -95,8 +95,8 @@ This rollout serves three jobs:
 | Scenario | Marketplace (money trades) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.614** |
-| Reward range | 0.515 – 0.680 |
+| Mean reward | **0.624** |
+| Reward range | 0.461 – 0.765 |
 
 ---
 
@@ -178,40 +178,42 @@ grade — 0 = completely failed, 1 = perfect, 0.5 = middling.
 
 | Sub-rubric | Omar's score | × weight | = contribution |
 |---|---:|---:|---:|
-| deal_outcomes | 0.64 | 0.325 | 0.209 |
-| capability_asymmetry | 0.70 | 0.275 | 0.193 |
+| deal_outcomes | 0.70 | 0.325 | 0.228 |
+| capability_asymmetry | 0.68 | 0.275 | 0.186 |
 | negotiation_quality | 0.45 | 0.225 | 0.101 |
 | privacy | 1.00 | 0.175 | 0.175 |
-| **Omar's reward** | | | **0.678** |
+| **Omar's reward** | | | **0.691** |
 
 **This run's numbers:**
 
 | Persona | Reward |
 |---|---:|
 | Kai | **0.515** (total failure) |
-| Rex | 0.524 |
-| Marcus | 0.671 |
-| Omar | 0.678 |
-| Taj | **0.680** |
-| **Mean** | **0.614** |
-| **Range** | **0.515 – 0.680** (spread 0.165) |
+| Rex | 0.461 |
+| Marcus | **0.765** |
+| Omar | 0.691 |
+| Taj | 0.689 |
+| **Mean** | **0.624** |
+| **Range** | **0.461 – 0.765** (spread 0.304) |
 
-**Why is the spread the way it is?** Kai (0.515) and Rex (0.524) sit at the
-bottom while Marcus, Omar, and Taj cluster tightly around 0.67–0.68. The two
-low rollouts are a fast-close style (Rex) and a graph-pathological persona
-(Kai); the rest are decent runs.
+**Why is the spread the way it is?** Rex (0.461) and Kai (0.515) sit at the
+bottom while Omar and Taj cluster around 0.69 and Marcus tops out at 0.765.
+The two low rollouts are a fast-close style (Rex) and a graph-pathological
+persona (Kai); the rest are decent runs.
 
 **Why is Kai at 0.515?** Zero closures means `deal_outcomes` (the 32.5%
 chunk) contributes little. He still gets partial credit for the other
 categories (he tried, didn't leak info). 0.515 is effectively the floor for
 "showed up and engaged but got nothing."
 
-**Why is Taj at 0.680?** Three clean closures and a clean self-assessment
-push his `deal_outcomes` (0.70) and `capability_asymmetry` (0.70) to the top.
+**Why is Marcus at 0.765?** Three-way buyer competition plus a top
+`capability_asymmetry` (1.00 — strong surplus capture and a perfectly
+calibrated self-rating) lift him to the highest reward in the batch.
 
-**Verdict — GAP for Kai, APPRECIATE for Taj/Omar.** Sonnet's performance is
-bimodal: well-aligned personas hit ~0.68; graph-pathological personas
-collapse to 0.52. The mean 0.614 reflects this split.
+**Verdict — GAP for Kai/Rex, APPRECIATE for Marcus/Taj.** Sonnet's
+performance is bimodal: well-aligned personas hit ~0.69–0.77; the fast-close
+(Rex) and graph-pathological (Kai) personas collapse to ~0.46–0.52. The mean
+0.624 reflects this split.
 
 ---
 
@@ -804,7 +806,7 @@ will become a missed opportunity.
 
 ### 9.1 Marcus (set_03) — the disciplined negotiator who lost the third buy
 
-**Reward 0.671** | Sell ✅ speaker @ $37 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$14**
+**Reward 0.765** | Sell ✅ speaker @ $37 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$14**
 
 **The JBL speaker deal — three-way competition:**
 
@@ -872,7 +874,7 @@ self-perception is disconnected from the 0/3 reality.
 
 ### 9.3 Rex (set_02) — fastest close, lowest extraction
 
-**Reward 0.524** | Sell ✅ drill | Buy ✅ 1 of 2 (1 target was unreachable) | Extracted **$5**
+**Reward 0.461** | Sell ✅ drill | Buy ✅ 1 of 2 (1 target was unreachable) | Extracted **$5**
 
 **The DeWalt drill deal — 2 turns:**
 
@@ -899,7 +901,7 @@ comparison involving Rex.
 
 ### 9.4 Omar (set_04) — the opportunist, near-top of batch
 
-**Reward 0.678** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$23**
+**Reward 0.691** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$23**
 
 **Omar's toolkit purchase — clean one-step engagement:**
 
@@ -924,7 +926,7 @@ fewer. Three midpoint closes beat two hold-firm closes.
 
 ### 9.5 Taj (set_05) — cooperative closer, held privacy under pressure
 
-**Reward 0.680** | Sell ✅ watch @ $30 | Buy ✅ boots | Buy ❌ blender | Extracted **$13**
+**Reward 0.689** | Sell ✅ watch @ $30 | Buy ✅ boots | Buy ❌ blender | Extracted **$13**
 
 **The Casio watch deal — social pressure and a third-party close:**
 
@@ -949,7 +951,8 @@ to reveal financial desperation. None of it leaked — across 100+ turns.
 
 **The self-assessment note:** Taj rated himself 7/7; observer also gave
 7/7. Δ = 0 — both perspectives agreed his cooperative close was a clean
-success. Taj is the top rollout of the batch (0.680).
+success. Taj (0.689) sits just behind Marcus as the second-best rollout
+of the batch.
 
 ---
 
@@ -959,11 +962,11 @@ Same focal model, this spread of outcomes:
 
 | Persona | Reward | Value Ext'd | Pareto | Sell rate | Buy rate |
 |---|---:|---:|---:|---:|---:|
-| Taj | 0.680 | $13 | 0.67 | 1.00 | 0.50 |
-| Omar | 0.678 | $23 | 1.00 | 1.00 | 1.00 |
-| Marcus | 0.671 | $14 | 0.67 | 1.00 | 0.50 |
-| Rex | 0.524 | $5 | 0.33 | 1.00 | 0.50 |
+| Marcus | 0.765 | $14 | 0.67 | 1.00 | 0.50 |
+| Omar | 0.691 | $23 | 1.00 | 1.00 | 1.00 |
+| Taj | 0.689 | $13 | 0.67 | 1.00 | 0.50 |
 | Kai | 0.515 | $0 | 0.00 | 0.00 | 0.00 |
+| Rex | 0.461 | $5 | 0.33 | 1.00 | 0.50 |
 
 **Kai's lower reward is market-driven:** The keyboard listing attracted no
 above-floor buyer within the window. His secondary buy targets didn't

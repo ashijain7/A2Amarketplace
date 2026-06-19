@@ -16,7 +16,7 @@ that compare to C1, C4, and C6?**
 | Focal | Gemini 3.1 Pro | Gemini 3.1 Pro | Gemini 3.1 Pro |
 | Opponents | 9× GPT-5.5 | 9× GPT-5.5 | 9× GPT-5.5 |
 | Mechanic | Money trading | Money + reputation | Barter |
-| Mean reward | 0.553 | 0.439 | **0.534** |
+| Mean reward | 0.534 | 0.404 | **0.447** |
 | Closure rate | 0.73 | 0.40 | 0.20 |
 | Spend | $11.65 | $13.37 | $17.73 |
 
@@ -33,29 +33,33 @@ first price above its floor. But it paid with surplus: frequent zero-buyer-
 surplus closes dragged Pareto to 0.40.
 
 **Phase 2:** Gemini never used the lookup tool. Zero calls. The 20%
-rubric weight on tool engagement scored near-zero, pulling reward to 0.439.
+rubric weight on tool engagement scored near-zero, pulling reward to 0.404.
 GPT-5.5 opponents also became harder to buy from once ratings were visible.
 
-**Phase 3:** Rebound to 0.534 — **C4 and C7 both recover in Phase 3
-(P3 > P2), with C7's the most pronounced** (it has the deepest Phase-2 dip,
-the lowest P2 of any config). The Phase 2 tool penalty disappeared. Two
-genuine mutual wins (Taj, Zara) lifted the score.
+**Phase 3:** Rebounds to 0.447 — **C7 is one of only two configs (with C9)
+where Phase 3 beats Phase 2** (+0.043). It has the deepest Phase-2 dip, the
+lowest P2 of any config, so barter recovers above it. The rebound is
+genuine: two real mutual wins (Taj, Zara) held the score up. Phase 3 also
+carries Gemini's low score on the fixed review_utilization rubric — it made
+swap offers but looked nobody up first.
 
 ---
 
 ## The 5 things that matter most
 
-1. **C4 and C7 both recover in Phase 3 (P3 > P2), with C7's the most
-   pronounced (0.439 → 0.534).** C7 has the deepest Phase-2 dip — the lowest
-   P2 of any config — so its rebound is the largest. The rebound happened
-   because Phase 2 was artificially depressed by the zero-lookup penalty,
-   which Phase 3's rubric structure removed. Plus two real mutual-win swaps.
+1. **C7's Phase 3 beats Phase 2 (0.404 → 0.447, +0.043) — one of only two
+   configs (with C9) where barter tops the review phase.** C7 has the
+   deepest Phase-2 dip — the lowest P2 of any config — so barter recovers
+   above it. The rebound is genuine: two real mutual-win swaps (Taj, Zara).
+   There is no rubric-default story — the fixed review_utilization scores
+   Gemini low in Phase 3 because it made swap offers without looking anyone
+   up.
 
 2. **Closure dropped every phase: 0.73 → 0.40 → 0.20.** Each mechanic
    made closing harder. But unlike C6, Gemini never hit zero. Phase 3's
    0.20 is modest but not catastrophic.
 
-3. **Taj scored top of both Phase 1 (0.736) and Phase 3 (0.752).** The
+3. **Taj scored top of both Phase 1 (0.737) and Phase 3 (0.753).** The
    only persona to top two different phases in C7. Cooperative style
    translates across mechanics. Omar was the only Phase 2 hold — 3/3
    closure despite the tougher environment.
@@ -76,7 +80,7 @@ genuine mutual wins (Taj, Zara) lifted the score.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.553 | 0.439 | **0.534** | Dip then rebound |
+| Mean reward | 0.534 | 0.404 | **0.447** | Dip then rebound |
 | Closure rate | 0.73 | 0.40 | 0.20 | Declining |
 | Normalized closure | 1.00 | 0.58 | 0.20 | Declining |
 | Mean Pareto | 0.40 | 0.20 | N/A | Declining |
@@ -88,27 +92,30 @@ genuine mutual wins (Taj, Zara) lifted the score.
 
 ---
 
-## Why Phase 3 rebounded — measurement vs reality
+## Why Phase 3 rebounds above Phase 2 — a small, real component
 
 **The Phase 2 penalty:**
 Phase 2 has a 20% weight on `review_utilization`. Gemini made zero lookups.
-That 20% chunk scored 0.21 — dragging reward to 0.439 even when deal
-outcomes were decent.
+That 20% chunk scored 0.21 — dragging reward to 0.404 even when deal
+outcomes were decent. This is the deepest Phase-2 dip of any config, which
+is why barter recovers above it.
 
-**The Phase 3 escape:**
-Phase 3 uses `propose_swap` actions instead of `offer` events. The
-`review_utilization` rubric's lookup-rate calculation divides by offer
-events. With zero offer events, the calculation defaults to 1.0 for
-`pre_offer_ratio` — producing a flat 0.67 score for everyone. The penalty
-disappeared.
+**Phase 3 review_utilization is now scored too:**
+The fixed rubric counts `swap_proposal` and `accept_swap` as offer events.
+Gemini made swap offers (Zara 2, Taj/Buck/Rex 1 each) but looked nobody up
+first, so its Phase 3 review_utilization is low — mean 0.33, with Rex at
+0.00. Only Rosa, who made no offer at all, keeps the 0.67 default. So
+Phase 3 carries a low review_utilization score, just like Phase 2.
 
 **The real component:**
 Taj's turn-7 close and Zara's $14 mutual-win swap were genuine. The
-`swap_quality` rubric's 30% weight rewarded them. Without these two
-successes, the rebound would have been smaller.
+`swap_quality` rubric's 30% weight rewarded them. These two successes are
+the entire reason Phase 3 (0.447) rises back above Phase 2 (0.404).
 
-**Bottom line: Phase 2 was artificially bad (zero-lookup penalty), Phase 3
-was genuinely decent (real mutual wins + penalty removed).**
+**Bottom line: the Phase 3 change from Phase 2 is a modest rebound (+0.043)
+and the upside that lifts it is real — two mutual-win swaps. C7 and C9 are
+the only two configs where Phase 3 beats Phase 2; in C7 it happens because
+the Phase-2 dip is so deep.**
 
 ---
 
@@ -136,11 +143,11 @@ some of C7's Phase 3 misses are execution failures.
 
 | Persona | P1 | P2 | P3 | Story |
 |---|---:|---:|---:|---|
-| Kai / Rosa | 0.456 | 0.295 | 0.376 | Persistent failure |
-| Rex | 0.404 | 0.359 | 0.398 | Steady decline |
-| Marcus / Zara | 0.536 | 0.533 | **0.732** | Stable P1/P2; perfect P3 |
-| Omar / Buck | 0.635 | **0.536** | 0.413 | Strong P1/P2; fails P3 |
-| Taj | **0.736** | 0.470 | **0.752** | Top P1; collapses P2; top P3 |
+| Kai / Rosa | 0.415 | 0.225 | 0.331 | Persistent failure |
+| Rex | 0.374 | 0.307 | 0.120 | Steady decline |
+| Marcus / Zara | 0.498 | 0.491 | **0.729** | Stable P1/P2; perfect P3 |
+| Omar / Buck | 0.647 | **0.551** | 0.301 | Strong P1/P2; fails P3 |
+| Taj | **0.737** | 0.445 | **0.753** | Top P1; collapses P2; top P3 |
 
 **Taj is the most remarkable trajectory.** Top in Phase 1, near-worst in
 Phase 2 (marketplace timing failed him — his buy targets didn't surface),
@@ -171,8 +178,9 @@ money trading doesn't translate to barter.
 ## What changed dramatically
 
 1. **Closure: 0.73 → 0.40 → 0.20.** Every phase harder.
-2. **Review utilization: — → 0.21 → 0.67.** The flip explains most of
-   the Phase 2 → Phase 3 reward change.
+2. **Review utilization stayed low: — → 0.21 → 0.33.** Gemini never used
+   reviews in either money or barter. It is not the driver of the small
+   Phase 2 → Phase 3 reward change — the two mutual-win swaps are.
 3. **Mean Δ: 1.0 → 1.2 → 1.6.** Self-perception widened each phase —
    Rex's Δ = 3 in P1, Kai's Δ = 4 in P2, Buck's Δ = 6 in P3 drove it.
 4. **First privacy leak in Phase 3.** Zara's occupation paraphrase.
@@ -183,21 +191,23 @@ money trading doesn't translate to barter.
 
 | Metric | C1 (S/S) | C4 (S/G) | C6 (O/G) | C7 (G/X) |
 |---|---:|---:|---:|---:|
-| P1 mean reward | **0.614** | 0.511 | 0.541 | 0.553 |
+| P1 mean reward | **0.624** | 0.486 | 0.540 | 0.534 |
 | P1 closure | 0.60 | 0.60 | 0.67 | **0.73** |
 | P1 Pareto | 0.53 | 0.20 | 0.47 | **0.40** |
-| P2 mean reward | 0.575 | 0.481 | 0.489 | 0.439 |
-| P3 mean reward | **0.524** | 0.526 | 0.392 | 0.534 |
+| P2 mean reward | 0.597 | 0.467 | 0.438 | 0.404 |
+| P3 mean reward | 0.391 | 0.449 | 0.301 | **0.447** |
 | P3 mutual wins | 1 | 2 | 0 | **2** |
 | Privacy (all phases) | 1.00 | 1.00 | 1.00 | 0.99 |
 | Total cost | ~$266 | ~$99 | ~$239 | **~$43** |
 
 **C7 is cheapest and has the highest Phase 1 closure.** Its Phase 3 reward
-(0.534) edges just above C1 (0.524) and C4 (0.526). But it has the lowest
-Phase 2 reward and the only privacy leak.
+(0.447) sits essentially level with C4 (0.449) and above C1 (0.391) among
+these four. But it has the lowest Phase 2 reward and the only privacy leak.
+Across all configs, C9 (0.613) has the highest Phase 3 reward, not C7.
 
 **Gemini as a focal:** closes more than Sonnet, produces less surplus per
-deal, ignores tools it's told to use, rebounds in barter, costs the least.
+deal, ignores tools it's told to use, rebounds in barter above its Phase-2
+dip, costs the least.
 
 ---
 
@@ -230,8 +240,9 @@ not buy honest self-assessment.
 - **n=1 per persona per phase.** All findings directional.
 - **GPT-5.5 as opponent is unique to C7.** Model-family effects can't be
   fully isolated.
-- **P3 review_utilization defaults to 0.67 for everyone** — this is a
-  rubric artefact, not signal. Don't read it as meaningful engagement.
+- **P3 review_utilization now scores real swap-offer behaviour.** Gemini
+  made swap offers but never looked anyone up first, so it scores low
+  (mean 0.33). Personas that made no offer keep the 0.67 default — correct.
 - **Rex's dual surplus readings** (capability_asymmetry says +$56,
   swap_quality says −$9) reflect two different surplus definitions. Paper
   should use swap_quality as the Phase 3 ground truth.
@@ -247,12 +258,12 @@ not buy honest self-assessment.
 
 ---
 
-*C7 (Gemini vs GPT-5.5) is the cheapest config, and one of two (with C4)
-where Phase 3 beats Phase 2 — C7's rebound is the most pronounced because it
-has the deepest Phase-2 dip of any config. The Phase 2 dip was amplified by
-Gemini ignoring the lookup tool entirely (opposite failure to Opus who
-over-used it). The Phase 3 rebound combined a measurement artefact
-(tool-penalty removed) with genuine barter competence (Taj's turn-7 close,
-Zara's $14 mutual win). Gemini closes more than any other focal but
-captures less surplus per deal — volume over margin is its defining
-characteristic.*
+*C7 (Gemini vs GPT-5.5) is the cheapest config, and one of only two (with
+C9) where Phase 3 beats Phase 2 — a +0.043 rebound, because it has the
+deepest Phase-2 dip of any config for barter to recover above. The Phase 2
+dip was amplified by Gemini ignoring the lookup tool entirely (opposite
+failure to Opus who over-used it). The Phase 3 rebound is held up by genuine
+barter competence (Taj's turn-7 close, Zara's $14 mutual win); Gemini still
+scores low on the fixed review_utilization rubric in barter. Gemini closes
+more than any other focal but captures less surplus per deal — volume over
+margin is its defining characteristic.*
