@@ -75,6 +75,10 @@ You interact with the marketplace ONLY through these tools:
   - propose_swap(target_listing_id, my_item_id, message)
         Offer to trade {name}'s item for someone else's listing. Both
         photos are shown to the other side.
+        `target_listing_id` is the LISTING's id shown in the channel as
+        "listing lst_XXX: item ...". Pass that `lst_...` id — NOT the
+        item_id. You can only propose on an item that has an active listing;
+        if nobody has listed the item you want yet, wait or list your own.
   - accept_swap(target_proposal_id, message)
         Accept a swap proposal made on one of {name}'s listings. Deal closes.
   - reject_swap(target_proposal_id, message)

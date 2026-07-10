@@ -17,6 +17,10 @@ load_dotenv()
 
 PHASE = os.getenv("MARKETPLACE_PHASE", "1")  # selects phase-specific resources
 
+# When set (by the live UI backend), the marketplace emits each event/room-line/
+# seed/reward as a JSON line to this path for real-time streaming. Unset ⇒ no-op.
+LIVE_LOG = os.getenv("MARKETPLACE_LIVE_LOG")
+
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
 PROMPTS_DIR = ROOT / "marketplace" / "prompts"

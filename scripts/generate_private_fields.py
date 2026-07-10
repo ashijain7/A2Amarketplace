@@ -31,7 +31,9 @@ DENSITY = {
     "set_05": 7,
 }
 
-POC_PERSONAS_DIR = Path("/Users/ashijain/Documents/projectdealpoc/project_deal_poc/personas")
+# Original POC personas dir (that project was removed). Defaults to the in-repo
+# phase-1 set; edit this path if regenerating from other persona source data.
+POC_PERSONAS_DIR = Path(__file__).parent.parent / "personas_phase1"
 OUT_DIR = Path(__file__).parent.parent / "personas"
 
 

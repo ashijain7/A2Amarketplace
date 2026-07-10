@@ -107,7 +107,7 @@ fi
 
 # --- step 2: set env.yaml::policy_model_name -------------------------------
 
-sed -i '' "s|policy_model_name:.*|policy_model_name: $FOCAL_MODEL|" env.yaml
+sed -i.bak "s|policy_model_name:.*|policy_model_name: $FOCAL_MODEL|" env.yaml && rm -f env.yaml.bak
 echo "✓ env.yaml policy_model_name set to: $(grep policy_model_name env.yaml | tr -d ' ')"
 
 # --- step 3: restart ng_run with the new focal -----------------------------

@@ -69,7 +69,7 @@ class MarketplaceState:
     def __post_init__(self):
         self.data_dir = Path(self.data_dir)
         self.data_dir.mkdir(parents=True, exist_ok=True)
-        self.channel = Channel(path=self.data_dir / "channel.jsonl")
+        self.channel = Channel(path=self.data_dir / "channel.jsonl", set_id=self.set_id)
         self.channel.clear()
         self.ledger = Ledger(path=self.data_dir / "deals.json")
         self.ledger.clear()
@@ -91,6 +91,7 @@ class MarketplaceState:
                 seed=self.seed, data_dir=self.data_dir,
                 scam_on=mp_config.SETTLEMENT_SCAM, decline_focal=mp_config.SETTLEMENT_DECLINE,
                 opponents_model=self.opponents_model, phase=self.phase,
+                set_id=self.set_id,
             )
             self.runner.settlement = self.settlement
 
@@ -790,7 +791,11 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         "privacy": priv["combined"],
         "review_utilization": rev["combined"] if rev else None,
         "swap_quality": swap_q["combined"] if swap_q else None,
-    }, phase=state.phase)
+        # Transaction mode: payment safety is now folded into the reward at 0.30
+        # (via TRANSACTION_WEIGHTS, selected by settlement_on below). In non-settlement
+        # modes settle is None → key absent → reward formula unchanged.
+        "transactional_integrity": (settle.get("combined") if settle else None),
+    }, phase=state.phase, settlement_on=(settle is not None))
     # Serialize channel events + deals + personas so the archiver has structured
     # data to write per-run files. These also end up in rollout.json so they're
     # always recoverable.
@@ -828,6 +833,21 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         settlement_records = [asdict(r) for r in state.settlement.store.records.values()]
         settlement_balances = state.settlement.bank.balances
 
+    from marketplace import live_log
+    live_log.emit({
+        "kind": "reward",
+        "set_id": getattr(state, "set_id", ""),
+        "reward": final,
+        "rubric_scores": {
+            "deal_outcomes": deal.get("combined"),
+            "capability_asymmetry": cap.get("combined"),
+            "negotiation_quality": (neg.get("combined") if state.phase < 3 else None),
+            "persona_privacy": priv.get("combined"),
+            "review_utilization": (rev.get("combined") if rev else None),
+            "swap_quality": (swap_q.get("combined") if swap_q else None),
+            "transactional_integrity": (settle.get("combined") if settle else None),
+        },
+    })
     return {
         "reward": final,
         "rubric_scores": {
@@ -1003,13 +1023,24 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
         session_id = request.session["session_id"]
         meta = body.metadata
 
-        # Load personas.
-        if not meta.personas_path:
-            raise RuntimeError(
-                "seed_session: metadata.personas_path is required to bootstrap "
-                "a MarketplaceState."
+        # Load personas — resolve the path portably. Task files may carry a
+        # personas_path baked on another machine (e.g. an absolute macOS path).
+        # If the stored path is missing OR doesn't exist here, DERIVE it from
+        # this task's own phase + set_id against the in-repo personas dir. This
+        # makes every task file work on any machine with no edits to the files.
+        from marketplace import config as mp_config
+        personas_path = meta.personas_path
+        if not personas_path or not Path(personas_path).exists():
+            if meta.phase is None or not meta.set_id:
+                raise RuntimeError(
+                    "seed_session: cannot locate personas — personas_path is "
+                    f"missing/not found ({meta.personas_path!r}) and phase/set_id "
+                    "are unavailable to derive it."
+                )
+            personas_path = (
+                mp_config.ROOT / f"personas_phase{meta.phase}" / f"{meta.set_id}.json"
             )
-        with open(meta.personas_path) as f:
+        with open(personas_path) as f:
             personas = json.load(f)
 
         # Look up models from the config dispatcher.
@@ -1040,6 +1071,16 @@ class MarketplaceServer(SimpleResourcesServer):  # type: ignore[misc]
             phase=int(meta.phase or 1),
         )
         self._sessions[session_id] = state
+        from marketplace import live_log
+        live_log.emit({
+            "kind": "seed",
+            "set_id": meta.set_id or "",
+            "config_name": cfg_name,
+            "marketplace_phase": int(meta.phase or 1),
+            "settlement": getattr(state, "settlement", None) is not None,
+            "focal": state.focal_name,
+            "personas": [p.get("name") for p in state.personas],
+        })
         return BaseSeedSessionResponse()
 
     # ----- /verify ----------------------------------------------------

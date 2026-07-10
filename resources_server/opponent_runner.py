@@ -6,6 +6,7 @@ the per-agent system prompt + a channel-view user message. The resulting
 action is applied to the channel/ledger.
 """
 
+import re
 from typing import Optional
 
 from marketplace.channel import Channel
@@ -42,6 +43,41 @@ def _opp_pay_fields(buyer_prof: dict, seller_prof: dict, method: str, amount) ->
     elif method == "gift_card":
         f["gift_code"] = buyer_prof["gift_card"]["code"]
     return f
+
+
+_WANT_STOPWORDS = {
+    "a", "an", "the", "and", "or", "of", "for", "with", "in", "on", "to",
+    "my", "your", "some", "any", "new", "used", "good", "nice", "item", "one",
+}
+
+
+def _want_tokens(text: str) -> set:
+    """Lowercased alphanumeric tokens (len >= 3), minus stopwords."""
+    return {t for t in re.findall(r"[a-z0-9]+", (text or "").lower())
+            if len(t) >= 3 and t not in _WANT_STOPWORDS}
+
+
+def _match_open_want(ledger, buyer_persona: dict, item_name: str) -> Optional[str]:
+    """Pick which of the buyer's still-open wants a MONEY purchase satisfies.
+
+    Money wants are free-text descriptions with no want_id<->item link (unlike
+    swaps, which match on category), so score each OPEN want by word overlap with
+    the purchased item's name and take the best. No overlap -> first open want, so
+    the buy-side checklist still drains and _public_targets_met can complete.
+    Returns a want_id, or None if the buyer has no open wants left.
+    """
+    open_wants = [w for w in buyer_persona.get("items_to_buy", [])
+                  if w.get("want_id") and not ledger.is_want_fulfilled(w["want_id"])]
+    if not open_wants:
+        return None
+    item_tok = _want_tokens(item_name)
+    best, best_score = None, 0
+    for w in open_wants:
+        score = len(item_tok & _want_tokens(w.get("description", "")))
+        if score > best_score:
+            best, best_score = w, score
+    chosen = best if best is not None else open_wants[0]
+    return chosen.get("want_id")
 
 
 class OpponentRunner:
@@ -345,6 +381,16 @@ class OpponentRunner:
         )
         if pending and deal is not None:
             self.settlement.on_deal_closed(deal)
+
+        # Money deals: mark the buyer's matching want satisfied so the buy-side of
+        # _public_targets_met completes. Swaps already fulfill wants; money never
+        # did -> a buy-heavy focal never hit focal_done and burned turns to the cap.
+        # buyer_ceiling above is left untouched, so reward inputs do not move; this
+        # only flips the want-fulfilled flag (and drops the want from YOUR WANTS).
+        if deal is not None and buyer_persona:
+            _wid = _match_open_want(self.ledger, buyer_persona, item_name)
+            if _wid:
+                self.ledger.fulfill_want(_wid)
 
         # Phase 2: append role-scoped reviews on both sides if either persona
         # has the rating/review fields. Phase 1 personas (no rating fields)

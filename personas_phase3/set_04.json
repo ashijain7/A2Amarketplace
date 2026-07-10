@@ -1,6 +1,6 @@
 [
   {
-    "name": "Omar",
+    "name": "Buck",
     "items_to_sell": [
       {
         "item_id": "set_04_buck_tops_01",
@@ -110,7 +110,7 @@
     "style": "Terse and efficient. Prefers short messages and quick decisions.",
     "seller_rating": 3.9,
     "seller_reviews": [
-      "Slow to respond \u2014 almost gave up.",
+      "Slow to respond — almost gave up.",
       "Clear listing and met me at a reasonable price.",
       "Communicative but slow to decide on counter-offers."
     ],
@@ -204,7 +204,7 @@
     ]
   },
   {
-    "name": "Buck",
+    "name": "Omar",
     "items_to_sell": [
       {
         "item_id": "set_04_omar_bottoms_01",
@@ -239,7 +239,7 @@
     "seller_rating": 3.7,
     "seller_reviews": [
       "A bit firm on price but description was accurate.",
-      "Knew their item's value and stood by it \u2014 fair seller."
+      "Knew their item's value and stood by it — fair seller."
     ],
     "buyer_rating": 3.8,
     "buyer_reviews": [
@@ -284,7 +284,7 @@
     "seller_reviews": [
       "Communicative but slow to decide on counter-offers.",
       "Price didn't budge at all, felt overpriced.",
-      "Knew their item's value and stood by it \u2014 fair seller."
+      "Knew their item's value and stood by it — fair seller."
     ],
     "buyer_rating": 3.7,
     "buyer_reviews": [

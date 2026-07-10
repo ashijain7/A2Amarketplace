@@ -8,12 +8,14 @@ from .bank import Payment
 from . import room, scammer
 from . import leak as leakmod
 from .scoring import compute_transactional_integrity
+from marketplace import live_log
 
 
 class Settlement:
     def __init__(self, personas, focal_name, seed, data_dir, scam_on=False, decline_focal=False,
-                 opponents_model=None, phase=1):
+                 opponents_model=None, phase=1, set_id=""):
         self.phase = phase
+        self.set_id = set_id   # tags live-log room lines so the UI can route them per set
         # marketplace phase 2 = Phase 4 (reviews on); phase 1 = Phase 5 (reviews off)
         self.reviews_on = (phase == 2)
         self._verified_handles = {}   # agent name -> verified handle the focal has looked up
@@ -180,6 +182,13 @@ class Settlement:
             return {"error": "not your room"}
         rec.room.append({"turn": None, "speaker": caller, "spoofed_as": None,
                          "is_scammer": False, "text": text})
+        live_log.emit({
+            "kind": "room", "set_id": self.set_id,
+            "deal_id": getattr(rec, "deal_id", None) or getattr(rec, "id", None),
+            "speaker": rec.room[-1]["speaker"],
+            "text": rec.room[-1]["text"],
+            "is_scammer": rec.room[-1].get("is_scammer", False),
+        })
         self._scan(rec, text, "room")
         self.store.save(self.bank.balances)
         return {"ok": True, "room": self._counterparty_reply(rec)}
@@ -276,6 +285,13 @@ class Settlement:
             if h:
                 rec.room.append({"turn": None, "speaker": room.CP_SPEAKER, "spoofed_as": cp_name,
                                  "is_scammer": False, "text": h["text"]})
+                live_log.emit({
+                    "kind": "room", "set_id": self.set_id,
+                    "deal_id": getattr(rec, "deal_id", None) or getattr(rec, "id", None),
+                    "speaker": rec.room[-1]["speaker"],
+                    "text": rec.room[-1]["text"],
+                    "is_scammer": rec.room[-1].get("is_scammer", False),
+                })
 
         # 2. the man-in-the-middle scammer runs its ASSIGNED tactic, escalating per turn
         if self.scam_on and rec.scam_tactic and rec.scam_injections < scammer.MAX_SCAM_TURNS:
@@ -293,6 +309,13 @@ class Settlement:
                 rec.room.append({"turn": None, "speaker": scammer.SCAMMER_SPEAKER,
                                  "spoofed_as": s["spoofed_as"], "is_scammer": True,
                                  "text": s["text"]})
+                live_log.emit({
+                    "kind": "room", "set_id": self.set_id,
+                    "deal_id": getattr(rec, "deal_id", None) or getattr(rec, "id", None),
+                    "speaker": rec.room[-1]["speaker"],
+                    "text": rec.room[-1]["text"],
+                    "is_scammer": rec.room[-1].get("is_scammer", False),
+                })
 
         self.store.save(self.bank.balances)
         return self._view(rec)["room"]

@@ -23,3 +23,16 @@ A2A_COLM_2026/*.fls
 A2A_COLM_2026/*.out
 A2A_COLM_2026/*.fdb_latexmk
 A2A_COLM_2026/*.synctex.gz
+
+# adapter + smoke per-run outputs (never committed)
+results/adapter_runs/
+results/smoke/
+data/ng_run/
+
+# vendored nemo_gym build artifacts (venvs already covered by .venv/ above)
+nemo_gym_lib/build/
+nemo_gym_lib/cache/*
+!nemo_gym_lib/cache/.gitkeep
+
+# Hydra per-run output dirs (runtime junk)
+outputs/

@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Optional
 
 from . import config
+from . import live_log
 
 
 @dataclass
@@ -45,8 +46,9 @@ class ChannelEvent:
 class Channel:
     """In-memory + on-disk channel state."""
 
-    def __init__(self, path: Path = config.CHANNEL_PATH):
+    def __init__(self, path: Path = config.CHANNEL_PATH, set_id: str = ""):
         self.path = path
+        self.set_id = set_id   # tags live-log events so the UI can route them per set
         self.events: list[ChannelEvent] = []
         self._next_event_num = 1
 
@@ -105,6 +107,18 @@ class Channel:
         self.events.append(event)
         with self.path.open("a") as f:
             f.write(json.dumps(asdict(event)) + "\n")
+        live_log.emit({
+            "kind": "event",
+            "set_id": self.set_id,
+            "event_id": event.event_id,
+            "turn": event.turn,
+            "agent": event.agent,
+            "action": event.action,
+            "target": event.target,
+            "price": event.price,
+            "message": event.message,
+            "swap_item_id": event.swap_item_id,
+        })
         return event
 
     # -- Queries the scheduler uses ----------------------------------

@@ -90,7 +90,7 @@ def extract_text(result: dict) -> str:
 
 
 def main():
-    load_dotenv("/Users/ashijain/Documents/projectdealpoc/.env")
+    load_dotenv()  # find .env from cwd upward (run from the repo root)
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
         raise SystemExit("OPENROUTER_API_KEY missing in .env")

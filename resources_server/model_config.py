@@ -1,5 +1,7 @@
 """Maps experiment config names to per-agent model assignments."""
 
+import os
+
 from marketplace import config as mp_config
 
 SONNET = mp_config.DEFAULT_MODEL  # "anthropic/claude-sonnet-4-5"
@@ -44,9 +46,19 @@ _CONFIGS = {
 
 
 def get_model_config(name: str) -> dict:
-    """Return {focal_model, opponents_model} for a named config."""
+    """Return {focal_model, opponents_model} for a named config.
+
+    The opponents_model can be overridden at runtime via the
+    MARKETPLACE_OPPONENTS_MODEL env var (set by the adapter before the stack
+    boots). This lets a caller pick any opponent field without editing this
+    committed table or regenerating task files. No override -> table value.
+    """
     if name not in _CONFIGS:
         raise ValueError(
             f"Unknown model config: {name}. Choices: {sorted(_CONFIGS.keys())}"
         )
-    return dict(_CONFIGS[name])
+    cfg = dict(_CONFIGS[name])
+    override = os.getenv("MARKETPLACE_OPPONENTS_MODEL")
+    if override:
+        cfg["opponents_model"] = override
+    return cfg

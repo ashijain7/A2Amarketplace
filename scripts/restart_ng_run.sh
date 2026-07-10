@@ -12,7 +12,7 @@ set -e
 
 NG_HEAD_PORT=11000
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-NEMO_GYM_DIR="/Users/ashi.jain/Documents/nemo_gym_lib"
+NEMO_GYM_DIR="$PROJECT_DIR/nemo_gym_lib"
 LOG_FILE="$PROJECT_DIR/output_paper_runs.log"
 HEALTH_TIMEOUT=120
 
@@ -30,12 +30,12 @@ echo "[$(date +%H:%M:%S)] policy_model_name: $(grep policy_model_name env.yaml |
 
 # --- step 1: kill anything currently using port 11000 -----------------------
 
-EXISTING=$(pgrep -f "ng_run" || true)
+EXISTING=$(pgrep -f "bin/ng_run" || true)
 if [ -n "$EXISTING" ]; then
   echo "[$(date +%H:%M:%S)] found existing ng_run PIDs: $(echo "$EXISTING" | tr '\n' ' ')"
   echo "$EXISTING" | xargs kill -TERM 2>/dev/null || true
   sleep 3
-  STILL=$(pgrep -f "ng_run" || true)
+  STILL=$(pgrep -f "bin/ng_run" || true)
   if [ -n "$STILL" ]; then
     echo "[$(date +%H:%M:%S)] some ng_run survived TERM, sending KILL: $(echo "$STILL" | tr '\n' ' ')"
     echo "$STILL" | xargs kill -KILL 2>/dev/null || true
@@ -65,7 +65,7 @@ CONFIG_PATHS="[$NEMO_GYM_DIR/resources_servers/marketplace/configs/marketplace.y
 # Cap focal at 50 tool calls per rollout (~100 channel events total).
 # Without this, Sonnet self-play can loop indefinitely on certain personas
 # (e.g. Kai in C1 P2 went past 280 events with no focal_done signal).
-FOCAL_MAX_STEPS=50
+FOCAL_MAX_STEPS="${FOCAL_MAX_STEPS:-50}"   # env-overridable (adapter sets ceil(max_turns/2)); default 50
 # When settlement is on, the 50 above is the PUBLIC-market budget; the focal
 # needs extra calls afterwards to settle its deals (pay / confirm / talk in the
 # private room). So raise the hard total and tell the server the public cap.
@@ -108,8 +108,14 @@ else
   echo "[$(date +%H:%M:%S)] skipping runtime patch (focal=$FOCAL_MODEL — not Opus)"
 fi
 
+# Ray object store: a container's /dev/shm defaults to only 64MB (RLEaaS's docker
+# run / k8s pod won't enlarge it). Cap Ray's object store small and let Ray fall
+# back to /tmp so ng_run boots without needing --shm-size. Harmless on the host
+# (marketplace payloads are tiny JSON). Override-able via the same env name.
+export RAY_object_store_memory="${RAY_object_store_memory:-134217728}"   # 128MB
+
 echo "[$(date +%H:%M:%S)] launching ng_run (logs → $LOG_FILE)"
-echo "[$(date +%H:%M:%S)] focal max_steps cap: $FOCAL_MAX_STEPS"
+echo "[$(date +%H:%M:%S)] focal max_steps cap: $FOCAL_MAX_STEPS  ray_object_store=${RAY_object_store_memory}"
 
 # Truncate log so each restart starts clean
 : > "$LOG_FILE"

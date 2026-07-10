@@ -178,9 +178,10 @@ NeMo Gym doesn't know anything about marketplaces or negotiation. We provide the
 NeMo Gym is a Python package installed from NVIDIA's GitHub into the project's local venv:
 
 ```bash
-git clone https://github.com/NVIDIA-NeMo/Gym.git /Users/ashijain/Documents/nemo_gym_lib
-cd /Users/ashijain/Documents/project_deal
-VIRTUAL_ENV=$(pwd)/.venv uv pip install -e /Users/ashijain/Documents/nemo_gym_lib
+# NeMo Gym is vendored inside this repo at ./nemo_gym_lib (a customized fork).
+cd project_deal
+uv venv --python 3.12 && uv sync
+VIRTUAL_ENV=$(pwd)/.venv uv pip install -e ./nemo_gym_lib
 ```
 
 After install the venv has the `nemo_gym` Python module and ~30 CLI tools. We use two:

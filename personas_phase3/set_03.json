@@ -149,7 +149,7 @@
     "seller_reviews": [
       "Polite throughout, easy seller.",
       "Clear listing and met me at a reasonable price.",
-      "Honest about condition \u2014 would buy again."
+      "Honest about condition — would buy again."
     ],
     "buyer_rating": 4.5,
     "buyer_reviews": [
@@ -185,7 +185,7 @@
     "style": "Methodical and analytical. Compares market prices before deciding.",
     "seller_rating": 4.6,
     "seller_reviews": [
-      "Knew their item's value and stood by it \u2014 fair seller.",
+      "Knew their item's value and stood by it — fair seller.",
       "Quick reply, item exactly as described.",
       "No drama, no hidden issues. Solid."
     ],
@@ -223,7 +223,7 @@
     "style": "Gentle and considerate. Always asks if the price works for both.",
     "seller_rating": 3.7,
     "seller_reviews": [
-      "Listing photos could've been better \u2014 item itself fine.",
+      "Listing photos could've been better — item itself fine.",
       "Clear listing and met me at a reasonable price."
     ],
     "buyer_rating": 3.6,
@@ -233,7 +233,7 @@
     ]
   },
   {
-    "name": "Zara",
+    "name": "Marcus",
     "items_to_sell": [
       {
         "item_id": "set_03_marcus_dresses_01",
@@ -353,7 +353,7 @@
     ]
   },
   {
-    "name": "Marcus",
+    "name": "Zara",
     "items_to_sell": [
       {
         "item_id": "set_03_zara_bottoms_01",

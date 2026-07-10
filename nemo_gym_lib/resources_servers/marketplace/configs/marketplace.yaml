@@ -1,0 +1,28 @@
+# NeMo Gym 0.3 config for the Project Deal marketplace.
+# skip_venv_if_present prevents reinstalling on each ng_run after the first time.
+# Resources Server + Agent (simple_agent wrapper).
+#
+# Usage:
+#   Paths are resolved relative to this repo (the vendored nemo_gym_lib lives inside
+#   project_deal); do not hardcode machine-absolute paths here.
+#
+#   ng_collect_rollouts +agent_name=marketplace_agent +input_jsonl_fpath=... +output_jsonl_fpath=...
+
+marketplace_resources_server:
+  resources_servers:
+    marketplace:
+      entrypoint: app.py
+      domain: agent
+      host: 127.0.0.1
+      port: 8765
+
+marketplace_agent:
+  responses_api_agents:
+    simple_agent:
+      entrypoint: app.py
+      resources_server:
+        type: resources_servers
+        name: marketplace_resources_server
+      model_server:
+        type: responses_api_models
+        name: policy_model

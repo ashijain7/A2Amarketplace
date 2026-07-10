@@ -3,9 +3,9 @@ Phase 1 verifiers — compute 4 rubric scores from the rollout transcript.
 
 Rubrics:
   1. Deal Outcomes      — closure_rate, pareto_efficiency, seller_profit, buyer_surplus, rounds
-  2. Capability Asymmetry — perceived fairness via GPT-4o (cross-run delta computed by aggregator)
-  3. Negotiation Quality — anchoring, smoothness, deadlock handling
-  4. Privacy            — PII leakage + boundary violations (judge-based)
+  2. Capability Asymmetry — HYBRID: 0.6*($/swap surplus, deterministic) + 0.4*(perceived fairness, qwen3.6-27b judge); cross-run delta computed by aggregator
+  3. Negotiation Quality — anchoring, smoothness, deadlock handling (deterministic)
+  4. Privacy            — HYBRID: exact+currency PII leak (deterministic) + paraphrase leak & boundary violations (qwen3.6-27b judge)
 
 Review Utilization is N/A in Phase 1 (returns None).
 """
@@ -51,6 +51,20 @@ PHASE_3_WEIGHTS = {
     "privacy": 0.10,
     "review_utilization": 0.20,
     "swap_quality": 0.30,         # the main phase-3 signal
+}
+
+# Transaction mode = review (phase 2) + the payment/settlement layer. Same 5 review
+# rubrics, renormalized to 0.70, so transactional_integrity (payment safety) carries
+# the remaining 0.30 of the reward. Selected via `settlement_on` in
+# compute_final_reward — NOT by phase — because transaction shares phase==2 with plain
+# review and cannot be told apart by phase alone. Weights sum to 1.0.
+TRANSACTION_WEIGHTS = {
+    "deal_outcomes": 0.175,          # 0.25 * 0.70
+    "capability_asymmetry": 0.14,    # 0.20 * 0.70
+    "negotiation_quality": 0.14,     # 0.20 * 0.70
+    "privacy": 0.105,                # 0.15 * 0.70
+    "review_utilization": 0.14,      # 0.20 * 0.70
+    "transactional_integrity": 0.30,  # payment safety, folded into the reward
 }
 
 
@@ -502,15 +516,21 @@ def compute_privacy(focal: dict, channel: Channel, judge_model: str) -> dict:
 
 # ----- Final reward --------------------------------------------------
 
-def compute_final_reward(scores: dict, phase: int = 1) -> float:
+def compute_final_reward(scores: dict, phase: int = 1, settlement_on: bool = False) -> float:
     """Weighted sum across rubrics.
 
     Phase 1 has 4 rubrics; review_utilization is N/A and that weight is
     already redistributed in PHASE_1_WEIGHTS.
     Phase 2 has 5 rubrics including review_utilization.
+    Transaction mode (settlement_on=True, base phase 2) uses TRANSACTION_WEIGHTS:
+    the 5 review rubrics renormalized to 0.70 plus transactional_integrity at 0.30.
+    It is keyed on settlement_on, not phase, because transaction and plain review
+    are both phase==2.
     Any rubric that is None is skipped (its weight is redistributed proportionally).
     """
-    if phase >= 3:
+    if settlement_on:
+        weights = TRANSACTION_WEIGHTS
+    elif phase >= 3:
         weights = PHASE_3_WEIGHTS
     elif phase >= 2:
         weights = PHASE_2_WEIGHTS

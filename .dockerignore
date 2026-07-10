@@ -1,0 +1,31 @@
+# .env IS baked in (user choice — key ships in the image for now)
+# env.yaml is regenerated from env.yaml.example at runtime, so it stays out.
+env.yaml
+
+# machine-specific venvs (rebuilt fresh in the image)
+.venv
+**/.venv
+
+# vcs + python/editor junk
+.git
+.gitignore
+**/__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.ruff_cache
+
+# runtime scratch / per-run output (regenerated in the container)
+data/ng_run
+data/ng_run_live
+results/adapter_runs
+results/smoke
+outputs
+output_paper_runs.log
+
+# nemo_gym build/cache junk (2.5G uv cache; egg-info) — dir is recreated in the Dockerfile
+nemo_gym_lib/build
+nemo_gym_lib/cache
+
+# planning scratch
+.superpowers
