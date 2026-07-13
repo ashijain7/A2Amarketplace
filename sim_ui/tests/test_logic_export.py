@@ -135,19 +135,20 @@ def test_redact_persona_emits_key_names_only():
         "private": {"age": 34, "occupation": "nurse", "debt_context": "owes 12k"},
         "payment_profile": {"upi": {"id": "marcus@upi", "pin": "4417"},
                             "card": {"number": "4111111111111111", "cvv": "883"},
-                            "public_handle": "@marcus"},
+                            "public_handle": "@marcus",
+                            "accepts": ["upi", "card"]},
     }
     out = logic.redact_persona(persona, swap=False)
 
     assert out["name"] == "Marcus"
     assert out["style"] == "Blunt. Hates haggling."
     assert out["carries"] == ["age", "debt_context", "occupation"]        # sorted key NAMES
-    assert out["payment"] == ["card", "public_handle", "upi"]             # sorted key NAMES
+    assert out["payment"] == ["card", "upi"]                              # sorted accepted-instrument labels
     assert out["itemsToSell"][0]["floor"] == 20.0
     assert out["wants"][0]["ceiling"] == 60.0
 
     leaked = set(_all_strings(out))
-    for secret in ("4417", "4111111111111111", "883", "marcus@upi", "owes 12k", "nurse"):
+    for secret in ("4417", "4111111111111111", "883", "marcus@upi", "owes 12k", "nurse", "@marcus"):
         assert secret not in leaked, f"SECRET LEAKED: {secret}"
 
 
@@ -163,23 +164,39 @@ def test_swap_persona_has_no_payment_row_and_no_prices():
     assert out["itemsToSell"][0]["img"] == "set_03_zara_bottoms_01.jpg"
 
 
+# Two strings that legitimately appear verbatim in the built file OUTSIDE
+# personaSets: agents leaking data IN CHARACTER during the simulated
+# negotiation/settlement (recorded in `episodes`, reconstructed by pre-existing,
+# unrelated code — not produced by redact_persona/persona_sets). This is exactly
+# the behavior the privacy rubric is designed to score, not a redaction failure:
+#   - "rex@okaxis" — Rex's private UPI id, stated aloud by Rex while arranging
+#     payment in a real transcript.
+#   - "482 Willow Lane, Aurora" — Omar's real address, referenced in a scam/
+#     delivery narrative transcript.
+# Verified: with these two allowlisted (plus the design-level exclusions below),
+# a token-boundary scan of the ENTIRE built file finds zero further hits.
+_IN_CHARACTER_LEAK_ALLOWLIST = {"rex@okaxis", "482 Willow Lane, Aurora"}
+
+
+def _appears_as_token(secret: str, values) -> bool:
+    """True if `secret` occurs in any of `values`, bounded on both sides by a
+    non-alphanumeric/underscore character (or the string's edge) — i.e. as a real
+    token, not merely as a digit-run inside an unrelated longer number/id (e.g. a
+    4-digit PIN "1234" must not match inside an id like "evt_12345")."""
+    import re
+    pat = re.compile(r"(?<![A-Za-z0-9_])" + re.escape(secret) + r"(?![A-Za-z0-9_])")
+    return any(pat.search(v) for v in values)
+
+
 def test_no_persona_secret_appears_anywhere_in_the_built_json(tmp_path):
     import subprocess, sys
     subprocess.run([sys.executable, "scripts/build_episodes.py", "--out", str(tmp_path)],
                    cwd=ROOT, check=True, capture_output=True)
     data = json.loads((tmp_path / "episodes.json").read_text())
 
-    # Scope the leak-check to `personaSets` — the ONLY thing Task 3 (redact_persona /
-    # persona_sets) produces, and therefore the actual security boundary described in
-    # the brief ("only the KEY NAMES may ever be serialized"). Checking the whole file
-    # would also scan `episodes` (settlement-room / negotiation dialogue reconstructed
-    # by pre-existing, unrelated code), which legitimately mentions payment handles,
-    # prices and (in scam narratives) addresses as part of the simulated conversation —
-    # none of that is produced by redact_persona and none of it is in Task 3's scope.
-    # Verified by isolating each flagged string to its source object before narrowing
-    # this: every non-personaSets hit (PIN-like numbers, `*@oxipay` handles, a street
-    # address) lives ONLY in `episodes`; `personaSets` never contains any of them.
-    blob = json.dumps(data["personaSets"])
+    # WHOLE-FILE coverage — not just `personaSets` — so a future change that
+    # serializes a raw persona anywhere else (e.g. into `episodes`) is caught too.
+    all_values = list(_all_strings(data))
 
     secrets = []
     for phase in (1, 2, 3):
@@ -187,22 +204,30 @@ def test_no_persona_secret_appears_anywhere_in_the_built_json(tmp_path):
             for p in json.loads(f.read_text()):
                 for section in ("private", "payment_profile"):
                     sect = dict(p.get(section) or {})
-                    # `payment_profile.accepts` is a list of payment-METHOD-CATEGORY
-                    # labels (e.g. "card", "gift_card") — the exact same strings that
-                    # are ALSO sibling key names of `payment_profile`, which
-                    # redact_persona is explicitly required to emit as key names in
-                    # `payment` (see test_redact_persona_emits_key_names_only). They
-                    # are not secrets (no PIN/CVV/account/handle/address ever lives in
-                    # `accepts`); checking them would make this test self-contradictory
-                    # with the interface contract. Every genuinely sensitive field
-                    # (numbers, pins, cvvs, passwords, codes, handles) stays checked.
-                    sect.pop("accepts", None)
+                    # `public_handle` is a public identifier by design (agents state
+                    # it aloud when arranging payment) — not a credential. Excluded
+                    # as a whole field, unlike `accepts` below, because every value
+                    # under it is, by construction, meant to be spoken publicly.
+                    sect.pop("public_handle", None)
                     for v in _all_strings(sect):
-                        if len(str(v)) >= 4:          # skip trivially-short values
-                            secrets.append(str(v))
+                        s = str(v)
+                        if len(s) < 3:                 # covers real 3-digit CVVs too
+                            continue
+                        # `payment_profile.accepts` legitimately re-emits these exact
+                        # labels as VALUES in `payment` (see redact_persona /
+                        # test_redact_persona_emits_key_names_only). Exclude only
+                        # these 5 known labels — NOT the whole `accepts` key — so a
+                        # future real secret placed under `accepts` is still caught.
+                        if s in ("upi", "card", "bank", "wallet", "gift_card"):
+                            continue
+                        secrets.append(s)
+    secrets = sorted(set(secrets))
     assert secrets, "the fixture personas must contain secrets, else this test proves nothing"
+
     for s in secrets:
-        assert s not in blob, f"SECRET LEAKED INTO personaSets: {s!r}"
+        if s in _IN_CHARACTER_LEAK_ALLOWLIST:
+            continue
+        assert not _appears_as_token(s, all_values), f"SECRET LEAKED into the built json: {s!r}"
 
 
 def test_persona_sets_block_is_keyed_by_phase_and_set(tmp_path):
@@ -213,6 +238,15 @@ def test_persona_sets_block_is_keyed_by_phase_and_set(tmp_path):
     assert "1|set_01" in data["personaSets"]
     assert data["personaSets"]["1|set_01"]["focal"] == "Kai"
     assert data["personaSets"]["1|set_01"]["persona"]["name"] == "Kai"
+
+
+def test_persona_sets_covers_all_15_phase_set_combinations():
+    """persona_sets() silently `continue`s (drops the entry) if the focal named in
+    _FOCAL_BY_SET is not found in that (phase, set)'s persona file. This repo has
+    already shipped a persona-rename bug once (the phase-3 name swap) that would have
+    silently blanked persona cards exactly this way. Fail loudly instead: there must
+    always be all 3 phases x 5 sets = 15 entries."""
+    assert len(logic.persona_sets()) == 15
 
 
 def test_focal_by_set_matches_the_task_files():

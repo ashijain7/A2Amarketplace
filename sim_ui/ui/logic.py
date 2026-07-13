@@ -513,9 +513,14 @@ class Catalog:
 
 # ---- persona overview (FOCAL ONLY, redacted) -------------------------------
 # SECURITY: persona `private` and `payment_profile` hold real PINs, CVVs, card
-# numbers and UPI ids, and episodes.json ships in a PUBLIC repo. Only the KEY
-# NAMES ever leave this function. Never redact in JS — by then the values are
-# already in the browser's payload.
+# numbers, bank passwords and UPI ids, and episodes.json ships in a PUBLIC repo.
+# `private` -> only its KEY NAMES leave this function (`carries`). `payment` ->
+# only `payment_profile.accepts`, the list of payment-METHOD-CATEGORY labels
+# (upi/card/bank/wallet/gift_card) leaves this function, as VALUES — those are
+# safe enum-like category labels, not credentials or identifiers. No other
+# payment_profile field (card/upi/bank/wallet numbers, pins, cvvs, passwords,
+# public_handle) is ever read by this function. Never redact in JS — by then
+# the values are already in the browser's payload.
 def redact_persona(persona: dict, swap: bool) -> dict:
     def item(it: dict) -> dict:
         return {
@@ -541,7 +546,7 @@ def redact_persona(persona: dict, swap: bool) -> dict:
         "itemsToSell": [item(i) for i in persona.get("items_to_sell", [])],
         "wants": [want(w) for w in persona.get("items_to_buy", [])],
         "carries": sorted((persona.get("private") or {}).keys()),
-        "payment": sorted((persona.get("payment_profile") or {}).keys()),
+        "payment": sorted((persona.get("payment_profile") or {}).get("accepts", [])),
     }
 
 
