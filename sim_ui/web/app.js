@@ -65,13 +65,19 @@ function ddHTML(id,options){
 }
 function ddToggle(e,id){e.stopPropagation();const el=document.getElementById('dd-'+id);const was=el.classList.contains('open');document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open'));if(!was)el.classList.add('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.dd'))document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open'));});
+/* Restore the cached grid to a clean, un-hidden state and drop any live-mode
+   pane bookkeeping. Shared by ddPick's cached branch AND openRun (the
+   leaderboard "watch →" deep-link) so the two can never drift apart. */
+function showCachedView(){
+  panes={};current=null;
+  const lw=document.getElementById('livewrap'); if(lw){lw.classList.add('hide');lw.innerHTML='';}
+  document.getElementById('cachedgrid').classList.remove('hide');
+}
 function ddPick(id,val){
   document.getElementById('dd-'+id).classList.remove('open');
   if(id==='mode'){cur.uimode=val; clearTimers();
     if(val==='live'){renderLiveControls();resetLiveCard();}
-    else{panes={};current=null;
-      const lw=document.getElementById('livewrap'); if(lw){lw.classList.add('hide');lw.innerHTML='';}
-      document.getElementById('cachedgrid').classList.remove('hide');
+    else{showCachedView();
       renderControls();showStatic();markDirty(true);}
     return;}
   if(id==='liveset'){cur.liveset=val;renderLiveControls();return;}
@@ -193,9 +199,19 @@ function dealHeader(i,d,focal){const role=d.seller===focal?'sell':'buy';
   return `<div class="dealhdr"><span class="dnum">DEAL ${i+1}</span><span class="dtag ${role}">${role==='sell'?'SELLING':'BUYING'}</span><span class="dwho">${esc(d.seller)} → ${esc(d.buyer)}</span><span class="ditem">${esc(pretty(d.item_id))}</span></div>`;}
 function dealOutcome(d,focal){
   if(d.price===-1)return{cls:'good',t:'✓ Swap closes — '+d.seller+' ⇄ '+d.buyer+', each got a wanted item.'};
-  if(d.settlement){const s=d.settlement;return(!s.paid_wrong_owner&&!s.released_unpaid)
-    ?{cls:'neutral',t:'Settled — '+focal+' resisted the '+s.scam_tactic+' and paid the verified handle.'}
-    :{cls:'bad',t:'✗ Scam succeeded — funds sent to the look-alike handle.'};}
+  if(d.settlement){
+    const s=d.settlement, bad=s.paid_wrong_owner||s.released_unpaid;
+    if(!s.scam_on){
+      // no scammer ran this deal — state the settlement result plainly, with no
+      // claim about resisting (or falling for) an attack that never happened.
+      return bad
+        ? {cls:'bad',t:'✗ Settlement failed — the payment never reached the seller.'}
+        : {cls:'neutral',t:'Settled — '+focal+' paid the verified handle.'};
+    }
+    return !bad
+      ? {cls:'neutral',t:'Settled — '+focal+' resisted the '+(s.scam_tactic||'impersonation')+' and paid the verified handle.'}
+      : {cls:'bad',t:'✗ Scam succeeded — funds sent to the look-alike handle.'};
+  }
   const verb=d.seller===focal?'sold':'bought';
   return{cls:'good',t:`✓ Deal closes — ${focal} ${verb} ${pretty(d.item_id)} at $${d.price.toFixed(1)}.`};
 }
@@ -204,7 +220,12 @@ function summaryHTML(ep){
   let rows=[[swap?'Swaps closed':'Deals closed',String(n)]];
   if(cur.mode==='market')rows.push(['Role','sold '+sold+', bought '+(n-sold)]);
   if(cur.mode==='review')rows.push(['Reputation','checked before dealing']);
-  if(cur.mode==='transaction')rows.push(['Scam resistance','refused payee-redirect']);
+  if(cur.mode==='transaction'){
+    const scamDeal=ep.deals.find(d=>d.settlement&&d.settlement.scam_on);
+    rows.push(scamDeal
+      ? ['Scam resistance','refused '+(scamDeal.settlement.scam_tactic||'impersonation')]
+      : ['Scam resistance','no scam attempted']);
+  }
   if(cur.mode==='swap')rows.push(['Mutual win','each got a wanted item']);
   return '<div class="summary">'+rows.map(([k,v])=>`<div class="m"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('')+'</div>';
 }
@@ -635,6 +656,7 @@ function expandRow(cfg){
 }
 function openRun(mode,cfg,set){
   cur.mode=mode;cur.config=cfg;cur.set=set;cur.uimode='cached';
+  showCachedView();
   renderControls();showTab('sim');replay();
 }
 
