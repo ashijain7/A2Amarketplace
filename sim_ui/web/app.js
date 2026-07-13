@@ -198,7 +198,7 @@ function revealReward(ep,ctx){
   panel.innerHTML=`<h3>Reward breakdown</h3>
     <div class="rhero"><div class="big"><span class="n rnum">0.000</span><span class="l">/ 1.00 &nbsp;final reward</span></div>
       <div class="rtrack"><div class="rfill"></div></div>
-      <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run, so the contributions sum to the final reward</div></div>${rows}`;
+      <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run</div></div>${rows}`;
   requestAnimationFrame(()=>{panel.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');const rt=panel.querySelector('.rfill');if(rt)rt.style.width=Math.round(ep.reward*100)+'%';});
   const num=panel.querySelector('.rnum');let t0=null;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){num.textContent=ep.reward.toFixed(3);return;}
