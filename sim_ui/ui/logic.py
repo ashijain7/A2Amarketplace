@@ -15,6 +15,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
+from statistics import mean
 from typing import Optional
 
 # ---- anchors --------------------------------------------------------------
@@ -480,14 +481,7 @@ def build_catalog() -> list[CatalogEntry]:
 
 
 def load_episode(entry: CatalogEntry) -> Episode:
-    if entry.line < 0:                       # a salvaged run: the whole file is one rollout
-        with open(entry.file) as fh:
-            return _rollout_to_episode(json.load(fh))
-    with open(entry.file) as fh:
-        for i, line in enumerate(fh):
-            if i == entry.line:
-                return _rollout_to_episode(json.loads(line))
-    raise IndexError(f"line {entry.line} not found in {entry.file}")
+    return _rollout_to_episode(_load_raw(entry))
 
 
 # ---- convenience for the dropdowns ---------------------------------------
@@ -541,19 +535,15 @@ def _load_raw(entry: CatalogEntry) -> dict:
 
 
 def build_leaderboard() -> dict:
-    from statistics import mean
-
     cat = Catalog()
     loaded = [(e, load_episode(e)) for e in cat.entries]
 
     out: dict = {}
     for mode in MODES:
         dims = LEADERBOARD_DIMS[mode]
-        rows = []
+        ranked = []  # (unrounded mean reward, config, row) -- sort key kept out of the row
         for config in cat.configs(mode):
             runs = [(e, ep) for e, ep in loaded if e.mode == mode and e.config == config]
-            if not runs:
-                continue
             sets = []
             for entry, ep in sorted(runs, key=lambda x: x[0].set_id):
                 sets.append({
@@ -567,15 +557,21 @@ def build_leaderboard() -> dict:
             for d in dims:
                 vals = [ep.rubrics[d] for _, ep in runs if d in ep.rubrics]
                 row_dims[d] = round(mean(vals), 3) if vals else None
-            rows.append({
+            mean_reward = mean([ep.reward for _, ep in runs])
+            ranked.append((mean_reward, config, {
                 "config": config,
                 "label": "  vs  ".join(models_for(config)),
-                "reward": round(mean([ep.reward for _, ep in runs]), 3),
+                "reward": round(mean_reward, 3),
                 "dims": row_dims,
                 "sets": sets,
-            })
-        rows.sort(key=lambda r: -r["reward"])
-        out[mode] = {"dims": dims, "rows": rows}
+            }))
+        # Sort on the UNROUNDED mean, not the rounded "reward" field: two configs can
+        # be genuinely ordered while their 3-decimal display values tie (or nearly tie),
+        # and sorting on the rounded value would then fall back to insertion order —
+        # silently wrong rank. Tiebreak on config name for a deterministic, reproducible
+        # order on an exact tie.
+        ranked.sort(key=lambda t: (-t[0], t[1]))
+        out[mode] = {"dims": dims, "rows": [row for _, _, row in ranked]}
     return out
 
 

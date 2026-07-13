@@ -23,6 +23,7 @@ def test_finding_1_sets_01_02_are_harder_than_03_05():
     hard = st.mean([r for s in ("set_01", "set_02") for r in by_set[s]])
     assert round(hard, 2) == 0.37
     assert round(easy, 2) == 0.58
+    assert round(easy - hard, 2) == 0.21
 
 
 def test_finding_2_three_pairs_swing_five_places():
@@ -60,6 +61,8 @@ def test_finding_4_scam_resistance_is_about_90_percent():
     assert outcomes["settled"] == 56
     assert outcomes["paid-wrong-recipient"] == 6
     assert outcomes["scam-success"] == 1
+    assert sum(outcomes.values()) == 65  # pins the 2 "open" records too, so a new
+    # outcome bucket (or a change in "open") can't slip by unnoticed.
 
 
 def test_finding_5_nobody_negotiates_above_075():

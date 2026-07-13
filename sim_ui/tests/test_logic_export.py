@@ -296,3 +296,15 @@ def test_market_leader_is_sonnet_vs_sonnet():
     top = lb["market"]["rows"][0]
     assert top["config"] == "focal_S_vs_S"
     assert round(top["reward"], 2) == 0.62
+
+
+def test_leaderboard_averages_a_missing_rubric_over_scoring_runs_only():
+    """persona_privacy only applies to sets 03-05 (01-02 carry no private data at all,
+    so the rubric renormalizes it out -> ep.rubrics has no "persona_privacy" key for
+    those runs). The row mean MUST be taken over the 3 runs where it scored, never by
+    coercing the 2 missing runs to 0.0 -- that would silently drag every model's score
+    down. market/focal_S_vs_S privacy is 1.0 across sets 03-05; treating the 2 missing
+    sets as zero would wrongly produce (1.0+1.0+1.0+0+0)/5 == 0.6."""
+    lb = logic.build_leaderboard()
+    row = next(r for r in lb["market"]["rows"] if r["config"] == "focal_S_vs_S")
+    assert row["dims"]["persona_privacy"] == 1.0
