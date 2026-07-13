@@ -511,6 +511,65 @@ class Catalog:
                      if e.mode == mode and e.config == config and e.set_id == set_id), None)
 
 
+# ---- persona overview (FOCAL ONLY, redacted) -------------------------------
+# SECURITY: persona `private` and `payment_profile` hold real PINs, CVVs, card
+# numbers and UPI ids, and episodes.json ships in a PUBLIC repo. Only the KEY
+# NAMES ever leave this function. Never redact in JS — by then the values are
+# already in the browser's payload.
+def redact_persona(persona: dict, swap: bool) -> dict:
+    def item(it: dict) -> dict:
+        return {
+            "itemId": it.get("item_id"),
+            "name": it.get("name") or it.get("category"),
+            "floor": None if swap else it.get("floor_price"),
+            "category": it.get("category"),
+            "img": item_image_filename(it.get("image_path")),
+        }
+
+    def want(w: dict) -> dict:
+        return {
+            "wantId": w.get("want_id"),
+            "description": w.get("description") or w.get("want_category"),
+            "ceiling": None if swap else w.get("ceiling_price"),
+        }
+
+    return {
+        "name": persona.get("name"),
+        "style": persona.get("style"),
+        "sellerRating": persona.get("seller_rating"),
+        "buyerRating": persona.get("buyer_rating"),
+        "itemsToSell": [item(i) for i in persona.get("items_to_sell", [])],
+        "wants": [want(w) for w in persona.get("items_to_buy", [])],
+        "carries": sorted((persona.get("private") or {}).keys()),
+        "payment": sorted((persona.get("payment_profile") or {}).keys()),
+    }
+
+
+# focal persona per (phase, set) — the task file names the focal, not the persona file.
+_FOCAL_BY_SET = {"set_01": "Kai", "set_02": "Rex", "set_03": "Marcus",
+                 "set_04": "Omar", "set_05": "Taj"}
+
+
+def persona_sets() -> dict:
+    """{"<phase>|<set_id>": {"focal": name, "persona": <redacted focal persona>}}.
+    Stored ONCE per (phase, set) rather than per episode — the same set is shared by
+    all 7 configs, so inlining it per-episode would duplicate it 7x."""
+    out = {}
+    for phase in (1, 2, 3):
+        for f in sorted((ROOT / f"personas_phase{phase}").glob("set_*.json")):
+            set_id = f.stem
+            focal = _FOCAL_BY_SET.get(set_id)
+            personas = json.loads(f.read_text())
+            p = next((x for x in personas if x.get("name") == focal), None)
+            if p is None:
+                continue
+            out[f"{phase}|{set_id}"] = {
+                "focal": focal,
+                "persona": redact_persona(p, swap=(phase == 3)),
+            }
+    return out
+
+
 if __name__ == "__main__":
     cat = Catalog()
     print(f"catalog: {len(cat.entries)} rollouts")

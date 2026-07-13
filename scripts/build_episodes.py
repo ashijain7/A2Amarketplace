@@ -49,6 +49,7 @@ def build(out_dir: Path) -> tuple[dict, list[str]]:
             for m in modes
         },
         "episodes": episodes,
+        "personaSets": logic.persona_sets(),
     }
     return data, failed
 
