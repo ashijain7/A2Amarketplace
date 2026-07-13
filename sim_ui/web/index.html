@@ -228,7 +228,7 @@
              padding:10px;border-bottom:1px solid var(--border)}
   .ltable td{padding:10px;border-bottom:1px solid var(--border-soft);font-size:13.5px;color:var(--body)}
   .lrow{cursor:pointer}
-  .lrow:hover td{background:#f7f9ff}
+  .lrow:hover td:not(.lcell){background:#f7f9ff}   /* :not(.lcell) — else the hover wins on specificity and erases the row's own heat shading */
   .lrank{width:34px;color:var(--faint);font-weight:600}
   .lrank.top{color:var(--blue-ink)}
   .lname{font-weight:600;color:var(--ink)}

@@ -569,6 +569,10 @@ let lbMode='market';
 function lbRanks(cfg){return EP.modes.map(m=>1+EP.leaderboard[m].rows.findIndex(r=>r.config===cfg));}
 
 function renderLeaderboard(){
+  // Guard: without it a missing block throws inside the fetch().then(), the .catch
+  // swallows it, and the whole page dies showing a bogus "Failed to load episodes.json".
+  if(!EP.leaderboard||!EP.leaderboard[lbMode]){document.getElementById('view-lb').innerHTML=
+    '<div class="wrap"><div class="empty">No leaderboard data in episodes.json.</div></div>';return;}
   const block=EP.leaderboard[lbMode],dims=block.dims;
   // best value per dimension column -> heat shading
   const best={};dims.forEach(d=>{best[d]=Math.max(...block.rows.map(r=>r.dims[d]==null?-1:r.dims[d]));});
