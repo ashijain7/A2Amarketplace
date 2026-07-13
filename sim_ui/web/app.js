@@ -220,10 +220,13 @@ function revealReward(ep,ctx){
       <div class="rmeta"><span>${RUBINFO[k]||''}</span>
         <span class="contrib">+${contrib.toFixed(3)} <span class="den">/ ${wEff.toFixed(3)}</span></span></div>
     </div>`;}).join('');
+  const rk=EP.leaderboard&&EP.leaderboard[cur.mode]
+    ? 1+EP.leaderboard[cur.mode].rows.findIndex(r=>r.config===cur.config) : 0;
+  const badge=(cur.uimode!=='live'&&rk>0)?`<div class="rankbadge">ranks <b>#${rk}</b> of 7 in ${STAGE_NUM[cur.mode]}</div>`:'';
   panel.innerHTML=`<h3>Reward breakdown</h3>
     <div class="rhero"><div class="big"><span class="n rnum">0.000</span><span class="l">/ 1.00 &nbsp;final reward</span></div>
       <div class="rtrack"><div class="rfill"></div></div>
-      <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run</div></div>${rows}`;
+      <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run</div></div>${badge}${rows}`;
   requestAnimationFrame(()=>{panel.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');const rt=panel.querySelector('.rfill');if(rt)rt.style.width=Math.round(ep.reward*100)+'%';});
   const num=panel.querySelector('.rnum');let t0=null;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){num.textContent=ep.reward.toFixed(3);return;}
@@ -549,11 +552,75 @@ function renderVerifiers(){
     <div class="card" style="margin-top:20px"><h3 class="sech">Weights by stage</h3>
       <div style="overflow-x:auto"><table class="vtable">${head}${rows}${sum}</table></div></div>`;
 }
+/* ---- leaderboard tab ---- */
+const FINDINGS=[
+ ["The scenario matters more than the model.",
+  "Persona sets 01–02 average <b>0.37</b>; sets 03–05 average <b>0.58</b>. That 0.21 gap is bigger than the gap between the best and worst model in three of the four stages, and it holds in all of them. Roughly 70% is genuine scenario difficulty; the rest is the privacy rubric, which only applies to sets 03–05. Two agents evaluated on different sets cannot be compared."],
+ ["No model wins everywhere.",
+  "Three of the seven pairs swing <b>five places out of seven</b> between stages. Opus-vs-Gemini is 2nd at haggling and last at bartering. Gemini-3.5-vs-GPT-5.5 is 6th at haggling and 1st once reviews and payments enter. There is no best marketplace agent — only best at a stage."],
+ ["The agent that never checks reputation loses the stages where reputation matters.",
+  "Gemini-vs-GPT-5.5 made <b>zero reputation lookups across all 15 of its runs</b> — and finished <b>last in both Review and Payment &amp; Settlement</b>. Opus-vs-GPT-5.5 looked one up in every run and placed 2nd and 3rd. The cheapest tool in the marketplace is the one that separates the field."],
+ ["Agents resist the scammer — until they don't, and then it's the same agent.",
+  "Across the 65 settlement records with a man-in-the-middle scammer active, <b>56 settled cleanly, 6 paid the wrong recipient, 1 was fully scammed</b> (2 never completed) — about <b>90% resistance</b> of the 63 that concluded. But the failures cluster: <b>Sonnet-vs-Gemini lost 3 of its 10 deals</b>, while Opus-vs-GPT-5.5 and GPT-5.5-vs-Opus-4.8 went perfect, zero losses. Payment safety is not evenly distributed."],
+ ["Nobody in the field can actually negotiate.",
+  "Negotiation quality averages <b>0.43</b>, and <b>no model in any run exceeds 0.75</b>. Its parts explain why: deadlock-handling scores <b>0.98</b> — every model reliably avoids stalling — but anchoring is <b>0.31</b> and smoothness is <b>0.28</b>. The agents know how to keep talking; they don't know how to open, concede, or close."]];
+
+let lbMode='market';
+function lbRanks(cfg){return EP.modes.map(m=>1+EP.leaderboard[m].rows.findIndex(r=>r.config===cfg));}
+
+function renderLeaderboard(){
+  const block=EP.leaderboard[lbMode],dims=block.dims;
+  // best value per dimension column -> heat shading
+  const best={};dims.forEach(d=>{best[d]=Math.max(...block.rows.map(r=>r.dims[d]==null?-1:r.dims[d]));});
+  const head=`<tr><th class="lrank">#</th><th>Evaluated vs Opponent</th><th class="lrw">Final reward</th>`
+    +dims.map(d=>`<th>${RUBLABEL[d]}</th>`).join('')+`<th class="lswing">rank by stage</th></tr>`;
+  const body=block.rows.map((r,i)=>{
+    const cells=dims.map(d=>{const v=r.dims[d];
+      if(v==null)return '<td class="lna">–</td>';
+      const heat=best[d]>0?Math.max(0,Math.min(1,v/best[d])):0;
+      return `<td class="lcell" style="--h:${heat.toFixed(2)}">${v.toFixed(2)}</td>`;}).join('');
+    const dots=lbRanks(r.config).map((rk,j)=>`<i class="ldot${EP.modes[j]===lbMode?' on':''}" title="${STAGE_NUM[EP.modes[j]]}: #${rk}">${rk}</i>`).join('');
+    return `<tr class="lrow" onclick="expandRow('${r.config}')"><td class="lrank ${i<3?'top':''}">${i+1}</td>
+      <td class="lname">${esc(r.label)}</td><td class="lrw"><b>${r.reward.toFixed(3)}</b></td>
+      ${cells}<td class="lswing">${dots}</td></tr>
+      <tr class="lsets hide" id="ls-${r.config}"><td colspan="${dims.length+4}"></td></tr>`;}).join('');
+  document.getElementById('view-lb').innerHTML=`<div class="wrap">
+    <div class="lbtabs">${EP.modes.map(m=>`<button class="lbtab${m===lbMode?' on':''}" onclick="lbPick('${m}')">${STAGE_NUM[m]} · ${STAGE_LONG[m]}</button>`).join('')}</div>
+    <table class="ltable"><thead>${head}</thead><tbody>${body}</tbody></table>
+    <div class="lnote">Cached paper runs only — 7 model pairs × 5 persona sets per stage, scammer on. Each cell is a mean over the runs where that dimension applies (privacy only scores on sets 03–05). Click a row to see its five sets.</div>
+    <h3 class="lfh">What the runs show</h3>
+    ${FINDINGS.map(([h,b])=>`<div class="finding"><b>${h}</b><p>${b}</p></div>`).join('')}
+  </div>`;
+}
+function lbPick(m){lbMode=m;renderLeaderboard();}
+
+function expandRow(cfg){
+  const tr=document.getElementById('ls-'+cfg);
+  if(!tr.classList.contains('hide')){tr.classList.add('hide');return;}
+  const block=EP.leaderboard[lbMode],row=block.rows.find(r=>r.config===cfg),dims=block.dims;
+  const lo=row.sets.reduce((a,b)=>a.reward<b.reward?a:b),hi=row.sets.reduce((a,b)=>a.reward>b.reward?a:b);
+  tr.querySelector('td').innerHTML=`<div class="lexp">
+    <div class="lspread">ranged <b>${lo.reward.toFixed(2)}</b> (${lo.set}) to <b>${hi.reward.toFixed(2)}</b> (${hi.set})</div>
+    <table class="lsub"><thead><tr><th>Persona set</th><th>Reward</th><th>Deals</th>
+      ${dims.map(d=>`<th>${RUBLABEL[d]}</th>`).join('')}<th></th></tr></thead><tbody>
+      ${row.sets.map(s=>`<tr onclick="openRun('${lbMode}','${cfg}','${s.set}')">
+        <td>${s.set}</td><td><b>${s.reward.toFixed(3)}</b></td><td>${s.deals}</td>
+        ${dims.map(d=>`<td>${s.dims[d]==null?'–':s.dims[d].toFixed(2)}</td>`).join('')}
+        <td class="lopen">watch →</td></tr>`).join('')}
+    </tbody></table></div>`;
+  tr.classList.remove('hide');
+}
+function openRun(mode,cfg,set){
+  cur.mode=mode;cur.config=cfg;cur.set=set;cur.uimode='cached';
+  renderControls();showTab('sim');replay();
+}
+
+const TABS=['sim','ver','lb'];
 function showTab(t){
-  document.getElementById('tab-sim').classList.toggle('on',t==='sim');
-  document.getElementById('tab-ver').classList.toggle('on',t==='ver');
-  document.getElementById('view-sim').classList.toggle('hide',t!=='sim');
-  document.getElementById('view-ver').classList.toggle('hide',t!=='ver');
+  TABS.forEach(x=>{
+    document.getElementById('tab-'+x).classList.toggle('on',x===t);
+    document.getElementById('view-'+x).classList.toggle('hide',x!==t);
+  });
 }
 
 fetch('episodes.json').then(r=>r.json()).then(data=>{
@@ -564,5 +631,5 @@ fetch('episodes.json').then(r=>r.json()).then(data=>{
   cur.config=(q.get('config')&&EP.catalog[cur.mode][q.get('config')])?q.get('config'):cfgs[0];
   const sets=EP.catalog[cur.mode][cur.config].sets;
   cur.set=(q.get('set')&&sets.includes(q.get('set')))?q.get('set'):sets[0];
-  renderControls();renderVerifiers();showStatic();
+  renderControls();renderVerifiers();renderLeaderboard();showStatic();
 }).catch(e=>{document.getElementById('card').innerHTML='<div class="empty">Failed to load episodes.json — '+esc(e.message)+'</div>';});

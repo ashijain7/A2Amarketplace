@@ -217,12 +217,48 @@
   .settab.on.done{color:#fff}
   .settab.done::before{content:"✓ "}
   .livemean{margin-left:6px;color:var(--muted);font-size:12.5px;font-weight:700}
+  /* ---- leaderboard tab ---- */
+  .lbtabs{display:flex;gap:6px;margin:18px 0 14px;flex-wrap:wrap}
+  .lbtab{border:1px solid var(--border);background:#eef0f4;color:var(--body);border-radius:8px;
+         padding:7px 12px;font-size:13px;cursor:pointer}
+  .lbtab:hover{background:#e7eaf0}
+  .lbtab.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+  .ltable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .ltable th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);
+             padding:10px;border-bottom:1px solid var(--border)}
+  .ltable td{padding:10px;border-bottom:1px solid var(--border-soft);font-size:13.5px;color:var(--body)}
+  .lrow{cursor:pointer}
+  .lrow:hover td{background:#f7f9ff}
+  .lrank{width:34px;color:var(--faint);font-weight:600}
+  .lrank.top{color:var(--blue-ink)}
+  .lname{font-weight:600;color:var(--ink)}
+  .lrw{white-space:nowrap}
+  .lcell{background:color-mix(in srgb, var(--blue) calc(var(--h) * 22%), transparent)}
+  .lna{color:var(--faint)}
+  .lswing{white-space:nowrap}
+  .ldot{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:2px;border-radius:4px;
+        background:#eef0f4;color:var(--muted);font-size:10.5px;font-style:normal;font-weight:600}
+  .ldot.on{background:var(--pill-bg);color:var(--blue-ink)}
+  .lexp{padding:4px 0 10px}
+  .lspread{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+  .lsub{width:100%;border-collapse:collapse}
+  .lsub th{font-size:10.5px;padding:6px 8px}
+  .lsub td{padding:6px 8px;font-size:13px;border-bottom:1px solid var(--border-soft);cursor:pointer}
+  .lsub tr:hover td{background:#f7f9ff}
+  .lopen{color:var(--blue-ink);font-weight:600}
+  .lnote{margin:12px 0 26px;font-size:12px;color:var(--muted)}
+  .lfh{margin:0 0 12px;font-size:15px;color:var(--ink)}
+  .finding{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+  .finding b{color:var(--ink);font-size:14px}
+  .finding p{margin:6px 0 0;font-size:13.5px;color:var(--body);line-height:1.55}
+  .rankbadge{margin:10px 0 4px;font-size:12.5px;color:var(--muted)}
+  .rankbadge b{color:var(--blue-ink)}
 </style>
 
 <header>
   <div class="wrap">
     <div class="brand"><h1>Agent-to-Agent Marketplace</h1><span class="sub">evaluated agent vs 9 opponents · cached replay</span></div>
-    <nav class="tabs"><button id="tab-sim" class="on" onclick="showTab('sim')">Simulation</button><button id="tab-ver" onclick="showTab('ver')">Verifiers &amp; Rewards</button></nav>
+    <nav class="tabs"><button id="tab-sim" class="on" onclick="showTab('sim')">Simulation</button><button id="tab-ver" onclick="showTab('ver')">Verifiers &amp; Rewards</button><button id="tab-lb" onclick="showTab('lb')">Leaderboard</button></nav>
   </div>
 </header>
 <main class="wrap">
@@ -232,6 +268,7 @@
     <div id="livewrap" class="hide"></div>
   </section>
   <section id="view-ver" class="hide"></section>
+  <section id="view-lb" class="hide"></section>
 </main>
 <script type="module">
   import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
