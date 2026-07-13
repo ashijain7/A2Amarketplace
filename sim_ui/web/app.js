@@ -447,7 +447,12 @@ async function runLive(){
   };
 
   try{
-    const client=await window.__GradioClient.connect(location.origin + "/gradio");
+    // Resolve against the document base, not the origin: when RLEaaS embeds this app it
+    // is proxied under /api/environment/<env>/runtime/ (and injects a <base href>), so
+    // location.origin would point at the PLATFORM, not at us. Standalone, baseURI is
+    // just our own origin, so this stays correct in both homes.
+    const gradioUrl = new URL("gradio", document.baseURI).href;
+    const client=await window.__GradioClient.connect(gradioUrl);
     const sub=client.submit("/run_live",[ PHASE_FOR_MODE[cur.mode], cur.liveset,
       cur.focal, cur.opponent, cur.turns, 42 ]);
     // NOTE: if the installed @gradio/client build does not support `for await` on the
