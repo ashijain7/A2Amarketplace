@@ -48,7 +48,7 @@ function ddPick(id,val){
     else{panes={};current=null;
       const lw=document.getElementById('livewrap'); if(lw){lw.classList.add('hide');lw.innerHTML='';}
       document.getElementById('cachedgrid').classList.remove('hide');
-      renderControls();replay();}
+      renderControls();showStatic();markDirty(true);}
     return;}
   if(id==='liveset'){cur.liveset=val;renderLiveControls();return;}
   if(id==='focalmodel'){ if(val==='__add__'){addCustomModel('focal');} else {cur.focal=val;renderLiveControls();} return; }
@@ -73,12 +73,14 @@ function showStatic(){
 function markDirty(on){
   const c=document.getElementById('controls');
   const h=c.querySelector('.hint'); if(h)h.remove();
-  if(on)c.insertAdjacentHTML('beforeend','<span class="hint">selection changed — press Replay</span>');
+  if(!on)return;
+  const btn=c.querySelector('.run');
+  const html='<span class="hint">selection changed — press Replay</span>';
+  if(btn)btn.insertAdjacentHTML('beforebegin',html); else c.insertAdjacentHTML('beforeend',html);
 }
-const STAGENAME={market:"MarketDeal",review:"Review",transaction:"Payment & Settlement",swap:"SwapShop"};
 const STAGE_LONG={market:"Basic Market Deal",review:"Market Deal with Review",transaction:"Payment & Settlement",swap:"Swap Shop"};
 const STAGE_NUM={market:"Stage I",review:"Stage II",transaction:"Stage III",swap:"Stage IV"};
-function stageEyebrow(m){return STAGE_NUM[m]+" · "+STAGE_LONG[m];}
+function stageEyebrow(m){return STAGE_NUM[m];}
 function renderControls(){
   const cfgMap=EP.catalog[cur.mode];
   const cfgOpts=Object.keys(cfgMap).map(c=>({val:c,label:cfgMap[c].label,sel:c===cur.config}));
@@ -498,10 +500,10 @@ function components(k){const c=COMPONENTS[k];
   return compBar(c)+pre+`<div class="parts">${chips}</div>`+post;}
 function renderVerifiers(){
   const cards=Object.keys(COMPONENTS).map(k=>{const kind=RUBKIND[k];
-    const wmini=EP.modes.map(m=>{const w=WEIGHTS[m][k];return w?`<span class="wc">${STAGENAME[m]} <b>${w.toFixed(3)}</b></span>`:'';}).join('');
+    const wmini=EP.modes.map(m=>{const w=WEIGHTS[m][k];return w?`<span class="wc">${esc(STAGE_NUM[m])} <b>${w.toFixed(3)}</b></span>`:'';}).join('');
     return `<div class="rcard ${kind}"><div class="rt"><h4>${RUBLABEL[k]}</h4><span class="kpill ${kind}">${kind==='det'?'deterministic':'hybrid — rule + LLM-as-a-judge'}</span></div>
       <div class="desc">${RUBINFO[k]}</div>${components(k)}<div class="wmini">${wmini}</div></div>`;}).join('');
-  let head='<tr><th>Rubric</th>'+EP.modes.map(m=>`<th>${STAGENAME[m]}</th>`).join('')+'</tr>';
+  let head='<tr><th>Rubric</th>'+EP.modes.map(m=>`<th>${esc(STAGE_NUM[m])}</th>`).join('')+'</tr>';
   let rows=Object.keys(COMPONENTS).map(k=>'<tr><td>'+RUBLABEL[k]+'</td>'+EP.modes.map(m=>{const w=WEIGHTS[m][k];return w?`<td class="w">${w.toFixed(3)}</td>`:'<td class="z">—</td>';}).join('')+'</tr>').join('');
   let sum='<tr class="sum"><td>Σ active weights</td>'+EP.modes.map(m=>`<td>${Object.values(WEIGHTS[m]).reduce((a,b)=>a+b,0).toFixed(2)}</td>`).join('')+'</tr>';
   document.getElementById('view-ver').innerHTML=`
