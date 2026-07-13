@@ -185,14 +185,20 @@ function revealReward(ep,ctx){
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
   const W=WEIGHTS[cur.mode],ent=Object.entries(ep.rubrics);
   const sumW=ent.reduce((a,[k])=>a+(W[k]||0),0)||1;
-  const rows=ent.map(([k,v])=>{const w=W[k]||0,contrib=v*w/sumW;
-    return `<div class="rrow"><div class="rline"><span class="rdot ${RUBKIND[k]}"></span><span class="rname">${RUBLABEL[k]||k}</span><span class="rw">×${w.toFixed(3)}</span><span class="rscore">${v.toFixed(2)}</span></div>
-      <div class="bar"><div class="fill" data-w="${Math.round(v*100)}"></div></div>
-      <div class="rmeta"><span>${RUBINFO[k]||''}</span><span class="contrib">+${contrib.toFixed(3)}</span></div></div>`;}).join('');
+  const rows=ent.map(([k,v])=>{
+    const wEff=(W[k]||0)/sumW;            // the RENORMALIZED weight — this run's real ceiling
+    const contrib=v*wEff;
+    return `<div class="rrow">
+      <div class="rline"><span class="rdot ${RUBKIND[k]}"></span><span class="rname">${RUBLABEL[k]||k}</span>
+        <span class="rscore">${v.toFixed(2)} <span class="den">/ 1.00</span></span></div>
+      <div class="bar"><div class="ghost"></div><div class="fill" data-w="${Math.round(v*100)}"></div></div>
+      <div class="rmeta"><span>${RUBINFO[k]||''}</span>
+        <span class="contrib">+${contrib.toFixed(3)} <span class="den">/ ${wEff.toFixed(3)}</span></span></div>
+    </div>`;}).join('');
   panel.innerHTML=`<h3>Reward breakdown</h3>
     <div class="rhero"><div class="big"><span class="n rnum">0.000</span><span class="l">/ 1.00 &nbsp;final reward</span></div>
       <div class="rtrack"><div class="rfill"></div></div>
-      <div class="cap">weighted average of ${ent.length} active rubrics — each row shows its score, weight, and points added</div></div>${rows}`;
+      <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run, so the contributions sum to the final reward</div></div>${rows}`;
   requestAnimationFrame(()=>{panel.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');const rt=panel.querySelector('.rfill');if(rt)rt.style.width=Math.round(ep.reward*100)+'%';});
   const num=panel.querySelector('.rnum');let t0=null;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){num.textContent=ep.reward.toFixed(3);return;}
@@ -494,7 +500,7 @@ function compBar(c){let h='<div class="segbar">';
 function components(k){const c=COMPONENTS[k];
   if(c.type==='rule')return c.rules.map(r=>`<div class="ruleitem"><span class="rv">${r[0]}</span>${r[1]}</div>`).join('')+(c.note?`<div class="cnote">${c.note}</div>`:'');
   const chips=c.parts.map(p=>{if(c.type==='mean')return `<span class="part">${p[0]}</span>`;
-    const judge=p[2]==='judge';return `<span class="part ${judge?'judge':''}"><span class="pw">${p[0].toFixed(2)}</span>${p[1]}${judge?' <span class="jb">JUDGE</span>':''}</span>`;}).join('');
+    const judge=p[2]==='judge';return `<span class="part ${judge?'judge':''}"><span class="pw">${p[0].toFixed(2)} <span class="den">/ 1.00</span></span>${p[1]}${judge?' <span class="jb">JUDGE</span>':''}</span>`;}).join('');
   const pre=c.type==='mean'?'<div class="cnote" style="margin:0 0 8px">equal-weighted mean of:</div>':'';
   const post=c.note?`<div class="cnote">${c.note}</div>`:'';
   return compBar(c)+pre+`<div class="parts">${chips}</div>`+post;}
@@ -508,7 +514,7 @@ function renderVerifiers(){
   let sum='<tr class="sum"><td>Σ active weights</td>'+EP.modes.map(m=>`<td>${Object.values(WEIGHTS[m]).reduce((a,b)=>a+b,0).toFixed(2)}</td>`).join('')+'</tr>';
   document.getElementById('view-ver').innerHTML=`
     <div class="card" style="margin-top:22px"><div class="eyebrow">Reward rubrics</div><h2>Verifiers &amp; Rewards</h2>
-      <div class="callout">The final reward is a <b>weighted average of the active rubrics</b>. Judge model = <b>qwen/qwen3.6-27b</b>. Two rubrics are <b>hybrid</b> (rule + LLM-as-a-judge); the rest are deterministic.</div>
+      <div class="callout">The final reward is a <b>weighted average of the active rubrics</b>. Judge model = <b>qwen/qwen3.6-27b</b>. Two rubrics are <b>hybrid</b> (rule + LLM-as-a-judge); the rest are deterministic. A rubric that does not apply to a run (privacy on a set with no private data, swap quality outside Swap Shop) is <b>dropped and its weight re-split across the rest</b> — so the per-run ceilings in the reward panel are these weights <i>renormalized</i>, not the raw numbers below.</div>
       <div class="rewardformula"><span class="rf-big">final reward</span><span class="rf-eq">=</span>
         <div class="rf-frac"><span class="rf-big">Σ ( score × weight )</span><span class="rf-line"></span><span class="rf-big">Σ weight</span></div>
         <span style="color:var(--muted);font-size:12px">over the rubrics active in this stage</span></div>
