@@ -57,10 +57,28 @@ function ddPick(id,val){
   if(id==='stage'){cur.mode=val;const cfgs=Object.keys(EP.catalog[val]);cur.config=cfgs[0];cur.set=EP.catalog[val][cur.config].sets[0];}
   else if(id==='config'){cur.config=val;cur.set=EP.catalog[cur.mode][val].sets[0];}
   else if(id==='set'){cur.set=val;}
-  renderControls();replay();
+  renderControls();
+  showStatic();            // paint the episode WITHOUT animating
+  markDirty(true);         // "selection changed — press Replay"
 }
-const STAGENAME={market:"MarketDeal",review:"Review",transaction:"Transaction",swap:"SwapShop"};
-const STAGE_LONG={market:"Basic Market Deal",review:"Market Deal with review",transaction:"Market Deal with review and transaction",swap:"Swap Shop"};
+
+/* Paint the selected episode with no beats. The Replay button is the ONLY thing
+   that animates. Deep links and first load land here too. */
+function showStatic(){
+  const ep=episode();
+  if(!ep){clearTimers();showTab('sim');
+    document.getElementById('card').innerHTML='<div class="empty">No cached run for this selection.</div>';return;}
+  return renderEpisode(ep,false);
+}
+function markDirty(on){
+  const c=document.getElementById('controls');
+  const h=c.querySelector('.hint'); if(h)h.remove();
+  if(on)c.insertAdjacentHTML('beforeend','<span class="hint">selection changed — press Replay</span>');
+}
+const STAGENAME={market:"MarketDeal",review:"Review",transaction:"Payment & Settlement",swap:"SwapShop"};
+const STAGE_LONG={market:"Basic Market Deal",review:"Market Deal with Review",transaction:"Payment & Settlement",swap:"Swap Shop"};
+const STAGE_NUM={market:"Stage I",review:"Stage II",transaction:"Stage III",swap:"Stage IV"};
+function stageEyebrow(m){return STAGE_NUM[m]+" · "+STAGE_LONG[m];}
 function renderControls(){
   const cfgMap=EP.catalog[cur.mode];
   const cfgOpts=Object.keys(cfgMap).map(c=>({val:c,label:cfgMap[c].label,sel:c===cur.config}));
@@ -151,7 +169,7 @@ function summaryHTML(ep){
   return '<div class="summary">'+rows.map(([k,v])=>`<div class="m"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('')+'</div>';
 }
 function cardHeader(ep){
-  return `<div class="eyebrow">${esc(ep.stage)}</div><h2>${esc(ep.title)}</h2>
+  return `<div class="eyebrow">${esc(stageEyebrow(cur.mode))}</div><h2>${esc(STAGE_LONG[cur.mode])}</h2>
     <div class="cfgrow"><span class="cfg"><span class="ev">${esc(ep.focalModel)}</span> (evaluated) vs ${esc(ep.oppModel)}</span>
     <span class="setpill">${esc(ep.set)}</span><span>Focal agent: <b style="color:var(--ink)">${esc(ep.focal)}</b></span></div>`;
 }
@@ -182,6 +200,7 @@ function revealReward(ep,ctx){
 async function replay(){
   const ep=episode();
   if(!ep){clearTimers();showTab('sim');document.getElementById('card').innerHTML='<div class="empty">No cached run for this selection.</div>';return;}
+  markDirty(false);
   return renderEpisode(ep,true);
 }
 /* Renders one episode with the full cached look (deal cards / no-deal attempts /
@@ -280,8 +299,8 @@ async function renderEpisode(ep,animate,ctx){
    streaming keeps writing into its own pane even while another tab is being
    viewed. `current` = the pane presently receiving the live stream; switching
    the visible tab (selectPane) never changes `current`. */
-const STAGE_EYE={market:"MarketDeal · Stage I",review:"Review · Stage II",transaction:"Transaction · Stage III",swap:"SwapShop · Stage IV"};
-const LIVE_TITLE={market:"Basic trading",review:"Review-assisted",transaction:"Payment under a scammer",swap:"Item-for-item barter"};
+function STAGE_EYE(m){return stageEyebrow(m);}
+function LIVE_TITLE(m){return STAGE_LONG[m];}
 
 function paneKey(setId){ return String(setId||'').replace(/^set_/,''); }
 function activatePane(s){
@@ -373,7 +392,7 @@ async function runLive(){
       const key=paneKey(r.set_id), p=panes[key];
       if(!p) return;
       p.focal=r.focal; p.focalIds=new Set(); p.convo=null; p.seen={}; p.shown=new Set(); p.photoMap={};
-      const stageEye=STAGE_EYE[cur.mode]||"Live", titleTxt=LIVE_TITLE[cur.mode]||"Live run";
+      const stageEye=STAGE_EYE(cur.mode), titleTxt=LIVE_TITLE(cur.mode);
       p.cardEl.innerHTML=`<div class="eyebrow">${esc(stageEye)} · LIVE</div><h2>${esc(titleTxt)}</h2>
         <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
         <span class="setpill">set_${esc(key)}</span><span>Focal agent: <b style="color:var(--ink)">${esc(r.focal)}</b></span></div>
@@ -511,5 +530,5 @@ fetch('episodes.json').then(r=>r.json()).then(data=>{
   cur.config=(q.get('config')&&EP.catalog[cur.mode][q.get('config')])?q.get('config'):cfgs[0];
   const sets=EP.catalog[cur.mode][cur.config].sets;
   cur.set=(q.get('set')&&sets.includes(q.get('set')))?q.get('set'):sets[0];
-  renderControls();renderVerifiers();replay();
+  renderControls();renderVerifiers();showStatic();
 }).catch(e=>{document.getElementById('card').innerHTML='<div class="empty">Failed to load episodes.json — '+esc(e.message)+'</div>';});
