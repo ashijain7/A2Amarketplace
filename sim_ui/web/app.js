@@ -591,7 +591,7 @@ function renderVerifiers(){
   let sum='<tr class="sum"><td>Σ active weights</td>'+EP.modes.map(m=>`<td>${Object.values(WEIGHTS[m]).reduce((a,b)=>a+b,0).toFixed(2)}</td>`).join('')+'</tr>';
   document.getElementById('view-ver').innerHTML=`
     <div class="card" style="margin-top:22px"><div class="eyebrow">Reward rubrics</div><h2>Verifiers &amp; Rewards</h2>
-      <div class="callout">The final reward is a <b>weighted average of the active rubrics</b>. Judge model = <b>qwen/qwen3.6-27b</b>. Two rubrics are <b>hybrid</b> (rule + LLM-as-a-judge); the rest are deterministic. A rubric that does not apply to a run (privacy on a set with no private data, swap quality outside Swap Shop) is <b>dropped and its weight re-split across the rest</b> — so the per-run ceilings in the reward panel are these weights <i>renormalized</i>, not the raw numbers below.</div>
+      <div class="callout">The final reward is a <b>weighted average of the active rubrics</b>. Judge model = <b>qwen/qwen3.6-27b</b>. Two rubrics are <b>hybrid</b> (rule + LLM-as-a-judge); the rest are deterministic.</div>
       <div class="rewardformula"><span class="rf-big">final reward</span><span class="rf-eq">=</span>
         <div class="rf-frac"><span class="rf-big">Σ ( score × weight )</span><span class="rf-line"></span><span class="rf-big">Σ weight</span></div>
         <span style="color:var(--muted);font-size:12px">over the rubrics active in this stage</span></div>
