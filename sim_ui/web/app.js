@@ -38,7 +38,7 @@ function personaFor(mode,set){const b=EP.personaSets&&EP.personaSets[PHASE_NUM[m
 function personaCard(p,mode){
   if(!p)return '';
   const swap=(mode==='swap');
-  const rating=p.sellerRating?`<span class="prating">${p.sellerRating.toFixed(1)}★ seller</span>`:'';
+  const rating=(p.sellerRating!=null)?`<span class="prating">${p.sellerRating.toFixed(1)}★ seller</span>`:'';
   const sell=p.itemsToSell.map(i=>`<li>${i.img?`<img class="pthumb" src="img/${esc(i.img)}" loading="lazy" alt="">`:''}
       <span class="pname">${esc(i.name||i.itemId)}</span>
       ${swap?`<span class="pcat">${esc(i.category||'')}</span>`:`<span class="pfloor">floor $${i.floor}</span>`}</li>`).join('');
@@ -46,7 +46,7 @@ function personaCard(p,mode){
       ${swap?'':`<span class="pceil">up to $${w.ceiling}</span>`}</li>`).join('');
   const carries=p.carries.length?`<div class="prow"><b>carries</b> ${p.carries.map(esc).join(', ')}</div>`:'';
   const pay=(!swap&&p.payment.length)?`<div class="prow"><b>payment</b> ${p.payment.map(esc).join(', ')}</div>`:'';
-  return `<aside class="card persona">
+  return `<aside class="persona">
     <div class="phead"><span class="pav">${initials(p.name)}</span>
       <div><div class="pwho">${esc(p.name)} <span class="pev">evaluated</span></div>${rating}</div></div>
     <div class="pstyle">${esc(p.style||'')}</div>
@@ -202,7 +202,7 @@ function cardHeader(ep){
 function renderStatic(ep,ctx){
   const card=(ctx&&ctx.card)||document.getElementById('card');
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
-  card.innerHTML=cardHeader(ep)+personaCard(ep.persona||personaFor(cur.mode,ep.set),cur.mode)
+  card.innerHTML=cardHeader(ep)+personaCard(personaFor(cur.mode,ep.set),cur.mode)
     +`<div class="deals"></div><div class="tail"></div>`;
   panel.innerHTML=`<h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div>`;
 }
