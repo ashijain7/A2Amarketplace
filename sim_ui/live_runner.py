@@ -56,9 +56,9 @@ def _run_dir(params: dict):
 
 
 def _photo_map(phase, set_id) -> dict:
-    """Resolve item_id -> photo data-URI for a set's sellable items, so the live
-    stream can show listing photos (the text-only event log carries no images).
-    Keyed by item_id, so it works regardless of which persona holds the item."""
+    """item_id -> thumbnail FILENAME, for the set being run. The live event log is
+    text-only, so the frontend needs this to attach photos to listing bubbles.
+    Filenames (not data URIs) — the .jpg files ship in sim_ui/web/img/."""
     if not phase or not set_id:
         return {}
     f = ROOT / f"personas_phase{phase}" / f"{set_id}.json"
@@ -69,11 +69,10 @@ def _photo_map(phase, set_id) -> dict:
         m = {}
         for person in json.loads(f.read_text()):
             for it in person.get("items_to_sell", []):
-                iid, ip = it.get("item_id"), it.get("image_path")
-                if iid and ip:
-                    uri = logic._image_data_uri(ip)
-                    if uri:
-                        m[iid] = uri
+                iid = it.get("item_id")
+                name = logic.item_image_filename(it.get("image_path"))
+                if iid and name:
+                    m[iid] = name
         return m
     except Exception:
         return {}

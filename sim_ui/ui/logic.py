@@ -71,7 +71,7 @@ class Turn:
     action: str
     price: Optional[float]
     message: str
-    img_uri: Optional[str] = None     # data-URI of the item photo (swap turns only)
+    img_uri: Optional[str] = None     # bare filename of the item photo, e.g. "x.jpg" (swap turns only)
 
 
 @dataclass
@@ -259,31 +259,51 @@ def _room_lines(sr: dict) -> list[RoomLine]:
             for x in (sr.get("room") or [])]
 
 
-# swap photos: resolve each party's item image (DeepFashion) to a small data URI.
-_IMG_CACHE: dict[str, Optional[str]] = {}
-
-
-def _image_data_uri(rel_path: Optional[str]) -> Optional[str]:
+# Item photos are shipped as real files under sim_ui/web/img/ and referenced by a
+# BARE FILENAME. app.js renders <img src="img/<file>" loading="lazy"> — a relative
+# path, because the RLEaaS proxy injects a <base href> and an absolute /img/... 404s.
+# (They used to be inlined as base64 data URIs, which made episodes.json 1.53 MB.)
+def item_image_filename(rel_path: Optional[str]) -> Optional[str]:
+    """'data/item_images/dresses/x.jpg' -> 'x.jpg'. None-safe."""
     if not rel_path:
         return None
-    if rel_path in _IMG_CACHE:
-        return _IMG_CACHE[rel_path]
-    path = ROOT / rel_path
-    uri = None
-    if path.exists():
-        try:
-            import base64
-            import io
-            from PIL import Image
-            im = Image.open(path).convert("RGB")
-            im.thumbnail((240, 300))
-            buf = io.BytesIO()
-            im.save(buf, "JPEG", quality=72)
-            uri = "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
-        except Exception:
-            uri = None
-    _IMG_CACHE[rel_path] = uri
-    return uri
+    return Path(rel_path).name
+
+
+def write_thumbnail(rel_path: Optional[str], out_dir: Path) -> Optional[str]:
+    """Write a 240x300 q72 JPEG thumbnail of the item into out_dir. Returns the
+    filename it wrote (or None). Idempotent — skips a file that already exists."""
+    name = item_image_filename(rel_path)
+    if not name:
+        return None
+    src = ROOT / rel_path
+    if not src.exists():
+        return None
+    dst = out_dir / name
+    if dst.exists():
+        return name
+    try:
+        from PIL import Image
+        out_dir.mkdir(parents=True, exist_ok=True)
+        im = Image.open(src).convert("RGB")
+        im.thumbnail((240, 300))
+        im.save(dst, "JPEG", quality=72)
+        return name
+    except Exception:
+        return None
+
+
+def all_item_image_paths() -> list[str]:
+    """Every item image_path referenced by any persona set (phase 3 only — the
+    money phases have no photos). Used by scripts/build_episodes.py."""
+    paths: list[str] = []
+    for f in sorted((ROOT / "personas_phase3").glob("set_*.json")):
+        for persona in json.loads(f.read_text()):
+            for item in persona.get("items_to_sell", []):
+                p = item.get("image_path")
+                if p:
+                    paths.append(p)
+    return paths
 
 
 def _persona(rollout: dict, name: str) -> dict:
@@ -291,12 +311,12 @@ def _persona(rollout: dict, name: str) -> dict:
 
 
 def _item_image(rollout: dict, persona_name: str, item_id: Optional[str]) -> Optional[str]:
-    """Image for a persona's item (by id, else the first item that has one)."""
+    """Image filename for a persona's item (by id, else the first item that has one)."""
     items = _persona(rollout, persona_name).get("items_to_sell", [])
     it = next((x for x in items if x.get("item_id") == item_id), None)
     if it is None:
         it = next((x for x in items if x.get("image_path")), None)
-    return _image_data_uri((it or {}).get("image_path"))
+    return item_image_filename((it or {}).get("image_path"))
 
 
 def _resolve_swap_images(rollout: dict, deal: Deal):
