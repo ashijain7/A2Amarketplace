@@ -59,6 +59,11 @@
   .cfgrow{display:flex;align-items:center;gap:10px;margin:6px 0 8px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
   .cfg{font-weight:700;color:var(--ink)} .cfg .ev{color:var(--blue-ink)}
   .setpill{background:#eef0f4;color:var(--muted);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:6px}
+  .ready{display:flex;flex-direction:column;gap:5px;align-items:center;text-align:center;
+         padding:52px 20px;margin-top:14px;border:1px dashed var(--border);border-radius:14px;background:#fbfbfd}
+  .ready b{color:var(--ink);font-size:15px}
+  .ready span{color:var(--muted);font-size:13.5px}
+  .rewardbox{margin-top:14px}
   .persona{padding:13px 15px;margin:10px 0 4px;background:#fbfbfd;border:1px solid var(--border-soft);border-radius:12px}
   .phead{display:flex;gap:10px;align-items:center}
   .pav{width:30px;height:30px;border-radius:50%;background:var(--focal-av);color:#fff;
@@ -233,12 +238,13 @@
              padding:10px;border-bottom:1px solid var(--border)}
   .ltable td{padding:10px;border-bottom:1px solid var(--border-soft);font-size:13.5px;color:var(--body)}
   .lrow{cursor:pointer}
-  .lrow:hover td:not(.lcell){background:#f7f9ff}   /* :not(.lcell) — else the hover wins on specificity and erases the row's own heat shading */
+  .lrow:hover td:not(.lbest):not(.lworst){background:#f7f9ff}   /* :not() — else hover out-specifies the best/worst tint and erases it */
   .lrank{width:34px;color:var(--faint);font-weight:600}
   .lrank.top{color:var(--blue-ink)}
   .lname{font-weight:600;color:var(--ink)}
   .lrw{white-space:nowrap}
-  .lcell{background:color-mix(in srgb, var(--blue) calc(var(--h) * 22%), transparent)}
+    .lbest{background:var(--good-bg);color:var(--good-ink);font-weight:700}
+  .lworst{background:var(--bad-bg);color:var(--bad-ink);font-weight:700}
   .lna{color:var(--faint)}
   .lswing{white-space:nowrap}
   .ldot{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:2px;border-radius:4px;

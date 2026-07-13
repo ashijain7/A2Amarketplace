@@ -78,7 +78,7 @@ function ddPick(id,val){
   if(id==='mode'){cur.uimode=val; clearTimers();
     if(val==='live'){renderLiveControls();resetLiveCard();}
     else{showCachedView();
-      renderControls();showStatic();markDirty(true);}
+      renderControls();showReady();}
     return;}
   if(id==='liveset'){cur.liveset=val;renderLiveControls();return;}
   if(id==='scammer'){cur.scammer=(val==='on');renderLiveControls();return;}
@@ -89,17 +89,23 @@ function ddPick(id,val){
   else if(id==='config'){cur.config=val;cur.set=EP.catalog[cur.mode][val].sets[0];}
   else if(id==='set'){cur.set=val;}
   renderControls();
-  showStatic();            // paint the episode WITHOUT animating
-  markDirty(true);         // "selection changed — press Replay"
+  showReady();             // show NOTHING until Replay is pressed
 }
 
 /* Paint the selected episode with no beats. The Replay button is the ONLY thing
    that animates. Deep links and first load land here too. */
-function showStatic(){
+/* Cached mode shows NOTHING until Replay is pressed — same contract as Live's
+   "Ready to run". Selecting a set must never leak the previous set's transcript
+   or reward. Only replay() renders an episode. */
+function showReady(){
+  clearTimers();showTab('sim');
+  const card=document.getElementById('card'),panel=document.getElementById('panel');
   const ep=episode();
-  if(!ep){clearTimers();showTab('sim');
-    document.getElementById('card').innerHTML='<div class="empty">No cached run for this selection.</div>';return;}
-  return renderEpisode(ep,false);
+  if(!ep){card.innerHTML='<div class="empty">No cached run for this selection.</div>';panel.innerHTML='';return;}
+  card.innerHTML=cardHeader(ep)
+    +`<div class="ready"><b>Ready to replay</b><span>Press <b>Replay</b> to watch ${esc(ep.focal)} trade this set.</span></div>`;
+  panel.innerHTML=personaCard(personaFor(cur.mode,ep.set),cur.mode)
+    +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward appears when the replay ends…</div></div>`;
 }
 function markDirty(on){
   const c=document.getElementById('controls');
@@ -165,7 +171,7 @@ function renderLiveControls(){
   const setOpts=['01','02','03','04','05','all'].map(s=>({val:s,label:s==='all'?'ALL 5 sets':('set_'+s),sel:s===cur.liveset}));
   const scammerFld=(cur.mode==='transaction')
     ? `<div class="fld"><label>Scammer</label>${ddHTML('scammer',[
-        {val:'on',label:'On (matches the paper)',sel:cur.scammer!==false},
+        {val:'on',label:'On',sel:cur.scammer!==false},
         {val:'off',label:'Off',sel:cur.scammer===false}])}</div>`
     : '';
   document.getElementById('controls').innerHTML=`
@@ -237,12 +243,13 @@ function cardHeader(ep){
 function renderStatic(ep,ctx){
   const card=(ctx&&ctx.card)||document.getElementById('card');
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
-  card.innerHTML=cardHeader(ep)+personaCard(personaFor(cur.mode,ep.set),cur.mode)
-    +`<div class="deals"></div><div class="tail"></div>`;
-  panel.innerHTML=`<h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div>`;
+  card.innerHTML=cardHeader(ep)+`<div class="deals"></div><div class="tail"></div>`;
+  panel.innerHTML=personaCard(personaFor(cur.mode,ep.set),cur.mode)
+    +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div></div>`;
 }
 function revealReward(ep,ctx){
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
+  const box=panel.querySelector('.rewardbox')||panel;   // never clobber the persona card above it
   const W=WEIGHTS[cur.mode],ent=Object.entries(ep.rubrics);
   const sumW=ent.reduce((a,[k])=>a+(W[k]||0),0)||1;
   const scamOff=(cur.mode==='transaction'&&cur.uimode==='live'&&cur.scammer===false);
@@ -261,12 +268,12 @@ function revealReward(ep,ctx){
   const rk=EP.leaderboard&&EP.leaderboard[cur.mode]
     ? 1+EP.leaderboard[cur.mode].rows.findIndex(r=>r.config===cur.config) : 0;
   const badge=(cur.uimode!=='live'&&rk>0)?`<div class="rankbadge">ranks <b>#${rk}</b> of 7 in ${STAGE_NUM[cur.mode]}</div>`:'';
-  panel.innerHTML=`<h3>Reward breakdown</h3>
+  box.innerHTML=`<h3>Reward breakdown</h3>
     <div class="rhero"><div class="big"><span class="n rnum">0.000</span><span class="l">/ 1.00 &nbsp;final reward</span></div>
       <div class="rtrack"><div class="rfill"></div></div>
       <div class="cap">weighted average of ${ent.length} active rubrics — weights are renormalized over the rubrics that apply to this run</div></div>${badge}${rows}`;
-  requestAnimationFrame(()=>{panel.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');const rt=panel.querySelector('.rfill');if(rt)rt.style.width=Math.round(ep.reward*100)+'%';});
-  const num=panel.querySelector('.rnum');let t0=null;
+  requestAnimationFrame(()=>{box.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');const rt=box.querySelector('.rfill');if(rt)rt.style.width=Math.round(ep.reward*100)+'%';});
+  const num=box.querySelector('.rnum');let t0=null;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){num.textContent=ep.reward.toFixed(3);return;}
   (function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/850,1);num.textContent=(ep.reward*p).toFixed(3);if(p<1)requestAnimationFrame(step);})(performance.now());
 }
@@ -471,8 +478,9 @@ async function runLive(){
       const hdr=`<div class="eyebrow">${esc(stageEye)} · LIVE</div><h2>${esc(titleTxt)}</h2>
         <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
         <span class="setpill">set_${esc(key)}</span><span>Focal agent: <b style="color:var(--ink)">${esc(r.focal)}</b></span></div>`;
-      p.cardEl.innerHTML=hdr+personaCard(personaFor(cur.mode,r.set_id),cur.mode)
-        +`<div class="deals"></div><div class="tail"></div>`;
+      p.cardEl.innerHTML=hdr+`<div class="deals"></div><div class="tail"></div>`;
+      p.panelEl.innerHTML=personaCard(personaFor(cur.mode,r.set_id),cur.mode)
+        +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div></div>`;
       p.box=p.cardEl.querySelector('.deals');
       p.panelEl.innerHTML=`<h3>Reward breakdown</h3>
         <div class="pending"><span class="dots"><i></i><i></i><i></i></span> Streaming a live rollout…</div>`;
@@ -615,14 +623,19 @@ function renderLeaderboard(){
     '<div class="wrap"><div class="empty">No leaderboard data in episodes.json.</div></div>';return;}
   const block=EP.leaderboard[lbMode],dims=block.dims;
   // best value per dimension column -> heat shading
-  const best={};dims.forEach(d=>{best[d]=Math.max(...block.rows.map(r=>r.dims[d]==null?-1:r.dims[d]));});
+  // Shading every cell by magnitude made them all look alike. Mark ONLY the best
+  // and the worst in each column — that is the comparison a reader actually makes.
+  const best={},worst={};
+  dims.forEach(d=>{const vs=block.rows.map(r=>r.dims[d]).filter(v=>v!=null);
+    best[d]=vs.length?Math.max(...vs):null; worst[d]=vs.length?Math.min(...vs):null;});
   const head=`<tr><th class="lrank">#</th><th>Evaluated vs Opponent</th><th class="lrw">Final reward</th>`
     +dims.map(d=>`<th>${RUBLABEL[d]}</th>`).join('')+`<th class="lswing">rank by stage</th></tr>`;
   const body=block.rows.map((r,i)=>{
     const cells=dims.map(d=>{const v=r.dims[d];
       if(v==null)return '<td class="lna">–</td>';
-      const heat=best[d]>0?Math.max(0,Math.min(1,v/best[d])):0;
-      return `<td class="lcell" style="--h:${heat.toFixed(2)}">${v.toFixed(2)}</td>`;}).join('');
+      const cls=(best[d]!=null&&v===best[d]&&best[d]!==worst[d])?'lbest'
+               :((worst[d]!=null&&v===worst[d]&&best[d]!==worst[d])?'lworst':'');
+      return `<td class="${cls}">${v.toFixed(2)}</td>`;}).join('');
     const dots=lbRanks(r.config).map((rk,j)=>`<i class="ldot${EP.modes[j]===lbMode?' on':''}" title="${STAGE_NUM[EP.modes[j]]}: #${rk}">${rk}</i>`).join('');
     return `<tr class="lrow" onclick="expandRow('${r.config}')"><td class="lrank ${i<3?'top':''}">${i+1}</td>
       <td class="lname">${esc(r.label)}</td><td class="lrw"><b>${r.reward.toFixed(3)}</b></td>
@@ -676,5 +689,5 @@ fetch('episodes.json').then(r=>r.json()).then(data=>{
   cur.config=(q.get('config')&&EP.catalog[cur.mode][q.get('config')])?q.get('config'):cfgs[0];
   const sets=EP.catalog[cur.mode][cur.config].sets;
   cur.set=(q.get('set')&&sets.includes(q.get('set')))?q.get('set'):sets[0];
-  renderControls();renderVerifiers();renderLeaderboard();showStatic();
+  renderControls();renderVerifiers();renderLeaderboard();showReady();
 }).catch(e=>{document.getElementById('card').innerHTML='<div class="empty">Failed to load episodes.json — '+esc(e.message)+'</div>';});
