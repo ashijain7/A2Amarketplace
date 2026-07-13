@@ -47,16 +47,21 @@ def models_for(config: str) -> tuple[str, str]:
     return (_TOKEN_MODEL.get(f, f), _TOKEN_MODEL.get(o, o))
 
 
-# ---- mode classification (folder names are scrambled — classify by content) --
+# ---- mode classification --------------------------------------------------
+# Folder names are scrambled vs the paper's stage numbers, and metadata.phase is
+# 2 for BOTH review and transaction — so neither alone is enough.
+#
+# The one signal that separates all 140 runs: a settlement run always carries
+# `settlement_records` as a LIST (empty when the focal closed no deals). A
+# non-settlement run has the key absent (older configs) or explicitly null
+# (C9/C10 emit it in every phase). Truthiness is NOT enough — an empty list is
+# falsy, which used to misfile zero-deal transaction runs as review, where they
+# silently overwrote the genuine review episode for the same (config, set).
 def classify_mode(rollout: dict) -> str:
-    if rollout.get("settlement_records"):
+    if isinstance(rollout.get("settlement_records"), list):
         return "transaction"
     phase = str((rollout.get("metadata") or {}).get("phase"))
-    if phase == "3":
-        return "swap"
-    if phase == "2":
-        return "review"
-    return "market"
+    return {"3": "swap", "2": "review"}.get(phase, "market")
 
 
 # ---- data model -----------------------------------------------------------
@@ -311,8 +316,17 @@ def _rollout_to_episode(rollout: dict) -> Episode:
     fm, om = models_for(config)
 
     # keep only rubrics that actually scored (a None "combined" was renormalized out).
-    rubrics = {k: v["combined"] for k, v in (rollout.get("rubric_scores") or {}).items()
-               if isinstance(v, dict) and v.get("combined") is not None and k != "final_reward"}
+    # Older rollouts key this rubric `privacy`, newer ones `persona_privacy`. Normalize
+    # to ONE name — app.js only knows `persona_privacy`, so the old key was being
+    # silently dropped from the panel and the bars stopped summing to the hero reward.
+    _RUBRIC_ALIASES = {"privacy": "persona_privacy"}
+    rubrics = {}
+    for k, v in (rollout.get("rubric_scores") or {}).items():
+        if k == "final_reward" or not isinstance(v, dict):
+            continue
+        if v.get("combined") is None:
+            continue
+        rubrics[_RUBRIC_ALIASES.get(k, k)] = v["combined"]
 
     def is_focal_deal(d):
         if focal not in (d.get("seller"), d.get("buyer")):
@@ -409,6 +423,15 @@ class CatalogEntry:
     line: int
 
 
+# The one salvaged run in the corpus: Review / focal_S_vs_S / set_01 was killed
+# mid-flight at event 328+, truncated to its first 100 events and re-scored. It was
+# left OUT of that folder's rollouts.jsonl (which has 4 lines), so it must be sourced
+# separately or the cell is empty. User decision: load it as a normal run.
+# NOTE: do NOT source rollouts_truncated.jsonl — that is a separate 100-event-cap
+# re-scoring experiment whose numbers disagree with the canonical file.
+SALVAGED_RUNS = [PAPER_RUNS / "C1_sonnet_vs_sonnet" / "phase2" / "set_01_Kai" / "rollout.json"]
+
+
 def build_catalog() -> list[CatalogEntry]:
     """Scan every paper-run rollout once and index it by (mode, config, set)."""
     entries: list[CatalogEntry] = []
@@ -425,10 +448,21 @@ def build_catalog() -> list[CatalogEntry]:
             entries.append(CatalogEntry(
                 mode=classify_mode(r), config=meta.get("config_name") or "",
                 set_id=meta.get("set_id") or "", file=str(f), line=i))
+    for f in SALVAGED_RUNS:
+        if not f.exists():
+            continue
+        r = json.loads(f.read_text())
+        meta = r.get("metadata") or {}
+        entries.append(CatalogEntry(
+            mode=classify_mode(r), config=meta.get("config_name") or "",
+            set_id=meta.get("set_id") or "", file=str(f), line=-1))   # line=-1 => whole file
     return entries
 
 
 def load_episode(entry: CatalogEntry) -> Episode:
+    if entry.line < 0:                       # a salvaged run: the whole file is one rollout
+        with open(entry.file) as fh:
+            return _rollout_to_episode(json.load(fh))
     with open(entry.file) as fh:
         for i, line in enumerate(fh):
             if i == entry.line:
