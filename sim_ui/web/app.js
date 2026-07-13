@@ -498,7 +498,11 @@ async function runLive(){
       p.panelEl.innerHTML=personaCard(personaFor(cur.mode,r.set_id),cur.mode)
         +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div></div>`;
       p.box=p.cardEl.querySelector('.deals');
-      p.panelEl.innerHTML=`<h3>Reward breakdown</h3>
+      // Write the streaming state INTO the reward box — a direct panelEl.innerHTML
+      // here would wipe the persona card rendered two lines above. That is exactly
+      // what .rewardbox exists to prevent.
+      const rb=p.panelEl.querySelector('.rewardbox');
+      if(rb)rb.innerHTML=`<h3>Reward breakdown</h3>
         <div class="pending"><span class="dots"><i></i><i></i><i></i></span> Streaming a live rollout…</div>`;
       if(p.tabEl){ p.tabEl.classList.remove('done'); p.tabEl.classList.add('live'); }
       current=p;
