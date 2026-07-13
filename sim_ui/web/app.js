@@ -32,6 +32,30 @@ function pretty(id){return String(id).replace(/^set_\d+_[a-z]+_/,'').replace(/_\
 function initials(n){return (n||"?").slice(0,1).toUpperCase();}
 function chipText(t){return (t.price!=null&&t.price>=0)?t.action+" · $"+t.price.toFixed(1):t.action;}
 function episode(){return EP.episodes[`${cur.mode}|${cur.config}|${cur.set}`];}
+const PHASE_NUM={market:1,review:2,transaction:2,swap:3};
+function personaFor(mode,set){const b=EP.personaSets&&EP.personaSets[PHASE_NUM[mode]+'|'+set];return b?b.persona:null;}
+
+function personaCard(p,mode){
+  if(!p)return '';
+  const swap=(mode==='swap');
+  const rating=p.sellerRating?`<span class="prating">${p.sellerRating.toFixed(1)}★ seller</span>`:'';
+  const sell=p.itemsToSell.map(i=>`<li>${i.img?`<img class="pthumb" src="img/${esc(i.img)}" loading="lazy" alt="">`:''}
+      <span class="pname">${esc(i.name||i.itemId)}</span>
+      ${swap?`<span class="pcat">${esc(i.category||'')}</span>`:`<span class="pfloor">floor $${i.floor}</span>`}</li>`).join('');
+  const want=p.wants.map(w=>`<li><span class="pname">${esc(w.description||'')}</span>
+      ${swap?'':`<span class="pceil">up to $${w.ceiling}</span>`}</li>`).join('');
+  const carries=p.carries.length?`<div class="prow"><b>carries</b> ${p.carries.map(esc).join(', ')}</div>`:'';
+  const pay=(!swap&&p.payment.length)?`<div class="prow"><b>payment</b> ${p.payment.map(esc).join(', ')}</div>`:'';
+  return `<aside class="card persona">
+    <div class="phead"><span class="pav">${initials(p.name)}</span>
+      <div><div class="pwho">${esc(p.name)} <span class="pev">evaluated</span></div>${rating}</div></div>
+    <div class="pstyle">${esc(p.style||'')}</div>
+    <div class="psec"><h4>Selling</h4><ul class="plist">${sell}</ul></div>
+    <div class="psec"><h4>Wants</h4><ul class="plist">${want}</ul></div>
+    ${carries}${pay}
+    <div class="pfoot">private fields are shown as labels only — never their values</div>
+  </aside>`;
+}
 
 /* ---- custom grey dropdowns (click to open) ---- */
 function ddHTML(id,options){
@@ -178,7 +202,8 @@ function cardHeader(ep){
 function renderStatic(ep,ctx){
   const card=(ctx&&ctx.card)||document.getElementById('card');
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
-  card.innerHTML=cardHeader(ep)+`<div class="deals"></div><div class="tail"></div>`;
+  card.innerHTML=cardHeader(ep)+personaCard(ep.persona||personaFor(cur.mode,ep.set),cur.mode)
+    +`<div class="deals"></div><div class="tail"></div>`;
   panel.innerHTML=`<h3>Reward breakdown</h3><div class="pending"><span class="dots"><i></i><i></i><i></i></span> Reward computes when the episode ends…</div>`;
 }
 function revealReward(ep,ctx){
@@ -401,10 +426,11 @@ async function runLive(){
       if(!p) return;
       p.focal=r.focal; p.focalIds=new Set(); p.convo=null; p.seen={}; p.shown=new Set(); p.photoMap={};
       const stageEye=STAGE_EYE(cur.mode), titleTxt=LIVE_TITLE(cur.mode);
-      p.cardEl.innerHTML=`<div class="eyebrow">${esc(stageEye)} · LIVE</div><h2>${esc(titleTxt)}</h2>
+      const hdr=`<div class="eyebrow">${esc(stageEye)} · LIVE</div><h2>${esc(titleTxt)}</h2>
         <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
-        <span class="setpill">set_${esc(key)}</span><span>Focal agent: <b style="color:var(--ink)">${esc(r.focal)}</b></span></div>
-        <div class="deals"></div><div class="tail"></div>`;
+        <span class="setpill">set_${esc(key)}</span><span>Focal agent: <b style="color:var(--ink)">${esc(r.focal)}</b></span></div>`;
+      p.cardEl.innerHTML=hdr+personaCard(personaFor(cur.mode,r.set_id),cur.mode)
+        +`<div class="deals"></div><div class="tail"></div>`;
       p.box=p.cardEl.querySelector('.deals');
       p.panelEl.innerHTML=`<h3>Reward breakdown</h3>
         <div class="pending"><span class="dots"><i></i><i></i><i></i></span> Streaming a live rollout…</div>`;
