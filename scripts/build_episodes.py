@@ -50,6 +50,7 @@ def build(out_dir: Path) -> tuple[dict, list[str]]:
         },
         "episodes": episodes,
         "personaSets": logic.persona_sets(),
+        "leaderboard": logic.build_leaderboard(),
     }
     return data, failed
 

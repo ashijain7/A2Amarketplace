@@ -266,3 +266,33 @@ def test_focal_by_set_matches_the_task_files():
     for set_id, focals in seen.items():
         assert len(focals) == 1, f"{set_id} has more than one focal across phases: {focals}"
         assert logic._FOCAL_BY_SET[set_id] == focals.pop()
+
+
+def test_leaderboard_has_four_stages_of_seven_rows():
+    lb = logic.build_leaderboard()
+    assert set(lb) == {"market", "review", "transaction", "swap"}
+    for mode, block in lb.items():
+        assert len(block["rows"]) == 7, mode
+        for row in block["rows"]:
+            assert len(row["sets"]) == 5, (mode, row["config"])
+
+
+def test_leaderboard_rows_are_sorted_by_reward_descending():
+    for block in logic.build_leaderboard().values():
+        rewards = [r["reward"] for r in block["rows"]]
+        assert rewards == sorted(rewards, reverse=True)
+
+
+def test_leaderboard_dims_are_stage_correct():
+    lb = logic.build_leaderboard()
+    assert "negotiation_quality" not in lb["swap"]["dims"]
+    assert "swap_quality" in lb["swap"]["dims"]
+    assert "transactional_integrity" in lb["transaction"]["dims"]
+    assert "transactional_integrity" not in lb["review"]["dims"]
+
+
+def test_market_leader_is_sonnet_vs_sonnet():
+    lb = logic.build_leaderboard()
+    top = lb["market"]["rows"][0]
+    assert top["config"] == "focal_S_vs_S"
+    assert round(top["reward"], 2) == 0.62

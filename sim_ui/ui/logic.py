@@ -511,6 +511,74 @@ class Catalog:
                      if e.mode == mode and e.config == config and e.set_id == set_id), None)
 
 
+# ---- leaderboard ----------------------------------------------------------
+# Cached only, scammer-on, the 7 paper configs. MEANS ONLY — no spread is shown in
+# the table (the expanded row carries the 5 per-set numbers instead, which IS the
+# spread, made concrete and clickable).
+LEADERBOARD_DIMS = {
+    "market":      ["deal_outcomes", "capability_asymmetry", "negotiation_quality",
+                    "persona_privacy"],
+    "review":      ["deal_outcomes", "capability_asymmetry", "negotiation_quality",
+                    "persona_privacy", "review_utilization"],
+    "transaction": ["deal_outcomes", "capability_asymmetry", "negotiation_quality",
+                    "persona_privacy", "review_utilization", "transactional_integrity"],
+    "swap":        ["deal_outcomes", "capability_asymmetry", "persona_privacy",
+                    "review_utilization", "swap_quality"],
+}
+
+
+def _load_raw(entry: CatalogEntry) -> dict:
+    """The raw rollout dict behind a catalog entry (the leaderboard and the findings
+    tests need sub-fields that Episode drops, e.g. lookups_made, settlement outcomes)."""
+    if entry.line < 0:
+        with open(entry.file) as fh:
+            return json.load(fh)
+    with open(entry.file) as fh:
+        for i, line in enumerate(fh):
+            if i == entry.line:
+                return json.loads(line)
+    raise IndexError(f"line {entry.line} not found in {entry.file}")
+
+
+def build_leaderboard() -> dict:
+    from statistics import mean
+
+    cat = Catalog()
+    loaded = [(e, load_episode(e)) for e in cat.entries]
+
+    out: dict = {}
+    for mode in MODES:
+        dims = LEADERBOARD_DIMS[mode]
+        rows = []
+        for config in cat.configs(mode):
+            runs = [(e, ep) for e, ep in loaded if e.mode == mode and e.config == config]
+            if not runs:
+                continue
+            sets = []
+            for entry, ep in sorted(runs, key=lambda x: x[0].set_id):
+                sets.append({
+                    "set": entry.set_id,
+                    "reward": round(ep.reward, 3),
+                    "deals": len(ep.deals),
+                    "dims": {d: (round(ep.rubrics[d], 3) if d in ep.rubrics else None)
+                             for d in dims},
+                })
+            row_dims = {}
+            for d in dims:
+                vals = [ep.rubrics[d] for _, ep in runs if d in ep.rubrics]
+                row_dims[d] = round(mean(vals), 3) if vals else None
+            rows.append({
+                "config": config,
+                "label": "  vs  ".join(models_for(config)),
+                "reward": round(mean([ep.reward for _, ep in runs]), 3),
+                "dims": row_dims,
+                "sets": sets,
+            })
+        rows.sort(key=lambda r: -r["reward"])
+        out[mode] = {"dims": dims, "rows": rows}
+    return out
+
+
 # ---- persona overview (FOCAL ONLY, redacted) -------------------------------
 # SECURITY: persona `private` and `payment_profile` hold real PINs, CVVs, card
 # numbers, bank passwords and UPI ids, and episodes.json ships in a PUBLIC repo.
