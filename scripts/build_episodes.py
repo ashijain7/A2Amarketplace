@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT))   # so `sim_ui` resolves when run as a plain scrip
 from sim_ui.ui import logic
 
 
-def build(out_dir: Path) -> dict:
+def build(out_dir: Path) -> tuple[dict, list[str]]:
     img_dir = out_dir / "img"
     cat = logic.Catalog()
     modes = cat.modes()
@@ -31,11 +31,16 @@ def build(out_dir: Path) -> dict:
         ep = logic.load_episode(entry)
         episodes[f"{entry.mode}|{entry.config}|{entry.set_id}"] = logic.episode_to_frontend(ep)
 
-    # write every referenced thumbnail exactly once
+    # Write every referenced thumbnail exactly once. write_thumbnail returns the
+    # filename it wrote, or None on failure (source missing / PIL error) — collect
+    # the failures so the caller can refuse to ship a data file that references an
+    # image that does not exist, instead of silently emitting a dangling reference.
+    failed = []
     for rollout_img in logic.all_item_image_paths():
-        logic.write_thumbnail(rollout_img, img_dir)
+        if logic.write_thumbnail(rollout_img, img_dir) is None:
+            failed.append(rollout_img)
 
-    return {
+    data = {
         "modes": modes,
         "modeLabel": {m: logic.MODE_LABEL[m] for m in modes},
         "catalog": {
@@ -45,6 +50,7 @@ def build(out_dir: Path) -> dict:
         },
         "episodes": episodes,
     }
+    return data, failed
 
 
 def main():
@@ -55,7 +61,14 @@ def main():
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    data = build(out_dir)
+    data, failed = build(out_dir)
+    if failed:
+        print("ERROR: failed to write thumbnail(s) for the following item image(s) — "
+              "refusing to emit episodes.json with a dangling image reference:", file=sys.stderr)
+        for rollout_img in sorted(set(failed)):
+            print(f"  {rollout_img}", file=sys.stderr)
+        sys.exit(1)
+
     dest = out_dir / "episodes.json"
     dest.write_text(json.dumps(data))
     kb = dest.stat().st_size / 1024

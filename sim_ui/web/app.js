@@ -127,7 +127,7 @@ function renderLiveControls(){
 /* ---- conversation fragments ---- */
 function bubbleHTML(t,focal,extra){
   const isF=t.agent===focal,cls=extra?('row '+extra):('row '+(isF?'focal':'opp'));
-  const photo=t.img?`<img class="photo" alt="item photo" src="${t.img}">`:'';
+  const photo=t.img?`<img class="photo" alt="item photo" src="img/${t.img}" loading="lazy">`:'';
   return `<div class="${cls}"><div class="av">${esc(initials(t.agent))}</div><div class="bwrap">${photo}<div class="bubble">${esc(t.message)}</div><span class="chip">${esc(chipText(t))}</span></div></div>`;
 }
 function waitRow(text){return `<div class="searching" data-sx="1">${esc(text)}<span class="dots"><i></i><i></i><i></i></span></div>`;}

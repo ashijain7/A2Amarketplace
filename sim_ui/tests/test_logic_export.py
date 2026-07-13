@@ -80,6 +80,20 @@ def test_exported_turns_carry_a_filename_not_a_data_uri():
         assert "/" not in img, "bare filename only — app.js prefixes img/"
 
 
+def _referenced_image_filenames(data: dict) -> set[str]:
+    """Every non-null `img` filename referenced anywhere in the built episodes.json."""
+    names: set[str] = set()
+    for ep in data["episodes"].values():
+        for d in ep["deals"] + ep["attempts"]:
+            for t in d["thread"]:
+                if t.get("img"):
+                    names.add(t["img"])
+        for t in ep.get("passes", []):
+            if t.get("img"):
+                names.add(t["img"])
+    return names
+
+
 def test_built_episodes_json_is_small_and_complete(tmp_path):
     import subprocess, sys
     out = subprocess.run(
@@ -90,3 +104,11 @@ def test_built_episodes_json_is_small_and_complete(tmp_path):
     assert len(data["episodes"]) == 140
     assert (tmp_path / "episodes.json").stat().st_size < 600_000, "should be ~0.4 MB, was 1.53 MB"
     assert list((tmp_path / "img").glob("*.jpg")), "thumbnails must be written"
+
+    # Every image filename referenced in the data must actually exist under img/ —
+    # a dangling reference is a broken <img> in the UI and must never ship.
+    referenced = _referenced_image_filenames(data)
+    assert referenced, "expected at least one episode to reference an item photo"
+    on_disk = {p.name for p in (tmp_path / "img").glob("*.jpg")}
+    missing = referenced - on_disk
+    assert not missing, f"episodes.json references image(s) that were never written: {sorted(missing)}"
