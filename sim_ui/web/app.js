@@ -75,6 +75,7 @@ function ddPick(id,val){
       renderControls();showStatic();markDirty(true);}
     return;}
   if(id==='liveset'){cur.liveset=val;renderLiveControls();return;}
+  if(id==='scammer'){cur.scammer=(val==='on');renderLiveControls();return;}
   if(id==='focalmodel'){ if(val==='__add__'){addCustomModel('focal');} else {cur.focal=val;renderLiveControls();} return; }
   if(id==='oppmodel'){ if(val==='__add__'){addCustomModel('opp');} else {cur.opponent=val;renderLiveControls();} return; }
   if(id==='stage' && cur.uimode==='live'){cur.mode=val;renderLiveControls();return;}
@@ -156,12 +157,18 @@ function renderLiveControls(){
   const modeOpts=EP.modes.map(m=>({val:m,label:STAGE_LONG[m],sel:m===cur.mode}));
   cur.liveset=cur.liveset||'01';
   const setOpts=['01','02','03','04','05','all'].map(s=>({val:s,label:s==='all'?'ALL 5 sets':('set_'+s),sel:s===cur.liveset}));
+  const scammerFld=(cur.mode==='transaction')
+    ? `<div class="fld"><label>Scammer</label>${ddHTML('scammer',[
+        {val:'on',label:'On (matches the paper)',sel:cur.scammer!==false},
+        {val:'off',label:'Off',sel:cur.scammer===false}])}</div>`
+    : '';
   document.getElementById('controls').innerHTML=`
     <div class="fld"><label>Mode</label>${ddHTML('mode',[{val:'cached',label:'Cached'},{val:'live',label:'Live',sel:true}])}</div>
     <div class="fld"><label>Scenario</label>${ddHTML('stage',modeOpts)}</div>
     <div class="fld"><label>Evaluated model</label>${ddHTML('focalmodel',modelOpts('focal'))}</div>
     <div class="fld"><label>Opponent model</label>${ddHTML('oppmodel',modelOpts('opp'))}</div>
     <div class="fld"><label>Persona sets</label>${ddHTML('liveset',setOpts)}</div>
+    ${scammerFld}
     <div class="fld"><label>Max turns: <b id="turnval">${cur.turns}</b></label>
       <input type="range" min="1" max="100" value="${cur.turns}" class="slider"
              oninput="cur.turns=+this.value;document.getElementById('turnval').textContent=this.value"></div>
@@ -175,6 +182,13 @@ function bubbleHTML(t,focal,extra){
   return `<div class="${cls}"><div class="av">${esc(initials(t.agent))}</div><div class="bwrap">${photo}<div class="bubble">${esc(t.message)}</div><span class="chip">${esc(chipText(t))}</span></div></div>`;
 }
 function waitRow(text){return `<div class="searching" data-sx="1">${esc(text)}<span class="dots"><i></i><i></i><i></i></span></div>`;}
+function scamBadge(on){return `<span class="scambadge ${on?'on':'off'}">Scammer: ${on?'ON':'OFF'}</span>`;}
+function scamCaption(d){
+  const s=d.settlement||{},fell=s.paid_wrong_owner||s.released_unpaid;
+  const tactic=s.scam_tactic||'impersonation';
+  return `<div class="scamcap ${fell?'bad':''}">⚠ scammer impersonating ${esc(d.seller)} — ${esc(tactic)} `
+    +`(the focal ${fell?'<b>took the bait</b>':'did NOT take the bait'})</div>`;
+}
 function dealHeader(i,d,focal){const role=d.seller===focal?'sell':'buy';
   return `<div class="dealhdr"><span class="dnum">DEAL ${i+1}</span><span class="dtag ${role}">${role==='sell'?'SELLING':'BUYING'}</span><span class="dwho">${esc(d.seller)} → ${esc(d.buyer)}</span><span class="ditem">${esc(pretty(d.item_id))}</span></div>`;}
 function dealOutcome(d,focal){
@@ -210,14 +224,17 @@ function revealReward(ep,ctx){
   const panel=(ctx&&ctx.panel)||document.getElementById('panel');
   const W=WEIGHTS[cur.mode],ent=Object.entries(ep.rubrics);
   const sumW=ent.reduce((a,[k])=>a+(W[k]||0),0)||1;
+  const scamOff=(cur.mode==='transaction'&&cur.uimode==='live'&&cur.scammer===false);
   const rows=ent.map(([k,v])=>{
     const wEff=(W[k]||0)/sumW;            // the RENORMALIZED weight — this run's real ceiling
     const contrib=v*wEff;
+    const naNote=(scamOff&&k==='transactional_integrity')
+      ? ' <span class="na">security — N/A (no scam attempted)</span>' : '';
     return `<div class="rrow">
       <div class="rline"><span class="rdot ${RUBKIND[k]}"></span><span class="rname">${RUBLABEL[k]||k}</span>
         <span class="rscore">${v.toFixed(2)} <span class="den">/ 1.00</span></span></div>
       <div class="bar"><div class="ghost"></div><div class="fill" data-w="${Math.round(v*100)}"></div></div>
-      <div class="rmeta"><span>${RUBINFO[k]||''}</span>
+      <div class="rmeta"><span>${RUBINFO[k]||''}${naNote}</span>
         <span class="contrib">+${contrib.toFixed(3)} <span class="den">/ ${wEff.toFixed(3)}</span></span></div>
     </div>`;}).join('');
   const rk=EP.leaderboard&&EP.leaderboard[cur.mode]
@@ -313,12 +330,13 @@ async function renderEpisode(ep,animate,ctx){
     }
     if(d.room&&d.room.length){
       convo.insertAdjacentHTML('beforeend',`<div class="seclabel">▸ Public marketplace — deal agreed</div>`);
-      convo.insertAdjacentHTML('beforeend',`<div class="divider">🔒 Private settlement room</div>`);await wait(400*D);
+      const scamOn=(cur.uimode==='live')?(cur.scammer!==false):!!(d.settlement&&d.settlement.scam_on);
+      convo.insertAdjacentHTML('beforeend',`<div class="divider">🔒 Private settlement room ${scamBadge(scamOn)}</div>`);await wait(400*D);
       let pf=null;
       for(const r of d.room){const isF=r.speaker===foc;
         if(pf!==null&&isF!==pf){const txt=isF?('💭 '+foc+' is thinking'):('💬 '+r.speaker+' is replying');convo.insertAdjacentHTML('beforeend',waitRow(txt));await wait((isF?650:700)*D);drop(convo);}
         convo.insertAdjacentHTML('beforeend',bubbleHTML({agent:r.speaker,action:'say_in_room',price:null,message:r.text},foc,r.scam?'scam':null));
-        if(r.scam)convo.insertAdjacentHTML('beforeend',`<div class="scamcap">⚠ scammer impersonating ${esc(d.seller)} — payee-redirect (the focal did NOT take the bait)</div>`);
+        if(r.scam)convo.insertAdjacentHTML('beforeend',scamCaption(d));
         pf=isF;await wait(340*D);}
     }
     const o=dealOutcome(d,foc);
@@ -510,7 +528,8 @@ async function runLive(){
     const gradioUrl = new URL("gradio", document.baseURI).href;
     const client=await window.__GradioClient.connect(gradioUrl);
     const sub=client.submit("/run_live",[ PHASE_FOR_MODE[cur.mode], cur.liveset,
-      cur.focal, cur.opponent, cur.turns, 42 ]);
+      cur.focal, cur.opponent, cur.turns, 42,
+      cur.scammer===false?'off':'on' ]);
     // NOTE: if the installed @gradio/client build does not support `for await` on the
     // submit() job (older/newer event-emitter APIs vary), swap this loop for:
     //   sub.on("data", ev => { const rec=Array.isArray(ev.data)?ev.data[0]:ev.data; if(rec) handle(rec); });

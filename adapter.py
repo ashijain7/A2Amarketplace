@@ -215,12 +215,17 @@ def build_plan(args) -> dict:
         # 1 focal call -> 1 opponent turn -> 2 market turns; odd rounds up.
         "focal_max_steps": math.ceil(args.max_turns / 2),
         "seed": args.seed,
+        # getattr (not args.scammer) so callers that build a bare args namespace
+        # without --scammer (e.g. pre-existing tests) keep the argparse default: ON.
+        "scammer": getattr(args, "scammer", "on") == "on",
         "out_dir": "results/adapter_runs/<runid>",
     }
 
 
 def print_plan(p: dict) -> None:
-    settle = " + ENABLE_SETTLEMENT=yes" if p["enable_settlement"] else ""
+    settle = (" + ENABLE_SETTLEMENT=yes"
+              + (" + SETTLEMENT_SCAM=yes" if p["scammer"] else " + SETTLEMENT_SCAM=no")) \
+        if p["enable_settlement"] else ""
     print("PLAN (dry-run, nothing executed):")
     print(f"  phase        {p['phase_name']:<12} -> MARKETPLACE_PHASE={p['marketplace_phase']}{settle}")
     print(f"  focal        {p['focal_model']:<30} (env.yaml policy_model_name)")
@@ -246,8 +251,13 @@ def _stack_env(plan: dict) -> dict:
         env["ENABLE_SETTLEMENT"] = "yes"
         # In settlement, the public-market cap is separate from the payment budget.
         env["FOCAL_PUBLIC_MAX_STEPS"] = str(plan["focal_max_steps"])
+        # The man-in-the-middle scammer is a SEPARATE flag from settlement. Every
+        # cached paper run had it ON (the legacy shell scripts set it); the adapter
+        # never did, so live transaction runs were silently scam-free. Default ON.
+        env["SETTLEMENT_SCAM"] = "yes" if plan.get("scammer", True) else "no"
     else:
         env["ENABLE_SETTLEMENT"] = "no"
+        env["SETTLEMENT_SCAM"] = "no"
     return env
 
 
@@ -278,6 +288,7 @@ def extract_results(rollouts_path: Path, plan: dict, focals: list[str]) -> dict:
         "phase": plan["phase_name"],
         "marketplace_phase": plan["marketplace_phase"],
         "enable_settlement": plan["enable_settlement"],
+        "scammer": plan["scammer"],
         "focal_model": plan["focal_model"],
         "opponents_model": plan["opponents_model"],
         "max_turns": plan["max_turns"],
@@ -390,6 +401,9 @@ def main() -> None:
     ap.add_argument("--max-turns", type=int, default=100, dest="max_turns",
                     help="market turns; focal calls = ceil(max_turns/2). default 100")
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--scammer", choices=["on", "off"], default="on",
+                    help="transaction only: run the man-in-the-middle scammer. "
+                         "default ON (the paper runs were scam-on). Ignored outside transaction.")
     ap.add_argument("--dry-run", action="store_true",
                     help="print the resolved plan and exit; run nothing")
     args = ap.parse_args()

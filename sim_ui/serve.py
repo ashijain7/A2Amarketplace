@@ -31,10 +31,11 @@ def _gradio_backend() -> gr.Blocks:
     is one live record (seed/event/room/reward/done/error)."""
     from . import live_runner
 
-    def run_live(phase, set_id, focal, opponent, max_turns, seed):
+    def run_live(phase, set_id, focal, opponent, max_turns, seed, scammer):
         params = {
             "phase": phase, "set": set_id, "focal": focal, "opponent": opponent,
             "max_turns": int(max_turns or 100), "seed": int(seed or 42),
+            "scammer": (str(scammer).lower() != "off"),   # default ON
         }
         for record in live_runner.stream_live_run(params):
             yield record
@@ -47,11 +48,12 @@ def _gradio_backend() -> gr.Blocks:
         i_opp = gr.Textbox(visible=False)
         i_turns = gr.Number(visible=False)
         i_seed = gr.Number(visible=False)
+        i_scam = gr.Textbox(visible=False)
         o_rec = gr.JSON(visible=False)
         trigger = gr.Button("run_live", visible=False)
         trigger.click(
             run_live,
-            inputs=[i_phase, i_set, i_focal, i_opp, i_turns, i_seed],
+            inputs=[i_phase, i_set, i_focal, i_opp, i_turns, i_seed, i_scam],
             outputs=o_rec,
             api_name="run_live",
         )

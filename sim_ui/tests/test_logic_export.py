@@ -298,6 +298,21 @@ def test_market_leader_is_sonnet_vs_sonnet():
     assert round(top["reward"], 2) == 0.62
 
 
+def test_cached_transaction_deals_expose_scam_on():
+    # Not every transaction entry's focal closed a deal (e.g. focal_X_vs_O48/set_01
+    # has 0 settlement_records) — scan for the first one that actually settled
+    # something, rather than assuming the catalog's first transaction entry did.
+    cat = logic.Catalog()
+    settled = []
+    for entry in (e for e in cat.entries if e.mode == "transaction"):
+        ep = logic.episode_to_frontend(logic.load_episode(entry))
+        settled = [d for d in ep["deals"] if d["settlement"]]
+        if settled:
+            break
+    assert settled, "a transaction episode must have at least one settled deal"
+    assert settled[0]["settlement"]["scam_on"] is True, "every cached paper run was scam-on"
+
+
 def test_leaderboard_averages_a_missing_rubric_over_scoring_runs_only():
     """persona_privacy only applies to sets 03-05 (01-02 carry no private data at all,
     so the rubric renormalizes it out -> ep.rubrics has no "persona_privacy" key for

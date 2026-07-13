@@ -20,7 +20,7 @@ MAX_WALL_S = 20 * 60   # hard cap so a hung run can't stream forever
 
 
 def _build_adapter_cmd(params: dict) -> list[str]:
-    return [
+    cmd = [
         str(ENGINE_PY), str(ADAPTER),
         "--phase", str(params["phase"]),
         "--set", str(params["set"]),
@@ -29,6 +29,8 @@ def _build_adapter_cmd(params: dict) -> list[str]:
         "--max-turns", str(int(params["max_turns"])),
         "--seed", str(int(params["seed"])),
     ]
+    cmd += ["--scammer", "on" if params.get("scammer", True) else "off"]
+    return cmd
 
 
 def _read_result_json(params: dict) -> dict | None:

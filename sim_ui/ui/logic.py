@@ -364,7 +364,7 @@ def _rollout_to_episode(rollout: dict) -> Episode:
         sr = _settlement_for(rollout, d.get("deal_id"))
         if sr:
             deal.settlement = {k: sr.get(k) for k in
-                               ("scam_tactic", "paid_wrong_owner", "released_unpaid")}
+                               ("scam_on", "scam_tactic", "paid_wrong_owner", "released_unpaid")}
             deal.room = _room_lines(sr)
         if swap:
             _resolve_swap_images(rollout, deal)
