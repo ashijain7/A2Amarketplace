@@ -36,3 +36,6 @@ nemo_gym_lib/cache/*
 
 # Hydra per-run output dirs (runtime junk)
 outputs/
+
+# live-run scratch (regenerated every run; was tracked by mistake)
+data/ng_run_live/
