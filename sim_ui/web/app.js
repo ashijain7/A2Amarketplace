@@ -80,11 +80,11 @@ function ddPick(id,val){
     else{showCachedView();
       renderControls();showReady();}
     return;}
-  if(id==='liveset'){cur.liveset=val;renderLiveControls();return;}
+  if(id==='liveset'){cur.liveset=val;renderLiveControls();resetLiveCard();return;}
   if(id==='scammer'){cur.scammer=(val==='on');renderLiveControls();return;}
-  if(id==='focalmodel'){ if(val==='__add__'){addCustomModel('focal');} else {cur.focal=val;renderLiveControls();} return; }
-  if(id==='oppmodel'){ if(val==='__add__'){addCustomModel('opp');} else {cur.opponent=val;renderLiveControls();} return; }
-  if(id==='stage' && cur.uimode==='live'){cur.mode=val;renderLiveControls();return;}
+  if(id==='focalmodel'){ if(val==='__add__'){addCustomModel('focal');} else {cur.focal=val;renderLiveControls();resetLiveCard();} return; }
+  if(id==='oppmodel'){ if(val==='__add__'){addCustomModel('opp');} else {cur.opponent=val;renderLiveControls();resetLiveCard();} return; }
+  if(id==='stage' && cur.uimode==='live'){cur.mode=val;renderLiveControls();resetLiveCard();return;}
   if(id==='stage'){cur.mode=val;const cfgs=Object.keys(EP.catalog[val]);cur.config=cfgs[0];cur.set=EP.catalog[val][cur.config].sets[0];}
   else if(id==='config'){cur.config=val;cur.set=EP.catalog[cur.mode][val].sets[0];}
   else if(id==='set'){cur.set=val;}
@@ -157,13 +157,23 @@ function ensureLiveWrap(){
   lw.classList.remove('hide');
   return lw;
 }
+/* The side panel for the live idle state. The persona is known the moment a SET is
+   chosen — it comes from personaSets, not from the run — so show it immediately
+   rather than waiting for the engine's seed record (which is ~20-60s away). */
+function liveReadyPanel(){
+  const setId=(cur.liveset==='all')?null:('set_'+cur.liveset);
+  const p=setId?personaFor(cur.mode,setId):null;
+  return (p?personaCard(p,cur.mode):'')
+    +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending">Reward computes when the live episode ends…</div></div>`;
+}
 function resetLiveCard(){
   const lw=ensureLiveWrap();
   panes={}; current=null;
-  lw.innerHTML=`<div class="grid"><div class="card"><div class="eyebrow">LIVE</div><h2>Ready to run</h2>
-    <div class="cfgrow"><span class="cfg">Pick models and options, then press <b>RUN LIVE</b>.</span></div></div>
-    <aside class="card panel"><h3>Reward breakdown</h3>
-    <div class="pending">Reward computes when the live episode ends…</div></aside></div>`;
+  lw.innerHTML=`<div class="grid"><div class="card"><div class="eyebrow">${esc(STAGE_NUM[cur.mode])} · LIVE</div><h2>${esc(STAGE_LONG[cur.mode])}</h2>
+    <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
+      <span class="setpill">${esc(cur.liveset==='all'?'all 5 sets':'set_'+cur.liveset)}</span></div>
+    <div class="ready"><b>Ready to run</b><span>Press <b>RUN LIVE</b> to start a fresh rollout.</span></div></div>
+    <aside class="card panel">${liveReadyPanel()}</aside></div>`;
 }
 function renderLiveControls(){
   const modeOpts=EP.modes.map(m=>({val:m,label:STAGE_LONG[m],sel:m===cur.mode}));
@@ -413,8 +423,14 @@ async function runLive(){
     paneEl.innerHTML=`<div class="grid"><div class="card spcard"></div><aside class="card panel sppanel"></aside></div>`;
     panesRoot.appendChild(paneEl);
     const cardEl=paneEl.querySelector('.spcard'), panelEl=paneEl.querySelector('.sppanel');
-    cardEl.innerHTML=`<div class="eyebrow">LIVE</div><h2>Set ${esc(s)}</h2><div class="cfgrow"><span class="cfg">Waiting to start…</span></div>`;
-    panelEl.innerHTML=`<h3>Reward breakdown</h3><div class="pending">Not started yet…</div>`;
+    cardEl.innerHTML=`<div class="eyebrow">${esc(STAGE_NUM[cur.mode])} · LIVE</div><h2>${esc(STAGE_LONG[cur.mode])}</h2>
+      <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
+        <span class="setpill">set_${esc(s)}</span></div>
+      <div class="ready"><b>Booting the marketplace…</b><span>The engine takes ~20s to start. The run streams here.</span></div>`;
+    // The persona is known from the SET alone — show it during the boot wait rather
+    // than holding it back until the engine's seed record lands.
+    panelEl.innerHTML=personaCard(personaFor(cur.mode,'set_'+s),cur.mode)
+      +`<div class="rewardbox"><h3>Reward breakdown</h3><div class="pending">Reward computes when the episode ends…</div></div>`;
 
     panes[s]={tabEl,paneEl,cardEl,panelEl,box:null,convo:null,focal:null,
       focalIds:new Set(),seen:{},shown:new Set(),photoMap:{},waiting:false,ep:null};
@@ -473,7 +489,7 @@ async function runLive(){
     if(r.kind==='seed'){
       const key=paneKey(r.set_id), p=panes[key];
       if(!p) return;
-      p.focal=r.focal; p.focalIds=new Set(); p.convo=null; p.seen={}; p.shown=new Set(); p.photoMap={};
+      p.focal=r.focal; p.focalIds=new Set(); p.convo=null; p.seen={}; p.shown=new Set(); p.photoMap={}; p.roomShown=new Set();
       const stageEye=STAGE_EYE(cur.mode), titleTxt=LIVE_TITLE(cur.mode);
       const hdr=`<div class="eyebrow">${esc(stageEye)} · LIVE</div><h2>${esc(titleTxt)}</h2>
         <div class="cfgrow"><span class="cfg"><span class="ev">${esc(cur.focal)}</span> (evaluated) vs ${esc(cur.opponent)}</span>
@@ -495,7 +511,7 @@ async function runLive(){
       const p=panes[paneKey(r.set_id)]; if(!p||!p.box) return;
       p.seen[r.event_id]=r;
       const isF=(r.agent===p.focal);
-      if(isF && ['listing','offer','counter'].includes(r.action)){
+      if(isF && ['listing','offer','counter','swap_proposal','propose_swap'].includes(r.action)){
         if(r.event_id)p.focalIds.add(r.event_id);
         // also track WHAT the focal is engaging (the listing/offer it targets) —
         // the seller counters by targeting its own listing, not the focal's
@@ -518,11 +534,15 @@ async function runLive(){
       p.convo.lastElementChild.scrollIntoView({block:'nearest'});
       // next-actor beat: after the focal acts, wait on the market; after an
       // opponent replies, show the focal composing its own reply (offer/counter).
-      if(isF && ['listing','offer','counter'].includes(r.action)){
-        const who=(r.action==='listing')?'a buyer':'a counterparty';
+      if(isF){
+        // EVERY focal action gets the searching beat — including `pass`, where the
+        // focal is explicitly sitting out and watching the market. Without this a
+        // pass rendered a bubble and then dead air.
+        const who=(r.action==='listing')?'a buyer'
+                 :(r.action==='pass'?'a buyer or seller':'a counterparty');
         ensureConvo(p).insertAdjacentHTML('beforeend',waitRow('🔍 searching the marketplace for '+who));
         p.waiting=true; p.convo.lastElementChild.scrollIntoView({block:'nearest'});
-      } else if(!isF){
+      } else {
         ensureConvo(p).insertAdjacentHTML('beforeend',waitRow('💭 '+p.focal+' is replying'));
         p.waiting=true; p.convo.lastElementChild.scrollIntoView({block:'nearest'});
       }
@@ -530,6 +550,14 @@ async function runLive(){
     else if(r.kind==='room'){
       const p=panes[paneKey(r.set_id)]; if(!p||!p.box) return;
       dropWait(p);
+      // Announce the room ONCE per deal, before its first message — otherwise the
+      // settlement chat just appears with no indication we left the public market.
+      if(!p.roomShown)p.roomShown=new Set();
+      if(!p.roomShown.has(r.deal_id)){
+        p.roomShown.add(r.deal_id);
+        ensureConvo(p).insertAdjacentHTML('beforeend',`<div class="seclabel">▸ Public marketplace — deal agreed</div>`);
+        ensureConvo(p).insertAdjacentHTML('beforeend',`<div class="divider">🔒 Private settlement room ${scamBadge(cur.scammer!==false)}</div>`);
+      }
       ensureConvo(p).insertAdjacentHTML('beforeend',bubbleHTML({agent:r.speaker,action:'say_in_room',price:null,message:r.text},p.focal,r.is_scammer?'scam':null));
       if(r.is_scammer)p.convo.insertAdjacentHTML('beforeend',`<div class="scamcap">⚠ scammer impersonating the counterparty</div>`);
     }
