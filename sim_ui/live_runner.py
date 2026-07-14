@@ -117,7 +117,24 @@ def _build_episodes(run_dir, result: dict) -> list:
     return out
 
 
+# the adapter names phases; ui/logic.py names modes. They are not the same words.
+_MODE_FOR_PHASE = {"market_deal": "market", "review": "review",
+                   "transaction": "transaction", "swap_shop": "swap"}
+
+
 def stream_live_run(params: dict) -> Iterator[dict]:
+    # Check both models against OpenRouter BEFORE booting anything: a typo used to
+    # cost a stack boot before failing, and a model with no tool support would boot,
+    # trade nothing, and still charge. Soft — unreachable list means "allow".
+    from . import models as _models
+    _err = _models.validate_pair(params.get("focal", ""), params.get("opponent", ""))
+    if _err:
+        yield {"kind": "error", "msg": _err}
+        return
+    yield from _stream_live_run(params)
+
+
+def _stream_live_run(params: dict) -> Iterator[dict]:
     log = LIVE_LOG_PATH
     log.parent.mkdir(parents=True, exist_ok=True)
     log.write_text("")                      # truncate for a fresh run
@@ -153,6 +170,17 @@ def stream_live_run(params: dict) -> Iterator[dict]:
                         rec = json.loads(line)
                     except json.JSONDecodeError:
                         continue
+                    # the engine emits raw rubric dicts; turn them into the panel's
+                    # sub-metric values here so live and cached render identically
+                    # (all reward arithmetic stays in Python — see logic.submetrics).
+                    if rec.get("kind") == "reward" and rec.get("rubric_detail"):
+                        try:
+                            from .ui import logic as _logic
+                            rec["subs"] = _logic.submetrics(
+                                rec.pop("rubric_detail"), _MODE_FOR_PHASE.get(
+                                    params.get("phase", ""), ""))
+                        except Exception:
+                            rec.pop("rubric_detail", None)
                     yield rec
                     # right after a seed, stream the set's item photos so listings
                     # can show their picture live (event log itself carries no images).

@@ -15,6 +15,10 @@ class RunInProgress(Exception):
     """A run is already active (single engine stack)."""
 
 
+class BadModel(Exception):
+    """A requested model does not exist on OpenRouter, or cannot call tools."""
+
+
 class RunFailed(Exception):
     def __init__(self, msg, log_tail=""):
         super().__init__(msg)
@@ -51,6 +55,14 @@ def run_blocking(params: dict) -> dict:
         # A live human run (/run_live) also boots the stack — refuse to overlap it.
         # (This raise happens BEFORE a proc is started, so teardown below must not fire.)
         # NOTE: this guard is one-directional — /api/run refuses to start during a live run, but a live /run_live is NOT blocked by this lock (full mutual exclusion is deferred to Step-6 when the platform controls both triggers).
+        # Model gate FIRST: it is free, has no side effects, and a typo should be
+        # reported as a typo even while the stack happens to be busy.
+        if not override:
+            from . import models as _models
+            bad = _models.validate_pair(params.get("focal", ""), params.get("opponent", ""))
+            if bad:
+                raise BadModel(bad)
+
         if not override and _stack_running():
             raise RunInProgress("run in progress")
 
@@ -143,8 +155,20 @@ def register_routes(app) -> None:
             return run_blocking(params)
         except RunInProgress as e:
             return JSONResponse({"error": str(e)}, status_code=409)
+        except BadModel as e:
+            return JSONResponse({"error": str(e)}, status_code=400)
         except RunFailed as e:
             return JSONResponse({"error": str(e), "log_tail": e.log_tail}, status_code=500)
+
+    @app.get("/api/models")
+    def _models_list():
+        """Tool-calling models the picker can offer. ok=false => autocomplete is
+        off (OpenRouter unreachable); the picker still takes a typed slug."""
+        from . import models as _models
+        items = _models.tool_calling_models()
+        if not items:
+            return {"ok": False, "reason": "model list unavailable", "models": []}
+        return {"ok": True, "models": items}
 
     @app.get("/api/result/latest")
     def _latest():

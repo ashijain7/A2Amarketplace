@@ -33,7 +33,26 @@
   nav.tabs button{all:unset;cursor:pointer;padding:10px 2px;font-size:14.5px;font-weight:600;color:var(--muted);border-bottom:2.5px solid transparent}
   nav.tabs button.on{color:var(--blue);border-color:var(--blue)}
   nav.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
-  .controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:22px 0 18px}
+  .controls{position:relative;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:22px 0 18px}
+  /* circular info icon, pinned to the corner of the controls bar */
+  .infobtn{position:absolute;top:8px;right:10px;width:20px;height:20px;padding:0;
+           display:grid;place-items:center;border:1.5px solid var(--faint);border-radius:50%;
+           background:transparent;color:var(--faint);cursor:pointer;
+           font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;
+           font-size:12.5px;line-height:1}
+  .infobtn:hover{border-color:var(--blue);color:var(--blue)}
+  .infobtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  /* hover tooltip — the explanation belongs on the icon, not in the middle of the bar */
+  .infobtn::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);right:0;
+                  width:max-content;max-width:264px;white-space:normal;text-align:left;
+                  background:var(--ink);color:#fff;font-family:var(--sans);font-style:normal;
+                  font-weight:500;font-size:11.5px;line-height:1.45;padding:7px 10px;border-radius:8px;
+                  box-shadow:0 6px 18px rgba(19,33,60,.18);
+                  opacity:0;visibility:hidden;transition:opacity .12s;pointer-events:none;z-index:60}
+  .infobtn:hover::after,.infobtn:focus-visible::after{opacity:1;visibility:visible}
+  @media(prefers-reduced-motion:reduce){.infobtn::after{transition:none}}
+  .infonote{position:absolute;top:calc(100% + 6px);right:10px;font-size:11.5px;color:var(--muted);z-index:50}
+  .infonote b{color:var(--ink);font-weight:600}
   .fld{display:flex;flex-direction:column;gap:6px}
   .fld label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .dd{position:relative}
@@ -133,6 +152,9 @@
   .summary .m{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--border-soft);font-size:13.5px}
   .summary .m:last-child{border-bottom:none}
   .summary .k{color:var(--muted)} .summary .v{font-weight:700;color:var(--ink)}
+  /* the paper's footer colours the value by outcome, not the label */
+  .summary .v.good{color:var(--good-ink)} .summary .v.bad{color:var(--bad-ink)}
+  .summary .v.neutral{color:var(--ink)}
   .panel h3{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;margin-bottom:14px}
   .pending{display:flex;align-items:center;gap:10px;color:var(--faint);font-size:13.5px;padding:18px 0 6px}
   .rhero{background:linear-gradient(180deg,#f3f6ff,#eef2fe);border:1px solid #dfe6fb;border-radius:14px;padding:16px 18px;margin-bottom:18px}
@@ -156,6 +178,37 @@
   .ghost{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#e2e6ee 0 3px,#eef0f4 3px 6px);border-radius:inherit}
   .den{color:var(--faint);font-weight:400}
   @media(prefers-reduced-motion:reduce){.fill,.rtrack .rfill{transition:none}}
+  /* custom-model typing box (replaces the old prompt() modal) */
+  .mslug{position:relative}
+  .mslug-in{width:100%;padding:9px 11px;border:1px solid var(--blue);border-radius:9px;background:#fff;
+            font:inherit;font-size:13px;color:var(--ink);outline:none}
+  .mslug-in::placeholder{color:var(--faint)}
+  .mslug-hits{list-style:none;margin:6px 0 0;padding:0;position:absolute;left:0;right:0;top:100%;z-index:40;
+              background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(19,33,60,.10);
+              max-height:230px;overflow:auto}
+  .mslug-hits:empty{display:none}
+  .mslug-hits li{padding:7px 11px;cursor:pointer;display:flex;flex-direction:column;gap:1px;border-bottom:1px solid var(--border-soft)}
+  .mslug-hits li:last-child{border-bottom:none}
+  .mslug-hits li:hover{background:var(--pill-bg)}
+  .mslug-hits b{font-size:12.5px;color:var(--ink);font-weight:700}
+  .mslug-hits span{font-size:11px;color:var(--muted)}
+  .mslug-note{margin-top:5px;font-size:11px;color:var(--muted);line-height:1.4}
+  .mslug-note.bad{color:var(--bad-ink);font-weight:600}
+  .mslug-note.warn{color:#8a6100;font-weight:600}
+  /* legend inside the reward card */
+  .rlegend{display:flex;gap:18px;padding:11px 0 9px;font-size:11.5px;color:var(--muted);flex-wrap:wrap;border-bottom:1px solid var(--border-soft)}
+  .rlegend span{display:inline-flex;align-items:center;gap:6px}
+  .rlegend i{width:9px;height:9px;border-radius:50%;flex:0 0 9px}
+  .rlegend b{color:var(--ink)}
+  /* "made of" — how a rubric's own score was built */
+  .rform{margin-top:9px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;
+         display:flex;flex-wrap:wrap;align-items:center;column-gap:6px;row-gap:7px}
+  .rform .lead{color:var(--faint)}
+  .rform .term{display:inline-flex;align-items:center;gap:5px;background:#eef1f6;border-radius:7px;padding:3px 9px;color:var(--body)}
+  .rform .term .w,.rform .term .v{font-weight:800;color:var(--ink)}
+  .rform .term.judge{background:#eae7fb;color:#5a4bc4}
+  .rform .term.judge .w,.rform .term.judge .v{color:#5a4bc4}
+  .rform .term .jb{font-size:8.5px;font-weight:800;color:#fff;background:#8a76e0;border-radius:4px;padding:0 4px;letter-spacing:.03em}
   .rmeta{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:11.5px;color:var(--muted)}
   .rmeta .contrib{color:var(--blue-ink);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
   .rmeta .na{color:var(--scam-ink);font-weight:700}

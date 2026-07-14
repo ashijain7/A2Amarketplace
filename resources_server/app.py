@@ -847,6 +847,16 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
             "swap_quality": (swap_q.get("combined") if swap_q else None),
             "transactional_integrity": (settle.get("combined") if settle else None),
         },
+        # full sub-metric dicts — sim_ui turns these into the reward panel's
+        # "made of" line. Scalars above stay for any consumer that only wants those.
+        "rubric_detail": {
+            "deal_outcomes": deal,
+            "capability_asymmetry": cap,
+            "negotiation_quality": (neg if state.phase < 3 else None),
+            "persona_privacy": priv,
+            "review_utilization": rev,
+            "swap_quality": swap_q,
+        },
     })
     return {
         "reward": final,
