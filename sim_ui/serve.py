@@ -31,14 +31,18 @@ def _gradio_backend() -> gr.Blocks:
     is one live record (seed/event/room/reward/done/error)."""
     from . import live_runner
 
-    def run_live(phase, set_id, focal, opponent, max_turns, seed, scammer):
+    # NOTE: the inputs are POSITIONAL — the front-end submits an array. Adding one here
+    # without adding it to web/app.js (or vice versa) silently shifts every argument.
+    def run_live(phase, set_id, focal, opponent, max_turns, seed, scammer, record):
         params = {
             "phase": phase, "set": set_id, "focal": focal, "opponent": opponent,
             "max_turns": int(max_turns or 100), "seed": int(seed or 42),
             "scammer": (str(scammer).lower() != "off"),   # default ON
+            # Default OFF: a run is saved only when the human asks for it.
+            "record": (str(record).lower() == "on"),
         }
-        for record in live_runner.stream_live_run(params):
-            yield record
+        for record_ in live_runner.stream_live_run(params):
+            yield record_
 
     with gr.Blocks(title="Agent-to-Agent Marketplace — backend") as demo:
         gr.Markdown("Live-run backend. UI is served at **/**; this exposes `/run_live`.")
@@ -49,11 +53,12 @@ def _gradio_backend() -> gr.Blocks:
         i_turns = gr.Number(visible=False)
         i_seed = gr.Number(visible=False)
         i_scam = gr.Textbox(visible=False)
+        i_record = gr.Textbox(visible=False)
         o_rec = gr.JSON(visible=False)
         trigger = gr.Button("run_live", visible=False)
         trigger.click(
             run_live,
-            inputs=[i_phase, i_set, i_focal, i_opp, i_turns, i_seed, i_scam],
+            inputs=[i_phase, i_set, i_focal, i_opp, i_turns, i_seed, i_scam, i_record],
             outputs=o_rec,
             api_name="run_live",
         )

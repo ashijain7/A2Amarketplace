@@ -22,6 +22,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -218,6 +219,8 @@ def build_plan(args) -> dict:
         # getattr (not args.scammer) so callers that build a bare args namespace
         # without --scammer (e.g. pre-existing tests) keep the argparse default: ON.
         "scammer": getattr(args, "scammer", "on") == "on",
+        # Save this run's reward to the platform. Default OFF — see run_live().
+        "record": bool(getattr(args, "record", False)),
         "out_dir": "results/adapter_runs/<runid>",
     }
 
@@ -274,13 +277,26 @@ def extract_results(rollouts_path: Path, plan: dict, focals: list[str]) -> dict:
             for k, v in (r.get("rubric_scores") or {}).items()
             if k != "final_reward"
         }
+        # What the EVALUATED agent did, as opposed to what the market did around it.
+        # `num_deals` counts every deal in the marketplace — most of them between
+        # opponents — so it says nothing about the agent under test.
+        focal = m.get("focal_persona")
+        events = r.get("channel_events") or []
+        focal_steps = sum(1 for e in events if e.get("agent") == focal)
+        focal_deals = sum(
+            1
+            for d in (r.get("deals") or [])
+            if focal in (d.get("buyer"), d.get("seller"))
+        )
         per_set.append({
             "set_id": m.get("set_id"),
-            "focal_persona": m.get("focal_persona"),
+            "focal_persona": focal,
             "reward": r.get("reward"),
             "rubric_breakdown": breakdown,
             "num_deals": len(r.get("deals") or []),
-            "num_channel_events": len(r.get("channel_events") or []),
+            "num_focal_deals": focal_deals,
+            "num_focal_steps": focal_steps,
+            "num_channel_events": len(events),
         })
     rewards = [p["reward"] for p in per_set if p["reward"] is not None]
     mean = round(sum(rewards) / len(rewards), 4) if rewards else None
@@ -324,6 +340,7 @@ def run_live(plan: dict) -> Path:
     """Execute one fresh run end to end and write result.json. Returns its path."""
     run_id = make_run_id(plan)
     out_dir = prepare_output_dir(run_id)
+    started_at = time.time()
     print(f"[adapter] run_id={run_id}")
 
     # 1. fresh env.yaml (focal)   2. clear scratch   3. build task
@@ -369,18 +386,31 @@ def run_live(plan: dict) -> Path:
     # 6. distill -> result.json
     result = extract_results(rollouts, plan, focals)
     result["per_set_files"] = per_set_files
+    # How long the run really took. The platform otherwise fills its Duration column with
+    # `steps * 0.7` — a guess that reads like a measurement.
+    result["duration_s"] = round(time.time() - started_at, 1)
     result_path = out_dir / "result.json"
     result_path.write_text(json.dumps(result, indent=2) + "\n")
     print(f"[adapter] mean_reward={result['mean_reward']}  ->  {result_path}")
 
-    # Announce this finished run to the RLEaaS platform (best-effort, env-gated:
-    # no-op unless RLEAAS_CALLBACK_URL + RLEAAS_TOKEN are set). Never fails the run.
-    try:
-        pushed = platform_export.push_to_platform(result, run_id)
-        if pushed:
-            print(f"[adapter] pushed {pushed} rollout record(s) to the platform")
-    except Exception as e:  # noqa: BLE001
-        print(f"[adapter] platform push skipped: {e}")
+    # Announce this finished run to the RLEaaS platform. OFF unless the run was explicitly
+    # marked to be recorded: a short exploratory run scores far below a full-length one
+    # (a 10-turn run scored 0.17 where the same set scores ~0.36 at full length), so
+    # recording every experiment would quietly drag down every average computed from the
+    # store — and nobody would remember afterwards which rows were "just testing".
+    # Still env-gated too (no-op unless RLEAAS_CALLBACK_URL + RLEAAS_TOKEN are set), and
+    # best-effort: a failed push never fails the run.
+    if not plan.get("record"):
+        print("[adapter] not recorded (use --record to save this run to the platform)")
+    else:
+        try:
+            pushed = platform_export.push_to_platform(result, run_id)
+            if pushed:
+                print(f"[adapter] pushed {pushed} rollout record(s) to the platform")
+            else:
+                print("[adapter] --record set, but the platform callback is not configured")
+        except Exception as e:  # noqa: BLE001
+            print(f"[adapter] platform push skipped: {e}")
 
     return result_path
 
@@ -404,6 +434,10 @@ def main() -> None:
     ap.add_argument("--scammer", choices=["on", "off"], default="on",
                     help="transaction only: run the man-in-the-middle scammer. "
                          "default ON (the paper runs were scam-on). Ignored outside transaction.")
+    ap.add_argument("--record", action="store_true",
+                    help="save this run's reward to the RLEaaS platform. OFF by default: "
+                         "a short exploratory run scores far below a full-length one, so "
+                         "recording every experiment would drag down every average.")
     ap.add_argument("--dry-run", action="store_true",
                     help="print the resolved plan and exit; run nothing")
     args = ap.parse_args()

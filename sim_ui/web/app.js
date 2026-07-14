@@ -282,6 +282,15 @@ function renderLiveControls(){
     <div class="fld"><label>Max turns: <b id="turnval">${cur.turns}</b></label>
       <input type="range" min="1" max="100" value="${cur.turns}" class="slider"
              oninput="cur.turns=+this.value;document.getElementById('turnval').textContent=this.value"></div>
+    <div class="fld"><label>Save result</label>
+      <label class="swwrap" data-tip="${cur.record===true
+          ? 'ON — the reward from this run will be saved to RLEaaS and counted in its averages. Use it for runs you mean to keep.'
+          : 'OFF — nothing is sent. Run freely: a short run scores far below a full one, so it would drag the averages down if it were kept.'}">
+        <input type="checkbox" ${cur.record===true?'checked':''}
+               onchange="cur.record=this.checked;renderLiveControls()">
+        <span class="sw"></span>
+        <span class="swtxt">${cur.record===true?'Recording to RLEaaS':'Not saved'}</span>
+      </label></div>
     <button class="run" onclick="runLive()">RUN LIVE</button>`;
 }
 
@@ -712,9 +721,11 @@ async function runLive(){
     // just our own origin, so this stays correct in both homes.
     const gradioUrl = new URL("gradio", document.baseURI).href;
     const client=await window.__GradioClient.connect(gradioUrl);
+    // POSITIONAL — the order must match serve.py::run_live's parameters exactly.
     const sub=client.submit("/run_live",[ PHASE_FOR_MODE[cur.mode], cur.liveset,
       cur.focal, cur.opponent, cur.turns, 42,
-      cur.scammer===false?'off':'on' ]);
+      cur.scammer===false?'off':'on',
+      cur.record===true?'on':'off' ]);
     // NOTE: if the installed @gradio/client build does not support `for await` on the
     // submit() job (older/newer event-emitter APIs vary), swap this loop for:
     //   sub.on("data", ev => { const rec=Array.isArray(ev.data)?ev.data[0]:ev.data; if(rec) handle(rec); });

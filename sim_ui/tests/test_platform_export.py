@@ -45,8 +45,10 @@ def test_converts_one_record_per_set():
     r = recs[0]
     assert r["environment_name"] == "project_deal_marketplace"
     assert r["total_reward"] == 0.30
-    assert r["scenario_name"] == "set_01"
-    assert r["policy_name"] == "anthropic/claude-sonnet-4-5"
+    # A live row is shown in the same list as the cached ones, so it uses the same
+    # wording: the readable stage/set, and a policy line naming both models.
+    assert r["scenario_name"] == "MarketDeal · Stage I — Set 01 (Basic trading)"
+    assert r["policy_name"] == "Sonnet 4.5 (evaluated) vs Gemini 3.1 Pro"
     assert r["steps"][0]["reward_breakdown"] == {"deal_outcomes": 0.1, "negotiation_quality": 0.7}
     assert r["final_outcome"]["run_id"] == "run_abc"
     assert r["final_outcome"]["num_deals"] == 3

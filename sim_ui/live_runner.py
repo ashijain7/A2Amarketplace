@@ -30,6 +30,10 @@ def _build_adapter_cmd(params: dict) -> list[str]:
         "--seed", str(int(params["seed"])),
     ]
     cmd += ["--scammer", "on" if params.get("scammer", True) else "off"]
+    # Only a run the human asked to keep is saved to the platform. Absent, the adapter
+    # makes no call at all — see adapter.run_live.
+    if params.get("record"):
+        cmd += ["--record"]
     return cmd
 
 
