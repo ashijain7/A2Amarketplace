@@ -1,4 +1,7 @@
-# .env IS baked in (user choice — key ships in the image for now)
+# Secrets never enter the image. The API key is injected at run time
+# (`docker run -e OPENROUTER_API_KEY=...`), so a key baked here would only be a stale
+# copy of one — and one that ships to anyone who pulls the image.
+.env
 # env.yaml is regenerated from env.yaml.example at runtime, so it stays out.
 env.yaml
 
