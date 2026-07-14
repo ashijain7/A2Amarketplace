@@ -18,11 +18,21 @@ HEALTH_TIMEOUT=120
 
 cd "$PROJECT_DIR"
 
-# Source .env so OPENROUTER_API_KEY is available to ng_run
+# Source .env so OPENROUTER_API_KEY is available to ng_run.
+# A value already in the environment WINS over the file: the host injects the key at run
+# time (e.g. `docker run -e OPENROUTER_API_KEY=...`), and `source` would otherwise assign
+# the file's value straight over the top of it — silently, with no error, leaving the run
+# using the wrong key. The environment is an instruction; a file baked into the image is
+# only a default.
 if [ -f "$PROJECT_DIR/.env" ]; then
+  _injected_openrouter_key="${OPENROUTER_API_KEY:-}"
   set -a
   source "$PROJECT_DIR/.env"
   set +a
+  if [ -n "$_injected_openrouter_key" ]; then
+    export OPENROUTER_API_KEY="$_injected_openrouter_key"
+  fi
+  unset _injected_openrouter_key
 fi
 
 echo "[$(date +%H:%M:%S)] restart_ng_run: starting"
