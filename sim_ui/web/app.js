@@ -848,7 +848,11 @@ function showTab(t){
   });
 }
 
-fetch('episodes.json').then(r=>r.json()).then(data=>{
+// {cache:"no-cache"} = always revalidate against the server's ETag before using a
+// cached copy. Without it a browser serves a STALE episodes.json after a rebuild —
+// the reward panel then shows bars with no "Made of:" breakdown, because the old
+// file has no `subs`, even though the new app.js is loaded.
+fetch('episodes.json',{cache:'no-cache'}).then(r=>r.json()).then(data=>{
   EP=data;
   const q=new URLSearchParams(location.search);
   cur.mode=(q.get('mode')&&EP.catalog[q.get('mode')])?q.get('mode'):EP.modes[0];
