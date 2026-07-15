@@ -282,7 +282,18 @@ def extract_results(rollouts_path: Path, plan: dict, focals: list[str]) -> dict:
         # opponents — so it says nothing about the agent under test.
         focal = m.get("focal_persona")
         events = r.get("channel_events") or []
-        focal_steps = sum(1 for e in events if e.get("agent") == focal)
+        # The focal's OWN actions, in order — each is one tool call. Carrying them (not
+        # just a count) lets the platform show the same per-step tool activity for a live
+        # run as it does for a cached one, instead of "10 steps / 0 tools".
+        focal_actions = [
+            {
+                "action": e.get("action") or "act",
+                "target": e.get("target"),
+                "price": e.get("price"),
+            }
+            for e in events
+            if e.get("agent") == focal
+        ]
         focal_deals = sum(
             1
             for d in (r.get("deals") or [])
@@ -295,7 +306,8 @@ def extract_results(rollouts_path: Path, plan: dict, focals: list[str]) -> dict:
             "rubric_breakdown": breakdown,
             "num_deals": len(r.get("deals") or []),
             "num_focal_deals": focal_deals,
-            "num_focal_steps": focal_steps,
+            "num_focal_steps": len(focal_actions),
+            "focal_actions": focal_actions,
             "num_channel_events": len(events),
         })
     rewards = [p["reward"] for p in per_set if p["reward"] is not None]

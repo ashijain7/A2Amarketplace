@@ -23,7 +23,12 @@ def _result(**over):
                 "rubric_breakdown": {"deal_outcomes": 0.4, "swap_quality": None},
                 "num_deals": 6,
                 "num_focal_deals": 2,
-                "num_focal_steps": 44,
+                "num_focal_steps": 3,
+                "focal_actions": [
+                    {"action": "post_listing", "target": "keyboard_01", "price": 50},
+                    {"action": "counter_offer", "target": "lst_003", "price": 45},
+                    {"action": "accept_offer", "target": "ofr_007", "price": None},
+                ],
                 "num_channel_events": 78,
             }
         ],
@@ -49,7 +54,38 @@ def test_the_run_names_itself_so_a_retry_is_not_a_second_run():
 def test_steps_are_the_agents_own_actions_not_the_markets_traffic():
     rec = px.result_to_platform_records(_result(), "A2A_Marketplace", "run_1")[0]
 
-    assert rec["total_steps"] == 44, "should be the focal's actions, not 78 channel events"
+    assert rec["total_steps"] == 3, "should be the focal's actions, not 78 channel events"
+
+
+def test_tool_calls_match_the_agents_actions():
+    """The list shows tool calls by walking each step's timeline — a live row must carry
+    them, or it reads '3 steps / 0 tools' next to the cached rows that don't."""
+    rec = px.result_to_platform_records(_result(), "A2A_Marketplace", "run_1")[0]
+
+    tool_calls = sum(
+        1
+        for s in rec["steps"]
+        for e in (s.get("timeline_events") or [])
+        if e.get("event_type") == "TOOL_CALL"
+    )
+    assert tool_calls == 3
+    assert [s["action"] for s in rec["steps"]] == [
+        "post_listing", "counter_offer", "accept_offer"
+    ]
+    # the episode reward rides on the final step, not smeared across all of them
+    assert rec["steps"][-1]["reward"] == 0.32
+
+
+def test_a_run_with_no_focal_actions_still_yields_a_valid_step():
+    """Empty timeline must be [], never null — a null 500s the whole rollout list."""
+    quiet = _result()
+    quiet["per_set"][0]["focal_actions"] = []
+
+    rec = px.result_to_platform_records(quiet, "A2A_Marketplace", "run_1")[0]
+
+    assert len(rec["steps"]) == 1
+    assert rec["steps"][0]["timeline_events"] == []
+    assert rec["steps"][0]["reward"] == 0.32
 
 
 def test_the_outcome_says_what_the_agent_actually_did():
@@ -100,3 +136,19 @@ def test_an_unknown_model_still_reads_sensibly():
     rec = px.result_to_platform_records(odd, "A2A_Marketplace", "run_1")[0]
 
     assert rec["policy_name"].startswith("brand-new-model-9 (evaluated)")
+
+
+def test_live_episodes_continue_after_the_cached_corpus():
+    """A live run reads as #141, #142 … below the 140 cached — not a second #1."""
+    r5 = _result()
+    r5["per_set"] = [dict(r5["per_set"][0], set_id=f"set_0{i}") for i in range(1, 6)]
+
+    recs = px.result_to_platform_records(r5, "A2A_Marketplace", "run_1", episode_start=140)
+
+    assert [x["episode_number"] for x in recs] == [141, 142, 143, 144, 145]
+
+
+def test_episode_start_defaults_to_one_based():
+    """With no start supplied, behaviour is unchanged."""
+    rec = px.result_to_platform_records(_result(), "A2A_Marketplace", "run_1")[0]
+    assert rec["episode_number"] == 1

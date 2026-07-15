@@ -6,6 +6,7 @@ sim_ui venv. Stdlib only. Never raises out of push_to_platform."""
 import json
 import os
 import sys
+import urllib.parse
 import urllib.request
 
 DEFAULT_ENV_NAME = "project_deal_marketplace"
@@ -43,8 +44,15 @@ def model_name(slug):
     return _MODEL_NAME.get(slug) or str(slug).split("/")[-1]
 
 
-def result_to_platform_records(result: dict, env_name: str, run_id: str) -> list[dict]:
-    """One platform RolloutRecord-shaped dict per set in result['per_set']."""
+def result_to_platform_records(
+    result: dict, env_name: str, run_id: str, episode_start: int = 0
+) -> list[dict]:
+    """One platform RolloutRecord-shaped dict per set in result['per_set'].
+
+    `episode_start` is the highest episode number already recorded for this environment,
+    so a live run continues the sequence (the cached corpus ends at 140 → the next run is
+    141) instead of restarting at 1 and colliding with it in the list.
+    """
     recs = []
     phase = result.get("phase") or ""
     stage = _MODE_STAGE.get(phase, phase)
@@ -68,24 +76,54 @@ def result_to_platform_records(result: dict, env_name: str, run_id: str) -> list
         set_id = ps.get("set_id") or "set_00"
         set_label = str(set_id).replace("set_", "Set ")
         deals = ps.get("num_focal_deals") or 0
-        steps = ps.get("num_focal_steps") or 0
+        actions = ps.get("focal_actions") or []
+        steps = len(actions) or (ps.get("num_focal_steps") or 0)
+
+        # One step per focal action, each carrying a TOOL_CALL — the platform counts tool
+        # calls by walking these, so a live run shows the same per-step activity as a
+        # cached one instead of "N steps / 0 tools". `timeline_events` must be [] not null
+        # (a null key makes the platform's tool-call sum iterate None and 500 the list),
+        # so a run with no actions still yields a valid, empty-timeline step.
+        step_dicts = [
+            {
+                "step": j,
+                "action": a.get("action"),
+                "reward": 0.0,
+                "state_summary": None,
+                "reward_breakdown": {},
+                "timeline_events": [
+                    {
+                        "event_type": "TOOL_CALL",
+                        "tool_name": a.get("action") or "act",
+                        "tool_args": {
+                            k: a[k]
+                            for k in ("target", "price")
+                            if a.get(k) is not None
+                        },
+                    }
+                ],
+            }
+            for j, a in enumerate(actions)
+        ]
+        if step_dicts:
+            # the episode reward + rubric breakdown ride on the final step
+            step_dicts[-1]["reward"] = reward
+            step_dicts[-1]["reward_breakdown"] = reward_breakdown
+        else:
+            step_dicts = [{
+                "step": 0, "action": None, "reward": reward, "state_summary": None,
+                "reward_breakdown": reward_breakdown, "timeline_events": [],
+            }]
 
         rec = {
             # The run names itself, so a retry updates this row instead of creating a
             # second copy of the same episode.
             "id": f"{run_id}__{set_id}",
             "environment_name": env_name,
-            "episode_number": i + 1,
-            "steps": [{
-                "step": 0,
-                "action": None,
-                "reward": reward,
-                "state_summary": None,
-                "reward_breakdown": reward_breakdown,
-                # [] and not None: the platform counts tool calls by iterating this, and a
-                # null key makes it iterate None — which 500s the whole rollout list.
-                "timeline_events": [],
-            }],
+            # Continue the sequence after whatever is already recorded, so live runs read
+            # as #141, #142, … below the 140 cached — not a second run of #1.
+            "episode_number": episode_start + i + 1,
+            "steps": step_dicts,
             "total_reward": reward,
             # The evaluated agent's own actions — not the market's traffic around it.
             "total_steps": steps,
@@ -130,6 +168,22 @@ def result_to_platform_records(result: dict, env_name: str, run_id: str) -> list
     return recs
 
 
+def _max_recorded_episode(base_url: str, token: str, env_name: str) -> int:
+    """Highest episode number already stored for this env, so a live run continues the
+    sequence. Best-effort: on any failure return 0, and the push falls back to 1-based."""
+    try:
+        q = urllib.parse.urlencode({"environment_name": env_name, "limit": 1000})
+        req = urllib.request.Request(
+            f"{base_url}/api/rollouts-all?{q}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            rows = json.loads(resp.read()).get("rollouts", [])
+        return max((int(r.get("episode_number") or 0) for r in rows), default=0)
+    except Exception:  # noqa: BLE001 — best-effort, never fail the run
+        return 0
+
+
 def push_to_platform(result: dict, run_id: str) -> int:
     """Best-effort: POST each record to the platform. Returns count POSTed.
     No-op (returns 0) unless BOTH RLEAAS_CALLBACK_URL and RLEAAS_TOKEN are set.
@@ -141,7 +195,10 @@ def push_to_platform(result: dict, run_id: str) -> int:
     sent = 0
     try:
         env_name = os.environ.get("RLEAAS_ENV_NAME", DEFAULT_ENV_NAME)
-        recs = result_to_platform_records(result, env_name, run_id)
+        # `.../api/rollouts` → `...` : the base the read endpoint hangs off.
+        base_url = url.rsplit("/api/rollouts", 1)[0]
+        episode_start = _max_recorded_episode(base_url, token, env_name)
+        recs = result_to_platform_records(result, env_name, run_id, episode_start)
     except Exception as e:  # noqa: BLE001 — best-effort, never fail the run
         print(f"[platform_export] push conversion failed for run {run_id}: {e}", file=sys.stderr)
         return 0
