@@ -290,10 +290,23 @@ def extract_results(rollouts_path: Path, plan: dict, focals: list[str]) -> dict:
                 "action": e.get("action") or "act",
                 "target": e.get("target"),
                 "price": e.get("price"),
+                "where": "market",
             }
             for e in events
             if e.get("agent") == focal
         ]
+        # In transaction mode the focal also works in the private payment room, and none
+        # of that touches the channel — pay / submit_otp / confirm_receipt / say_in_room
+        # write to the settlement store. Reading only the channel made the mode that is
+        # entirely about paying report just the shopping half. Settlement opens only once
+        # a deal has closed, so these belong after the market's, in the order they ran.
+        for a in sorted(r.get("settlement_actions") or [], key=lambda x: x.get("seq") or 0):
+            focal_actions.append({
+                "action": a.get("action") or "act",
+                "target": a.get("target"),
+                "price": a.get("price"),
+                "where": "settlement",
+            })
         focal_deals = sum(
             1
             for d in (r.get("deals") or [])

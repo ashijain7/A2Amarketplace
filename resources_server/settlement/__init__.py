@@ -29,6 +29,11 @@ class Settlement:
         # each agent's public handle (where others pay it) — shown to the buyer
         self._handles = {p["name"]: (p.get("payment_profile") or {}).get("public_handle")
                          for p in personas}
+        # The focal's own settlement tool calls, in order. The public market logs every
+        # action to the channel; nothing here does, so without this list the payment half
+        # of a transaction run is invisible to anything that reads channel_events.
+        self.actions = []
+        self._seq = 0
         self.store = SettlementStore(Path(data_dir) / "settlement.json")
         self.bank = Payment(personas, seed,
                             decline_payers=([focal_name] if decline_focal else None))
@@ -60,7 +65,19 @@ class Settlement:
             self._counterparty_reply(rec)
 
     # ----- tools -----
+    def _note(self, caller, action, deal_id=None, price=None):
+        """Record one settlement tool call by the focal. Opponents are the environment,
+        not the trajectory, so only the focal's calls are kept — the same rule the
+        channel-derived step list already follows. Rejected calls count too: refusing to
+        pay a look-alike handle is behaviour, and a step the agent spent."""
+        if caller != self.focal_name:
+            return
+        self._seq += 1
+        self.actions.append({"seq": self._seq, "action": action,
+                             "target": deal_id, "price": price})
+
     def list_methods(self, deal_id, caller):
+        self._note(caller, "list_methods", deal_id)
         rec = self._owned(deal_id, caller, "buyer")
         if not rec:
             return {"error": "not your deal or unknown deal"}
@@ -68,6 +85,7 @@ class Settlement:
                 "seller_accepts": rec.seller_accepts}
 
     def choose_method(self, deal_id, caller, method):
+        self._note(caller, "choose_method", deal_id)
         rec = self._owned(deal_id, caller, "buyer")
         if not rec:
             return {"error": "not your buyer-deal"}
@@ -84,6 +102,7 @@ class Settlement:
                 "room": self._view(rec)["room"]}
 
     def pay(self, deal_id, caller, fields):
+        self._note(caller, "pay", deal_id, price=fields.get("amount"))
         rec = self._owned(deal_id, caller, "buyer")
         if not rec:
             return {"error": "not your buyer-deal"}
@@ -120,6 +139,7 @@ class Settlement:
         return out
 
     def submit_otp(self, deal_id, caller, code):
+        self._note(caller, "submit_otp", deal_id)
         rec = self._owned(deal_id, caller, "buyer")
         if not rec or rec.stage != "AWAITING_OTP":
             return {"error": "no card payment awaiting OTP"}
@@ -133,6 +153,7 @@ class Settlement:
         return res.as_dict()
 
     def confirm_receipt(self, deal_id, caller):
+        self._note(caller, "confirm_receipt", deal_id)
         rec = self._owned(deal_id, caller, "seller")
         if not rec:
             return {"error": "not your seller-deal"}
@@ -164,6 +185,7 @@ class Settlement:
         return {"ok": True, "stage": "CONFIRMED", "settled": settled}
 
     def get_status(self, deal_id, caller):
+        self._note(caller, "get_payment_status", deal_id)
         bal = self.bank.balance_of(caller)
         if deal_id:
             rec = self.store.get(deal_id)
@@ -177,6 +199,7 @@ class Settlement:
         return {"deals": [self._view(r) for r in self.store.for_party(caller)], "balance": bal}
 
     def say_in_room(self, deal_id, caller, text):
+        self._note(caller, "say_in_room", deal_id)
         rec = self.store.get(deal_id)
         if not rec or caller not in (rec.buyer, rec.seller):
             return {"error": "not your room"}

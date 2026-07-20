@@ -828,10 +828,15 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
 
     settlement_records = None
     settlement_balances = None
+    settlement_actions = None
     if getattr(state, "settlement", None) is not None:
         from dataclasses import asdict
         settlement_records = [asdict(r) for r in state.settlement.store.records.values()]
         settlement_balances = state.settlement.bank.balances
+        # The focal's payment-side tool calls. They never reach the channel, so anything
+        # counting the agent's steps from channel_events alone misses the half of a
+        # transaction run that the mode exists to measure.
+        settlement_actions = list(state.settlement.actions)
 
     from marketplace import live_log
     live_log.emit({
@@ -878,6 +883,7 @@ def _verify_for_state(state: "MarketplaceState") -> dict:
         "channel_events": channel_events,
         "deals": deals,
         "settlement_records": settlement_records,
+        "settlement_actions": settlement_actions,
         "settlement_balances": settlement_balances,
         "personas": state.personas,
     }
