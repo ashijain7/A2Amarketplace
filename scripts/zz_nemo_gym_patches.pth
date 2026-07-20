@@ -1,0 +1,1 @@
+import nemo_gym_patches; nemo_gym_patches.apply_all()

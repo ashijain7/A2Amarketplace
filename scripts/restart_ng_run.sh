@@ -90,33 +90,47 @@ if [ "${ENABLE_SETTLEMENT:-no}" = "yes" ]; then
   echo "[$(date +%H:%M:%S)] settlement on: public cap=$FOCAL_PUBLIC_MAX_STEPS, total max_steps=$FOCAL_MAX_STEPS"
 fi
 
-# Install our runtime patch into ALL NeMo Gym subserver venvs as
-# sitecustomize.py. Python's site.py auto-loads sitecustomize at startup,
-# applying the patch before any user code runs. Required for Opus 4.7
-# focal runs (Opus returns service_tier='standard' which NeMo Gym's
-# schema otherwise rejects). Safe no-op for non-Opus focals.
+# Install our runtime patches into ALL NeMo Gym subserver venvs. site.py executes the
+# .pth's import line at interpreter startup, so the patches land before any user code
+# builds a schema. NeMo Gym's own source is never modified.
+#
+# The whole nemo_gym_patches PACKAGE goes in, next to the .pth that imports it — a new
+# fix is a new module in that package. The earlier version copied a single patch file
+# onto sitecustomize.py, which was wrong twice over:
+#   1. sitecustomize is ONE name, so patch #2 would silently overwrite patch #1.
+#   2. Python imports only the FIRST sitecustomize on sys.path, and Ubuntu ships
+#      /usr/lib/python3.12/sitecustomize.py (apport) ahead of every venv's
+#      site-packages. The venv-local copy was shadowed and never ran at all — so the
+#      Opus 4.7 fix has been silently inactive on Linux since the port. It worked on
+#      macOS, which ships no system sitecustomize. A .pth cannot be shadowed.
+#
+# Unconditional by design. Every patch only WIDENS a schema (accepts a value NeMo Gym
+# used to reject), so there is no focal model it can harm. The old `if opus` gate left
+# the previous run's file installed while printing "skipping runtime patch" — a claim
+# that contradicted the files on disk.
 #
 # The validation happens in BOTH subservers:
 #  - policy_model       — validates OpenRouter's response before forwarding
 #  - simple_agent       — re-validates the response it receives from policy_model
-# Both venvs need the patch installed.
-FOCAL_MODEL=$(grep "policy_model_name" env.yaml | sed 's/.*policy_model_name:[[:space:]]*//')
-PATCH_SOURCE="$PROJECT_DIR/scripts/nemo_gym_runtime_patch.py"
-if echo "$FOCAL_MODEL" | grep -qi "opus"; then
-  for VENV_BASE in \
-      "$NEMO_GYM_DIR/responses_api_models/openai_model" \
-      "$NEMO_GYM_DIR/responses_api_agents/simple_agent" \
-      "$NEMO_GYM_DIR/resources_servers/marketplace"
-  do
-    SITE_DIR="$VENV_BASE/.venv/lib/python3.12/site-packages"
-    if [ -f "$PATCH_SOURCE" ] && [ -d "$SITE_DIR" ]; then
-      cp "$PATCH_SOURCE" "$SITE_DIR/sitecustomize.py"
-      echo "[$(date +%H:%M:%S)] installed runtime patch → $(basename $VENV_BASE)/.venv/.../sitecustomize.py"
-    fi
-  done
-else
-  echo "[$(date +%H:%M:%S)] skipping runtime patch (focal=$FOCAL_MODEL — not Opus)"
-fi
+# Both venvs need the patches installed.
+PATCH_PKG="$PROJECT_DIR/scripts/nemo_gym_patches"
+PATCH_PTH="$PROJECT_DIR/scripts/zz_nemo_gym_patches.pth"
+for VENV_BASE in \
+    "$NEMO_GYM_DIR/responses_api_models/openai_model" \
+    "$NEMO_GYM_DIR/responses_api_agents/simple_agent" \
+    "$NEMO_GYM_DIR/resources_servers/marketplace"
+do
+  SITE_DIR="$VENV_BASE/.venv/lib/python3.12/site-packages"
+  if [ -d "$PATCH_PKG" ] && [ -f "$PATCH_PTH" ] && [ -d "$SITE_DIR" ]; then
+    # Replace the package wholesale, so a patch deleted from the repo also leaves the venv.
+    rm -rf "$SITE_DIR/nemo_gym_patches"
+    cp -r "$PATCH_PKG" "$SITE_DIR/nemo_gym_patches"
+    cp "$PATCH_PTH" "$SITE_DIR/zz_nemo_gym_patches.pth"
+    # Leftover from the shadowed mechanism; harmless but misleading if anyone finds it.
+    rm -f "$SITE_DIR/sitecustomize.py"
+    echo "[$(date +%H:%M:%S)] installed runtime patches → $(basename $VENV_BASE)/.venv/.../nemo_gym_patches"
+  fi
+done
 
 # Ray object store: a container's /dev/shm defaults to only 64MB (RLEaaS's docker
 # run / k8s pod won't enlarge it). Cap Ray's object store small and let Ray fall
