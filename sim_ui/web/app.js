@@ -26,6 +26,14 @@ const COMPONENTS={
  transactional_integrity:{type:"mean",parts:[["privacy","privacy"],["security","security"],["correctness","correctness"],["method","method"],["integrity","integrity"],["verification","verification"]],note:"mean of the payment-safety areas actually exercised"}};
 const SHADES=["#5f7ff0","#7d97f3","#9aabf6","#b7c1f9","#d3d9fb"];
 
+/* Set only by the static Hugging Face build (scripts/build_hf_space.py injects it into
+   that copy's index.html). There is no server behind those files, so the Live half of the
+   page — which needs /api/models, /api/run and the Gradio socket — has nothing to talk to.
+   Hiding the Mode switch is the whole difference; every cached path is client-side.
+   Defaults false, so the local UI and the RLEaaS embed are untouched. Keeping ONE app.js
+   is the point: the previously published Space ran a hand-adapted 36 kB copy that then
+   drifted four versions behind this file. */
+const CACHED_ONLY = !!window.A2A_CACHED_ONLY;
 let EP=null, cur={mode:null,config:null,set:null,uimode:'cached',focal:'sonnet',opponent:'gemini',turns:100,liveset:'01'}, timers=[];
 let panes={}, current=null;   // live mode: setId('01'..) -> pane state; current = pane receiving the live stream
 function clearTimers(){timers.forEach(t=>clearTimeout(t));timers=[];}
@@ -125,7 +133,7 @@ function renderControls(){
   const cfgOpts=Object.keys(cfgMap).map(c=>({val:c,label:cfgMap[c].label,sel:c===cur.config}));
   const setOpts=cfgMap[cur.config].sets.map(s=>({val:s,label:s,sel:s===cur.set}));
   document.getElementById('controls').innerHTML=`
-    <div class="fld"><label>Mode</label>${ddHTML('mode',[{val:'cached',label:'Cached',sel:cur.uimode!=='live'},{val:'live',label:'Live',sel:cur.uimode==='live'}])}</div>
+    ${CACHED_ONLY?'':`<div class="fld"><label>Mode</label>${ddHTML('mode',[{val:'cached',label:'Cached',sel:cur.uimode!=='live'},{val:'live',label:'Live',sel:cur.uimode==='live'}])}</div>`}
     <div class="fld"><label>Scenario</label>${ddHTML('stage',EP.modes.map(m=>({val:m,label:STAGE_LONG[m],sel:m===cur.mode})))}</div>
     <div class="fld"><label>Evaluated vs Opponent</label>${ddHTML('config',cfgOpts)}</div>
     <div class="fld"><label>Persona sets</label>${ddHTML('set',setOpts)}</div>
@@ -167,6 +175,8 @@ let CATALOG=null;          // [{id,name}] or [] when the list is unavailable
 let CATALOG_OK=null;       // null = not fetched yet
 async function loadCatalog(){
   if(CATALOG!==null) return CATALOG;
+  // No server on the static build — asking for the model list would only log a 404.
+  if(CACHED_ONLY){ CATALOG=[]; CATALOG_OK=false; return CATALOG; }
   try{
     const r=await fetch(new URL('api/models',document.baseURI));
     const j=await r.json();
