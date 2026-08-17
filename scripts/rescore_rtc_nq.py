@@ -11,13 +11,13 @@ CHANGES
 2. Drop Negotiation Quality from Stage IV (phase 3 / SwapShop) only. In barter
    NQ is a constant 0.60 (anchoring/smoothness default 0.5, deadlock 1.0) -> no
    signal. Removed from the phase-3 reward weights; stored as None.
-3. Restore persona-privacy to the phase-3 reward for C9/C10. The June RU re-score
-   looked up only the legacy key "privacy"; C9/C10 store it under "persona_privacy"
+3. Restore persona-privacy to the phase-3 reward for C6/C7. The June RU re-score
+   looked up only the legacy key "privacy"; C6/C7 store it under "persona_privacy"
    so privacy (0.10) was dropped from their swap-stage reward. The original-5
    (legacy key) were unaffected. priv_comb() reads whichever key exists.
 
 PHASE-4 NOTE: those settlement rewards were scored with inconsistent weights
-(C1/C4/C6/C8 used phase-3 weights, C7/C9/C10 used phase-2). We do NOT change that
+(C1/C2/C3/C5 used phase-3 weights, C4/C6/C7 used phase-2). We do NOT change that
 weighting; we detect it per rollout and apply only the RTC delta to the reward.
 
 SOURCE OF TRUTH: rollouts.jsonl. aggregate.json and the per-rollout archive
@@ -58,7 +58,7 @@ def comb(rs, key):
 
 def priv_comb(rs):
     """Privacy combined, tolerant of legacy 'privacy' (original-5) vs renamed
-    'persona_privacy' (C9/C10 + phase-4). A rename, not missing data."""
+    'persona_privacy' (C6/C7 + phase-4). A rename, not missing data."""
     for k in ("persona_privacy", "privacy"):
         x = rs.get(k)
         if isinstance(x, dict):
@@ -73,7 +73,7 @@ def do_combined_new(rs):
     rtc = ds.get("rounds_to_close") or 0.0
     rscore = max(0.0, 1.0 - rtc / MAX_ROUNDS_NEW)
     c = (0.40 * (ds.get("closure_rate") or 0.0)
-         + 0.20 * (ds.get("pareto_efficiency") or 0.0)
+         + 0.20 * (ds.get("dual_surplus_rate", ds.get("pareto_efficiency")) or 0.0)
          + 0.15 * (ds.get("seller_profit") or 0.0)
          + 0.15 * (ds.get("buyer_surplus") or 0.0)
          + 0.10 * rscore)

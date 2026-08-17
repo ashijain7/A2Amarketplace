@@ -12,28 +12,27 @@ def _episodes():
 
 
 def test_finding_1_sets_01_02_are_harder_than_03_05():
-    # The published copy says "0.37 vs 0.58 — that 0.21 gap". Keep the three numbers
-    # tied together here: 0.5762 - 0.3662 = 0.2101 -> 0.21. (An earlier draft of the
-    # copy said 0.57/0.20 because it truncated instead of rounding; the corpus was
-    # right and the copy was corrected, not this test.)
+    # The published copy says "0.38 vs 0.51 — that 0.13 gap" (camera-ready rescore
+    # cr-2026-08: PP left the reward, the new parity CA is stricter, so the old
+    # 0.37/0.58/0.21 shrank — sets 03-05 no longer bank the privacy ceiling).
     by_set = defaultdict(list)
     for entry, ep in _episodes():
         by_set[entry.set_id].append(ep.reward)
     easy = st.mean([r for s in ("set_03", "set_04", "set_05") for r in by_set[s]])
     hard = st.mean([r for s in ("set_01", "set_02") for r in by_set[s]])
-    assert round(hard, 2) == 0.37
-    assert round(easy, 2) == 0.58
-    assert round(easy - hard, 2) == 0.21
+    assert round(hard, 2) == 0.38
+    assert round(easy, 2) == 0.51
+    assert round(easy - hard, 2) == 0.13
 
 
-def test_finding_2_three_pairs_swing_five_places():
+def test_finding_2_four_pairs_swing_five_places():
     lb = logic.build_leaderboard()
     ranks = defaultdict(dict)
     for mode, block in lb.items():
         for i, row in enumerate(block["rows"], 1):
             ranks[row["config"]][mode] = i
     swings = {c: max(d.values()) - min(d.values()) for c, d in ranks.items()}
-    assert sum(1 for s in swings.values() if s >= 5) == 3
+    assert sum(1 for s in swings.values() if s >= 5) == 4
 
 
 def test_finding_3_gemini_vs_gpt_never_looks_up_and_finishes_last_twice():

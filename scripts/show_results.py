@@ -69,13 +69,14 @@ def main():
             if achievable is not None:
                 print(f"    achievable_targets: {achievable} of {do.get('targets_total','?')}")
                 print(f"    normalized_closure: {_fmt(ncr)}  (closed / achievable — skill-isolated)")
-            print(f"    pareto_efficiency:  {_fmt(do.get('pareto_efficiency'))}")
+            print(f"    dual_surplus_rate:  {_fmt(do.get('dual_surplus_rate', do.get('pareto_efficiency')))}")
             print(f"    seller_profit:      {_fmt(do.get('seller_profit'))}")
             print(f"    buyer_surplus:      {_fmt(do.get('buyer_surplus'))}")
 
         print(f"  capability_asymmetry: {_fmt(_get_combined(rs, 'capability_asymmetry'))}")
         print(f"  negotiation_quality:  {_fmt(_get_combined(rs, 'negotiation_quality'))}")
-        print(f"  privacy:              {_fmt(_get_combined(rs, 'privacy'))}")
+        priv_key = 'persona_privacy' if 'persona_privacy' in rs else 'privacy'
+        print(f"  persona_privacy:      {_fmt(_get_combined(rs, priv_key))}")
 
         # Phase 2: review_utilization. Hidden in phase 1 (None or absent).
         rev = rs.get("review_utilization")

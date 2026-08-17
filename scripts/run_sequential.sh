@@ -32,12 +32,12 @@ export SETTLEMENT_DECLINE="${SETTLEMENT_DECLINE:-no}"
 
 case "$CONFIG" in
   focal_S_vs_S)   CONFIG_DIR="C1_sonnet_vs_sonnet" ;;
-  focal_S_vs_G)   CONFIG_DIR="C4_sonnet_vs_gemini" ;;
+  focal_S_vs_G)   CONFIG_DIR="C2_sonnet_vs_gemini" ;;
   focal_G_vs_S)   CONFIG_DIR="C5_gemini_vs_sonnet" ;;
-  focal_O_vs_G)   CONFIG_DIR="C6_opus_vs_gemini" ;;
-  focal_G_vs_X)   CONFIG_DIR="C7_gemini_vs_gpt55" ;;
-  focal_G35_vs_X) CONFIG_DIR="C8_gemini35_vs_gpt55" ;;
-  focal_O_vs_X)   CONFIG_DIR="C9_opus48_vs_gpt55" ;;
+  focal_O_vs_G)   CONFIG_DIR="C3_opus_vs_gemini" ;;
+  focal_G_vs_X)   CONFIG_DIR="C4_gemini_vs_gpt55" ;;
+  focal_G35_vs_X) CONFIG_DIR="C5_gemini35_vs_gpt55" ;;
+  focal_O_vs_X)   CONFIG_DIR="C6_opus48_vs_gpt55" ;;
   *)              CONFIG_DIR="$CONFIG" ;;
 esac
 

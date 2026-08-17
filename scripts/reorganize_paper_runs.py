@@ -50,23 +50,23 @@ PAPER_RUNS_DIR = PROJECT / "results" / "paper_runs"
 # Map archive's config tag (e.g. "focal-S-vs-S") to paper_runs config dir
 CONFIG_DIR_MAP = {
     "focal-S-vs-S": "C1_sonnet_vs_sonnet",
-    "focal-S-vs-G": "C4_sonnet_vs_gemini",
-    "focal-O-vs-G": "C6_opus_vs_gemini",
-    "focal-G-vs-X": "C7_gemini_vs_gpt55",
-    "focal-G35-vs-X": "C8_gemini35_vs_gpt55",
+    "focal-S-vs-G": "C2_sonnet_vs_gemini",
+    "focal-O-vs-G": "C3_opus_vs_gemini",
+    "focal-G-vs-X": "C4_gemini_vs_gpt55",
+    "focal-G35-vs-X": "C5_gemini35_vs_gpt55",
 }
 
 # Inverse for the salvaged-Kai special case
 CONFIG_NAME_TO_DIR = {
     "focal_S_vs_S": "C1_sonnet_vs_sonnet",
-    "focal_S_vs_G": "C4_sonnet_vs_gemini",
-    "focal_O_vs_G": "C6_opus_vs_gemini",
-    "focal_G_vs_X": "C7_gemini_vs_gpt55",
-    "focal_G35_vs_X": "C8_gemini35_vs_gpt55",
+    "focal_S_vs_G": "C2_sonnet_vs_gemini",
+    "focal_O_vs_G": "C3_opus_vs_gemini",
+    "focal_G_vs_X": "C4_gemini_vs_gpt55",
+    "focal_G35_vs_X": "C5_gemini35_vs_gpt55",
 }
 
 # Pattern: a1_phase{N}_focal-X-vs-Y_set{NN}_focal-{Name}_seed{S}_{TIMESTAMP}
-# The focal side can be alphanumeric (e.g. "G35") to support the C8 config.
+# The focal side can be alphanumeric (e.g. "G35") to support the C5 config.
 ARCHIVE_NAME_RE = re.compile(
     r"^a1_phase(?P<phase>\d+)_(?P<config_tag>focal-[A-Z][A-Z0-9]*-vs-[A-Z])_"
     r"set(?P<setn>\d+)_focal-(?P<focal>[^_]+)_seed(?P<seed>\d+)_"

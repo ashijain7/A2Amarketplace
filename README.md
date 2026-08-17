@@ -20,7 +20,7 @@ Create a `.env` file with `OPENROUTER_API_KEY=...`, then copy `env.yaml.example`
 bash scripts/run_paper_config_phase.sh focal_G35_vs_X 2
 ```
 
-Where the first argument is one of `focal_S_vs_S` (C1), `focal_S_vs_G` (C4), `focal_O_vs_G` (C6), `focal_G_vs_X` (C7), `focal_G35_vs_X` (C8), `focal_O_vs_X` (C9), `focal_X_vs_O48` (C10), and the second is the phase (1, 2, or 3); phase 4 (settlement) runs via `scripts/run_transactional.sh`. See `docs/marketplace_guide.md §15` for the full run guide.
+Where the first argument is one of `focal_S_vs_S` (C1), `focal_S_vs_G` (C2), `focal_O_vs_G` (C3), `focal_G_vs_X` (C4), `focal_G35_vs_X` (C5), `focal_O_vs_X` (C6), `focal_X_vs_O48` (C7), and the second is the phase (1, 2, or 3); phase 4 (settlement) runs via `scripts/run_transactional.sh`. See `docs/marketplace_guide.md §15` for the full run guide.
 
 ## Docs
 

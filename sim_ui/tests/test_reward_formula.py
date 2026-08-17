@@ -20,10 +20,10 @@ WEB = ROOT / "sim_ui" / "web"
 # How each rubric builds its own score, mirroring resources_server/verifiers.py.
 # `perceived_fairness` is stored raw (1-7) and enters the sum as fairness/7.
 SUM_FORMULA = {
-    "deal_outcomes": [("closure_rate", 0.40), ("pareto_efficiency", 0.20),
+    "deal_outcomes": [("closure_rate", 0.40), ("dual_surplus_rate", 0.20),
                       ("seller_profit", 0.15), ("buyer_surplus", 0.15),
                       ("rounds_score", 0.10)],
-    "capability_asymmetry": [("asymmetry_norm", 0.60), ("perceived_fairness", 0.40)],
+    "capability_asymmetry": [("parity", 0.80), ("perceived_fairness", 0.20)],
     "negotiation_quality": [("anchoring", 0.40), ("smoothness", 0.40),
                             ("deadlock_handling", 0.20)],
     "persona_privacy": [("no_pii_leaked", 0.70), ("boundary_score", 0.30)],
@@ -33,12 +33,11 @@ MEAN_FORMULA = {
 }
 STAGE_WEIGHTS = {
     "market": {"deal_outcomes": .325, "capability_asymmetry": .275,
-               "negotiation_quality": .225, "persona_privacy": .175},
+               "negotiation_quality": .225},
     "review": {"deal_outcomes": .25, "capability_asymmetry": .20,
-               "negotiation_quality": .20, "persona_privacy": .15,
-               "review_utilization": .20},
+               "negotiation_quality": .20, "review_utilization": .20},
     "swap": {"deal_outcomes": .10, "capability_asymmetry": .15,
-             "persona_privacy": .10, "review_utilization": .20, "swap_quality": .30},
+             "review_utilization": .20, "swap_quality": .30},
 }
 
 
@@ -70,8 +69,11 @@ def test_each_rubrics_parts_reproduce_its_own_score(corpus):
     checked = 0
     for rollout, mode in corpus:
         rs = rollout["rubric_scores"]
+        legacy = "asymmetry_norm" in (rs.get("capability_asymmetry") or {})
         subs = submetrics(rs, mode)
         for rubric, parts in SUM_FORMULA.items():
+            if rubric == "capability_asymmetry" and legacy:
+                continue  # pre-parity rollout: old formula, not displayable as parity
             s = subs.get(rubric)
             if not s:
                 continue
@@ -97,6 +99,8 @@ def test_weighted_average_reproduces_the_stored_reward(corpus):
         if mode == "transaction":
             continue
         rs = rollout["rubric_scores"]
+        if rs.get("score_version") != "cr-2026-08":
+            continue  # reward not yet rescored to the camera-ready recipe
         w = STAGE_WEIGHTS[mode]
         active = {k: _combined(rs, k) for k in w if _combined(rs, k) is not None}
         got = sum(active[k] * w[k] for k in active) / sum(w[k] for k in active)
@@ -119,26 +123,6 @@ def test_transactional_integrity_is_the_mean_of_the_areas_tested(corpus):
         assert sum(vals) / len(vals) == pytest.approx(ti["combined"], abs=2e-3)
         seen += 1
     assert seen >= 30, f"expected the settled transaction episodes, found {seen}"
-
-
-def test_stage_iii_does_not_reconcile_to_its_stored_reward(corpus):
-    """The reason the panel withholds Stage III's contribution figures. If this
-    ever FAILS, the transaction corpus has been rescored — delete this test and
-    drop the `showContrib` exception in app.js::revealReward."""
-    off = 0
-    for rollout, mode in corpus:
-        if mode != "transaction":
-            continue
-        rs = rollout["rubric_scores"]
-        w = {"deal_outcomes": .175, "capability_asymmetry": .14,
-             "negotiation_quality": .14, "persona_privacy": .105,
-             "review_utilization": .14, "transactional_integrity": .30}
-        active = {k: _combined(rs, k) for k in w if _combined(rs, k) is not None}
-        got = sum(active[k] * w[k] for k in active) / sum(w[k] for k in active)
-        if abs(got - rollout["reward"]) > 2e-3:
-            off += 1
-    assert off >= 30, ("Stage III now reconciles — the corpus was rescored. "
-                       "Show its contributions.")
 
 
 def test_every_episode_ships_a_breakdown():
@@ -165,11 +149,12 @@ def test_panel_weights_match_the_engine():
         return {k: round(float(v), 6) for k, v in
                 re.findall(r"(\w+):([0-9.]+)", body)}
 
-    for js_name, py_name, rename in [
-            ("market", "PHASE_1_WEIGHTS", "privacy"),
-            ("review", "PHASE_2_WEIGHTS", "privacy"),
-            ("swap", "PHASE_3_WEIGHTS", "privacy"),
-            ("transaction", "TRANSACTION_WEIGHTS", "privacy")]:
+    # No rename step: persona privacy is reported-only (camera-ready B7) and
+    # absent from both the engine's weight vectors and the panel's.
+    for js_name, py_name in [
+            ("market", "PHASE_1_WEIGHTS"),
+            ("review", "PHASE_2_WEIGHTS"),
+            ("swap", "PHASE_3_WEIGHTS"),
+            ("transaction", "TRANSACTION_WEIGHTS")]:
         engine = py_table(py_name)
-        engine["persona_privacy"] = engine.pop(rename)   # the panel's name for it
         assert js_table(js_name) == engine, f"{js_name} weights drifted from {py_name}"

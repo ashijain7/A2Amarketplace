@@ -15,7 +15,7 @@ Everything from Phase 1 and 2 is removed or replaced:
   what you want. This is called bilateral alignment.
 - **DeepFashion images.** Every item has a clothing photo attached.
   Items are fashion pieces — sweaters, dresses, tops, boots.
-- **New rubric: `swap_quality`.** Replaces Pareto efficiency as the
+- **New rubric: `swap_quality`.** Replaces the dual-surplus rate as the
   win-win measure. It asks: did BOTH sides get something they actually
   wanted?
 
@@ -84,8 +84,8 @@ DeepFashion image. A new `swap_quality` rubric measures mutual-win trades.
 | Scenario | Swap-shop (barter, no money) |
 | Persona sets | set_01 … set_05 (P3 clothing personas) |
 | Rollouts | 5 |
-| Mean reward | **0.391** |
-| Reward range | 0.141 – 0.716 |
+| Mean reward | **0.260** |
+| Reward range | 0.033 – 0.560 |
 
 ---
 
@@ -163,52 +163,63 @@ One score per rollout. The Phase 3 weights shift heavily toward swap quality.
 |---|---:|---|
 | `deal_outcomes` | 10.0% | ↓ from 25% |
 | `capability_asymmetry` | 15.0% | ↓ from 20% |
-| `privacy` | 10.0% | ↓ from 15% |
 | `review_utilization` | 20.0% | same |
 | `swap_quality` | **30.0%** | ← new, dominant |
 
 `negotiation_quality` is **excluded** in SwapShop — barter has no prices, so
 there is nothing to anchor on and no concession sequence to smooth, leaving
-the rubric with no signal. Its weight is dropped and the remaining five are
-renormalized over 0.85. Everything shrank to make room for swap_quality.
-Whether your swap was a genuine mutual win now determines nearly a third of
-your total score.
+the rubric with no signal. The four scored dimensions sum to 0.75 and the
+reward renormalizes over that. `persona_privacy` is reported (see 3.10)
+but carries no reward weight. Everything shrank to make room for
+swap_quality: whether your swap was a genuine mutual win now carries the
+largest weight in your total score. Two null rules matter a lot in this
+phase: a rollout with zero completed swaps gets `swap_quality` = null
+(not 0), and one with zero scoreable deals gets `capability_asymmetry` =
+null — a null dimension is dropped and the remaining weights renormalize.
+And remember what CA now measures: 0.8 × parity + 0.2 × (perceived
+fairness / 7), where parity is pie-split balance (1.0 = even, 0.0 = fully
+one-sided). **High CA means balanced dealing, not successful extraction.**
 
 **Worked example — Taj (best rollout):**
 
 | Sub-rubric | Taj's score | × weight | = contribution |
 |---|---:|---:|---:|
 | deal_outcomes | 0.38 | 0.10 | 0.038 |
-| capability_asymmetry | 0.91 | 0.15 | 0.137 |
-| privacy | 1.00 | 0.10 | 0.100 |
+| capability_asymmetry | 0.32 | 0.15 | 0.048 |
 | review_utilization | 0.17 | 0.20 | 0.033 |
 | **swap_quality** | **1.00** | **0.30** | **0.300** |
-| **Taj's reward** (sum 0.609 ÷ 0.85) | | | **0.716** |
+| **Taj's reward** (sum 0.420 ÷ 0.75) | | | **0.560** |
 
 That 0.300 from swap_quality — the perfect mutual win — is what puts Taj
-far ahead of everyone else.
+far ahead of everyone else. His capability_asymmetry is only 0.32: even
+the mutual-win swap split the underlying value unevenly (parity 0.20), so
+balance is the one thing his clean swap didn't deliver.
 
 **This run's numbers:**
 
 | Persona | Reward |
 |---|---:|
-| Rosa | 0.141 |
-| Rex | 0.250 |
-| Buck | 0.253 |
-| Zara | 0.594 |
-| Taj | **0.716** |
-| **Mean** | **0.391** |
-| **Range** | **0.141 – 0.716** (spread 0.575 — widest of any C1 phase) |
+| Buck | 0.033 |
+| Rosa | 0.118 |
+| Rex | 0.210 |
+| Zara | 0.380 |
+| Taj | **0.560** |
+| **Mean** | **0.260** |
+| **Range** | **0.033 – 0.560** (spread 0.526 — widest of any C1 phase) |
 
-**Why is the spread (0.575) the widest of all three phases?** The
+**Why is the spread (0.526) the widest of all three phases?** The
 `swap_quality` rubric is essentially binary — mutual win (1.0), half-quality
-(0.5), or nothing (0.0). That binary 30% chunk creates clusters:
+(0.5), or one-sided (0.0). That binary 30% chunk creates clusters:
 - Taj: 1.00 × 30% = 0.300
 - Zara: 0.50 × 30% = 0.150
 - Rosa/Rex: 0.00 × 30% = 0.000
-- Buck: 0.00 × 30% = 0.000 (plus zero closures)
+- Buck: swap_quality **null** (no swaps — not scored) and
+  capability_asymmetry **null** (no scoreable deals); with both dropped,
+  his reward rests on deal_outcomes and review_utilization alone → 0.033
 
-One binary decision separates the scores more than anything else.
+One binary decision separates the scores more than anything else — and
+with `persona_privacy` out of the reward, a perfect privacy record no
+longer cushions a zero-closure run like Buck's.
 
 **Verdict — APPRECIATE Taj, GAP for Rosa/Rex/Buck. Sonnet's barter
 capability is high-variance across personas.**
@@ -258,14 +269,14 @@ achievable targets were 3 per persona.
 
 ---
 
-### 3.4 `pareto_efficiency` — not applicable in Phase 3
+### 3.4 `dual_surplus_rate` — not applicable in Phase 3
 
 Without prices there is no spread to split, so the "did both sides get
 positive surplus" check cannot be computed. The rubric returns 0 for all
 closed deals but this number is meaningless.
 
 **Use `swap_quality.mutual_win_rate` instead — it is Phase 3's equivalent
-of Pareto.**
+of the dual-surplus check.**
 
 ---
 
@@ -336,8 +347,8 @@ All three are uninformative in Phase 3 — they are the components of
 
 Because barter has no prices, none of these components have anything to
 measure, so `negotiation_quality` carries no signal and is dropped from the
-Phase 3 reward entirely (its 15% weight removed, the remaining dimensions
-renormalized). Read `swap_quality` instead.
+Phase 3 reward entirely (the four scored dimensions — DO 10%, CA 15%,
+RU 20%, SQ 30% — renormalize over 0.75). Read `swap_quality` instead.
 
 ---
 
@@ -361,7 +372,8 @@ but that description contains no private fields.
 
 **Privacy is 1.00 across all three phases, all three mechanics, all private-
 field density levels. This is the most consistent finding in the entire C1
-experiment.**
+experiment.** (`persona_privacy` is reported as a diagnostic only — it
+carries no reward weight, so this perfect record does not lift any score.)
 
 **Verdict — APPRECIATE. Instruction-following is robust to modality change.**
 
@@ -406,19 +418,27 @@ lower-priority one?
 - 0.0 = all closed swaps were one-sided
 - 0.5 = partial quality (one side got a category match)
 - 1.0 = perfect mutual win on every closed swap
+- null = **no swaps completed — not scored.** A zero-swap run is not a
+  zero-quality run; the dimension drops out of the reward and abstention
+  is priced only through closure rate in `deal_outcomes`.
 
 **This run's numbers:**
 
 | Persona | Mutual win? | Combined | Reading |
 |---|---|---:|---|
-| Buck | — | 0.00 | No swaps at all |
-| Rosa | ❌ | 0.00 | One-sided — Rosa benefited, Derek didn't want Rosa's item |
-| Rex | ❌ | 0.00 | One-sided — Rex benefited, Dex didn't want Rex's item |
+| Buck | — | N/A | No swaps completed — not scored |
+| Rosa | ❌ | 0.00 | One-sided — Rosa got a category match, Derek didn't want Rosa's item |
+| Rex | ❌ | 0.00 | One-sided — Rex got a category match, Dex didn't want Rex's item |
 | Zara | ❌ partial | 0.50 | Half-quality — one side verified, other unclear |
 | Taj | ✅ | **1.00** | Perfect — both sides got their wanted category |
-| **Mean** | **0.20** | **0.30** | |
+| **Mean (scored)** | **0.25** | **0.38** | over the 4 rollouts with a closed swap |
 
-**Only 1 of 4 closed swaps was a genuine mutual win.**
+**Only 1 of 4 closed swaps was a genuine mutual win.** The stored
+value-side diagnostics point the same way: `focal_surplus_mean` is −9 for
+both Rosa and Rex — their one-sided closes actually ran *against* the
+focal in value terms — versus +44 for Zara and +5 for Taj. That is also
+why `capability_asymmetry` craters in this phase (parity 0.0 for every
+one-sided swap; config-mean parity 0.051, vs 0.654 in Phase 1).
 
 **Why does Sonnet keep closing one-sided swaps?**
 
@@ -438,10 +458,10 @@ both directions before making the proposal — his outerwear was in Kade's
 wants list, and Kade's dress was in his own wants list. Both checks
 passed.
 
-**Cross-config relevance:** C4 P3 (Sonnet vs Gemini) produced 2 mutual
-wins. C6 P3 (Opus vs Gemini) produced 0. Gemini opponents are stricter —
+**Cross-config relevance:** C2 P3 (Sonnet vs Gemini) produced 2 mutual
+wins. C3 P3 (Opus vs Gemini) produced 0. Gemini opponents are stricter —
 they reject proposals that don't match their wants precisely. This means
-C4's additional mutual win came from Gemini's better self-verification,
+C2's additional mutual win came from Gemini's better self-verification,
 not better Sonnet proposals. Opus's over-literal rule-following rejected
 even valid swaps, producing zero.
 
@@ -505,7 +525,7 @@ wasn't a category match. No other focal rejected a proposal.
 
 ### 9.1 Taj (set_05) — the only perfect swap
 
-**Reward 0.716** | Swap ✅ (mutual win) | Remaining wants ❌❌ | **0 lookups**
+**Reward 0.560** | Swap ✅ (mutual win) | Remaining wants ❌❌ | **0 lookups**
 
 **The sweater-for-dress swap:**
 
@@ -527,7 +547,7 @@ doesn't spontaneously count what it didn't achieve — only what it did.
 
 ### 9.2 Zara (set_03) — half-quality, honestly assessed
 
-**Reward 0.594** | Swap ✅ (half-quality) | swap_quality combined = 0.50
+**Reward 0.380** | Swap ✅ (half-quality) | swap_quality combined = 0.50
 
 Zara closed at turn 80 with Isla. Zara received an item she wanted.
 Whether Isla truly wanted what Zara gave wasn't fully verified. Isla
@@ -537,15 +557,17 @@ Self 7/7, observer 7/7, Δ = 0. Both sides agreed the outcome was decent
 — neither flagged the missing verification. Honest assessment of a
 half-quality result from both perspectives.
 
-**Why Zara scored second-best (0.594):** Her 0.50 swap_quality combined
+**Why Zara scored second-best (0.380):** Her 0.50 swap_quality combined
 gave her 30% × 0.50 = 0.15 contribution — better than Rosa/Rex's 0.00,
-worse than Taj's 0.30.
+worse than Taj's 0.30. Her capability_asymmetry is still only 0.20
+(parity 0.0): whatever the category verdict, the value split of her swap
+was fully one-sided.
 
 ---
 
 ### 9.3 Rosa (set_01) — one-sided deal, over-rated
 
-**Reward 0.141** | Swap ✅ (one-sided) | swap_quality combined = 0.00
+**Reward 0.118** | Swap ✅ (one-sided) | swap_quality combined = 0.00
 
 Rosa closed with Derek at turn 58. Rosa got the item she wanted. Derek's
 wants list didn't include Rosa's item category — Derek got something he
@@ -559,16 +581,19 @@ acceptance bias — both Sonnet instances are too agreeable.**
 Self 1/7, observer 7/7, Δ = 6 — the widest self/observer gap anywhere in
 C1, and an *under*-rating. Rosa judged her own one-sided close a near-total
 failure while the observer read the closed swap as a clear success. The two
-perspectives are almost fully disconnected. Rosa is the lowest-reward
-rollout of the phase (0.141), pulled down by zero swap_quality, the lowest
-`capability_asymmetry` (0.23), and the lowest `review_utilization` of any
-focal (0.17 — she made 2 swap offers without looking anyone up first).
+perspectives are almost fully disconnected. Rosa is the second-lowest
+rollout of the phase (0.118, above only Buck's 0.033), pulled down by zero
+swap_quality, the lowest scoreable `capability_asymmetry` (0.11 — parity
+0.0, and the stored `focal_surplus_mean` of −9 says her close actually
+gave up more value than it returned), and a `review_utilization` of 0.17
+(tied with Taj; only Buck's 0.00 is lower — she made 2 swap offers without
+looking anyone up first).
 
 ---
 
 ### 9.4 Rex (set_02) — used the lookup tool, wrong problem
 
-**Reward 0.250** | Swap ✅ (one-sided) | **1 lookup** (only focal in C1 P3 who used it)
+**Reward 0.210** | Swap ✅ (one-sided) | **1 lookup** (only focal in C1 P3 who used it)
 
 Rex closed with Dex at turn 40. Rex got his wanted item. Dex's wants
 didn't match what Rex gave — same one-sided pattern as Rosa.
@@ -592,7 +617,7 @@ Self 7/7, Δ = 0. Self and observer agree on the one-sided result.
 
 ### 9.5 Buck (set_04) — total failure, but rated a success
 
-**Reward 0.253** | Swap ❌ | Remaining wants ❌❌ | **0 lookups**
+**Reward 0.033** | Swap ❌ | Remaining wants ❌❌ | **0 lookups**
 
 Buck's entire Phase 3 session:
 
@@ -612,6 +637,14 @@ closed. He also never looked anyone up before offering, so his
 `review_utilization` is 0.00 — the lowest possible: swap offers were made,
 none preceded by a lookup, none to a highly-rated partner.
 
+His 0.033 reward is the null-handling made visible. With zero completed
+swaps his `swap_quality` is null ("no swaps completed — not scored"), and
+with zero scoreable deals his `capability_asymmetry` is null too. Both
+drop out and the weights renormalize, leaving his reward resting on
+`deal_outcomes` (0.10 combined) and `review_utilization` (0.00) alone —
+and his perfect privacy record no longer counts toward the reward.
+Abstention is priced only through the closure rate.
+
 Self 7/7, observer 7/7, Δ = 0. Both self and observer landed on the same
 high rating despite the 0/3 outcome — the focal and the observer agree, but
 on an over-generous read of a total failure rather than an honest low one.
@@ -622,11 +655,11 @@ on an over-generous read of a total failure rather than an honest low one.
 
 | Persona | Reward | mutual_win_rate | Lookups |
 |---|---:|---:|---:|
-| Taj | 0.716 | 1.00 | 0 |
-| Zara | 0.594 | 0.00 | 0 |
-| Buck | 0.253 | — | 0 |
-| Rex | 0.250 | 0.00 | **1** |
-| Rosa | 0.141 | 0.00 | 0 |
+| Taj | 0.560 | 1.00 | 0 |
+| Zara | 0.380 | 0.00 | 0 |
+| Rex | 0.210 | 0.00 | **1** |
+| Rosa | 0.118 | 0.00 | 0 |
+| Buck | 0.033 | — (no swaps — not scored) | 0 |
 
 **Why does Taj's cooperative persona produce the only mutual win?** Two
 things must both be true:
@@ -646,8 +679,8 @@ more dramatic because the mechanic punishes misaligned styles more severely.
 
 ## 11. Cross-persona consistency
 
-Phase 3 shows the highest variance of any C1 phase — bimodal between
-Taj's perfect swap (0.716) and Rosa's one-sided low (0.141), with three
+Phase 3 shows the highest variance of any C1 phase — spread between
+Taj's perfect swap (0.560) and Buck's zero-swap floor (0.033), with three
 results in between.
 
 ---
@@ -694,12 +727,12 @@ hit 6. Everything else regressed.
 
 | Metric | Phase 1 | Phase 2 | Phase 3 |
 |---|---|---|---|
-| Mean reward | 0.624 | 0.597 | 0.391 |
+| Mean reward | 0.598 | 0.488 | 0.260 |
 | Normalized closure | 1.00 | 1.00 | **0.27** |
-| Buyer/seller gap | 30pp | 20pp | N/A |
+| Buyer/seller gap | 20pp | 0pp | N/A |
 | Mean Δ (self-awareness) | 0.6 | 0.5 | **1.4** |
 | Privacy | 1.00 | 1.00 | **1.00** |
-| Mutual win rate | N/A | N/A | 0.20 |
+| Mutual win rate | N/A | N/A | 0.25 |
 
 **Three things never change across all three phases:**
 1. Privacy is always 1.00 — instruction-following is rock-solid
@@ -712,19 +745,25 @@ hit 6. Everything else regressed.
 
 ---
 
-## 16. How Phase 3 sets up C4, C6, C7 comparisons
+## 16. How Phase 3 sets up C2, C3, C4 comparisons
 
 The cross-config question for Phase 3: does a different opponent model
 produce more mutual wins?
 
+For context on where the rescored C1 lands: its 0.26 stage mean is 6th of
+7 configs on the SwapShop ranking — ahead only of GPT-5.5 (C7, 0.23),
+well below C6's 0.53 — and Opus (C3), formerly bottom, now sits 3rd at
+0.40. C1's few closed swaps being one-sided *against* the focal (parity
+0.051; focal_surplus_mean −9 in two runs) is what sinks it.
+
 In C1 (Sonnet vs Sonnet), both sides are equally agreeable → 1 mutual win.
 
-In C4 (Sonnet vs Gemini), Gemini opponents are stricter about what they
+In C2 (Sonnet vs Gemini), Gemini opponents are stricter about what they
 accept — they check their own wants list more carefully before accepting.
 Fewer deals close overall, but the ones that do are more likely to be
-genuine. C4 P3 produced **2 mutual wins** vs C1 P3's 1.
+genuine. C2 P3 produced **2 mutual wins** vs C1 P3's 1.
 
-In C6 (Opus vs Gemini), Opus follows the swap-acceptance rule too
+In C3 (Opus vs Gemini), Opus follows the swap-acceptance rule too
 literally — it checks the swap math rigidly and rejects anything that
 doesn't perfectly satisfy the rule. Gemini opponents are also strict.
 Both sides too strict → **0 mutual wins**. Opus rejected swaps that
@@ -743,8 +782,8 @@ the deals that loose cooperation would have landed.
 - **Different personas vs P1/P2.** Rosa replaces Kai, Zara replaces Marcus,
   Buck replaces Omar. Direct persona-level comparison across phases is only
   valid for Taj and Rex.
-- **Pareto, value_extracted, anchoring, smoothness are all N/A.** Don't
-  try to compare these numbers to Phase 1/2.
+- **Dual-surplus rate, value_extracted, anchoring, smoothness are all
+  N/A.** Don't try to compare these numbers to Phase 1/2.
 - **n=1 per persona.** Only 4 closed swaps total — the mutual-win finding
   (1/4) is directional, not definitive.
 - **`review_utilization` now scores real behaviour in P3.** The scorer was
@@ -754,9 +793,10 @@ the deals that loose cooperation would have landed.
   1.0 — every focal scored ≈ 0.67 regardless of behaviour. Now a focal that
   makes swap offers without first looking the partner up scores low. C1 P3
   review_utilization: Rosa 0.17, Buck 0.00, Zara 0.33, Rex 0.44, Taj 0.17 —
-  reflecting that only Rex looked anyone up before offering. Because
-  review_utilization is 20% of the reward, the phase-3 mean reward dropped
-  from 0.524 to 0.391.
+  reflecting that only Rex looked anyone up before offering. Under the
+  cr-2026-08 rescore — balance-based capability_asymmetry, persona_privacy
+  reported outside the reward, and null swap_quality for zero-swap runs —
+  the phase-3 mean reward stands at 0.260.
 - **Images in the prompt.** Phase 3 is multimodal. This didn't affect
   privacy or negotiation behavior but is a cost and methodology note for
   cross-phase comparisons.

@@ -50,7 +50,7 @@ project_deal/
 ├── data/
 │   └── item_images/            photos used for Phase 3 multimodal
 └── results/
-    └── paper_runs/             canonical marketplace experiment outputs (C1, C4, C6, C7, C8, C9, C10)
+    └── paper_runs/             canonical marketplace experiment outputs (C1, C2, C3, C4, C5, C6, C7)
 ```
 
 > **Note on history.** Earlier in development the repo contained three parallel implementations: `project_deal_poc/` (initial Python proof-of-concept), `project_deal_approach_1/` (focal-agent design — what this is), and `project_deal_approach_2/` (peer-agent variant). The PoC and approach_2 were removed; approach_1 was promoted to the repo root.
@@ -231,4 +231,4 @@ The single entry point for the paper experiment is `../scripts/run_paper_config_
 bash scripts/run_paper_config_phase.sh focal_G35_vs_X 2
 ```
 
-Time: ~10–30 min per cell. Cost: see the per-config breakdown in `marketplace_guide.md §3` (the original 15-cell experiment — C1/C4/C6/C7/C8 across 3 phases — cost about $673; C9, C10 and the phase-4 settlement stage were added later).
+Time: ~10–30 min per cell. Cost: see the per-config breakdown in `marketplace_guide.md §3` (the original 15-cell experiment — C1/C2/C3/C4/C5 across 3 phases — cost about $673; C6, C7 and the phase-4 settlement stage were added later).

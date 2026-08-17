@@ -295,7 +295,7 @@ def test_market_leader_is_sonnet_vs_sonnet():
     lb = logic.build_leaderboard()
     top = lb["market"]["rows"][0]
     assert top["config"] == "focal_S_vs_S"
-    assert round(top["reward"], 2) == 0.62
+    assert round(top["reward"], 2) == 0.60
 
 
 def test_cached_transaction_deals_expose_scam_on():

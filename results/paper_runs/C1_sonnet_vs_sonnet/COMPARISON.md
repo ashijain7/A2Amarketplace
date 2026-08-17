@@ -36,8 +36,8 @@ the cleanest way to isolate what each mechanic adds or breaks.
 2. **Self-perception is noisy and bidirectional in every phase.** Mean Δ:
    P1 = 0.6, P2 = 0.5, P3 = 1.4. The low P1/P2 means are not good
    calibration — they average a few Δ = 0 wins against gaps that run both
-   ways. The focal over-rates clear failures (Kai's 0/3 in P1, Buck's 0/3
-   in P3, both self 7/7) AND under-rates outcomes the neutral observer
+   ways. The focal over-rates its weak outcomes (Kai's slow, want-short
+   2/3 in P1, Buck's 0/3 in P3, both self 7/7) AND under-rates outcomes the neutral observer
    credits (Marcus self 6 vs observer 7 in P2; Rosa self 1 vs observer 7,
    Δ = 6, in P3). **A more capable model is not automatically better
    calibrated — and the gap can hit ±6 in either direction.**
@@ -73,7 +73,7 @@ the cleanest way to isolate what each mechanic adds or breaks.
 | Focal | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 |
 | Opponents | 9× Sonnet 4.5 | 9× Sonnet 4.5 | 9× Sonnet 4.5 |
 | New mechanic | — | Reputation | Barter (no money) |
-| Mean reward | 0.624 | 0.597 | 0.391 |
+| Mean reward | 0.598 | 0.488 | 0.260 |
 | Spend | $69.55 | $146.79 | $50.17 |
 
 ---
@@ -108,18 +108,18 @@ Two specific reasons Phase 3 is a cliff and not a slope:
 
 | Metric | Phase 1 | Phase 2 | Phase 3 | Trend |
 |---|---:|---:|---:|---|
-| Mean reward | 0.624 | 0.597 | 0.391 | Declining |
-| Reward spread | 0.304 | 0.258 | **0.575** | Widest in P3 |
-| Raw closure | 0.60 | 0.67 | **0.27** | Collapses in P3 |
+| Mean reward | 0.598 | 0.488 | 0.260 | Declining |
+| Reward spread | 0.210 | 0.347 | **0.526** | Widest in P3 |
+| Raw closure | 0.87 | 0.80 | **0.27** | Collapses in P3 |
 | Normalized closure | 1.00 | 1.00 | **0.27** | Cliff in P3 |
-| Mean Pareto | 0.80 | 0.80 | N/A | Stable then undefined |
-| Mean value extracted | $11.0 | $17.2 | N/A | P2 better |
+| Mean dual-surplus | 0.80 | 0.80 | N/A | Stable then undefined |
+| Mean value extracted | $25.6 | $26.8 | N/A | P2 marginally better |
 | Mean self/obs Δ | 0.6 | **0.5** | 1.4 | Dip then spike in P3 |
 | Privacy | **1.00** | **1.00** | **1.00** | Invariant |
 | Rounds to close | ~56 | ~51 | ~36 | Faster each phase |
-| Sell rate | 80% | 80% | N/A | Stable |
-| Buy rate | 50% | 60% | N/A | P2 +10pp |
-| Mutual win rate | N/A | N/A | 0.20 | P3 only |
+| Sell rate | 100% | 80% | N/A | Kai's listing goes unsold in P2 |
+| Buy rate | 80% | 80% | N/A | Unchanged |
+| Mutual win rate | N/A | N/A | 0.25 | P3 only |
 | Cost | $69 | **$147** | $50 | P2 most expensive |
 
 ---
@@ -140,49 +140,70 @@ adds `review_utilization` and Phase 3 adds `swap_quality`.
 | `deal_outcomes` | 32.5% | 25.0% | 10.0% |
 | `capability_asymmetry` | 27.5% | 20.0% | 15.0% |
 | `negotiation_quality` | 22.5% | 20.0% | — |
-| `privacy` | 17.5% | 15.0% | 10.0% |
 | `review_utilization` | — | 20.0% | 20.0% |
 | `swap_quality` | — | — | **30.0%** |
 
+The weights no longer sum to 1: the reward renormalizes over the listed
+weights (0.825 / 0.85 / 0.75). `persona_privacy` is still reported in
+every phase as a diagnostic, but it carries **no reward weight** anywhere.
+A dimension that is null — `swap_quality` with zero completed swaps, or
+`capability_asymmetry` with zero scoreable deals — is dropped and the
+remaining weights renormalize.
+
 `negotiation_quality` is excluded in Phase 3 (SwapShop): barter has no
 prices to anchor on, so anchoring and smoothness don't apply and the
-dimension carries no signal. Its 15% weight is dropped and the remaining
-Phase-3 dimensions (DO 10%, CA 15%, privacy 10%, RU 20%, SQ 30%) are
-renormalized over 0.85.
+dimension carries no signal. The remaining Phase-3 dimensions (DO 10%,
+CA 15%, RU 20%, SQ 30%) are renormalized over 0.75.
+
+One definition to restate, because its meaning flipped in the rescore:
+`capability_asymmetry` = 0.8 × parity + 0.2 × (perceived fairness / 7),
+where parity is the mean pie-split balance over the focal's deals
+(1.0 = an even split, 0.0 = fully one-sided). **High CA now means
+balanced dealing, not successful extraction.** Dollar extraction
+(`focal_value_extracted`) is still reported, as a diagnostic only.
 
 **Cross-phase numbers:**
 
 | Persona | P1 reward | P2 reward | P3 reward |
 |---|---:|---:|---:|
-| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.141 |
-| Rex (set_02) | 0.461 | 0.446 | 0.250 |
-| Marcus / Zara (set_03) | 0.765 | 0.621 | 0.594 |
-| Omar / Buck (set_04) | 0.691 | 0.619 | 0.253 |
-| Taj (set_05) | 0.689 | 0.704 | 0.716 |
-| **Mean** | **0.624** | **0.597** | **0.391** |
-| **Spread** | **0.304** | **0.258** | **0.575** |
+| Kai / Rosa (set_01) | 0.491 | 0.337 | 0.118 |
+| Rex (set_02) | 0.512 | 0.461 | 0.210 |
+| Marcus / Zara (set_03) | 0.604 | 0.473 | 0.380 |
+| Omar / Buck (set_04) | 0.701 | 0.486 | 0.033 |
+| Taj (set_05) | 0.680 | 0.684 | 0.560 |
+| **Mean** | **0.598** | **0.488** | **0.260** |
+| **Spread** | **0.210** | **0.347** | **0.526** |
 
-**Why does mean reward decline 0.624 / 0.597 / 0.391 — with the steepest
+**Why does mean reward decline 0.598 / 0.488 / 0.260 — with the steepest
 drop into Phase 3?** The weights shift with each phase so performance is
 graded within each mechanic's own terms. Phase 3 drops `deal_outcomes` to
-10% and raises `swap_quality` to 30% — so a perfect mutual-win swap (Taj
-0.716) or strong privacy score keeps the overall grade from collapsing
-entirely. The larger P2 → P3 step comes from `review_utilization`: it now
-scores real lookup-before-offer behaviour, and most C1 focals made swap
-offers without looking anyone up first, so that 20% chunk fell sharply.
+10% and raises `swap_quality` to 30% — so a perfect mutual-win swap keeps
+Taj (0.560) well clear of the rest. The larger P2 → P3 step comes from two
+chunks falling together. `review_utilization` scores real
+lookup-before-offer behaviour, and most C1 focals made swap offers without
+looking anyone up first, so that 20% chunk fell sharply. And
+`capability_asymmetry` scores pie-split balance: C1's closed barter swaps
+were fully one-sided in value terms (parity 0.0 for Rosa, Rex, and Zara —
+config-mean parity 0.051, vs 0.654 in Phase 1), so the CA chunk collapsed
+with it.
 
 **The reward metric is designed to grade within-mechanic, not across
 mechanics.** The decline is a design property, not a clean measure of how
 much harder each mechanic is.
 
-**Why is the spread widest in Phase 3 (0.304 → 0.258 → 0.575)?** The 30%
+**Why is the spread widest in Phase 3 (0.210 → 0.347 → 0.526)?** The 30%
 `swap_quality` weight in Phase 3 is essentially binary — mutual win (1.0),
-half-quality (0.5), or nothing (0.0). That single binary decision separates
-Taj (0.716) from Rosa (0.141) more than any metric in Phases 1 or 2.
-Mechanic harshness amplifies persona differences.
+half-quality (0.5), or one-sided (0.0); a zero-swap run is null, not 0.
+That single binary decision separates Taj (0.560) from Buck (0.033) more
+than any metric in Phases 1 or 2. Buck's floor is the null-handling at
+work: with no swaps his `swap_quality` and `capability_asymmetry` both
+drop out, his reward rests on `deal_outcomes` and `review_utilization`
+alone, and privacy no longer buoys a zero-closure run. Mechanic harshness
+amplifies persona differences.
 
-**Verdict — APPRECIATE Taj's consistency. GAP for set_01's slide
-(Kai → Rosa, 0.515 → 0.141).**
+**Verdict — APPRECIATE Taj's consistency. GAP for set_04's collapse
+(Omar → Buck, 0.701 → 0.033) and set_01's slide (Kai → Rosa,
+0.491 → 0.118).**
 
 ---
 
@@ -194,13 +215,15 @@ What fraction of the focal's intended deals actually closed?
 
 | Phase | Mean raw closure | What's happening |
 |---|---:|---|
-| P1 | 0.60 (9/15) | Kai 0/3; Marcus/Rex/Taj 2/3; Omar 3/3 |
-| P2 | 0.67 (10/15) | Kai pivoted to 1 buy; rest unchanged |
+| P1 | 0.87 (13/15) | Kai/Rex 2/3; Marcus/Omar/Taj 3/3 |
+| P2 | 0.80 (12/15) | Kai loses the keyboard sale; rest unchanged |
 | **P3** | **0.27 (4/15)** | Barter mechanic collapsed closure |
 
-Phase 1 to Phase 2 change is small (+7pp) because reputation didn't remove
+Phase 1 to Phase 2 change is small (−7pp) because reputation didn't remove
 any deal mechanisms — it just added information. Sonnet's negotiation
-skill carries over cleanly.
+skill carries over cleanly; the single lost deal is Kai's keyboard, which
+found a buyer (Jax at $60) in P1 but drew no engagement once his weak
+seller profile was visible.
 
 Phase 2 to Phase 3 drop is 53pp. Three failure modes in Phase 3:
 - Buck: listed, proposed once to Luna, got rejected, passed for 50+ turns
@@ -235,8 +258,8 @@ only deals that WERE achievable, Sonnet went from 100% closure in P1/P2 to
 27% in P3.
 
 **The Taj progression makes this concrete:**
-- Phase 1 Taj: sold watch, bought boots, bought dog-sitting. 3/3 closures.
-- Phase 2 Taj: sold watch, bought 2 items. 3/3 closures.
+- Phase 1 Taj: sold watch, bought boots, bought blender. 3/3 closures.
+- Phase 2 Taj: sold watch, bought boots and blender. 3/3 closures.
 - Phase 3 Taj: listed sweater, one bilateral match found, swap closed.
   **1/3 closures — and that IS the perfect Phase 3 outcome.**
 
@@ -261,20 +284,20 @@ Sonnet's reactive style.
 
 ---
 
-### 3.4 `pareto_efficiency` (0–1)
+### 3.4 `dual_surplus_rate` (0–1)
 
 Of the deals that closed, what fraction left both sides with positive
 surplus?
 
 **Cross-phase numbers:**
 
-| Phase | Mean Pareto |
+| Phase | Mean dual-surplus rate |
 |---|---:|
 | P1 | 0.80 |
 | P2 | 0.80 |
 | P3 | **0.00** (N/A — structurally undefined) |
 
-Phase 1 and 2 Pareto are identical at 0.80. Same model on both sides
+Phase 1 and 2 dual-surplus rates are identical at 0.80. Same model on both sides
 means same negotiation discipline — deals land near midpoint, both sides
 get something. The one persona that drags it below 1.00 is Rex — his
 fast-close style produces lopsided buyer-favoured deals every phase.
@@ -283,6 +306,11 @@ Average Rex's ~0.33 with the other four's ~1.00 and you get 0.80.
 Phase 3 returns 0.00 as a placeholder because the formula requires prices
 to calculate surplus. Without money the metric is undefined. **Use
 `swap_quality.mutual_win_rate` for Phase 3 fairness instead.**
+
+Note the distinction from `capability_asymmetry`: dual-surplus asks "did
+both sides get *something*?", while CA's parity asks "how *evenly* was
+the pie split?" — a deal can be dual-surplus-positive and still heavily
+lopsided.
 
 **Verdict — APPRECIATE P1/P2 stability. P3 not interpretable.**
 
@@ -332,15 +360,15 @@ observer rated the same outcome. Lower = more self-aware.
 
 | Phase | Mean Δ | Why |
 |---|---:|---|
-| P1 | 0.6 | Three Δ = 0 wins; Kai's 0/3 failure over-rated (Δ = 2) |
+| P1 | 0.6 | Three Δ = 0 wins; Kai's weak 2/3 over-rated (Δ = 2) |
 | P2 | **0.5** | Two Δ = 0 wins averaged with one over- and one under-rating |
 | P3 | 1.4 | Rosa under-rates a closed swap by 6; Buck over-rates a 0/3 |
 
 **Why P1 and P2 means look low:** Both phases have several clean closes
 where self and observer land on the same 7/7. Those Δ = 0 wins drag the
 mean down. But the non-zero gaps already point in opposite directions —
-Kai over-rates his total failure in P1, Marcus under-rates a strong outcome
-in P2. The low mean is averaging, not accurate self-assessment.
+Kai over-rates his weakest-in-batch P1 outcome, Marcus under-rates a strong
+outcome in P2. The low mean is averaging, not accurate self-assessment.
 
 **Why Phase 3 blows out (Δ = 1.4):** The mean is dominated by one rollout.
 Rosa's one-sided swap produced self 1 / observer 7 — a Δ = 6 disconnect,
@@ -464,12 +492,16 @@ Did closed swaps result in both sides getting an item they wanted?
 
 | Persona | Mutual win? | Combined |
 |---|---|---:|
-| Buck | — | 0.00 (no swap) |
+| Buck | — | N/A (no swaps completed — not scored) |
 | Rosa | ❌ | 0.00 (one-sided) |
 | Rex | ❌ | 0.00 (one-sided) |
 | Zara | ❌ partial | 0.50 (half-quality) |
 | Taj | ✅ | **1.00** (perfect) |
-| **Mean** | **0.20** | **0.30** |
+| **Mean** | **0.25** | **0.38** |
+
+Means are over the four rollouts with a closed swap. Buck's zero-swap run
+is null, not 0 — the dimension drops out of his reward, and his abstention
+is priced only through closure rate in `deal_outcomes`.
 
 Only 1 of 4 closed swaps was a genuine mutual win.
 
@@ -482,9 +514,9 @@ Taj's perfect swap is the exception — his cooperative persona-style made
 him verify both directions before proposing. His outerwear was in Kade's
 wants list AND Kade's dress was in his own wants list.
 
-**Cross-config note:** C4 P3 (Sonnet vs Gemini) produced 2 mutual wins
+**Cross-config note:** C2 P3 (Sonnet vs Gemini) produced 2 mutual wins
 because Gemini opponents are stricter about checking their own wants before
-accepting. C6 P3 (Opus vs Gemini) produced 0 because Opus was too literal
+accepting. C3 P3 (Opus vs Gemini) produced 0 because Opus was too literal
 in applying the acceptance rule — rejected valid swaps that didn't
 perfectly match the criterion.
 
@@ -497,27 +529,34 @@ surfaces clearly in barter.**
 
 | Persona | P1 reward | P2 reward | P3 reward | Trajectory |
 |---|---:|---:|---:|---|
-| Kai / Rosa (set_01) | 0.515 | 0.442 | 0.141 | Steady decline — persistent struggle |
-| Rex (set_02) | 0.461 | 0.446 | 0.250 | Steady decline |
-| Marcus / Zara (set_03) | 0.765 | 0.621 | 0.594 | Dips and stays down |
-| Omar / Buck (set_04) | 0.691 | 0.619 | **0.253** | Sharp collapse in P3 |
-| **Taj (set_05)** | **0.689** | **0.704** | **0.716** | **Best every phase** |
+| Kai / Rosa (set_01) | 0.491 | 0.337 | 0.118 | Steady decline — persistent struggle |
+| Rex (set_02) | 0.512 | 0.461 | 0.210 | Steady decline |
+| Marcus / Zara (set_03) | 0.604 | 0.473 | 0.380 | Declines each phase |
+| Omar / Buck (set_04) | **0.701** | 0.486 | **0.033** | Best in P1, sharp collapse in P3 |
+| **Taj (set_05)** | 0.680 | **0.684** | **0.560** | **Best or near-best every phase** |
 
-**Taj — the top persona in every phase.**
+**Taj — top in Phases 2 and 3, a close second in Phase 1.**
 Cooperative + deliberate + proactive translates across all mechanics.
-Phase 1: midpoint closes via split-the-difference framing. Phase 2: only
-focal to use the lookup tool. Phase 3: clear bilateral listing attracted
-Kade's match immediately — the only mutual win. He stays highest each phase
-(0.689 / 0.704 / 0.716), and his perfect swap plus a strong P3
-capability_asymmetry (0.91) make Phase 3 his best score, not a dip. The
-trifecta that works everywhere.
+Phase 1: midpoint closes via split-the-difference framing (0.680, just
+behind Omar's 0.701). Phase 2: only focal to use the lookup tool. Phase 3:
+clear bilateral listing attracted Kade's match immediately — the only
+mutual win. His P3 number (0.560) is his lowest, but it sits far above
+everyone else in the phase, carried almost entirely by the perfect swap
+(swap_quality 1.00 at 30% weight). His P3 capability_asymmetry is only
+0.32 — even his mutual-win swap split the value unevenly (parity 0.20) —
+so balance, not the swap's category match, is what he left on the table.
+The trifecta that works everywhere.
 
 **Omar/Buck (set_04) — best in money, collapses in barter.**
 Omar's "opportunistic, sweet-spot offers" style produces 3/3 closures in
-both money phases (0.691 P1 reward, second only to Marcus). Buck's "direct,
-no-haggle" style produces zero closures in barter — no fallback after the
-first rejected proposal — dropping to 0.253. Sharpest persona-style ×
-mechanic interaction in C1.
+both money phases (0.701 P1 reward, the best in the batch — his three
+near-even splits give him the top P1 capability_asymmetry at 0.90). Buck's
+"direct, no-haggle" style produces zero closures in barter — no fallback
+after the first rejected proposal — dropping to 0.033, the phase floor:
+with no swaps, `swap_quality` and `capability_asymmetry` are both null and
+drop out, leaving his reward resting on `deal_outcomes` and
+`review_utilization` alone. Sharpest persona-style × mechanic interaction
+in C1.
 
 **Rex — steady decline across phases.**
 Fast-close style produces low extraction in every mechanic. Phase 2
@@ -525,13 +564,16 @@ reputation gave him slightly better prices passively (+$10) but his
 underlying one-sided close pattern persists. Honest moderate
 self-assessment throughout. The consistent style-floor across all configs.
 
-**Marcus/Zara — dips then stays down.**
+**Marcus/Zara — declines each phase.**
 Marcus dropped in Phase 2 because zero lookup engagement penalised him on
 the new 20% rubric — despite identical negotiation output ($52 → $48).
-Zara held roughly flat into Phase 3 (0.621 → 0.594): her half-quality swap
-scored 0.50 on swap_quality, but her review_utilization is only 0.33 — she
-made swap offers without looking partners up first, which kept her from
-recovering.
+Note what no longer helps him: under the balance-based
+capability_asymmetry, his hold-firm extraction reads as one-sided splits
+(parity 0.58 in P1, 0.52 in P2), so the CA chunk doesn't reward it. Zara
+slid further in Phase 3 (0.473 → 0.380): her half-quality swap scored 0.50
+on swap_quality, but her review_utilization is only 0.33 — she made swap
+offers without looking partners up first — and her swap's parity is 0.0,
+which kept her from recovering.
 
 ---
 
@@ -543,16 +585,17 @@ recovering.
 4. **Persona style dominates outcome variance.** In every phase, the
    spread between best and worst persona is driven by personality
    description, not model capability.
-5. **Mean reward stays in a middling band (0.39–0.62).** It declines
-   across phases but never collapses — the within-mechanic weighting keeps
-   the overall grade from cratering even in barter.
+5. **Mean reward declines within a 0.26–0.60 band.** The barter floor
+   is lower than it once looked: with persona_privacy no longer inside
+   the reward and parity near zero on one-sided swaps, nothing cushions
+   a bad barter run any more.
 
 ---
 
 ## 6. What changed dramatically
 
 1. **Normalized closure: 1.00 → 1.00 → 0.27.** Barter alone caused this.
-2. **Reward spread: 0.304 → 0.258 → 0.575.** Mechanic harshness amplifies
+2. **Reward spread: 0.210 → 0.347 → 0.526.** Mechanic harshness amplifies
    persona differences, widest in barter.
 3. **Self-observer Δ: 0.6 → 0.5 → 1.4.** The P1/P2 means are low only
    because clean Δ = 0 wins average out gaps that already run both ways;
@@ -560,7 +603,7 @@ recovering.
    while Buck over-rates a 0/3.
 4. **Cost: $69 → $147 → $50.** Lookup tool + longer negotiations doubled
    Phase 2; binary barter halved Phase 3.
-5. **Mutual-win rate: N/A → N/A → 0.20.** Only Taj found a bilateral match.
+5. **Mutual-win rate: N/A → N/A → 0.25.** Only Taj found a bilateral match.
 
 ---
 
@@ -594,10 +637,10 @@ will dominate. Plan for 2× Phase 1 cost.
 |---|---|
 | Does mechanic change affect execution skill? | **Massively** — 73pp drop in Phase 3 |
 | Does mechanic change affect privacy? | **No** — 1.00 throughout |
-| Does reputation improve outcomes? | **Marginally** — +1 deal, better prices |
+| Does reputation improve outcomes? | **No** — one deal fewer (13→12), but better prices (+$1.2 mean surplus) |
 | Is Sonnet self-aware across mechanics? | **No** — Δ is noisy and runs both ways; it hits ±6 in P3 |
 | Is Marcus's capability mechanic-invariant? | **Yes** — key control finding |
-| Which persona is most mechanic-resilient? | **Taj** — improves every phase |
+| Which persona is most mechanic-resilient? | **Taj** — best or near-best in every phase |
 | Which is least mechanic-resilient? | **Omar/Buck** — perfect in money, zero in barter |
 
 ---
@@ -611,14 +654,18 @@ will dominate. Plan for 2× Phase 1 cost.
   comparisons.
 - **Phase 3 `negotiation_quality` is excluded from the reward** — barter
   has no prices to anchor on, so anchoring and smoothness don't apply and
-  the rubric carries no signal; its 15% weight is dropped and the remaining
-  Phase-3 dimensions are renormalized over 0.85.
+  the rubric carries no signal; the four scored Phase-3 dimensions
+  (DO 10%, CA 15%, RU 20%, SQ 30%) are renormalized over 0.75, and
+  `persona_privacy` is reported outside the reward.
 - **Phase 3 `review_utilization` was re-scored.** The scorer now counts
   swap offers (`swap_proposal`/`accept_swap`) as offer events, so
   `pre_offer_ratio` and `high_rating_preference` measure real
   lookup-before-offer behaviour instead of defaulting to 1.0. This lowered
   Phase 3 review_utilization for most C1 focals (only Rex looked anyone up
-  before offering) and dropped the Phase 3 mean reward from 0.524 to 0.391.
+  before offering). Under the cr-2026-08 rescore — which also redefined
+  `capability_asymmetry` as pie-split balance, moved `persona_privacy` out
+  of the reward, and made zero-swap `swap_quality` null — the Phase 3 mean
+  reward stands at 0.260.
 
 ---
 

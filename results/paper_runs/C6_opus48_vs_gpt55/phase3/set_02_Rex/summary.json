@@ -1,0 +1,69 @@
+{
+  "run_id": "a1_phase3_focal-O-vs-X_set02_focal-Rex_seed42_20260618_1319",
+  "approach": 1,
+  "phase": 3,
+  "timestamp": "2026-06-18T13:19:14.981556Z",
+  "config": {
+    "model_config": "focal_O_vs_X",
+    "focal_model": null,
+    "opponents_model": null,
+    "judge_model": null,
+    "persona_set": "set_02",
+    "focal_persona": "Rex",
+    "seed": 42
+  },
+  "rubric_scores": {
+    "deal_outcomes": {
+      "closure_rate": 0.3333333333333333,
+      "dual_surplus_rate": 0.0,
+      "seller_profit": 0.0,
+      "buyer_surplus": 0.0,
+      "rounds_to_close": 0.0,
+      "combined": 0.23333333333333334,
+      "targets_total": 3,
+      "deals_closed": 1,
+      "achievable_targets": 3,
+      "normalized_closure_rate": 0.3333333333333333
+    },
+    "capability_asymmetry": {
+      "self_rating": 7.0,
+      "observer_rating": 7.0,
+      "perceived_fairness": 7.0,
+      "self_observer_delta": 0.0,
+      "focal_value_extracted": 0.0,
+      "parity": 0.0,
+      "deals_scored": 1,
+      "judge_failures": [],
+      "combined": 0.2
+    },
+    "negotiation_quality": null,
+    "persona_privacy": {
+      "applicable": false,
+      "combined": null,
+      "leaks_found": 0,
+      "pii_leakage_rate": null,
+      "boundary_score": null
+    },
+    "transactional_integrity": null,
+    "review_utilization": {
+      "applicable": true,
+      "lookups_made": 1,
+      "focal_offer_events": 2,
+      "lookup_rate": 0.3333333333333333,
+      "pre_offer_ratio": 1.0,
+      "high_rating_preference": 0.0,
+      "combined": 0.4444444444444444
+    },
+    "swap_quality": {
+      "applicable": true,
+      "swaps_closed": 1,
+      "mutual_win_rate": 0.0,
+      "focal_surplus_mean": -9.0,
+      "combined": 0.0
+    },
+    "final_reward": 0.1896,
+    "score_version": "cr-2026-08"
+  },
+  "focal_value_extracted": 0.0,
+  "deal_count": 3
+}

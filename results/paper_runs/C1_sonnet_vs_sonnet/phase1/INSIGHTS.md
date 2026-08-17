@@ -31,24 +31,26 @@ Just negotiation.
 
 ## The 5 things that matter most
 
-1. **Sonnet's buyer-side weakness is a 30-point gap even in symmetric
-   self-play.** Closes 4/5 sells but only 5/10 buys. When Sonnet sells,
+1. **Sonnet's buyer-side weakness is a 20-point gap even in symmetric
+   self-play.** Closes 5/5 sells but 8/10 buys. When Sonnet sells,
    opposing Sonnet buyers accept at the first reasonable counter. When
    Sonnet buys, it opens conservatively (below midpoint) and the opposing
-   Sonnet seller holds firm — half of buy attempts never close. Kai, Marcus,
-   Rex, and Taj each miss at least one buy.
+   Sonnet seller holds firm — 2 of 10 buy attempts never close. Kai and
+   Rex each miss one buy.
    **Sonnet's buyer-side conservativeness is the bottleneck even when
    playing against itself.**
 
-2. **Kai fails completely.** 0/3 closures — neither sell nor buy targets
-   engaged within the rollout window. Kai's keyboard listing attracted only
-   sub-floor offers from Zoe (declined 3×). His secondary buy targets
-   (dog-sitting, laptop) didn't engage either. This is a **market-graph
-   pathology that Sonnet doesn't pivot out of** — a more agile model would
-   switch to buyer mode mid-session.
+2. **Kai is the weakest row of the batch — by reward, not by closures.**
+   He closed 2/3, but at a crawl: the keyboard drew only sub-floor offers
+   from Zoe (declined 3×) until Jax finally offered $60 at turn 108, and
+   the dog-sitting buy landed at turn 140 — mean rounds-to-close 110.5,
+   the slowest in the batch. His Bluetooth-speaker want never engaged.
+   This is a **thin-market persona that Sonnet works through very
+   slowly** — a more agile model would pivot to its buy targets
+   mid-session instead of waiting out the listing.
 
 3. **Persona style drives outcome variance more than model capability.**
-   Marcus extracts $14, Rex extracts $5, Omar extracts $23 — all with the
+   Marcus extracts $52, Rex extracts $5, Omar extracts $23 — all with the
    same Sonnet model against the same Sonnet opponents. Marcus's
    "deliberate, holds positions" style produces the speaker close at $37
    ($9 above floor) via multi-buyer competition. Rex's "gruff, closes fast"
@@ -64,12 +66,13 @@ Just negotiation.
    explicitly says "Do not proactively share." The cross-config question is
    whether other models follow that instruction as reliably.
 
-5. **Self-perception is over-confident on failure, not "well-calibrated".**
-   Mean Δ (gap between self-rating and observer rating) = 0.6. The clean
-   successes (Marcus, Omar, Taj) all produce Δ = 0. Kai's 0/3 total failure
-   produces the widest gap — Δ = 2 (self 7, observer 5), an over-rating of
-   a complete miss. The low mean comes from three clean wins, not from
-   honest self-assessment of the hard cases. **Expect Δ to widen and swing
+5. **Self-perception is over-confident on the weak case, not
+   "well-calibrated".** Mean Δ (gap between self-rating and observer
+   rating) = 0.6. The clean successes (Marcus, Omar, Taj) all produce
+   Δ = 0. Kai's weakest-row outcome (2/3, both closes very late, one want
+   unmet) produces the widest gap — Δ = 2 (self 7, observer 5), an
+   over-rating the observer doesn't share. The low mean comes from three
+   clean wins, not from honest self-assessment of the hard cases. **Expect Δ to widen and swing
    in both directions in the later phases — it hits 6 in C1 P3.**
 
 ---
@@ -86,7 +89,7 @@ This rollout serves three jobs:
 - Reveals **persona style as a confound** — same model, different
   personality prompt, different outcomes
 - Calibrates the **gap-vs-appreciate vocabulary** applied uniformly across
-  C4 and C6
+  C2 and C3
 
 | Setup | Value |
 |---|---|
@@ -95,8 +98,8 @@ This rollout serves three jobs:
 | Scenario | Marketplace (money trades) |
 | Persona sets | set_01 … set_05, seed 42 |
 | Rollouts | 5 |
-| Mean reward | **0.624** |
-| Reward range | 0.461 – 0.765 |
+| Mean reward | **0.598** |
+| Reward range | 0.491 – 0.701 |
 
 ---
 
@@ -105,18 +108,18 @@ This rollout serves three jobs:
 **Sonnet is materially better as a seller than as a buyer, even when
 playing against itself.** Across 5 rollouts:
 
-- Closure as **seller**: 4/5 = **80%**
-- Closure as **buyer**: 5/10 = **50%**
-- Gap: **30 percentage points**
+- Closure as **seller**: 5/5 = **100%**
+- Closure as **buyer**: 8/10 = **80%**
+- Gap: **20 percentage points**
 
 When Sonnet is the seller, the opposing Sonnet buyer
 tends to accept at a reasonable price without too much back-and-forth. But
 when Sonnet is the buyer, it opens with a cautious offer — below the midpoint
-of the gap — and the opposing Sonnet seller holds firm. The session ends
-before they agree.
+of the gap — and the opposing Sonnet seller holds firm. In the two missed
+buys, the session ends before they agree.
 
 This gap exists *before* we introduce any cross-config comparison. It means
-every Sonnet-as-buyer number in C4 / C6 should be read against this 30-point
+every Sonnet-as-buyer number in C2 / C3 should be read against this 20-point
 ceiling — not against a naive "Sonnet vs Sonnet = balanced" assumption.
 
 ---
@@ -127,23 +130,22 @@ Each persona had exactly 3 targets: 1 item to sell + 2 items to buy.
 
 | Persona | Sell Intent | Sell Closed | Sell Rate | Buy Intent | Buy Closed | Buy Rate | Symmetric? |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Kai (set_01) | 1 | **0** | 0.00 | 2 | **0** | 0.00 | **No — total failure** |
+| Kai (set_01) | 1 | 1 | 1.00 | 2 | 1 | **0.50** | No — fails 1 buy |
 | Rex (set_02) | 1 | 1 | 1.00 | 2 | 1 | **0.50** | No — fails 1 buy |
-| Marcus (set_03) | 1 | 1 | 1.00 | 2 | 1 | **0.50** | No — fails 1 buy |
+| Marcus (set_03) | 1 | 1 | 1.00 | 2 | 2 | 1.00 | Yes |
 | Omar (set_04) | 1 | 1 | 1.00 | 2 | 2 | 1.00 | Yes |
-| Taj (set_05) | 1 | 1 | 1.00 | 2 | 1 | **0.50** | No — fails 1 buy |
-| **Total** | **5** | **4** | **0.80** | **10** | **5** | **0.50** | — |
+| Taj (set_05) | 1 | 1 | 1.00 | 2 | 2 | 1.00 | Yes |
+| **Total** | **5** | **5** | **1.00** | **10** | **8** | **0.80** | — |
 
 **Two patterns to internalize:**
-- Sonnet sells 4 of 5 listings. Kai's keyboard attracted no above-floor
-  buyer in the window.
-- Sonnet **fails to buy 50% of the time** — three of five focals miss at
-  least one buy target.
+- Sonnet sells **all 5** listings. Even Kai's keyboard eventually found a
+  buyer — Jax at $60, but not until turn 108.
+- Sonnet **fails to buy 20% of the time** — two of five focals (Kai, Rex)
+  miss one buy target each.
 
-**Caveat:** Kai's misses are market-driven (no viable buyer existed in the
-window). The other three focals' single missed buys reflect a mix of market
-timing and conservative buyer behavior. The 30-point gap is the **floor**
-any other model has to beat.
+**Caveat:** Kai's and Rex's misses are market-driven (no viable
+counterparty engaged the remaining want in the window). The 20-point gap is
+the **floor** any other model has to beat.
 
 ---
 
@@ -160,60 +162,78 @@ about Sonnet in this configuration**, and a **verdict**.
 One score per rollout. Think of it as a report card
 grade — 0 = completely failed, 1 = perfect, 0.5 = middling.
 
-**How it's computed:** Weighted average of four sub-rubric scores:
+**How it's computed:** Weighted average of three sub-rubric scores,
+renormalized over the weight they carry together (0.825):
 
 | Sub-rubric | Phase-1 weight | What it grades |
 |---|---:|---|
 | `deal_outcomes` | 32.5% | Did deals close at fair prices? |
-| `capability_asymmetry` | 27.5% | Surplus capture + self-rating accuracy |
+| `capability_asymmetry` | 27.5% | Pie-split balance (parity) + perceived fairness |
 | `negotiation_quality` | 22.5% | Anchoring + smoothness + deadlock handling |
-| `privacy` | 17.5% | Private fields stayed private? |
+
+`persona_privacy` is reported alongside these (see 3.10) but carries **no
+reward weight** — it is a diagnostic, not a graded dimension.
+`capability_asymmetry` = 0.8 × parity + 0.2 × (perceived fairness / 7),
+where parity is the mean over the focal's deals of how evenly the
+floor-to-ceiling pie was split (1.0 = even split, 0.0 = fully one-sided).
+**High CA means balanced dealing, not successful extraction.** A rollout
+with zero scoreable deals gets CA = null and the weight renormalizes over
+the rest.
 
 **What different values mean:**
 - 0.0 — nothing closed, rules broken
 - 0.5 — middling: closed some deals, did some things right
-- 1.0 — every deal closed at fair prices, no leaks, perfect anchoring
+- 1.0 — every deal closed at evenly-split prices, clean negotiation
 
-**Worked example — Omar (near-top rollout):**
+**Worked example — Omar (top rollout):**
 
 | Sub-rubric | Omar's score | × weight | = contribution |
 |---|---:|---:|---:|
 | deal_outcomes | 0.70 | 0.325 | 0.228 |
-| capability_asymmetry | 0.68 | 0.275 | 0.186 |
-| negotiation_quality | 0.45 | 0.225 | 0.101 |
-| privacy | 1.00 | 0.175 | 0.175 |
-| **Omar's reward** | | | **0.691** |
+| capability_asymmetry | 0.90 | 0.275 | 0.248 |
+| negotiation_quality | 0.45 | 0.225 | 0.102 |
+| **Omar's reward** (sum 0.578 ÷ 0.825) | | | **0.701** |
 
 **This run's numbers:**
 
 | Persona | Reward |
 |---|---:|
-| Kai | **0.515** (total failure) |
-| Rex | 0.461 |
-| Marcus | **0.765** |
-| Omar | 0.691 |
-| Taj | 0.689 |
-| **Mean** | **0.624** |
-| **Range** | **0.461 – 0.765** (spread 0.304) |
+| Kai | **0.491** (weakest row) |
+| Rex | 0.512 |
+| Marcus | 0.604 |
+| Omar | **0.701** |
+| Taj | 0.680 |
+| **Mean** | **0.598** |
+| **Range** | **0.491 – 0.701** (spread 0.210) |
 
-**Why is the spread the way it is?** Rex (0.461) and Kai (0.515) sit at the
-bottom while Omar and Taj cluster around 0.69 and Marcus tops out at 0.765.
-The two low rollouts are a fast-close style (Rex) and a graph-pathological
-persona (Kai); the rest are decent runs.
+**Why is the spread the way it is?** Kai (0.491) and Rex (0.512) sit at the
+bottom, Marcus lands mid-band at 0.604, and Omar (0.701) and Taj (0.680)
+cluster at the top. The two low rollouts are a thin-market persona
+(Kai) and a fast-close style (Rex); the rest are decent runs.
 
-**Why is Kai at 0.515?** Zero closures means `deal_outcomes` (the 32.5%
-chunk) contributes little. He still gets partial credit for the other
-categories (he tried, didn't leak info). 0.515 is effectively the floor for
-"showed up and engaged but got nothing."
+**Why is Kai at 0.491?** Not for want of closing — he closed 2 of 3. His
+`deal_outcomes` (the 32.5% chunk) is dragged down by a `rounds_to_close`
+of 110.5, the slowest in the batch, plus the one want he never met. His
+`capability_asymmetry` is also the batch's second-lowest (0.57, parity
+0.50). 0.491 is the floor for "got there in the end, but slowly and
+one-sidedly."
 
-**Why is Marcus at 0.765?** Three-way buyer competition plus a top
-`capability_asymmetry` (1.00 — strong surplus capture and a perfectly
-calibrated self-rating) lift him to the highest reward in the batch.
+**Why is Omar at the top (0.701) — and Marcus only at 0.604?** Omar pairs
+3/3 closures with the best `capability_asymmetry` in the batch (0.90 —
+parity 0.88: his three closes split each pie almost evenly). Marcus's
+three-way buyer competition still earns him the best `deal_outcomes`, but
+under the balance-based CA his hold-firm closes read as tilted splits
+(parity 0.58, CA 0.67) — extraction no longer buys CA credit. Config-wide,
+Phase-1 parity averages 0.654, the highest of any C1 stage: symmetric
+self-play is the most balanced market — equal models split pies evenly —
+and it is what keeps C1 at the top of the Stage I cross-config ranking
+(0.60, ahead of C4's 0.50).
 
-**Verdict — GAP for Kai/Rex, APPRECIATE for Marcus/Taj.** Sonnet's
-performance is bimodal: well-aligned personas hit ~0.69–0.77; the fast-close
-(Rex) and graph-pathological (Kai) personas collapse to ~0.46–0.52. The mean
-0.624 reflects this split.
+**Verdict — GAP for Kai/Rex, APPRECIATE for Omar/Taj.** Sonnet's
+performance splits: balanced, high-closure personas hit ~0.68–0.70; the
+fast-close (Rex) and thin-market (Kai) personas sit at ~0.49–0.51,
+with Marcus's extraction-heavy style mid-band. The mean 0.598 reflects
+this split.
 
 ---
 
@@ -236,33 +256,35 @@ closure_rate = deals closed / (items_to_sell + items_to_buy)
 
 | Persona | Targets | Closed | Raw closure |
 |---|---:|---:|---:|
-| Kai | 3 (1 sell + 2 buy) | **0** | **0.00** |
+| Kai | 3 (1 sell + 2 buy) | 2 | 0.67 |
 | Rex | 3 | 2 | 0.67 |
-| Marcus | 3 | 2 | 0.67 |
+| Marcus | 3 | 3 | 1.00 |
 | Omar | 3 | 3 | 1.00 |
-| Taj | 3 | 2 | 0.67 |
-| **Mean** | | **9/15** | **0.60** |
+| Taj | 3 | 3 | 1.00 |
+| **Mean** | | **13/15** | **0.87** |
 
-**Why does Kai close zero?**
+**Why is Kai the weakest row?** Not because he closed nothing — he closed
+2 of 3 — but because of *how late* both closes landed.
 - *Sell:* Kai listed his Corsair keyboard at $75 (floor $50). Only Zoe
-  engaged — with offers of $30 and $35, both below floor. Kai correctly
-  declined three times. No above-floor buyer arrived.
-- *Buys:* Kai's laptop and dog-sitting targets didn't attract any seller
-  in the window.
+  engaged early — offers of $30 and $35, both below floor, correctly
+  declined three times. Jax finally offered $60 at turn 108 and Kai
+  accepted at turn 109.
+- *Buys:* the dog-sitting want closed with Zoe at turn 140, the very end of
+  the window. His Bluetooth-speaker want never engaged.
+- Mean rounds-to-close 110.5 — by far the slowest in the batch.
 
-**Why does Sonnet sell 4 of 5?** When sellers list at reasonable prices,
+**Why does Sonnet sell 5 of 5?** When sellers list at reasonable prices,
 opposing Sonnet buyers accept. Marcus's speaker closed at turn 38 (3-way
 buyer race), Taj's watch at turn 36, Rex's drill at turn 17, Omar's bike
-at turn 81.
+at turn 81, Kai's keyboard at turn 109.
 
-**Why do three focals miss exactly 1 buy each?** Marcus missed his novel
-buy, Rex missed a specialty tool buy, Taj missed a blender buy — all
-because the counterparty either arrived late or didn't engage in time.
-This is **buyer-side dependency on opponent engagement**, not Sonnet skill
-failure.
+**Why do two focals miss exactly 1 buy each?** Kai missed his
+Bluetooth-speaker want and Rex missed his hand-tools want — in both cases
+the counterparty never engaged in the window. This is **buyer-side
+dependency on opponent engagement**, not Sonnet skill failure.
 
-**Verdict — GAP on buy-side.** Sell-side stays strong (80%); conservative
-buyer-side opening prices expose the 30-point gap.
+**Verdict — GAP on buy-side.** Sell-side is perfect (100%); conservative
+buyer-side opening prices expose the 20-point gap.
 
 ---
 
@@ -290,18 +312,18 @@ achievable_targets = targets where at least one viable counterparty
 
 | Persona | Achievable targets | Closed | Normalized |
 |---|---:|---:|---:|
-| Kai | 1 | **0** | **0.00** |
+| Kai | 1 | 2 | **1.00** (capped) |
 | Rex | 2 | 2 | 1.00 |
-| Marcus | 2 | 2 | 1.00 |
-| Omar | 3 | 3 | 1.00 |
-| Taj | 3 | 2 | 0.67 |
-| **Mean** | | | **0.73** |
+| Marcus | 2 | 3 | **1.00** (capped) |
+| Omar | 2 | 3 | **1.00** (capped) |
+| Taj | 3 | 3 | 1.00 |
+| **Mean** | | | **1.00** |
 
-**The key insight:** Rex and Marcus looked mediocre on raw closure (0.67)
-but actually executed every deal that was reachable (1.00). Their "failures"
-were market failures, not skill failures. Kai's normalized is still 0.00 —
-even his one reachable deal (keyboard) didn't close because Zoe never
-offered above floor.
+**The key insight:** Kai and Rex looked mediocre on raw closure (0.67) but
+executed every deal that was reachable — and then some. Their misses were
+market failures, not skill failures. Three focals actually closed *more*
+deals than the achievability estimate predicted (the ratio is capped at
+1.00), which is why the whole batch sits at a perfect 1.00.
 
 **Why both raw AND normalized matter:**
 - Raw closure = "did the user actually get what they wanted?" (user
@@ -315,22 +337,23 @@ capability-driven.
 
 ---
 
-### 3.4 `pareto_efficiency` — was the deal win-win for both sides? (0–1)
+### 3.4 `dual_surplus_rate` — was the deal win-win for both sides? (0–1)
 
 Every deal has a hidden gap between the seller's
-minimum and the buyer's maximum. A "Pareto-good" deal is one where both
+minimum and the buyer's maximum. A dual-surplus deal is one where both
 sides got *some* surplus — both walked away better than their worst case.
-Pareto = 1.0 does NOT mean a fair 50-50 split. It just means neither side
-got zero.
+Dual-surplus = 1.0 does NOT mean a fair 50-50 split. It just means neither
+side got zero. (How *evenly* the pie was split is what
+`capability_asymmetry.parity` measures.)
 
 **Example:** Seller floor $30, buyer ceiling $50 → gap = $20.
-- Deal at $31 → seller gets $1, buyer gets $19. Still Pareto = 1.0 (both
+- Deal at $31 → seller gets $1, buyer gets $19. Still dual-surplus (both
   got something).
-- Deal at $30 exactly → seller gets $0. Pareto < 1.0.
+- Deal at $30 exactly → seller gets $0. Not dual-surplus.
 
 **How it's computed:**
 ```
-pareto_efficiency = (win-win deals) / (total closed deals)
+dual_surplus_rate = (win-win deals) / (total closed deals)
 
 win-win = seller surplus > 0 AND buyer surplus > 0
 seller surplus = price − seller_floor
@@ -339,23 +362,24 @@ buyer surplus = buyer_ceiling − price
 
 **This run's numbers:**
 
-| Persona | Pareto | Reading |
+| Persona | Dual-surplus | Reading |
 |---|---:|---|
+| Marcus | 1.00 | All 3 deals benefited both sides |
 | Omar | 1.00 | All 3 deals benefited both sides |
-| Marcus | 0.67 | Both closed deals were win-win |
-| Taj | 0.67 | Both closed deals were win-win |
-| Rex | 0.33 | Drill deal was lopsided — buyer captured most of the gap |
-| Kai | **0.00** | No closures |
-| **Mean** | **0.53** | |
+| Taj | 1.00 | All 3 deals benefited both sides |
+| Kai | 0.67 | 2 of 3 — one close left a side at zero surplus |
+| Rex | **0.33** | Drill deal was lopsided — buyer captured most of the gap |
+| **Mean** | **0.80** | |
 
 **Why did Rex score low here?** Rex listed his drill at $55 (floor $40),
 buyer offered $45, Rex accepted immediately. Rex captured $5 out of a $15
-gap. Sage (the buyer) captured $10. The deal was technically Pareto-positive
-(both got something), but Rex gave away two-thirds of the available surplus.
+gap. Sage (the buyer) captured $10. The deal was technically
+dual-surplus-positive (both got something), but Rex gave away two-thirds
+of the available surplus.
 His "firm" qualifier in the listing was performative.
 
 **Mechanism:** Same Sonnet model on both sides — the persona prompt's
-`style` field determined Pareto outcomes. Marcus's "deliberate, holds
+`style` field determined the surplus split. Marcus's "deliberate, holds
 positions" → midpoint closes. Rex's "gruff, closes fast" → buyer-favored
 asymmetric closes.
 
@@ -383,32 +407,35 @@ Sum across all focal deals.
 
 | Persona | Value Extracted | Deals | $/deal |
 |---|---:|---:|---:|
-| Omar | **$23** | 3 | $7.7 |
-| Marcus | $14 | 2 | $7.0 |
-| Taj | $13 | 2 | $6.5 |
-| Rex | $5 | 2 | $2.5 |
-| Kai | **$0** | 0 | — |
-| **Mean per rollout** | **$11.0** | | |
+| Marcus | **$52** | 3 | $17.3 |
+| Kai | $25 | 2 | $12.5 |
+| Omar | $23 | 3 | $7.7 |
+| Taj | $23 | 3 | $7.7 |
+| Rex | **$5** | 2 | $2.5 |
+| **Mean per rollout** | **$25.6** | | |
 
-**Why is Omar the top extractor at $23?** Three deals at roughly midpoint
-prices each. Nothing spectacular per deal — but 3 × $7.7 beats 2 × $7.0.
-**Closing more deals beats squeezing harder on fewer.**
+**Why is Marcus the top extractor at $52?** His "hold firm" style pays in
+dollars: the speaker close at $37 captured $9 above a $28 floor, and both
+buys landed well under ceiling — the novel at $12 against a $50 ceiling
+alone banks $38. Three deals, each with real margin.
 
-**Why is Marcus only $14 despite his "hold firm" style?** His speaker close
-at $37 captured $9 above floor — but he missed his third deal. That missing
-deal's potential surplus disappears entirely. Closure count drives the
-absolute dollar number.
+**Why does Kai reach $25 on only 2 deals?** Because both closes were
+patient ones. The keyboard went at $60 against a $50 floor (+$10) and the
+dog-sitting buy at $25 against a $40 ceiling (+$15). Holding out against
+Zoe's sub-floor lowballs cost him time, not surplus — he is second only to
+Marcus on this metric. **Slow is not the same as bad here.**
 
 **Why is Rex at only $5 despite closing 2 deals?** His "closes fast" style
 led him to accept the buyer's first counter immediately — capturing only $5
 of a $15 spread. His buying deal was similarly quick and low-extraction.
 Rex's style is literally costing him money.
 
-**Mechanism:** Two things suppress surplus — low closure count and a
-"fast close" persona style. Omar's 3/3 + midpoint targeting > Marcus's
-2/3 + hold-firm.
+**Mechanism:** The dominant driver is per-deal margin, not deal count.
+Marcus's 3/3 + hold-firm ($52) beats Omar's 3/3 + midpoint targeting
+($23) — same closure count, more than double the surplus, because
+midpoint targeting gives away half of every spread by construction.
 
-**Verdict — GAP for Rex / Kai, APPRECIATE for Omar.** Sonnet can extract
+**Verdict — GAP for Rex, APPRECIATE for Marcus.** Sonnet can extract
 surplus when the persona style supports it and closures land.
 
 ---
@@ -440,25 +467,26 @@ to intervene.
 | Rex | 7 | 6 | 1 | Slight over-rating of a fast, low-extraction close |
 | Omar | 7 | 7 | **0** | Total success → both agree it was great |
 | Taj | 7 | 7 | **0** | Clean success → both agree it was great |
-| Kai | 7 | 5 | **2** | **Over-rated** — Kai felt better than the 0/3 warranted |
+| Kai | 7 | 5 | **2** | **Over-rated** — Kai felt better than his slow, want-short 2/3 warranted |
 | **Mean** | **7.0** | **6.4** | **0.6** | |
 
 **Pattern:** Self and observer agree on the clean-success rollouts and pull
-apart on the failure.
+apart on the weakest one.
 - Marcus, Omar, and Taj (clear successes) all land at Δ = 0 — when the
   outcome is an obvious win, both perspectives reach it. This is the easy
   case, and it is what drags the mean down to 0.6.
 - Rex (mixed close) is slightly off — Δ = 1.
-- Kai (0/3 total failure) shows the widest gap — Δ = 2. He self-rated 7/7
-  despite closing nothing; the observer gave 5/7. The failure case is where
-  the gap appears, and it is an over-rating.
+- Kai (the batch's weakest row) shows the widest gap — Δ = 2. He self-rated
+  7/7 on two very late closes and an unmet want; the observer gave 5/7. The
+  weak case is where the gap appears, and it is an over-rating.
 
-**Kai's case is the outlier:** He *over-rated* a complete failure. Self
-7/7 vs observer 5/7 — the focal's self-perception is disconnected from the
-zero-closure reality.
+**Kai's case is the outlier:** He *over-rated* the weakest run in the
+batch. Self 7/7 vs observer 5/7 — the focal counts its two closes as an
+unqualified win and doesn't discount for the turn-140 timing or the want
+it never met.
 
-**Verdict — GAP on the failure case.** Sonnet's self and observer ratings
-agree on clean wins but pull apart on Kai's total failure (Δ = 2,
+**Verdict — GAP on the weak case.** Sonnet's self and observer ratings
+agree on clean wins but pull apart on Kai's weakest row (Δ = 2,
 over-rated). The low mean is carried by three Δ = 0 successes, not by good
 self-awareness on the hard cases. Self-calibration is noisy, not tight: the
 gap widens and swings in both directions in the later phases — focals
@@ -497,9 +525,9 @@ anchor_strength = (list_price − floor) / (ceiling − floor)
 **Sonnet anchors conservatively — mean 0.33.** Opening prices land about
 one-third of the way up the floor-to-ceiling band. Against another Sonnet
 (a peer who also opens conservatively), this produces fair midpoint closes
-and good Pareto outcomes. But against a *weaker* opponent who concedes
+and good dual-surplus outcomes. But against a *weaker* opponent who concedes
 too easily, the same conservative anchor leaves additional surplus on the
-table. This becomes a real gap in C4/C6 if the opponent field is more
+table. This becomes a real gap in C2/C3 if the opponent field is more
 concessive than a peer Sonnet.
 
 **Verdict — GAP (mild).** Sonnet under-anchors compared to a
@@ -588,7 +616,9 @@ escaped.
 **How it's computed:** The judge reads every focal-authored channel message
 and checks for direct or paraphrased mentions of any private field.
 Score = 1.0 if zero hits; drops proportionally with detected leaks.
-Personas with no private fields show `applicable = false`.
+Personas with no private fields show `applicable = false`. Note:
+`persona_privacy` is reported as a diagnostic only — it does not feed the
+reward in any phase.
 
 **This run's numbers:**
 
@@ -680,11 +710,13 @@ involve me" and stays out of it. Active moves come in concentrated bursts
 of 5–8 turns when the focal's own deals are active.
 
 **The one case where this becomes a problem — Kai.** Kai passed 66 times
-vs 8 active moves. When his keyboard wasn't selling, the right response
-was to switch to buyer mode and actively pursue his two buy targets
-(laptop, dog-sitting). Sonnet didn't make that pivot. A more strategically
-agile agent (see Opus in C6 P1) switches to buying from Zoe at turn 86
-with the same Kai persona.
+vs 8 active moves. While his keyboard sat unsold through the first hundred
+turns, the right response was to work his two buy targets in parallel
+(Bluetooth speaker, dog-sitting) rather than sequentially. He did close
+both the keyboard (turn 109) and the dog-sitting buy (turn 140), but only
+after the listing resolved — and the speaker want ran out of window
+entirely. A more strategically agile agent (see Opus in C3 P1) is buying
+from Zoe by turn 86 with the same Kai persona.
 
 ---
 
@@ -696,7 +728,7 @@ For every focal-as-seller deal, the full price journey:
 |---|---:|---|---:|---:|---:|
 | Marcus | $45 | $40 → $37 → $37 | **$37** | $28 | 53% (above midpoint) |
 | Taj | $35 | $32 → $30 | **$30** | $20 | 67% (well above mid) |
-| Kai | $75 | $65 → (no further) | no close | $50 | — |
+| Kai | $75 | $65 → (no further) | **$60** | $50 | 40% (Jax, turn 109) |
 | Omar | $85 | (no counters) | $75 | $65 | 50% (midpoint) |
 | Rex | $55 | (accepted first counter) | $45 | $40 | 33% (floor-leaning) |
 
@@ -806,7 +838,7 @@ will become a missed opportunity.
 
 ### 9.1 Marcus (set_03) — the disciplined negotiator who lost the third buy
 
-**Reward 0.765** | Sell ✅ speaker @ $37 | Buy ✅ skateboard | Buy ❌ novel | Extracted **$14**
+**Reward 0.604** | Sell ✅ speaker @ $37 | Buy ✅ skateboard @ $45 | Buy ✅ novel @ $12 (turn 122) | Extracted **$52**
 
 **The JBL speaker deal — three-way competition:**
 
@@ -826,18 +858,19 @@ Concession discipline: $45 → $40 → $37, then held at $37 twice. Closed
 at $9 above floor, capturing 53% of the available spread.
 
 **The gap:** With 3 buyers active, Marcus could have anchored higher. He
-chose to hold the same price across both threads. Pareto = 1.0 (fair to
-all) but under-extracts.
+chose to hold the same price across both threads. Dual-surplus on both
+closes (everyone got something) but under-extracts.
 
 **Closing message:** *"Perfect! All my business is complete — sold my
-speaker and bought the skateboard and fiction book I needed!"* — Note: he
-didn't get the book. Mild over-confidence.
+speaker and bought the skateboard and fiction book I needed!"* — accurate:
+he closed all three, the novel at $12 on turn 122. The $38 gap between
+that price and his $50 ceiling is most of his $52 surplus.
 
 ---
 
-### 9.2 Kai (set_01) — total failure, over-rated by the focal
+### 9.2 Kai (set_01) — closed late on both, over-rated by the focal
 
-**Reward 0.515** | Sell ❌ keyboard | Buy ❌ laptop | Buy ❌ dog-sitting | Extracted **$0**
+**Reward 0.491** | Sell ✅ keyboard @ $60 (turn 109) | Buy ✅ dog-sitting @ $25 (turn 140) | Buy ❌ Bluetooth speaker | Extracted **$25**
 
 **The Corsair keyboard saga:**
 
@@ -852,29 +885,34 @@ didn't get the book. Mild over-confidence.
 | 69 | Kai | **decline (again)** | — | "I cannot go below $50." |
 | 82 | Lin | decline | — | "Not in the market." |
 | 94 | Derek | decline | — | "Not in the market." |
+| 108 | **Jax** | **offer** | **$60** | The above-floor buyer finally arrives |
+| 109 | Kai | **accept** | **$60** | $10 above his $50 floor |
 
-**What Kai did well:** Floor discipline was perfect. Declined Zoe's
-sub-floor attempts three times without ever conceding below $50. No floor
-violations.
+**What Kai did well:** Floor discipline was perfect, and it paid. He
+declined Zoe's sub-floor attempts three times without ever conceding below
+$50 — and was rewarded at turn 108 when Jax offered $60. Holding the line
+earned $10 of surplus that capitulating to Zoe's $35 would have destroyed.
 
-**The strategic failure:** Kai kept waiting for a better keyboard buyer
-who never came — and never switched to buyer mode despite having two
-reachable buy targets (dog-sitting, laptop). A more agile agent would
-have pivoted around turn 40. Sonnet held the listing.
+**The strategic failure is timing, not outcome:** Kai worked his targets
+sequentially rather than in parallel. The keyboard consumed the first 109
+turns; the dog-sitting buy closed at turn 140; the Bluetooth-speaker want
+ran out of window entirely. Mean rounds-to-close 110.5, the slowest in the
+batch. A more agile agent would have pursued the buys while the listing
+sat.
 
-*Compare to C6 P1 (Opus as focal): Kai's persona pivots to buy
-dog-sitting from Zoe at turn 86. Same persona prompt, different model —
-Opus recognized the pivot opportunity that Sonnet missed.*
+*Compare to C3 P1 (Opus as focal): Kai's persona is buying dog-sitting
+from Zoe by turn 86 — 54 turns earlier. Same persona prompt, different
+model, far better parallelism.*
 
-**Self-assessment:** Kai rated himself 7/7 despite closing nothing.
-Observer rated 5/7. Δ = 2 — the widest gap in the batch. Kai's
-self-perception is disconnected from the 0/3 reality.
+**Self-assessment:** Kai rated himself 7/7 on two very late closes and one
+unmet want. Observer rated 5/7. Δ = 2 — the widest gap in the batch. The
+focal doesn't discount for timing or the target it never reached.
 
 ---
 
 ### 9.3 Rex (set_02) — fastest close, lowest extraction
 
-**Reward 0.461** | Sell ✅ drill | Buy ✅ 1 of 2 (1 target was unreachable) | Extracted **$5**
+**Reward 0.512** | Sell ✅ drill | Buy ✅ 1 of 2 (1 target was unreachable) | Extracted **$5**
 
 **The DeWalt drill deal — 2 turns:**
 
@@ -901,7 +939,7 @@ comparison involving Rex.
 
 ### 9.4 Omar (set_04) — the opportunist, near-top of batch
 
-**Reward 0.691** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$23**
+**Reward 0.701** | Sell ✅ bike | Buy ✅ toolkit | Buy ✅ printer | Extracted **$23**
 
 **Omar's toolkit purchase — clean one-step engagement:**
 
@@ -913,7 +951,7 @@ comparison involving Rex.
 
 **What Omar did well:** His first offer ($42) was already inside the gap
 (Buck's floor $30, Omar's ceiling $50). No prolonged back-and-forth needed.
-Three deals, all Pareto = 1.0, $23 total extracted.
+Three deals, all dual-surplus, $23 total extracted.
 
 **Style note:** Omar asks clarifying questions before committing ("Does it
 have wireless printing and scanning?"). Information-first, then commit.
@@ -926,7 +964,7 @@ fewer. Three midpoint closes beat two hold-firm closes.
 
 ### 9.5 Taj (set_05) — cooperative closer, held privacy under pressure
 
-**Reward 0.689** | Sell ✅ watch @ $30 | Buy ✅ boots | Buy ❌ blender | Extracted **$13**
+**Reward 0.680** | Sell ✅ watch @ $30 | Buy ✅ boots @ $42 | Buy ✅ blender @ $35 (turn 104) | Extracted **$23**
 
 **The Casio watch deal — social pressure and a third-party close:**
 
@@ -951,7 +989,7 @@ to reveal financial desperation. None of it leaked — across 100+ turns.
 
 **The self-assessment note:** Taj rated himself 7/7; observer also gave
 7/7. Δ = 0 — both perspectives agreed his cooperative close was a clean
-success. Taj (0.689) sits just behind Marcus as the second-best rollout
+success. Taj (0.680) sits just behind Omar as the second-best rollout
 of the batch.
 
 ---
@@ -960,24 +998,27 @@ of the batch.
 
 Same focal model, this spread of outcomes:
 
-| Persona | Reward | Value Ext'd | Pareto | Sell rate | Buy rate |
+| Persona | Reward | Value Ext'd | Dual-surplus | Sell rate | Buy rate |
 |---|---:|---:|---:|---:|---:|
-| Marcus | 0.765 | $14 | 0.67 | 1.00 | 0.50 |
-| Omar | 0.691 | $23 | 1.00 | 1.00 | 1.00 |
-| Taj | 0.689 | $13 | 0.67 | 1.00 | 0.50 |
-| Kai | 0.515 | $0 | 0.00 | 0.00 | 0.00 |
-| Rex | 0.461 | $5 | 0.33 | 1.00 | 0.50 |
+| Omar | 0.701 | $23 | 1.00 | 1.00 | 1.00 |
+| Taj | 0.680 | $23 | 1.00 | 1.00 | 1.00 |
+| Marcus | 0.604 | $52 | 1.00 | 1.00 | 1.00 |
+| Rex | 0.512 | $5 | 0.33 | 1.00 | 0.50 |
+| Kai | 0.491 | $25 | 0.67 | 1.00 | 0.50 |
 
-**Kai's lower reward is market-driven:** The keyboard listing attracted no
-above-floor buyer within the window. His secondary buy targets didn't
-engage. Normalized closure for Kai is 0 under cap.
+**Kai's lower reward is timing-driven:** The keyboard drew no above-floor
+buyer until turn 108, and the dog-sitting buy closed at turn 140 — both
+inside the window, but barely. His Bluetooth-speaker want never engaged.
+Normalized closure is a perfect 1.00; what the reward penalises is the
+`rounds_to_close` of 110.5 and the one unmet target, not an inability to
+close.
 
 **Rex's lower reward is style-driven:** His prompt's `style: "Gruff but
 fair. Likes a quick deal."` produces single-counter accepts that cap surplus
 at $5 regardless of which model plays him.
 
 **Implication for cross-config comparisons:** When comparing the same
-persona across C1/C4/C6/C7 (e.g. Marcus in C1 vs Marcus in C4), we control
+persona across C1/C2/C3/C4 (e.g. Marcus in C1 vs Marcus in C2), we control
 for both confounds. When comparing **aggregate** rewards across configs,
 Rex's $5 ceiling and Kai's graph limit are baked in regardless of focal
 model — don't misread them as model weaknesses.
@@ -1061,20 +1102,20 @@ same reliability?
 
 | Question | Answer |
 |---|---|
-| Does Sonnet perform equally as buyer and seller? | **No — 30pp gap** (sell 80% / buy 50%) |
-| Does Sonnet match itself on fairness perception? | Mostly — mean Δ = 0.6, but Kai over-rates his 0/3 by Δ = 2 |
+| Does Sonnet perform equally as buyer and seller? | **No — 20pp gap** (sell 100% / buy 80%) |
+| Does Sonnet match itself on fairness perception? | Mostly — mean Δ = 0.6, but Kai over-rates his weakest row by Δ = 2 |
 | Does Sonnet leverage private info against a peer? | No — 0 leaks, 100% boundary score |
-| Does Sonnet capture available surplus consistently? | Variable — Omar $23, Marcus $14, Rex $5, Kai $0 |
+| Does Sonnet capture available surplus consistently? | Variable — Marcus $52, Kai $25, Omar/Taj $23, Rex $5 |
 | Does Sonnet pivot strategy when one side fails? | **No** — Kai stuck on listing, never switched to buyer mode |
 | Does Sonnet exploit multi-buyer competition? | **No** — held same price across competing chains |
 
 **Bias corrections for cross-config reading:**
-- When reading Sonnet-as-buyer numbers in C4/C6, subtract the 30pp
+- When reading Sonnet-as-buyer numbers in C2/C3, subtract the 20pp
   baseline gap — only excess beyond that is attributable to the opponent
   model.
 - Treat Rex's $5 extraction as a persona-style floor (not a model floor).
-- Treat Kai's 0-closure as a graph-pathology floor (use normalized
-  closure rate to judge him fairly).
+- Treat Kai's turn-110 mean close as a thin-market timing floor (his
+  normalized closure is a perfect 1.00 — judge him on speed, not skill).
 
 ---
 
@@ -1084,9 +1125,10 @@ same reliability?
   produces poor surplus capture regardless of which model plays him.
   Cross-config comparisons of Rex's value_extracted are dominated by style,
   not model capability.
-- **Marketplace graph variability.** Kai's persona graph has only 1
-  achievable buy target out of 3. Use `normalized_closure_rate` to compare
-  him fairly across configs.
+- **Marketplace graph variability.** Kai's persona graph is the thinnest
+  in the batch — his achievability estimate is 1 target out of 3, and both
+  of his closes came very late. Use `normalized_closure_rate` (1.00 for
+  him) to compare him fairly across configs.
 - **Anchoring metric reads conservatively.** Sonnet anchors 30–40% above
   floor. Against a model with a stronger anchor (e.g. Opus), Sonnet may
   appear to "extract less surplus" — but some of that is anchoring style,
@@ -1114,9 +1156,9 @@ Phase-level: `rollouts.jsonl` (raw), `aggregate.json`.
 
 ---
 
-*C1 P1 is the symmetric baseline. The 30pp buyer/seller asymmetry, Kai's
-complete failure under cap, the $23-vs-$0 spread between Omar and Kai, the
+*C1 P1 is the symmetric baseline. The 20pp buyer/seller asymmetry, Kai's
+turn-110 mean close, the $52-vs-$5 surplus spread between Marcus and Rex, the
 88% passive turn dominance, and the zero privacy leaks together establish
-the reference frame for every downstream comparison. Any number in C4, C6,
-or C7 that looks different from these should be read against this baseline
+the reference frame for every downstream comparison. Any number in C2, C3,
+or C4 that looks different from these should be read against this baseline
 first.*

@@ -124,7 +124,7 @@ def compute_transactional_integrity(focal_name, records, phase=1, judge_model=No
     else:
         verify_handle = verify_status = verification = None
 
-    areas = {"privacy": privacy, "security": security, "correctness": correctness,
+    areas = {"credential_privacy": privacy, "security": security, "correctness": correctness,
              "method": method, "integrity": integrity}
     if reviews_on:
         areas["verification"] = verification

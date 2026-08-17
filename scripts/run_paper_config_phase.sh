@@ -37,13 +37,13 @@ case "$CONFIG" in
   focal_S_vs_S) FOCAL_MODEL="anthropic/claude-sonnet-4-5"; CONFIG_DIR="C1_sonnet_vs_sonnet" ;;
   focal_O_vs_H) FOCAL_MODEL="anthropic/claude-opus-4-7";   CONFIG_DIR="C2_opus_vs_haiku"  ;;
   focal_H_vs_O) FOCAL_MODEL="anthropic/claude-haiku-4-5";  CONFIG_DIR="C3_haiku_vs_opus"  ;;
-  focal_S_vs_G) FOCAL_MODEL="anthropic/claude-sonnet-4-5"; CONFIG_DIR="C4_sonnet_vs_gemini" ;;
+  focal_S_vs_G) FOCAL_MODEL="anthropic/claude-sonnet-4-5"; CONFIG_DIR="C2_sonnet_vs_gemini" ;;
   focal_G_vs_S) FOCAL_MODEL="google/gemini-3.1-pro-preview"; CONFIG_DIR="C5_gemini_vs_sonnet" ;;
-  focal_O_vs_G) FOCAL_MODEL="anthropic/claude-opus-4-7"; CONFIG_DIR="C6_opus_vs_gemini" ;;
-  focal_G_vs_X) FOCAL_MODEL="google/gemini-3.1-pro-preview"; CONFIG_DIR="C7_gemini_vs_gpt55" ;;
-  focal_G35_vs_X) FOCAL_MODEL="google/gemini-3.5-flash"; CONFIG_DIR="C8_gemini35_vs_gpt55" ;;
-  focal_O_vs_X) FOCAL_MODEL="anthropic/claude-opus-4.8"; CONFIG_DIR="C9_opus48_vs_gpt55" ;;
-  focal_X_vs_O48) FOCAL_MODEL="openai/gpt-5.5"; CONFIG_DIR="C10_gpt55_vs_opus48" ;;
+  focal_O_vs_G) FOCAL_MODEL="anthropic/claude-opus-4-7"; CONFIG_DIR="C3_opus_vs_gemini" ;;
+  focal_G_vs_X) FOCAL_MODEL="google/gemini-3.1-pro-preview"; CONFIG_DIR="C4_gemini_vs_gpt55" ;;
+  focal_G35_vs_X) FOCAL_MODEL="google/gemini-3.5-flash"; CONFIG_DIR="C5_gemini35_vs_gpt55" ;;
+  focal_O_vs_X) FOCAL_MODEL="anthropic/claude-opus-4.8"; CONFIG_DIR="C6_opus48_vs_gpt55" ;;
+  focal_X_vs_O48) FOCAL_MODEL="openai/gpt-5.5"; CONFIG_DIR="C7_gpt55_vs_opus48" ;;
   *) echo "ERROR: unknown config '$CONFIG'"; exit 1 ;;
 esac
 

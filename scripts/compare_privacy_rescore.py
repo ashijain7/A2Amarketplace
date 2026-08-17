@@ -9,7 +9,7 @@ in-place rescore.
 
 Usage:
   python scripts/compare_privacy_rescore.py
-  python scripts/compare_privacy_rescore.py results/paper_runs/C7_gemini_vs_gpt55
+  python scripts/compare_privacy_rescore.py results/paper_runs/C4_gemini_vs_gpt55
 """
 
 import glob

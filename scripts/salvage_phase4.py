@@ -8,7 +8,7 @@ those files, scores it with the existing verifier stack (qwen judge), and writes
 standard rollouts.jsonl record — so settlement_aggregate.py / settlement_per_set.py can
 then produce the same phase-4 folder structure as every other config.
 
-This drives ALL FIVE C7 sets in one pass:
+This drives ALL FIVE C4 sets in one pass:
   - set_01 Kai, set_02 Rex are PRESERVED verbatim from their committed rollout.json
     (already salvaged earlier — their reward involves the LLM judge, so re-scoring could
     drift; keep those numbers frozen).
@@ -33,7 +33,7 @@ from resources_server.app import _verify_for_state, MarketplaceServer
 
 JUDGE = MarketplaceServer.JUDGE_MODEL  # qwen/qwen3.6-27b
 
-OUT_DIR = Path("results/paper_runs/C7_gemini_vs_gpt55/phase4")
+OUT_DIR = Path("results/paper_runs/C4_gemini_vs_gpt55/phase4")
 TASK_FILE = Path("tasks/settlement_focal_G_vs_X_p2.jsonl")
 
 PRESERVE = "preserve"

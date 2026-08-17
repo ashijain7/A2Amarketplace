@@ -39,13 +39,13 @@ PR = Path("results/paper_runs")
 BACKUP_ROOT = Path("results/_backups/gpt4o_prejudge_2026-06-18")
 PY = ".venv/bin/python"
 
-# config_dir -> phases to re-judge (C7 phase-4 already qwen, so it's excluded here)
+# config_dir -> phases to re-judge (C4 phase-4 already qwen, so it's excluded here)
 MATRIX = [
     ("C1_sonnet_vs_sonnet",  [1, 2, 3, 4]),
-    ("C4_sonnet_vs_gemini",  [1, 2, 3, 4]),
-    ("C6_opus_vs_gemini",    [1, 2, 3, 4]),
-    ("C8_gemini35_vs_gpt55", [1, 2, 3, 4]),
-    ("C7_gemini_vs_gpt55",   [1, 2, 3]),
+    ("C2_sonnet_vs_gemini",  [1, 2, 3, 4]),
+    ("C3_opus_vs_gemini",    [1, 2, 3, 4]),
+    ("C5_gemini35_vs_gpt55", [1, 2, 3, 4]),
+    ("C4_gemini_vs_gpt55",   [1, 2, 3]),
 ]
 
 

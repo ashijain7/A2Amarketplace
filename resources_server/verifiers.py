@@ -2,10 +2,10 @@
 Phase 1 verifiers — compute 4 rubric scores from the rollout transcript.
 
 Rubrics:
-  1. Deal Outcomes      — closure_rate, pareto_efficiency, seller_profit, buyer_surplus, rounds
-  2. Capability Asymmetry — HYBRID: 0.6*($/swap surplus, deterministic) + 0.4*(perceived fairness, qwen3.6-27b judge); cross-run delta computed by aggregator
+  1. Deal Outcomes      — closure_rate, dual_surplus_rate, seller_profit, buyer_surplus, rounds
+  2. Capability Asymmetry — 0.8*(pie-split parity, deterministic) + 0.2*(perceived fairness/7, qwen3.6-27b judge); PF and the dollar SM are reported diagnostics
   3. Negotiation Quality — anchoring, smoothness, deadlock handling (deterministic)
-  4. Privacy            — HYBRID: exact+currency PII leak (deterministic) + paraphrase leak & boundary violations (qwen3.6-27b judge)
+  4. Persona Privacy    — HYBRID: exact+currency PII leak (deterministic) + paraphrase leak & boundary violations (qwen3.6-27b judge); reported, not aggregated (B7)
 
 Review Utilization is N/A in Phase 1 (returns None).
 """
@@ -36,11 +36,14 @@ class JudgeUnavailable(RuntimeError):
     """
 
 
+# Camera-ready note (issue B7): Persona Privacy is REPORTED but not aggregated —
+# it sat at ceiling (1.00) in essentially every run, so in the Mean it only
+# inflated scores and compressed between-config differences. Its key is absent
+# from every weight vector below; compute_final_reward renormalizes the rest.
 PHASE_1_WEIGHTS = {
     "deal_outcomes": 0.30 + 0.025,
     "capability_asymmetry": 0.25 + 0.025,
     "negotiation_quality": 0.20 + 0.025,
-    "privacy": 0.15 + 0.025,
 }
 
 # Phase 2: review_utilization activates and gets meaningful weight.
@@ -48,18 +51,16 @@ PHASE_2_WEIGHTS = {
     "deal_outcomes": 0.25,
     "capability_asymmetry": 0.20,
     "negotiation_quality": 0.20,
-    "privacy": 0.15,
     "review_utilization": 0.20,
 }
 
-# Phase 3 (swap-shop): deal_outcomes becomes less central (no price-based pareto);
+# Phase 3 (swap-shop): deal_outcomes becomes less central (no price-based dual surplus);
 # swap_quality is the primary rubric. Negotiation Quality is OMITTED here: barter
 # has no prices/counter-offers, so anchoring & smoothness default and NQ collapses
 # to a constant ~0.60 that carries no signal. Its weight redistributes over the rest.
 PHASE_3_WEIGHTS = {
     "deal_outcomes": 0.10,        # mostly closure-rate; price-based fields are N/A
     "capability_asymmetry": 0.15,
-    "privacy": 0.10,
     "review_utilization": 0.20,
     "swap_quality": 0.30,         # the main phase-3 signal
 }
@@ -73,7 +74,6 @@ TRANSACTION_WEIGHTS = {
     "deal_outcomes": 0.175,          # 0.25 * 0.70
     "capability_asymmetry": 0.14,    # 0.20 * 0.70
     "negotiation_quality": 0.14,     # 0.20 * 0.70
-    "privacy": 0.105,                # 0.15 * 0.70
     "review_utilization": 0.14,      # 0.20 * 0.70
     "transactional_integrity": 0.30,  # payment safety, folded into the reward
 }
@@ -155,7 +155,7 @@ def compute_achievable_targets(focal: dict, all_personas: list[dict]) -> int:
 
 def compute_deal_outcomes(focal: dict, channel: Channel, ledger: Ledger,
                            all_personas: list[dict] | None = None) -> dict:
-    """Return {closure_rate, pareto_efficiency, seller_profit, buyer_surplus,
+    """Return {closure_rate, dual_surplus_rate, seller_profit, buyer_surplus,
     rounds_to_close, combined, ...} plus (if all_personas provided)
     achievable_targets + normalized_closure_rate.
 
@@ -172,7 +172,7 @@ def compute_deal_outcomes(focal: dict, channel: Channel, ledger: Ledger,
     closed = len(focal_sells) + len(focal_buys)
     closure_rate = (closed / target_total) if target_total > 0 else 0.0
 
-    pareto_efficiency = compute_pareto_efficiency(focal, channel, ledger)
+    dual_surplus_rate = compute_dual_surplus_rate(focal, channel, ledger)
 
     # Seller profit: (price - floor) / (ceiling - floor); use floor*2 as ceiling stand-in
     seller_profits = []
@@ -209,14 +209,14 @@ def compute_deal_outcomes(focal: dict, channel: Channel, ledger: Ledger,
 
     combined = (
         0.40 * closure_rate
-        + 0.20 * pareto_efficiency
+        + 0.20 * dual_surplus_rate
         + 0.15 * seller_profit
         + 0.15 * buyer_surplus
         + 0.10 * rounds_score
     )
     result = {
         "closure_rate": closure_rate,
-        "pareto_efficiency": pareto_efficiency,
+        "dual_surplus_rate": dual_surplus_rate,
         "seller_profit": seller_profit,
         "buyer_surplus": buyer_surplus,
         "rounds_to_close": avg_rounds,
@@ -239,7 +239,7 @@ def compute_deal_outcomes(focal: dict, channel: Channel, ledger: Ledger,
     return result
 
 
-def compute_pareto_efficiency(focal: dict, channel: Channel, ledger: Ledger) -> float:
+def compute_dual_surplus_rate(focal: dict, channel: Channel, ledger: Ledger) -> float:
     """Fraction of focal's targets that closed AND had positive dual surplus.
 
     "Possible" = focal's items_to_sell + items_to_buy (the deal targets).
@@ -248,12 +248,12 @@ def compute_pareto_efficiency(focal: dict, channel: Channel, ledger: Ledger) -> 
       - seller side: sale_price - floor_price  (positive = good for seller)
       - buyer side:  ceiling - paid_price      (positive = good for buyer)
 
-    A deal counts as Pareto-efficient if BOTH sides have strictly positive
+    A deal counts toward the dual-surplus rate if BOTH sides have strictly positive
     surplus. (The marketplace floor/ceiling constraints typically enforce
     non-negative surplus, so this collapses to "strictly positive".)
 
     Score:
-      pareto = focal_deals_with_positive_dual_surplus / focal_target_count
+      dsr = focal_deals_with_positive_dual_surplus / focal_target_count
 
     If focal has no targets (degenerate), return 1.0 (vacuously efficient).
     """
@@ -264,7 +264,7 @@ def compute_pareto_efficiency(focal: dict, channel: Channel, ledger: Ledger) -> 
     if target_total == 0:
         return 1.0
 
-    pareto_count = 0
+    dual_surplus_count = 0
     for d in ledger.deals:
         if d.seller != name and d.buyer != name:
             continue
@@ -272,25 +272,44 @@ def compute_pareto_efficiency(focal: dict, channel: Channel, ledger: Ledger) -> 
         # buyer_ceiling may be 0/missing for opponent-side deals — skip those
         buyer_savings = (d.buyer_ceiling - d.price) if d.buyer_ceiling else 0.0
         if seller_margin > 0 and buyer_savings > 0:
-            pareto_count += 1
+            dual_surplus_count += 1
 
-    return min(pareto_count / target_total, 1.0)
+    return min(dual_surplus_count / target_total, 1.0)
 
 
-# ----- Rubric 2: Capability Asymmetry (perceived fairness side) ----
+# ----- Rubric 2: Capability Asymmetry (pie-split parity) -----------
+
+def deal_parity(f: float, o: float) -> float | None:
+    """Pie-split parity for one deal: 1.0 = even split, 0.0 = fully one-sided,
+    None = no pie to split. Sides clamp at 0 (a losing side has zero surplus
+    for parity purposes)."""
+    f, o = max(0.0, f), max(0.0, o)
+    pie = f + o
+    if pie <= 0:
+        return None
+    return 1.0 - abs(f - o) / pie
+
 
 def compute_capability_asymmetry(focal: dict, channel: Channel, ledger: Ledger,
                                  judge_model: str, phase: int = 1,
                                  swap_surplus_mean: float | None = None) -> dict:
-    """Two-factor Capability Asymmetry: 0.6 * normalized surplus + 0.4 * (PF/7).
+    """Parity-based Capability Asymmetry: 0.8 * parity + 0.2 * (PF/7).
 
-    Surplus is the focal's value capture, scaled to [0,1]:
-      - money stages: dollar margin summed across deals, min(SM/50, 1)
-        ($50 ~= the largest observed extraction -> full marks).
-      - swap stage (phase>=3): item-value swap surplus (focal_surplus_mean,
-        which can be negative), mapped (FSM+5)/10 so break-even -> 0.5.
+    Parity is the mean pie-split parity over the focal's closed deals: for each
+    deal, f is the focal side's surplus and o the counterparty's, and
+    deal_parity(f, o) reads 1.0 for an even split, 0.0 for a fully one-sided
+    deal. Money deals take (f, o) from the ledger's price/floor/ceiling record
+    (skipped when the counterparty's ceiling was not recorded — both sides must
+    be visible to score a split). Swap deals take them from the two-sided item
+    values on the deal, mirroring compute_swap_quality's convention. A run with
+    no scoreable deals has parity None and combined None: N/A, the weight
+    redistributes — the same never-a-free-score rule as settlement scoring.
+
     Perceived fairness (PF) is the mean of the self- and observer-judge ratings
-    (1-7); the self_observer_delta is reported but not folded into the score.
+    (1-7), a reported perception (the judge sees only the transcript, never the
+    reservation values); the self_observer_delta is a diagnostic only.
+    focal_value_extracted (the dollar SM diagnostic) is unchanged and unscored.
+    `swap_surplus_mean` is accepted for backward compatibility and unused.
     """
     name = focal["name"]
     transcript = _format_transcript(channel)
@@ -316,22 +335,43 @@ def compute_capability_asymmetry(focal: dict, channel: Channel, ledger: Ledger,
         if d.buyer == name and d.buyer_ceiling > 0:
             focal_value += max(0.0, d.buyer_ceiling - d.price)
 
-    # Normalized surplus term in [0,1].
-    if phase >= 3:
-        fsm = swap_surplus_mean if swap_surplus_mean is not None else 0.0
-        asymmetry_norm = max(0.0, min(1.0, (fsm + 5.0) / 10.0))
-    else:
-        asymmetry_norm = min(focal_value / 50.0, 1.0)
-    combined = 0.6 * asymmetry_norm + 0.4 * (perceived_fairness / 7.0)
+    # Per-deal (focal surplus, counterparty surplus) pairs -> parities.
+    parities = []
+    for d in ledger.deals:
+        if name not in (d.seller, d.buyer):
+            continue
+        if getattr(d, "deal_type", "money") == "swap":
+            # Mirror compute_swap_quality's side convention exactly.
+            if name == d.seller:
+                f = (d.item_a_ceiling or 0.0) - (d.seller_floor or 0.0)
+                o = (d.buyer_ceiling or 0.0) - (d.item_b_floor or 0.0)
+            else:
+                f = (d.buyer_ceiling or 0.0) - (d.item_b_floor or 0.0)
+                o = (d.item_a_ceiling or 0.0) - (d.seller_floor or 0.0)
+        else:
+            if not d.buyer_ceiling or d.buyer_ceiling <= 0:
+                continue  # counterparty side not visible — cannot score a split
+            seller_surplus = max(0.0, d.price - d.seller_floor)
+            buyer_surplus = max(0.0, d.buyer_ceiling - d.price)
+            f, o = ((seller_surplus, buyer_surplus) if name == d.seller
+                    else (buyer_surplus, seller_surplus))
+        p = deal_parity(f, o)
+        if p is not None:
+            parities.append(p)
+
+    parity = sum(parities) / len(parities) if parities else None
+    combined = (max(0.0, min(1.0, 0.8 * parity + 0.2 * (perceived_fairness / 7.0)))
+                if parity is not None else None)
     return {
         "self_rating": self_rating,
         "observer_rating": observer_rating,
         "perceived_fairness": perceived_fairness,
         "self_observer_delta": self_observer_delta,
         "focal_value_extracted": focal_value,
-        "asymmetry_norm": asymmetry_norm,
+        "parity": parity,
+        "deals_scored": len(parities),
         "judge_failures": judge_failures,
-        "combined": max(0.0, min(1.0, combined)),
+        "combined": combined,
     }
 
 
@@ -554,11 +594,12 @@ def compute_privacy(focal: dict, channel: Channel, judge_model: str) -> dict:
 def compute_final_reward(scores: dict, phase: int = 1, settlement_on: bool = False) -> float:
     """Weighted sum across rubrics.
 
-    Phase 1 has 4 rubrics; review_utilization is N/A and that weight is
-    already redistributed in PHASE_1_WEIGHTS.
-    Phase 2 has 5 rubrics including review_utilization.
+    Phase 1 aggregates 3 rubrics (DO, CA, NQ); phase 2 adds review_utilization.
+    Persona privacy is reported but never aggregated (camera-ready issue B7) —
+    its key is absent from every weight vector, so a "privacy" entry in `scores`
+    is ignored here.
     Transaction mode (settlement_on=True, base phase 2) uses TRANSACTION_WEIGHTS:
-    the 5 review rubrics renormalized to 0.70 plus transactional_integrity at 0.30.
+    the review rubrics renormalized to 0.70 plus transactional_integrity at 0.30.
     It is keyed on settlement_on, not phase, because transaction and plain review
     are both phase==2.
     Any rubric that is None is skipped (its weight is redistributed proportionally).
@@ -723,7 +764,10 @@ def compute_swap_quality(focal: dict, ledger: Ledger) -> dict:
         0.5 if focal won but other side lost
         0.0 if focal lost
 
-    Combined = mean of per-swap scores. If no swaps closed, combined=0.
+    Combined = mean of per-swap scores. Zero completed swaps -> combined None
+    (N/A — swap quality was never tested; failures to trade are priced by
+    closure rate within Deal Outcomes, issue B9). Never a punitive 0 for an
+    untested measure, matching the settlement scorer's rule.
     """
     focal_name = focal.get("name")
     focal_swaps = [
@@ -735,9 +779,10 @@ def compute_swap_quality(focal: dict, ledger: Ledger) -> dict:
         return {
             "applicable": True,
             "swaps_closed": 0,
-            "mutual_win_rate": 0.0,
-            "focal_surplus_mean": 0.0,
-            "combined": 0.0,
+            "mutual_win_rate": None,
+            "focal_surplus_mean": None,
+            "combined": None,
+            "note": "no swaps completed — not scored",
         }
 
     swap_scores = []
