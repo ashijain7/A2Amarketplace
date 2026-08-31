@@ -27,6 +27,7 @@ what made the previous version lie about its own state.
 
 import importlib
 import pkgutil
+import sys
 
 _TAG = "[nemo_gym_patches]"
 
@@ -61,8 +62,8 @@ def apply_all():
             applied.append(name)
         except Exception as e:  # noqa: BLE001 - a broken patch must not block the boot
             failed.append(name)
-            print(f"{_TAG} WARNING: {name} failed: {e!r}")
+            print(f"{_TAG} WARNING: {name} failed: {e!r}", file=sys.stderr)
     if applied:
-        print(f"{_TAG} applied: {', '.join(applied)}")
+        print(f"{_TAG} applied: {', '.join(applied)}", file=sys.stderr)
     _RESULT = {"applied": applied, "failed": failed}
     return _RESULT
